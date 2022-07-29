@@ -1,0 +1,276 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><title>Método PTabela</title>
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+body {
+  margin: 5px 5px 5px 5px;
+  background-color: #ffffff;
+}
+/* ========== Text Styles ========== */
+hr { color: #000000}
+body, table /* Normal text */
+{
+ font-size: 10pt;
+ font-family: 'Arial';
+ font-style: normal;
+ font-weight: normal;
+ color: #000000;
+ text-decoration: none;
+}
+span.rvts1 /* Heading */
+{
+ font-weight: bold;
+ color: #0000ff;
+}
+span.rvts2 /* Subheading */
+{
+ font-weight: bold;
+ color: #000080;
+}
+span.rvts3 /* Keywords */
+{
+ font-style: italic;
+ color: #800000;
+}
+a.rvts4, span.rvts4 /* Jump 1 */
+{
+ color: #008000;
+ text-decoration: underline;
+}
+a.rvts5, span.rvts5 /* Jump 2 */
+{
+ color: #008000;
+ text-decoration: underline;
+}
+span.rvts6 /* Font Style */
+{
+ font-size: 16pt;
+ font-family: 'MS Sans Serif';
+ color: #ffffff;
+}
+span.rvts7
+{
+ font-size: 11pt;
+ font-family: 'Verdana';
+ font-weight: bold;
+ color: #0000ff;
+}
+span.rvts8
+{
+ font-size: 11pt;
+ font-family: 'Verdana';
+ color: #303030;
+}
+span.rvts9
+{
+ font-size: 11pt;
+ font-family: 'Verdana';
+ color: #303030;
+}
+span.rvts10
+{
+ font-size: 11pt;
+ font-family: 'Verdana';
+ font-weight: bold;
+ color: #303030;
+}
+span.rvts11
+{
+ font-size: 11pt;
+ font-family: 'Verdana';
+ font-style: italic;
+ color: #303030;
+}
+span.rvts12
+{
+ font-size: 11pt;
+ font-family: 'Verdana';
+ color: #008000;
+}
+span.rvts13 /* Font Style */
+{
+ font-family: 'MS Sans Serif';
+ color: #808080;
+}
+span.rvts14 /* Font Style */
+{
+ font-family: 'Verdana';
+ font-style: italic;
+ color: #c0c0c0;
+}
+a.rvts15, span.rvts15 /* Font Style */
+{
+ font-family: 'Verdana';
+ font-style: italic;
+ color: #6666ff;
+ text-decoration: underline;
+}
+/* ========== Para Styles ========== */
+p,ul,ol /* Paragraph Style */
+{
+ text-align: left;
+ text-indent: 0px;
+ padding: 0px 0px 0px 0px;
+ margin: 0px 0px 0px 0px;
+}
+.rvps1 /* Centered */
+{
+ text-align: center;
+}
+.rvps2 /* Paragraph Style */
+{
+ background: #9fbed0;
+ margin: 0px 0px 20px 0px;
+}
+.rvps3
+{
+ margin: 0px 0px 16px 0px;
+}
+.rvps4
+{
+ margin: 7px 0px 7px 0px;
+}
+.rvps5 /* Paragraph Style */
+{
+ text-align: center;
+ background: #e4e4e4;
+ margin: 20px 0px 0px 0px;
+}
+.rvps6 /* Paragraph Style */
+{
+ border-color: #c0c0c0;
+ border-style: solid;
+ border-width: 1px;
+ border-right: none;
+ border-bottom: none;
+ border-left: none;
+ background: #ffffff;
+ padding: 3px 0px 0px 0px;
+ margin: 27px 0px 0px 0px;
+}
+--></style>
+<body>
+
+<p class=rvps2><span class=rvts6>Método PTabela</span></p>
+<p class=rvps3><span class=rvts10>Método Ptabela</span><span class=rvts8> </span>
+<br><span class=rvts8></span>
+<br><span class=rvts8>Pesquisa de registros, cálculos, extração de dados, atualizações e exclusões. </span>
+<br><span class=rvts8></span>
+<br><span class=rvts10>Unit</span><span class=rvts8> </span></p>
+<p class=rvps4><span class=rvts12>Tabela.Pas</span></p>
+<p><span class=rvts10>Descrição</span><span class=rvts8> </span>
+<br><span class=rvts8></span>
+<br><span class=rvts8>O “Ptabela” pode ser utilizado de cinco (5) forma diferentes, isso é possível, pois é utilizada uma sobrecarga de métodos. </span>
+<br><span class=rvts8></span>
+<br><span class=rvts7>1) Pesquisar um registro em uma tabela:</span><span class=rvts8> </span>
+<br><span class=rvts8></span>
+<br><span class=rvts10>Sintaxe:</span><span class=rvts8> </span>
+<br><span class=rvts8></span>
+<br><span class=rvts10>Ptabela</span><span class=rvts8>(Tabela: </span><span class=rvts10>TTabela</span><span class=rvts8>, [Vetor de Campos]: </span><span class=rvts10>String</span><span class=rvts8>, [Vetor de Valores]: </span><span class=rvts10>Variant</span><span class=rvts8>): </span><span class=rvts10>Boolean</span><span class=rvts8>; </span>
+<br><span class=rvts8></span>
+<br><span class=rvts12>1º Parâmetro:</span><span class=rvts8> </span><span class=rvts11>Tabela</span><span class=rvts8> = Tabela a ser pesquisada.  </span>
+<br><span class=rvts8></span>
+<br><span class=rvts12>2º Parâmetro:</span><span class=rvts8> </span><span class=rvts11>[Vetor de Campos]</span><span class=rvts8> = Vetor de campos da tabela para composição do filtro, para mais de um campo utilize a vírgula (,) exemplo: [</span><span class=rvts9>&#8216;</span><span class=rvts8>CAI_DOCUMENTO</span><span class=rvts9>&#8217;</span><span class=rvts8>, </span><span class=rvts9>&#8216;</span><span class=rvts8>CAI_PARCELA</span><span class=rvts9>&#8217;</span><span class=rvts8>].  </span>
+<br><span class=rvts8></span>
+<br><span class=rvts12>3º Parâmetro:</span><span class=rvts8> </span><span class=rvts11>[Vetor de Valores]</span><span class=rvts8> = Vetor de valores a serem atribuídos no filtro, em conformidade com o parâmetro acima, para mais de um campo utilize a vírgula (,) exemplo: [100, 1].  </span>
+<br><span class=rvts8></span>
+<br><span class=rvts10>Exemplo:</span><span class=rvts8> </span>
+<br><span class=rvts8></span>
+<br><span class=rvts10>if not</span><span class=rvts8> Ptabela(TabGlobal.Dclientes, [</span><span class=rvts9>&#8216;</span><span class=rvts8>CLI_CODIGO</span><span class=rvts9>&#8217;</span><span class=rvts8>], [TabGlobal.Dvendas.CLI_CODIGO.Conteudo]) </span><span class=rvts10>then</span><span class=rvts8> </span>
+<br><span class=rvts8>MessageDlg(</span><span class=rvts9>&#8216;</span><span class=rvts8>Cliente não encontrado ...</span><span class=rvts9>&#8217;</span><span class=rvts8>, mtWarning, [mbOk], 0);  </span>
+<br><span class=rvts8></span>
+<br><span class=rvts8></span>
+<br><span class=rvts7>2) Pesquisa registros realiza cálculos e retorna os valores desejados:</span><span class=rvts8> </span>
+<br><span class=rvts8></span>
+<br><span class=rvts10>Sintaxe:</span><span class=rvts8> </span>
+<br><span class=rvts8></span>
+<br><span class=rvts10>Ptabela</span><span class=rvts8>(Tabela: </span><span class=rvts10>TTabela</span><span class=rvts8>, [Vetor de Cálculos]: </span><span class=rvts10>Variant</span><span class=rvts8>, Filtro: </span><span class=rvts10>String</span><span class=rvts8>, Resultado: </span><span class=rvts10>Variant</span><span class=rvts8>): </span><span class=rvts10>Boolean</span><span class=rvts8>; </span>
+<br><span class=rvts8></span>
+<br><span class=rvts12>1º Parâmetro:</span><span class=rvts8> </span><span class=rvts11>Tabela</span><span class=rvts8> = Tabela a ser pesquisada.  </span>
+<br><span class=rvts8></span>
+<br><span class=rvts12>2º Parâmetro:</span><span class=rvts8> </span><span class=rvts11>[Vetor de Cálculos]</span><span class=rvts8> = Vetor de cálculos, para mais de um campo utilize a vírgula (,) exemplo: ['SUM(QUANT)', 'SUM(PRECO * QUANT)'].  </span>
+<br><span class=rvts8></span>
+<br><span class=rvts12>3º Parâmetro:</span><span class=rvts8> </span><span class=rvts11>Filtro</span><span class=rvts8> = Expressão de filtragem.  </span>
+<br><span class=rvts8></span>
+<br><span class=rvts12>4º Parâmetro:</span><span class=rvts8> </span><span class=rvts11>Resultado</span><span class=rvts8> = Variável do tipo "Variant", previamente declarada, irá conter o resultado dos cálculos (2º Parâmetro). </span>
+<br><span class=rvts8></span>
+<br><span class=rvts10>Exemplo:</span><span class=rvts8> </span>
+<br><span class=rvts8></span>
+<br><span class=rvts10>var</span><span class=rvts8> </span>
+<br><span class=rvts8>CamposResultado: Variant; </span>
+<br><span class=rvts10>begin</span><span class=rvts8> </span>
+<br><span class=rvts8>  </span><span class=rvts10>if</span><span class=rvts8> Ptabela(TabGlobal.Ditvendas, ['SUM(QUANT)', 'SUM(PRECO * QUANT)'], 'NUMERO = '+IntToStr(TabGlobal.DVENDAS.Numero.Conteudo), CamposResultado) </span><span class=rvts10>then</span><span class=rvts8> </span>
+<br><span class=rvts8>  </span><span class=rvts10>begin</span><span class=rvts8> </span>
+<br><span class=rvts8>    Quant.Value := CamposResultado[0]; </span>
+<br><span class=rvts8>    Total.Value := CamposResultado[1]; </span>
+<br><span class=rvts8>  </span><span class=rvts10>end;</span><span class=rvts8> </span>
+<br><span class=rvts10>end;</span><span class=rvts8> </span>
+<br><span class=rvts8> </span>
+<br><span class=rvts7>3) Pesquisa registros e retorna os valores desejados:</span><span class=rvts8> </span>
+<br><span class=rvts8></span>
+<br><span class=rvts10>Sintaxe:</span><span class=rvts8> </span>
+<br><span class=rvts8></span>
+<br><span class=rvts10>Ptabela</span><span class=rvts8>(Tabela: </span><span class=rvts10>TTabela</span><span class=rvts8>, [Vetor de Campos]: </span><span class=rvts10>String</span><span class=rvts8>, [Vetor de Valores]: </span><span class=rvts10>Variant</span><span class=rvts8>, [Vetor de Campos p/retorno]: </span><span class=rvts10>String</span><span class=rvts8>, Resultado: </span><span class=rvts10>Variant</span><span class=rvts8>): </span><span class=rvts10>Boolean</span><span class=rvts8>; </span>
+<br><span class=rvts8></span>
+<br><span class=rvts12>1º Parâmetro:</span><span class=rvts8> </span><span class=rvts11>Tabela</span><span class=rvts8> = Tabela a ser pesquisada.  </span>
+<br><span class=rvts8></span>
+<br><span class=rvts12>2º Parâmetro:</span><span class=rvts8> </span><span class=rvts11>[Vetor de Campos]</span><span class=rvts8> = Vetor de campos da tabela para composição do filtro, para mais de um campo utilize a vírgula (,) exemplo: [</span><span class=rvts9>&#8216;</span><span class=rvts8>CAI_DOCUMENTO</span><span class=rvts9>&#8217;</span><span class=rvts8>, </span><span class=rvts9>&#8216;</span><span class=rvts8>CAI_PARCELA</span><span class=rvts9>&#8217;</span><span class=rvts8>].  </span>
+<br><span class=rvts8></span>
+<br><span class=rvts12>3º Parâmetro:</span><span class=rvts8> </span><span class=rvts11>[Vetor de Valores]</span><span class=rvts8> = Vetor de valores a serem atribuídos no filtro, em conformidade com o parâmetro acima, para mais de um campo utilize a vírgula (,) exemplo: [100, 1].  </span>
+<br><span class=rvts8></span>
+<br><span class=rvts12>4º Parâmetro:</span><span class=rvts8> </span><span class=rvts11>[Vetor de Campos p/retorno]</span><span class=rvts8> = Vetor de campos da tabela para retorno em "Resultado", para mais de um campo utilize a vírgula (,) exemplo: [</span><span class=rvts9>&#8216;</span><span class=rvts8>CAI_DATA</span><span class=rvts9>&#8217;</span><span class=rvts8>, </span><span class=rvts9>&#8216;</span><span class=rvts8>CAI_HISTORICO</span><span class=rvts9>&#8217;</span><span class=rvts8>].  </span>
+<br><span class=rvts8></span>
+<br><span class=rvts12>5º Parâmetro:</span><span class=rvts8> </span><span class=rvts11>Resultado</span><span class=rvts8> = Variável do tipo "Variant", previamente declarada, irá conter o resultado do conteúdo dos campos (4º Parâmetro). </span>
+<br><span class=rvts8></span>
+<br><span class=rvts10>Exemplo:</span><span class=rvts8> </span>
+<br><span class=rvts8></span>
+<br><span class=rvts10>var</span><span class=rvts8> </span>
+<br><span class=rvts8>CamposResultado: Variant; </span>
+<br><span class=rvts10>begin</span><span class=rvts8> </span>
+<br><span class=rvts8>  </span><span class=rvts10>if</span><span class=rvts8> Ptabela(TabGlobal.Dclientes, ['CLI_CODIGO'], [TabGlobal.Dvendas.CLI_CODIGO.Conteudo], ['CLI_NOME', 'CLI_ENDERECO'], CamposResultado) </span><span class=rvts10>then</span><span class=rvts8> </span>
+<br><span class=rvts8>  </span><span class=rvts10>begin</span><span class=rvts8> </span>
+<br><span class=rvts8>    Nome.Value := CamposResultado[0]; </span>
+<br><span class=rvts8>    Endereco.Value := CamposResultado[1]; </span>
+<br><span class=rvts8>  </span><span class=rvts10>end;</span><span class=rvts8> </span>
+<br><span class=rvts10>end;</span><span class=rvts8> </span>
+<br><span class=rvts8>  </span>
+<br><span class=rvts7>4) Pesquisar um registro em uma tabela e atualiza campos (update):</span><span class=rvts8> </span>
+<br><span class=rvts8></span>
+<br><span class=rvts10>Sintaxe:</span><span class=rvts8> </span>
+<br><span class=rvts8></span>
+<br><span class=rvts10>Ptabela</span><span class=rvts8>(Tabela: </span><span class=rvts10>TTabela</span><span class=rvts8>, [Vetor de Campos]: </span><span class=rvts10>String</span><span class=rvts8>, [Vetor de Valores]: </span><span class=rvts10>Variant</span><span class=rvts8>, Update: </span><span class=rvts10>String</span><span class=rvts8>): </span><span class=rvts10>Boolean</span><span class=rvts8>; </span>
+<br><span class=rvts8></span>
+<br><span class=rvts12>1º Parâmetro:</span><span class=rvts8> </span><span class=rvts11>Tabela</span><span class=rvts8> = Tabela a ser pesquisada.  </span>
+<br><span class=rvts8></span>
+<br><span class=rvts12>2º Parâmetro:</span><span class=rvts8> </span><span class=rvts11>[Vetor de Campos]</span><span class=rvts8> = Vetor de campos da tabela para composição do filtro, para mais de um campo utilize a vírgula (,) exemplo: [</span><span class=rvts9>&#8216;</span><span class=rvts8>CAI_DOCUMENTO</span><span class=rvts9>&#8217;</span><span class=rvts8>, </span><span class=rvts9>&#8216;</span><span class=rvts8>CAI_PARCELA</span><span class=rvts9>&#8217;</span><span class=rvts8>].  </span>
+<br><span class=rvts8></span>
+<br><span class=rvts12>3º Parâmetro:</span><span class=rvts8> </span><span class=rvts11>[Vetor de Valores]</span><span class=rvts8> = Vetor de valores a serem atribuídos no filtro, em conformidade com o parâmetro acima, para mais de um campo utilize a vírgula (,) exemplo: [100, 1].  </span>
+<br><span class=rvts8></span>
+<br><span class=rvts12>4º Parâmetro:</span><span class=rvts8> </span><span class=rvts11>Update</span><span class=rvts8> = Expressão em SQL para atualização (Update).  </span>
+<br><span class=rvts8></span>
+<br><span class=rvts10>Exemplo:</span><span class=rvts8> </span>
+<br><span class=rvts8></span>
+<br><span class=rvts10>if not</span><span class=rvts8> PTabela(TabGlobal.DESTOQUE, ['CODIGO'], [TabGlobal.DITVENDAS.PRODUTO.Conteudo], 'QUANTIDADE = QUANTIDADE - '+FracToStr(TabGlobal.DITVENDAS.QUANT.Conteudo)) </span><span class=rvts10>then</span><span class=rvts8> </span>
+<br><span class=rvts8>MessageDlg(</span><span class=rvts9>&#8216;</span><span class=rvts8>Falha na atualização ...</span><span class=rvts9>&#8217;</span><span class=rvts8>, mtError, [mbOk], 0);  </span>
+<br><span class=rvts8></span>
+<br><span class=rvts7>5) Pesquisar um registro em uma tabela e exclui:</span><span class=rvts8> </span>
+<br><span class=rvts8></span>
+<br><span class=rvts10>Sintaxe:</span><span class=rvts8> </span>
+<br><span class=rvts8></span>
+<br><span class=rvts10>Ptabela</span><span class=rvts8>(Tabela: </span><span class=rvts10>TTabela</span><span class=rvts8>, [Vetor de Campos]: </span><span class=rvts10>String</span><span class=rvts8>, [Vetor de Valores]: </span><span class=rvts10>Variant</span><span class=rvts8>, Excluir: </span><span class=rvts10>Boolean</span><span class=rvts8>): </span><span class=rvts10>Boolean</span><span class=rvts8>; </span>
+<br><span class=rvts8></span>
+<br><span class=rvts12>1º Parâmetro:</span><span class=rvts8> </span><span class=rvts11>Tabela</span><span class=rvts8> = Tabela a ser pesquisada.  </span>
+<br><span class=rvts8></span>
+<br><span class=rvts12>2º Parâmetro:</span><span class=rvts8> </span><span class=rvts11>[Vetor de Campos]</span><span class=rvts8> = Vetor de campos da tabela para composição do filtro, para mais de um campo utilize a vírgula (,) exemplo: [</span><span class=rvts9>&#8216;</span><span class=rvts8>CAI_DOCUMENTO</span><span class=rvts9>&#8217;</span><span class=rvts8>, </span><span class=rvts9>&#8216;</span><span class=rvts8>CAI_PARCELA</span><span class=rvts9>&#8217;</span><span class=rvts8>].  </span>
+<br><span class=rvts8></span>
+<br><span class=rvts12>3º Parâmetro:</span><span class=rvts8> </span><span class=rvts11>[Vetor de Valores]</span><span class=rvts8> = Vetor de valores a serem atribuídos no filtro, em conformidade com o parâmetro acima, para mais de um campo utilize a vírgula (,) exemplo: [100, 1].  </span>
+<br><span class=rvts8></span>
+<br><span class=rvts12>4º Parâmetro:</span><span class=rvts8> </span><span class=rvts11>Excluir</span><span class=rvts8> = Variável para confirmação da exclusão.  </span>
+<br><span class=rvts8></span>
+<br><span class=rvts10>Exemplo:</span><span class=rvts8> </span>
+<br><span class=rvts8></span>
+<br><span class=rvts10>if not</span><span class=rvts8> Ptabela(TabGlobal.Dclientes, [</span><span class=rvts9>&#8216;</span><span class=rvts8>CLI_CODIGO</span><span class=rvts9>&#8217;</span><span class=rvts8>], [TabGlobal.Dvendas.CLI_CODIGO.Conteudo], True) </span><span class=rvts10>then</span><span class=rvts8> </span>
+<br><span class=rvts8>MessageDlg(</span><span class=rvts9>&#8216;</span><span class=rvts8>Erro na exclusão do registro ...</span><span class=rvts9>&#8217;</span><span class=rvts8>, mtError, [mbOk], 0);</span></p>
+<p class=rvps5><span class=rvts13>Copyright © 2005, Modular Software</span></p>
+
+</body></html>

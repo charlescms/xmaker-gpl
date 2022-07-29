@@ -1,0 +1,552 @@
+{\rtf1\ansi\ansicpg1251\uc1 \deff0\deflang1049\deflangfe1049{\fonttbl{\f0\froman\fcharset204\fprq2{\*\panose 02020603050405020304}Times New Roman;}{\f1\fswiss\fcharset204\fprq2{\*\panose 020b0604020202020204}Arial;}
+{\f30\froman\fcharset0\fprq2 Times New Roman;}{\f28\froman\fcharset238\fprq2 Times New Roman CE;}{\f31\froman\fcharset161\fprq2 Times New Roman Greek;}{\f32\froman\fcharset162\fprq2 Times New Roman Tur;}
+{\f33\froman\fcharset177\fprq2 Times New Roman (Hebrew);}{\f34\froman\fcharset178\fprq2 Times New Roman (Arabic);}{\f35\froman\fcharset186\fprq2 Times New Roman Baltic;}{\f38\fswiss\fcharset0\fprq2 Arial;}{\f36\fswiss\fcharset238\fprq2 Arial CE;}
+{\f39\fswiss\fcharset161\fprq2 Arial Greek;}{\f40\fswiss\fcharset162\fprq2 Arial Tur;}{\f41\fswiss\fcharset177\fprq2 Arial (Hebrew);}{\f42\fswiss\fcharset178\fprq2 Arial (Arabic);}{\f43\fswiss\fcharset186\fprq2 Arial Baltic;}}
+{\colortbl;\red0\green0\blue0;\red0\green0\blue255;\red0\green255\blue255;\red0\green255\blue0;\red255\green0\blue255;\red255\green0\blue0;\red255\green255\blue0;\red255\green255\blue255;\red0\green0\blue128;\red0\green128\blue128;\red0\green128\blue0;
+\red128\green0\blue128;\red128\green0\blue0;\red128\green128\blue0;\red128\green128\blue128;\red192\green192\blue192;}{\stylesheet{\ql \li0\ri0\widctlpar\faauto\adjustright\rin0\lin0\itap0 \fs20\lang1049\langfe1049\cgrid\langnp1049\langfenp1049 \snext0 
+Normal;}{\s1\ql \li0\ri0\keepn\widctlpar\faauto\outlinelevel0\adjustright\rin0\lin0\itap0 \f1\fs40\lang1033\langfe1049\cgrid\langnp1033\langfenp1049 \sbasedon0 \snext0 heading 1;}{
+\s2\ql \li0\ri0\keepn\widctlpar\faauto\outlinelevel1\adjustright\rin0\lin0\itap0 \f1\fs40\lang1033\langfe1049\cgrid\langnp1033\langfenp1049 \sbasedon0 \snext0 heading 2;}{\*\cs10 \additive Default Paragraph Font;}}{\info{\title TCustomComponentComboBox}
+{\author Silent}{\operator Ilya}{\creatim\yr2002\mo5\dy31\hr10\min41}{\revtim\yr2006\mo2\dy9\hr2\min3}{\version13}{\edmins14}{\nofpages10}{\nofwords2885}{\nofchars16450}{\*\company Home}{\nofcharsws20201}{\vern8249}}
+\paperw11906\paperh16838\margl1701\margr850\margt1134\margb1134 \widowctrl\ftnbj\aenddoc\noxlattoyen\expshrtn\noultrlspc\dntblnsbdb\nospaceforul\hyphcaps0\formshade\horzdoc\dghspace120\dgvspace120\dghorigin1701\dgvorigin1984\dghshow0\dgvshow3
+\jcompress\viewkind4\viewscale153\viewzk2\pgbrdrhead\pgbrdrfoot\nolnhtadjtbl \fet0\sectd \linex0\headery709\footery709\colsx709\endnhere\sectdefaultcl {\*\pnseclvl1\pnucrm\pnstart1\pnindent720\pnhang{\pntxta .}}{\*\pnseclvl2
+\pnucltr\pnstart1\pnindent720\pnhang{\pntxta .}}{\*\pnseclvl3\pndec\pnstart1\pnindent720\pnhang{\pntxta .}}{\*\pnseclvl4\pnlcltr\pnstart1\pnindent720\pnhang{\pntxta )}}{\*\pnseclvl5\pndec\pnstart1\pnindent720\pnhang{\pntxtb (}{\pntxta )}}{\*\pnseclvl6
+\pnlcltr\pnstart1\pnindent720\pnhang{\pntxtb (}{\pntxta )}}{\*\pnseclvl7\pnlcrm\pnstart1\pnindent720\pnhang{\pntxtb (}{\pntxta )}}{\*\pnseclvl8\pnlcltr\pnstart1\pnindent720\pnhang{\pntxtb (}{\pntxta )}}{\*\pnseclvl9\pnlcrm\pnstart1\pnindent720\pnhang
+{\pntxtb (}{\pntxta )}}\pard\plain \s1\ql \li0\ri0\keepn\widctlpar\faauto\outlinelevel0\adjustright\rin0\lin0\itap0 \f1\fs40\lang1033\langfe1049\cgrid\langnp1033\langfenp1049 {TCustomComponentComboBox
+\par }\pard\plain \ql \li0\ri0\widctlpar\faauto\adjustright\rin0\lin0\itap0 \fs20\lang1049\langfe1049\cgrid\langnp1049\langfenp1049 {\f1\lang1033\langfe1049\langnp1033 
+\par unit CompInsp
+\par 
+\par TObject \endash  TPersistent \endash  TComponent \endash  TControl \endash  TWinControl \endash  TCustomComboBox
+\par 
+\par TCustomComponentComboBox is the base class for component list combo-box.
+\par 
+\par PROTECTED
+\par 
+\par methods
+\par 
+\par procedure CreateWnd; override;
+\par TCustomComponentComboBox overrides this method to initialize internal fields.
+\par 
+\par procedure Change; override;
+\par TCustomComponentComboBox overrides this method to notify linked object inspector control about changing the currentlt selected component.
+\par 
+\par procedure Notification(AComponent: TComponent; Operation: TOperation); override;
+\par TCustomComponentComboBox overrides this method to deselect deleted component and refreshing the component list.
+\par 
+\par function Filter(AComponent: TComponent): Boolean; virtual;
+\par This method just calls OnFilter event when component is about to be inserted to the list.
+\par 
+\par procedure CMOIUpdated(var Message: TMessage); message CM_OIUPDATED;
+\par This method processes special message that object inspector control sends to all linked controls when Instance property is changed.
+\par 
+\par PUBLIC
+\par 
+\par methods
+\par 
+\par constructor Create(AOwner: TComponent); override;
+\par This constructor creates an instance of TCustomComponentComboBox.
+\par 
+\par property Root: TComponent;
+\par This property contains root component that is used for retreiving component list.
+\par 
+\par property Instance: TComponent;
+\par This property contains currently selected component.
+\par 
+\par property ComponentInspector: TCustomComponentInspector;
+\par This property links TCustomComponentComboBox with object inspector control.
+\par 
+\par property OnFilter: TFilterComponentEvent;
+\par This event occurs when component is about to be inserted into the component list.
+\par TFilterComponentEvent = procedure(Sender: TObject; AComponent: TComponent; var EnableAdd: Boolean) of object;
+\par When EnableAdd is set to False AComponent is not inserted to the component list.
+\par 
+\par 
+\par }\pard\plain \s1\ql \li0\ri0\keepn\widctlpar\faauto\outlinelevel0\adjustright\rin0\lin0\itap0 \f1\fs40\lang1033\langfe1049\cgrid\langnp1033\langfenp1049 {TComponentComboBox
+\par }\pard\plain \ql \li0\ri0\widctlpar\faauto\adjustright\rin0\lin0\itap0 \fs20\lang1049\langfe1049\cgrid\langnp1049\langfenp1049 {\f1\lang1033\langfe1049\langnp1033 
+\par unit CompInsp
+\par 
+\par TObject \endash  TPersistent \endash  TComponent \endash  TControl \endash  TWinControl \endash  TCustomComboBox - TCustomComponentComboBox
+\par 
+\par TComponentComboBox is the class for choosing the component and intended for using with TComponentInspector. TComponentComboBox just publishes properties and events derived from ancestors.
+\par 
+\par PUBLISHED
+\par 
+\par properties
+\par 
+\par from TCustomComponentComboBox
+\par 
+\par property Root;
+\par property Instance;
+\par property ComponentInspector;
+\par 
+\par from standard components (check it yourself)
+\par 
+\par property Color;
+\par property Ctl3D;
+\par property DragMode;
+\par property DragCursor;
+\par property DropDownCount;
+\par property Enabled;
+\par property Font;
+\par property ImeMode;
+\par property ImeName;
+\par property ItemHeight;
+\par property ParentColor;
+\par property ParentCtl3D;
+\par property ParentFont;
+\par property ParentShowHint;
+\par property PopupMenu;
+\par property ShowHint;
+\par property Sorted;
+\par property TabOrder;
+\par property TabStop;
+\par property Visible;
+\par 
+\par events
+\par 
+\par from TCustomComponentComboBox
+\par 
+\par property OnFilter;
+\par 
+\par from standard components (check it yourself)
+\par 
+\par property OnChange;
+\par property OnDragDrop;
+\par property OnDragOver;
+\par property OnDrawItem;
+\par property OnDropDown;
+\par property OnEndDrag;
+\par property OnEnter;
+\par property OnExit;
+\par property OnKeyDown;
+\par property OnKeyPress;
+\par property OnKeyUp;
+\par property OnMeasureItem;
+\par property OnStartDrag;
+\par 
+\par 
+\par }\pard\plain \s1\ql \li0\ri0\keepn\widctlpar\faauto\outlinelevel0\adjustright\rin0\lin0\itap0 \f1\fs40\lang1033\langfe1049\cgrid\langnp1033\langfenp1049 {TCompInspProperty
+\par }\pard\plain \ql \li0\ri0\widctlpar\faauto\adjustright\rin0\lin0\itap0 \fs20\lang1049\langfe1049\cgrid\langnp1049\langfenp1049 {\f1\lang1033\langfe1049\langnp1033 
+\par unit CompInsp
+\par 
+\par TObject \endash  TProperty
+\par 
+\par TCompInspProperty is a special class derived from TProperty that supports special filtering and comparing modes.
+\par 
+\par PUBLIC
+\par 
+\par methods
+\par 
+\par constructor CreateWithOwner(AOwner: TPropertyList; ARoot,AInstance: TComponent; APropInfo: PPropInfo; ACompInspList: TCompInspList);
+\par This constuctor creates object instanse and links it with owner list object.
+\par 
+\par function CreatePropertyList: TPropertyList; override;
+\par This overridden function creates internal subproperties list object as instance of TCompInspPropertyList class.
+\par }{\lang1033\langfe1049\langnp1033 
+\par 
+\par }\pard\plain \s1\ql \li0\ri0\keepn\widctlpar\faauto\outlinelevel0\adjustright\rin0\lin0\itap0 \f1\fs40\lang1033\langfe1049\cgrid\langnp1033\langfenp1049 {TCompInspPropertyList
+\par }\pard\plain \ql \li0\ri0\widctlpar\faauto\adjustright\rin0\lin0\itap0 \fs20\lang1049\langfe1049\cgrid\langnp1049\langfenp1049 {\f1\lang1033\langfe1049\langnp1033 
+\par unit CompInsp
+\par 
+\par TObject \endash  TPropertyList
+\par 
+\par TCompInspPropertyList is a special class derived from TPropertyList that supports special filtering and comparing modes.
+\par 
+\par PUBLIC
+\par 
+\par methods
+\par 
+\par constructor CreateWithOwner(ACompInspList: TCompInspList);
+\par This constuctor creates object instanse and links it with owner list object.
+\par 
+\par function CreateProperty(APropInfo: PPropInfo): TProperty; override;
+\par This overridden function creates property object as instance of TCompInspProperty class.
+\par 
+\par function Compare(P1,P2: TProperty): Integer; override;
+\par This overridden function returns result of Compare function of owner list object.
+\par 
+\par function Filter(P: TProperty): Boolean; override;
+\par This overridden function returns result of Compare function of owner list object.
+\par 
+\par properties
+\par 
+\par property CompInspList: TCompInspList;
+\par This property contains TCompInspList object that owns this property list.
+\par RO
+\par 
+\par property Mode: TCompInspMode;
+\par This property contains mode of the list.
+\par TCompInspMode = (oiProperties,oiMethods);
+\par 
+\par 
+\par }\pard\plain \s1\ql \li0\ri0\keepn\widctlpar\faauto\outlinelevel0\adjustright\rin0\lin0\itap0 \f1\fs40\lang1033\langfe1049\cgrid\langnp1033\langfenp1049 {TCompInspList
+\par }\pard\plain \ql \li0\ri0\widctlpar\faauto\adjustright\rin0\lin0\itap0 \fs20\lang1049\langfe1049\cgrid\langnp1049\langfenp1049 {\f1\lang1033\langfe1049\langnp1033 
+\par unit CompInsp
+\par 
+\par TObject
+\par 
+\par TCompInspList is a special class that contains instance list and property list for each instance. TCompInspList is used in TComponentInspector and supports multi-selection.
+\par 
+\par PUBLIC
+\par 
+\par methods
+\par 
+\par constructor CreateWithOwner(AOwner: TCustomComponentInspector);
+\par This constuctor creates object instanse and links it with owner object inspector control.
+\par 
+\par destructor Destroy; override;
+\par This overridden destructor destroys all internal objects and calls inherited destructor to self-destroy.
+\par 
+\par procedure Update; virtual;
+\par This virtual procedure is called after changing Root, Instance, etc. properties and reinitializates list of properties. Update called internally and you don't need to call in directly.
+\par 
+\par procedure AddInstance(AInstance: TComponent); virtual;
+\par This virtual procedure adds AInstance into instance list and calls Update procedure to reinitialization the property list.
+\par 
+\par procedure DeleteInstance(AInstance: TComponent); virtual;
+\par This virtual procedure deletes AInstance from instance list and calls Update procedure to reinitialization the property list.
+\par 
+\par function IndexOfInstance(AInstance: TComponent): Integer;
+\par This function returns index of passed component in the instance list. If AInstance is not in the list function returns -1.
+\par 
+\par properties
+\par 
+\par property Owner: TCustomComponentInspector;
+\par This property contains object inspector control that owns this list.
+\par RO
+\par 
+\par property Root: TComponent;
+\par This property contains root component that is used for retreiving method names and pointers.
+\par 
+\par property Instance: TComponent;
+\par This property contains currently selected component. If many components are selected first selected components is returned. Assigning Instance deselects all previously selected components.
+\par 
+\par property Mode: TCompInspMode;
+\par This property contains mode of the list.
+\par TCompInspMode = (oiProperties,oiMethods);
+\par 
+\par property InstanceCount: Integer;
+\par This property contains count of selected components. Return value is the same as PropertyListCount.
+\par RO
+\par 
+\par property Instances[Index: Integer]: TComponent;
+\par This array-type property contains selected components.
+\par RO
+\par 
+\par property PropertyCount: Integer;
+\par This property contains count of properties.
+\par RO
+\par 
+\par property Properties[Index: Integer]: TProperty;
+\par This array-type property contains properties of selected components. If many components are selected only compatible properties is available.
+\par RO
+\par 
+\par property PropertyListCount: Integer;
+\par This property contains count of property lists. Return value is the same as InstanceCount.
+\par RO
+\par 
+\par property PropertyLists[Index: Integer]: TCompInspPropertyList;
+\par This array-type property contains property lists for each selected component.
+\par RO
+\par 
+\par 
+\par }\pard\plain \s1\ql \li0\ri0\keepn\widctlpar\faauto\outlinelevel0\adjustright\rin0\lin0\itap0 \f1\fs40\lang1033\langfe1049\cgrid\langnp1033\langfenp1049 {TCustomComponentInspector
+\par }\pard\plain \ql \li0\ri0\widctlpar\faauto\adjustright\rin0\lin0\itap0 \fs20\lang1049\langfe1049\cgrid\langnp1049\langfenp1049 {\f1\lang1033\langfe1049\langnp1033 
+\par unit CompInsp
+\par 
+\par TObject \endash  TPersistent \endash  TComponent \endash  TControl \endash  TWinControl \endash  TCustomListBox
+\par 
+\par TCustomComponentInspector is the base class for all object inspector controls.
+\par 
+\par PROTECTED
+\par 
+\par methods
+\par 
+\par procedure Notification(AComponent: TComponent; Operation: TOperation); override;
+\par This overridden procedure deletes destroying component from selected component list.
+\par 
+\par function GetName(TheIndex: Integer): string; override;
+\par TCustomComponentInspector overrides this function to return property name as the name. Appropriate event is called inside.
+\par 
+\par function GetValue(TheIndex: Integer): string; override;
+\par TCustomComponentInspector overrides this function to return property display value as the value. Appropriate event is called inside.
+\par 
+\par function GetNextValue(TheIndex: Integer): string; override;
+\par TCustomComponentInspector overrides this function to return next value from possible property values as the next value in the list. Appropriate event is called inside.
+\par 
+\par procedure SetValue(TheIndex: Integer; const Value: string); override;
+\par TCustomComponentInspector overrides this procedure to set Value to property with passed index. Appropriate event is called inside.
+\par 
+\par function GetButtonType(TheIndex: Integer): TButtonType; override;
+\par TCustomComponentInspector overrides this function to return button type according property type. Appropriate event is called inside.
+\par 
+\par function GetInlineEditorType(TheIndex: Integer): TInlineEditorType; override;
+\par TCustomComponentInspector overrides this function to return inline editor type according property type. Appropriate event is called inside.
+\par 
+\par function GetEnableExternalEditor(TheIndex: Integer): Boolean; override;
+\par TCustomComponentInspector overrides this function to enable/disable external edition according property type. Appropriate event is called inside.
+\par 
+\par function GetReadOnly(TheIndex: Integer): Boolean; override;
+\par TCustomComponentInspector overrides this function to set read-only state to expandable class-type properties, like TFont. Appropriate event is called inside.
+\par 
+\par function GetExpandState(TheIndex: Integer): TExpandState; override;
+\par TCustomComponentInspector overrides this function to return expand state according property type. Appropriate event is called inside.
+\par 
+\par function GetLevel(TheIndex: Integer): Integer; override;
+\par TCustomComponentInspector overrides this function to return nesting level for sub-properties. Appropriate event is called inside.
+\par 
+\par procedure GetValuesList(TheIndex: Integer; const Strings: TStrings); override;
+\par TCustomComponentInspector overrides this procedure to fill Strings by possible property values. Appropriate event is called inside.
+\par 
+\par function GetSortValuesList(TheIndex: Integer): Boolean; override;
+\par TCustomComponentInspector overrides this function to enable/disable sorting of values list. Appropriate event is called inside.
+\par 
+\par function GetSelectedValue(TheIndex: Integer): string; override;
+\par TCustomComponentInspector overrides this function to return selected value for the values list. Appropriate event is called inside.
+\par 
+\par function GetAutoApply(TheIndex: Integer): Boolean; override;
+\par TCustomComponentInspector overrides this function to enable/disable auto-applying the changes when user selects another property. Appropriate event is called inside.
+\par 
+\par function CallEditor(TheIndex: Integer): Boolean; override;
+\par TCustomComponentInspector overrides this function to call pre-defined external editors. Appropriate event is called inside.
+\par 
+\par procedure Expand(TheIndex: Integer); override;
+\par TCustomComponentInspector overrides this procedure to show sub-properties of the selected property. Appropriate event is called inside.
+\par 
+\par procedure Collapse(TheIndex: Integer); override;
+\par TCustomComponentInspector overrides this procedure to hide sub-properties of the selected property. Appropriate event is called inside.
+\par 
+\par function GetEditorClass(TheIndex: Integer): TPropertyEditorClass; virtual;
+\par TCustomComponentInspector overrides this function to return the class of pre-defined external editors. Appropriate event is called inside.
+\par 
+\par procedure Compare(Prop1,Prop2: TProperty; var Result: Integer); virtual;
+\par TCustomComponentInspector overrides this procedure to compare properties for sorting by names. Appropriate event is called inside.
+\par 
+\par procedure Filter(Prop: TProperty; var Result: Boolean); virtual;
+\par TCustomComponentInspector overrides this procedure to filter properties depending Mode property value. Appropriate event is called inside.
+\par 
+\par procedure DragValue(TheIndex,Offset: Integer); override;
+\par TCustomComponentInspector overrides this procedure for changing the integer property value when user drags the updown button.
+\par 
+\par procedure DrawPropertyValue(TheCanvas: TCanvas; TheIndex: Integer; R: TRect); override;
+\par TCustomComponentInspector overrides this method for drawing the colored labels in TColor type properties.
+\par 
+\par function GetPopupItemWidth(ListBox: TListBox; TheIndex: Integer): Integer; override;
+\par TCustomComponentInspector overrides this method for increasing the width of drop-down list box for TColor type properties.
+\par 
+\par procedure DrawPopupItem(ListBox: TListBox; ListItemIndex: Integer; R: TRect; TheIndex: Integer); override;
+\par TCustomComponentInspector overrides this method for for drawing the colored labels in drop-down list box item for TColor type properties.
+\par 
+\par properties
+\par 
+\par property Root: TComponent;
+\par This property contains root component that is used for retreiving method names and pointers.
+\par 
+\par property Instance: TComponent;
+\par This property contains currently selected component. If many components are selected first selected components is returned. Assigning Instance deselects all previously selected components.
+\par 
+\par property Mode: TCompInspMode;
+\par This property contains mode of the object inspector control.
+\par TCompInspMode = (oiProperties,oiMethods);
+\par 
+\par events
+\par 
+\par property OnSetValue: TSetStringEnableEvent;
+\par This event occurs when object inspector control sets the property value.
+\par TSetStringEnableEvent = procedure(Sender: TObject; TheIndex: Integer; var Value: string; var EnableDefault: Boolean) of object;
+\par Passed Value can be changed within the event handler. If EnableDefault is set to False object inspector control does not set the value itself and the value can be set bu user within event handler.
+\par 
+\par property OnCallEditor: TCallEditorEnableEvent;
+\par This event occurs when external editor must be called.
+\par TCallEditorEnableEvent = function(Sender: TObject; TheIndex: Integer; var EnableDefault: Boolean): Boolean of object;
+\par If EnableDefault is set to True default external editor is called.
+\par 
+\par property OnBeforeExpand: TIndexEnableEvent;
+\par This event occurs before showing sub-properties of the selected property.
+\par TIndexEnableEvent = procedure(Sender: TObject; TheIndex: Integer; var EnableDefault: Boolean) of object;
+\par If EnableDefault is set to True, object inspector control show sub-properties itself.
+\par 
+\par 
+\par property OnAfterExpand: TIndexNotifyEvent;
+\par This event occurs after showing sub-properties of the selected property.
+\par TIndexNotifyEvent = procedure(Sender: TObject; TheIndex: Integer) of object;
+\par 
+\par property OnBeforeCollapse: TIndexEnableEvent;
+\par This event occurs before hiding sub-properties of the selected property.
+\par TIndexEnableEvent = procedure(Sender: TObject; TheIndex: Integer; var EnableDefault: Boolean) of object;
+\par If EnableDefault is set to True, object inspector control hides sub-properties itself.
+\par 
+\par property OnAfterCollapse: TIndexNotifyEvent;
+\par This event occurs after hiding sub-properties of the selected property.
+\par TIndexNotifyEvent = procedure(Sender: TObject; TheIndex: Integer) of object;
+\par 
+\par property OnGetEditorClass: TEditorClassEvent;
+\par This event occurs when object inspector control requests external editor class.
+\par TEditorClassEvent = procedure(Sender: TObject; TheIndex: Integer; var Value: TPropertyEditorClass) of object;
+\par 
+\par property OnFilter: TPropFilterEvent;
+\par This event occurs when object inspector control inserts property into properties list.
+\par TPropFilterEvent = procedure(Sender: TObject; Prop: TProperty; var Result: Boolean) of object;
+\par if Result is set to False the property is not inserting into the list.
+\par 
+\par property OnCompare: TPropCompareEvent;
+\par This event occurs when object inspector controls compares two property for sorting property list.
+\par TPropCompareEvent = procedure(Sender: TObject; Prop1,Prop2: TProperty; var Result: Integer) of object;
+\par Set Result to \endash 1 if Prop1 must placed above Prop2, otherwise set Result to 1. If Result is set to 0 the order between Prop1 and Prop2 is not changed.
+\par 
+\par property OnFillEventList: TFillEventListEvent;
+\par This event occurs when some component requires the list of events compatible with passed event type.
+\par TFillEventListEvent = procedure(Sender: TObject; EventType: PTypeInfo; Strings: TStrings) of object;
+\par 
+\par PUBLIC
+\par 
+\par methods
+\par 
+\par constructor Create(AOwner: TComponent); override;
+\par This overridden constructor creates instance of TCustomComponentInspector and initializes internal objects.
+\par 
+\par destructor Destroy; override;
+\par This overridden destructor destroys all internal objects and calls inherited destructor to self-destroy.
+\par 
+\par procedure Update; override;
+\par This procedure calls inherited Update then sends CM_OIUPDATED message to all linked controls.
+\par 
+\par procedure RefreshList;
+\par This procedure refreshs the property list.
+\par 
+\par procedure AddInstance(AInstance: TComponent); virtual;
+\par This procedure adds passed component into selected components list.
+\par 
+\par procedure DeleteInstance(AInstance: TComponent); virtual;
+\par This procedure deletes passed component from selected components list.
+\par 
+\par procedure AddNotification(TheControl: TControl);
+\par This procedure adds passed control into linked controls list. TCustomComponentInspector sends CM_OIUPDATED message to all linked controls when updating.
+\par 
+\par procedure DeleteNotification(TheControl: TControl);
+\par This procedure deletes passed control from linked controls list.
+\par 
+\par procedure FillEventList(TypeInfo: PTypeInfo; Strings: TStrings); virtual;
+\par This method is called from external property editors when the list of events must be filled (for instance, inspector in menu editor window calls this method in its OnGetValuesList event). By default this method just calls OnFillEventList event.
+\par 
+\par properties
+\par 
+\par property PropertyCount: Integer;
+\par This property contains property count of the selected components.
+\par RO
+\par 
+\par property Properties[Index: Integer]: TProperty;
+\par This array-type property contains properties of the selected components.
+\par RO
+\par 
+\par property InstanceCount: Integer;
+\par This property contains count of the selected components.
+\par RO
+\par 
+\par property Instances[Index: Integer]: TComponent;
+\par This array-type property contains selected components.
+\par RO
+\par 
+\par 
+\par }\pard\plain \s1\ql \li0\ri0\keepn\widctlpar\faauto\outlinelevel0\adjustright\rin0\lin0\itap0 \f1\fs40\lang1033\langfe1049\cgrid\langnp1033\langfenp1049 {TComponentInspector
+\par }\pard\plain \ql \li0\ri0\widctlpar\faauto\adjustright\rin0\lin0\itap0 \fs20\lang1049\langfe1049\cgrid\langnp1049\langfenp1049 {\f1\lang1033\langfe1049\langnp1033 
+\par unit CompInsp
+\par 
+\par TObject \endash  TPersistent \endash  TComponent \endash  TControl \endash  TWinControl \endash  TCustomListBox - TCustomComponentInspector
+\par 
+\par TComponentInspector is ready-to-use object inspector control that allows to inspect all published properties and events of any components.
+\par TComponentInspector just published some properties and events derived from ancestors.
+\par 
+\par PUBLISHED
+\par 
+\par properties
+\par 
+\par from standard components (check it yourself)
+\par 
+\par property Align;
+\par property BorderStyle;
+\par property Color;
+\par property Ctl3D;
+\par property DragCursor;
+\par property DragMode;
+\par property Enabled;
+\par property Font;
+\par property ImeMode;
+\par property ImeName;
+\par property IntegralHeight;
+\par property ParentColor;
+\par property ParentCtl3D;
+\par property ParentFont;
+\par property ParentShowHint;
+\par property PopupMenu;
+\par property ShowHint;
+\par property TabOrder;
+\par property TabStop;
+\par property Visible;
+\par 
+\par from TCustomInspector
+\par 
+\par property CheckBoxes;
+\par property Splitter;
+\par property PaintStyle;
+\par 
+\par from TCustomComponentInspector
+\par 
+\par property Root;
+\par property Instance;
+\par property Mode;
+\par 
+\par events
+\par 
+\par from standard components
+\par 
+\par property OnDragDrop;
+\par property OnDragOver;
+\par property OnEndDrag;
+\par property OnEnter;
+\par property OnExit;
+\par property OnStartDrag;
+\par 
+\par from TCustomInspector
+\par 
+\par property OnUpdate;
+\par property OnValidateChar;
+\par property OnDrawName;
+\par property OnDrawValue;
+\par }{\f1\lang1033\langfe1049\langnp1033 property OnDeselectItem;
+\par property OnSelectItem;  }{\f1\lang1033\langfe1049\langnp1033 
+\par 
+\par from TCustomComponentInspector
+\par 
+\par property OnGetName;
+\par property OnGetValue;
+\par property OnGetNextValue;
+\par property OnSetValue;
+\par property OnGetButtonType;
+\par property OnGetInlineEditorType;
+\par property OnGetMaxLength;
+\par property OnGetEditMask;
+\par property OnGetEnableExternalEditor;
+\par property OnGetReadOnly;
+\par property OnGetExpandState;
+\par property OnGetLevel;
+\par property OnGetValuesList;
+\par property OnGetSortValuesList;
+\par property OnGetSelectedValue;
+\par property OnGetAutoApply;
+\par property OnGetNameFont;
+\par property OnGetNameColor;
+\par property OnGetValueFont;
+\par property OnGetValueColor;
+\par property OnCallEditor;
+\par property OnBeforeExpand;
+\par property OnAfterExpand;
+\par property OnBeforeCollapse;
+\par property OnAfterCollapse;
+\par property OnGetEditorClass;
+\par property OnFilter;
+\par property OnCompare;
+\par property OnValueDblClick;
+\par property OnChangeValue;
+\par property OnFillEventList;
+\par 
+\par }}

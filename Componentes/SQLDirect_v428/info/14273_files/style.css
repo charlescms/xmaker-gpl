@@ -1,0 +1,33 @@
+.font {
+	FONT-SIZE: 9pt; LINE-HEIGHT: 17px; FONT-FAMILY: 宋体
+}
+.bfont {
+	FONT-SIZE: 9pt; LINE-HEIGHT: 17px; FONT-FAMILY: 宋体
+}
+TD {
+	FONT-SIZE: 9pt; LINE-HEIGHT: 17px; FONT-FAMILY: 宋体; Word-Break: Break-All
+}
+A:link {
+	FONT-SIZE: 9pt; CURSOR: hand; COLOR: #0033cc; FONT-STYLE: normal; FONT-FAMILY: 宋体; TEXT-DECORATION: none
+}
+A:visited {
+	FONT-SIZE: 9pt; COLOR: #0033cc; FONT-STYLE: normal; FONT-FAMILY: 宋体; TEXT-DECORATION: none
+}
+A:active {
+	FONT-SIZE: 9pt; COLOR: rgb(255,0,0); FONT-STYLE: normal; FONT-FAMILY: 宋体; TEXT-DECORATION: none
+}
+A:hover {
+	FONT-SIZE: 9pt; COLOR: #000000; FONT-FAMILY: 宋体; TEXT-DECORATION: underline
+}
+A:visited{TEXT-DECORATION: none;Color:#0033cc}
+A:active{TEXT-DECORATION: none;Color:#0033cc}
+a:hover {font-size: 12px; color: #0033cc; font-family: "宋体"; position: relative; left: 1px; top: 1px; clip:  rect(   )}
+.h1 {font-size: 12px; line-height: 150%}
+A:link{text-decoration: none;Color:#0033cc}
+}
+.t6 {FONT-SIZE: 9pt;padding-left: 10; padding-top: 5; padding-bottom: 5;Word-Break: Break-All}
+.tl {FONT-SIZE: 9pt;border-right: 1px solid #000000; Word-Break: Break-All;padding-top: 5;}
+.tr {FONT-SIZE: 9pt;padding-left: 10; padding-top: 5; padding-bottom: 5; Word-Break: Break-All}
+table {border-collapse: collapse}
+.afgadf {BORDER-BOTTOM: #000000 1px solid; BORDER-LEFT: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-TOP: #000000 1px solid; COLOR: #000000; FONT-SIZE: 9pt; HEIGHT: 19px; WIDTH: 40px; align: center}
+.afgadg {BORDER-BOTTOM: #183ead 1px solid; BORDER-LEFT-COLOR: #183ead; BORDER-LEFT-WIDTH: 1px; BORDER-RIGHT-COLOR: #183ead; BORDER-RIGHT-WIDTH: 1px; BORDER-TOP-COLOR: #183ead; BORDER-TOP-WIDTH: 1px}

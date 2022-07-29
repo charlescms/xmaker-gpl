@@ -1,0 +1,51 @@
+package SqlDir40;
+
+{$R *.RES}
+{$ALIGN ON}
+{$ASSERTIONS ON}
+{$BOOLEVAL OFF}
+{$DEBUGINFO OFF}
+{$EXTENDEDSYNTAX ON}
+{$IMPORTEDDATA ON}
+{$IOCHECKS OFF}
+{$LOCALSYMBOLS OFF}
+{$LONGSTRINGS ON}
+{$OPENSTRINGS ON}
+{$OPTIMIZATION ON}
+{$OVERFLOWCHECKS OFF}
+{$RANGECHECKS ON}
+{$REFERENCEINFO OFF}
+{$SAFEDIVIDE OFF}
+{$STACKFRAMES OFF}
+{$TYPEDADDRESS OFF}
+{$VARSTRINGCHECKS ON}
+{$WRITEABLECONST OFF}
+{$MINENUMSIZE 1}
+{$IMAGEBASE $00400000}
+{$DESCRIPTION 'SQLDirect Components'}
+{$RUNONLY}
+{$IMPLICITBUILD OFF}
+
+requires
+  VCL40,
+  VCLDB40;
+
+contains
+  SDConsts in 'SDConsts.pas',
+  SDCommon in 'SDCommon.pas',
+  SDEngine in 'SDEngine.pas',
+  SDCsb in 'SDCsb.pas',
+  SDDb2 in 'SDDb2.pas',
+  SDFib in 'SDFib.pas',
+  SDInf in 'SDInf.pas',
+  SDInt in 'SDInt.pas',
+  SDMss in 'SDMss.pas',
+  SDMySQL in 'SDMySQL.pas',
+  SDOdbc in 'SDOdbc.pas',
+  SDOra in 'SDOra.pas',
+  SDPgSQL in 'SDPgSQL.pas',
+  SDSyb in 'SDSyb.pas',
+  SDCsbSrv in 'SDCsbSrv.pas',
+  SDSrvLog in 'SDSrvLog.pas';
+
+end.

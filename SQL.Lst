@@ -1,0 +1,28 @@
+function|CAST|CAST(<Argumento><AS><CHARACTER>)|Converte um valor para texto, exemplo: CAST(data_venda AS CHARACTER).
+function|CAST|CAST(<Argumento><AS><NUMERIC>)|Converte uma string para valor, exemplo: CAST(data_venda AS NUMERIC).
+function|CAST|CAST(<Argumento><AS><DATE>)|Converte uma string para data, exemplo: CAST(data_venda AS DATE).
+function|UPPER|UPPER(<cValor>)|Converte o valor <cValor> em um valor de letra maiúscula, exemplo: UPPER(nome).
+string|:Sistema_Titulo|Sistema.Titulo|Retorna o título do projeto.
+string|:Sistema_Versao|Sistema.Versao|Retorna a versão do projeto.
+string|:Sistema_Analista|Sistema.Analista|Retorna o analista do projeto.
+string|:Sistema_Programador|Sistema.Programador|Retorna o programador do projeto.
+string|:Sistema_Projetista|Sistema.Projetista|Retorna a empresa projetista.
+string|:Sistema_EstiloData|Sistema.EstiloData|Retorna o estilo da data, dd/mm/yy ou dd/mm/yyyy.
+string|:Sistema_SenhaInicial|Sistema.SenhaInicial|Retorna a senha inicial do projeto.
+string|:Sistema_Pasta|Sistema.Pasta|Retorna a pasta de localicação do projeto.
+string|:Sistema_Usuario|Sistema.Usuario|Retorna o usuário atual.
+string|:Sistema_Senha|Sistema.Senha|Retorna a senha do usuário atual.
+string|:Sistema_Master|ConverteLogico(Sistema.Master)|Retorna se o usuário é master, T=True; F=False.
+string|:Sistema_Grupo|Sistema.Grupo|Retorna o grupo do usuário.
+integer|:Sistema_NumeroUsr|Sistema.NumeroUsr|Retorna o número da empresa usuária.
+string|:Sistema_EmpresaUsr|Sistema.EmpresaUsr|Retorna o nome da empresa usuária.
+string|:Sistema_EnderecoUsr|Sistema.EnderecoUsr|Retorna o endereço da empresa usuária.
+string|:Sistema_BairroUsr|Sistema.BairroUsr|Retorna o bairro da empresa usuária.
+string|:Sistema_CidadeUsr|Sistema.CidadeUsr|Retorna a cidade da empresa usuária.
+string|:Sistema_UfUsr|Sistema.UfUsr|Retorna a unidade da federação da empresa usuária.
+string|:Sistema_CEPUsr|Sistema.CEPUsr|Retorna o cep da empresa usuária.
+string|:Sistema_CNPJUsr|Sistema.CNPJUsr|Retorna o CNPJ da empresa usuária.
+string|:Sistema_IEUsr|Sistema.IEUsr|Retorna a I.E. da empresa usuária.
+string|:Sistema_FonesUsr|Sistema.FonesUsr|Retorna o(s) telefone(s) da empresa usuária.
+string|:Sistema_LogoUsr|Sistema.LogoUsr|Retorna a localicação+nome do arquivo de imagem da empresa usuária.
+date|:Data_Atual|Date|Retorna a data atual.

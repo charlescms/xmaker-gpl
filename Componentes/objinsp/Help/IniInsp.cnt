@@ -1,0 +1,17 @@
+:Base  IniInsp.HLP
+:Title IniInsp
+1 Greatis IniInspector User Manual
+2 TCustomIniInspector
+3 TCustomIniInspector class=TCustomIniInspector
+3 Hierarchy=HierarchyIniInsp>main
+3 Interface
+4 Methods=TCustomIniInspector_Methods>main
+4 Properties=TCustomIniInspector_Properties>main
+4 Events=TCustomIniInspector_Events>main
+2 TIniInspector
+3 TIniInspector class=TIniInspector
+3 Hierarchy=HierarchyIniInsp>main
+3 Interface
+4 Methods=TIniInspector_Methods>main
+4 Properties=TIniInspector_Properties>main
+4 Events=TIniInspector_Events>main

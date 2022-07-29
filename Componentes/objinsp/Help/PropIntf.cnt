@@ -1,0 +1,27 @@
+:Base  PropIntf.HLP
+:Title PropIntf
+1 Greatis Property Interface User Manual 
+2 TProperty
+3 TProperty class=TProperty
+3 Hierarchy=HierarchyTProperty>main
+3 Interface
+4 Methods=TProperty_Methods>main
+4 Properties=TProperty_Properties>main
+2 TPropertyList
+3 TPropertyList class=TPropertyList
+3 Hierarchy=HierarchyTPropertyList>main
+3 Interface
+4 Methods=TPropertyList_Methods>main
+4 Properties=TPropertyList_Properties>main
+2 TCustomPropertyInterface
+3 TCustomPropertyInterface class=TCustomPropertyInterface
+3 Hierarchy=HierarchyTCustomPropertyInterface>main
+3 Interface
+4 Methods=TCustomPropertyInterface_Methods>main
+4 Properties=TCustomPropertyInterface_Properties>main
+2 TPropertyInterface
+3 TPropertyInterface class=TPropertyInterface
+3 Hierarchy=HierarchyTCustomPropertyInterface>main
+3 Interface
+4 Methods=TPropertyInterface_Methods>main
+4 Properties=TPropertyInterface_Properties>main

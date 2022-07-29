@@ -1,0 +1,233 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><title>Métodos de Edição</title>
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+body {
+  margin: 5px 5px 5px 5px;
+  background-color: #ffffff;
+}
+/* ========== Text Styles ========== */
+hr { color: #000000}
+body, table /* Normal text */
+{
+ font-size: 10pt;
+ font-family: 'Arial';
+ font-style: normal;
+ font-weight: normal;
+ color: #000000;
+ text-decoration: none;
+}
+span.rvts1 /* Heading */
+{
+ font-weight: bold;
+ color: #0000ff;
+}
+span.rvts2 /* Subheading */
+{
+ font-weight: bold;
+ color: #000080;
+}
+span.rvts3 /* Keywords */
+{
+ font-style: italic;
+ color: #800000;
+}
+a.rvts4, span.rvts4 /* Jump 1 */
+{
+ color: #008000;
+ text-decoration: underline;
+}
+a.rvts5, span.rvts5 /* Jump 2 */
+{
+ color: #008000;
+ text-decoration: underline;
+}
+span.rvts6 /* Font Style */
+{
+ font-size: 16pt;
+ font-family: 'MS Sans Serif';
+ color: #ffffff;
+}
+span.rvts7
+{
+ font-size: 11pt;
+ font-family: 'Verdana';
+}
+span.rvts8
+{
+ font-size: 11pt;
+ font-family: 'Verdana';
+ font-weight: bold;
+}
+span.rvts9
+{
+ font-size: 11pt;
+ font-family: 'Verdana';
+}
+span.rvts10
+{
+ font-size: 11pt;
+ font-family: 'Verdana';
+ font-weight: bold;
+ color: #ffffff;
+}
+span.rvts11
+{
+ font-size: 11pt;
+ font-family: 'Verdana';
+ color: #ffffff;
+}
+span.rvts12 /* Font Style */
+{
+ font-family: 'MS Sans Serif';
+ color: #808080;
+}
+span.rvts13 /* Font Style */
+{
+ font-family: 'Verdana';
+ font-style: italic;
+ color: #c0c0c0;
+}
+a.rvts14, span.rvts14 /* Font Style */
+{
+ font-family: 'Verdana';
+ font-style: italic;
+ color: #6666ff;
+ text-decoration: underline;
+}
+/* ========== Para Styles ========== */
+p,ul,ol /* Paragraph Style */
+{
+ text-align: left;
+ text-indent: 0px;
+ padding: 0px 0px 0px 0px;
+ margin: 0px 0px 0px 0px;
+}
+.rvps1 /* Centered */
+{
+ text-align: center;
+}
+.rvps2 /* Paragraph Style */
+{
+ background: #9fbed0;
+ margin: 0px 0px 20px 0px;
+}
+.rvps3
+{
+ text-indent: -24px;
+ margin: 0px 0px 0px 48px;
+}
+.rvps4
+{
+ margin: 0px 0px 0px 48px;
+}
+.rvps5
+{
+ text-indent: 48px;
+}
+.rvps6
+{
+ text-align: justify;
+ margin: 0px 0px 0px 48px;
+}
+.rvps7
+{
+ text-align: justify;
+ text-indent: -24px;
+ margin: 0px 0px 0px 48px;
+}
+.rvps8
+{
+ text-align: justify;
+ margin: 0px 0px 0px 24px;
+}
+.rvps9
+{
+ text-align: center;
+ page-break-after: avoid;
+ background: #008080;
+ margin: 16px 0px 16px 0px;
+}
+.rvps10 /* Paragraph Style */
+{
+ text-align: center;
+ background: #e4e4e4;
+ margin: 20px 0px 0px 0px;
+}
+.rvps11 /* Paragraph Style */
+{
+ border-color: #c0c0c0;
+ border-style: solid;
+ border-width: 1px;
+ border-right: none;
+ border-bottom: none;
+ border-left: none;
+ background: #ffffff;
+ padding: 3px 0px 0px 0px;
+ margin: 27px 0px 0px 0px;
+}
+--></style>
+<body>
+
+<p class=rvps2><span class=rvts6>Métodos de Edição</span></p>
+<p class=rvps9><span class=rvts10>Função RetornaAutoIncremento</span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps3 style="{ margin-left: 0 }"><span class=rvts7>Declaração</span></li>
+</ul>
+<p class=rvps4><span class=rvts8><br></span></p>
+<p class=rvps4><span class=rvts8>function </span><span class=rvts7>RetornaAutoIncremento(TabelaPrincipal:</span><span class=rvts8> TTabela</span><span class=rvts7>; Campo: </span><span class=rvts8>String</span><span class=rvts7>; Condicao: </span><span class=rvts8>String</span><span class=rvts7>; Qtd:</span><span class=rvts8> Integer </span><span class=rvts7>= 1):</span><span class=rvts8> Variant;</span></p>
+<p class=rvps5><span class=rvts7><br></span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps3 style="{ margin-left: 0 }"><span class=rvts7>Descrição</span></li>
+</ul>
+<p><span class=rvts7><br></span></p>
+<p class=rvps6><span class=rvts7>Retorna o próximo número a ser utilizado em uma Tabela. O projetista poderá informar uma expressão de filtro em “Condicao”, como default o próximo registro será acrescido de 1 (um).</span></p>
+<p class=rvps6><span class=rvts7><br></span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps7 style="{ margin-left: 0 }"><span class=rvts7>Exemplo</span></li>
+</ul>
+<p class=rvps8><span class=rvts7><br></span></p>
+<p class=rvps4><span class=rvts7>TabGlobal.DCLIENTES.CLI_CODIGO.Conteudo := RetornaAutoIncremento(TabGlobal.DCLIENTES, </span><span class=rvts9>&#8216;</span><span class=rvts7>CLI_CODIGO</span><span class=rvts9>&#8217;</span><span class=rvts7>, </span><span class=rvts9>&#8216;&#8217;</span><span class=rvts7>, 1);</span></p>
+<p class=rvps1><span class=rvts11><br></span></p>
+<p class=rvps9><span class=rvts10>Função AtribuiAutoIncremento</span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps3 style="{ margin-left: 0 }"><span class=rvts7>Declaração</span></li>
+</ul>
+<p class=rvps4><span class=rvts8><br></span></p>
+<p class=rvps4><span class=rvts8>procedure </span><span class=rvts7>AtribuiAutoIncremento(TabelaPrincipal:</span><span class=rvts8> TTabela</span><span class=rvts7>; Campo:</span><span class=rvts8> String; </span><span class=rvts7>Componente: </span><span class=rvts8>TComponent</span><span class=rvts7>; Condicao:</span><span class=rvts8> String; </span><span class=rvts7>Editavel:</span><span class=rvts8> Boolean);</span></p>
+<p class=rvps4><span class=rvts7><br></span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps3 style="{ margin-left: 0 }"><span class=rvts7>Descrição</span></li>
+</ul>
+<p><span class=rvts7><br></span></p>
+<p class=rvps6><span class=rvts7>Atribui o próximo número a ser utilizado em uma Tabela em um objeto de edição. O projetista poderá informar uma expressão de filtro em “Condicao”, como default o próximo registro será acrescido de 1 (um).</span></p>
+<p class=rvps6><span class=rvts7><br></span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps7 style="{ margin-left: 0 }"><span class=rvts7>Exemplo</span></li>
+</ul>
+<p class=rvps8><span class=rvts7><br></span></p>
+<p class=rvps4><span class=rvts7>AtribuiAutoIncremento(TabGlobal.DCLIENTES, </span><span class=rvts9>&#8216;</span><span class=rvts7>CLI_CODIGO</span><span class=rvts9>&#8217;</span><span class=rvts7>, Xedit1, </span><span class=rvts9>&#8216;&#8217;</span><span class=rvts7>, True);</span></p>
+<p><span class=rvts7><br></span></p>
+<p class=rvps9><span class=rvts10>Função LocalizaTabela</span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps3 style="{ margin-left: 0 }"><span class=rvts7>Declaração</span></li>
+</ul>
+<p class=rvps4><span class=rvts8><br></span></p>
+<p class=rvps4><span class=rvts8>function </span><span class=rvts7>LocalizaTabela(Nome: </span><span class=rvts8>String</span><span class=rvts7>):</span><span class=rvts8> TTabela;</span></p>
+<p class=rvps4><span class=rvts7><br></span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps3 style="{ margin-left: 0 }"><span class=rvts7>Descrição</span></li>
+</ul>
+<p><span class=rvts7><br></span></p>
+<p class=rvps6><span class=rvts7>Localiza uma Tabela do projeto pelo nome.</span></p>
+<p class=rvps6><span class=rvts7><br></span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps7 style="{ margin-left: 0 }"><span class=rvts7>Exemplo</span></li>
+</ul>
+<p class=rvps8><span class=rvts7><br></span></p>
+<p class=rvps4><span class=rvts7>Tabela_ed := LocalizaTabela(</span><span class=rvts9>&#8216;</span><span class=rvts7>CLIENTES</span><span class=rvts9>&#8217;</span><span class=rvts7>);</span></p>
+<p><span class=rvts7><br></span></p>
+<p><span class=rvts7><br></span></p>
+<p class=rvps10><span class=rvts12>Copyright © 2005, Modular Software</span></p>
+
+</body></html>

@@ -1,0 +1,48 @@
+:Base XMaker.hlp
+:Title X-Maker - Gerador de Aplicativos em Delphi
+1 Características=Caracteristicas
+1 Instalação
+2 Pré-Requisitos=Pre-Requisitos
+2 Instalando o X-Maker=InstalandoX-Maker
+1 Introdução
+2 Menu de Opções=MenudeOpcoes
+2 Estrutura de Pastas=EstruturadePastas
+2 Instalar Componentes no Delphi=InstalarComponentesnoDelphi
+1 Configuração
+2 Delphi (5, 6 ou 7)=ConfiguraDelphi
+2 Propriedades do Editor=PropriedadesdoEditor
+2 Campos Predefinidos=CamposPredefinidos
+1 Projetos
+2 Novo Projeto=NovoProjeto
+2 Abrindo Projeto=AbrindoProjeto
+2 Fechando Projeto=FechandoProjeto
+2 Definição das Propriedades=DefinicaodasPropriedades
+2 Definição das Tabelas
+3 Tabelas=DefinicaodasTabelas
+3 Banco de Dados=DefinicaodoBancodeDados
+3 Campos=DefinicaodosCampos
+3 Campo Calculado=DefinicaodeCampoCalculado
+3 Relacionamento - Restrita=DefinicaodeRelacionamentoRestrita
+3 Relacionamento - Cascata=DefinicaodeRelacionamentoemCascata
+3 Índices=DefinicaodeIndices
+2 Definição de Formulários
+3 Formulários=DefinicaodeFormularios
+3 Propriedades=DefinicaodePropriedadesFormulario
+3 Tela=DefinicaodaTeladoFormulario
+3 Editor=EditordoFormulario
+3 Blocos da Unit=BlocosdaUnitdoFormulario
+2 Definição de Relatórios/Etiquetas/Gráficos
+3 Relatório/Etiquetas/Gráficos=DefinicaodeRelatorios
+3 Campos=DefinicaodosCamposdoRelatorio
+3 Relacionamento=DefinicaoRelacionamentodoRelatorio
+3 Filtragem=DefinicaodaFiltragemdoRelatorio
+3 Ordenação=DefinicaodaOrdenacaodoRelatorio
+3 Layout=DefinicaodoLayoutdoRelatorio
+3 Blocos da Unit=BlocosdaUnitdoRelatorio
+2 Definição do Menu
+3 Menu=DefinicaodoMenu
+3 Rotina Avulsa=RotinaAvulsanoMenu
+3 Programa EXE=ProgramaEXEnoMenu
+1 Compilando e Executando=CompilandoeExecutando
+1 Regerando Fontes=RegerandoFontes
+1 Units do Projeto=UnitsdoProjeto

@@ -1,0 +1,25 @@
+:Base  FormDes.HLP
+:Title FormDes
+1 Greatis Form Designer User Manual 
+2 New in TFormDesigner=New_in_TFormDesigner
+2 About TFormDesigner=About_TFormDesigner
+2 TCustomFormDesigner
+3 TCustomFormDesigner class=TCustomFormDesigner
+3 Hierarchy=HierarchyTCustomFormDesigner>main
+3 Interface
+4 Methods=TCustomFormDesigner_Methods>main
+4 Properties=TCustomFormDesigner_Properties>main
+4 Events=TCustomFormDesigner_Events>main
+2 TFormDesigner
+3 TFormDesigner class=TFormDesigner
+3 Hierarchy=HierarchyTCustomFormDesigner>main
+3 Interface
+4 Methods=TFormDesigner_Methods>main
+4 Properties=TFormDesigner_Properties>main
+4 Events=TFormDesigner_Events>main
+1 Other declarations=Other_Declarations
+1 Installing and uninstalling=Installing_And_Uninstalling
+1 Trial limitations=Trial_Limitations
+1 License agreements=License_Agreements
+1 Contact information=Contact_Information
+

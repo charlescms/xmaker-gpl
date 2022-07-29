@@ -1,0 +1,17 @@
+:Base  DBInsp.HLP
+:Title DBInsp
+1 Greatis DataBase Inspector User Manual
+2 TCustomDBInspector
+3 TCustomDBInspector class=TCustomDBInspector
+3 Hierarchy=HierarchyDBInsp>main
+3 Interface
+4 Methods=TCustomDBInspector_Methods>main
+4 Properties=TCustomDBInspector_Properties>main
+4 Events=TCustomDBInspector_Events>main
+2 TDBInspector
+3 TDBInspector class=TDBInspector
+3 Hierarchy=HierarchyDBInsp>main
+3 Interface
+4 Methods=TDBInspector_Methods>main
+4 Properties=TDBInspector_Properties>main
+4 Events=TDBInspector_Events>main

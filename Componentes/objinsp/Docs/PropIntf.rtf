@@ -1,0 +1,424 @@
+{\rtf1\ansi\ansicpg1251\uc1 \deff0\deflang1049\deflangfe1049{\fonttbl{\f0\froman\fcharset204\fprq2{\*\panose 02020603050405020304}Times New Roman;}{\f1\fswiss\fcharset204\fprq2{\*\panose 020b0604020202020204}Arial;}
+{\f97\froman\fcharset0\fprq2 Times New Roman;}{\f95\froman\fcharset238\fprq2 Times New Roman CE;}{\f98\froman\fcharset161\fprq2 Times New Roman Greek;}{\f99\froman\fcharset162\fprq2 Times New Roman Tur;}
+{\f100\froman\fcharset177\fprq2 Times New Roman (Hebrew);}{\f101\froman\fcharset178\fprq2 Times New Roman (Arabic);}{\f102\froman\fcharset186\fprq2 Times New Roman Baltic;}{\f105\fswiss\fcharset0\fprq2 Arial;}{\f103\fswiss\fcharset238\fprq2 Arial CE;}
+{\f106\fswiss\fcharset161\fprq2 Arial Greek;}{\f107\fswiss\fcharset162\fprq2 Arial Tur;}{\f108\fswiss\fcharset177\fprq2 Arial (Hebrew);}{\f109\fswiss\fcharset178\fprq2 Arial (Arabic);}{\f110\fswiss\fcharset186\fprq2 Arial Baltic;}}
+{\colortbl;\red0\green0\blue0;\red0\green0\blue255;\red0\green255\blue255;\red0\green255\blue0;\red255\green0\blue255;\red255\green0\blue0;\red255\green255\blue0;\red255\green255\blue255;\red0\green0\blue128;\red0\green128\blue128;\red0\green128\blue0;
+\red128\green0\blue128;\red128\green0\blue0;\red128\green128\blue0;\red128\green128\blue128;\red192\green192\blue192;}{\stylesheet{\ql \li0\ri0\widctlpar\faauto\adjustright\rin0\lin0\itap0 \fs20\lang1049\langfe1049\cgrid\langnp1049\langfenp1049 \snext0 
+Normal;}{\s1\ql \li0\ri0\keepn\widctlpar\faauto\outlinelevel0\adjustright\rin0\lin0\itap0 \f1\fs40\lang1049\langfe1049\cgrid\langnp1049\langfenp1049 \sbasedon0 \snext0 heading 1;}{\*\cs10 \additive Default Paragraph Font;}}{\info{\title TProperty}
+{\author Silent}{\operator Ilya}{\creatim\yr2002\mo5\dy18\hr20\min9}{\revtim\yr2006\mo2\dy9\hr2\min8}{\version14}{\edmins12}{\nofpages8}{\nofwords1917}{\nofchars10932}{\*\company Home}{\nofcharsws0}{\vern8249}}
+\paperw11906\paperh16838\margl1701\margr850\margt1134\margb1134 \widowctrl\ftnbj\aenddoc\noxlattoyen\expshrtn\noultrlspc\dntblnsbdb\nospaceforul\hyphcaps0\formshade\horzdoc\dghspace120\dgvspace120\dghorigin1701\dgvorigin1984\dghshow0\dgvshow3
+\jcompress\viewkind4\viewscale153\viewzk2\pgbrdrhead\pgbrdrfoot\nolnhtadjtbl \fet0\sectd \linex0\headery709\footery709\colsx709\endnhere\sectdefaultcl {\*\pnseclvl1\pnucrm\pnstart1\pnindent720\pnhang{\pntxta .}}{\*\pnseclvl2
+\pnucltr\pnstart1\pnindent720\pnhang{\pntxta .}}{\*\pnseclvl3\pndec\pnstart1\pnindent720\pnhang{\pntxta .}}{\*\pnseclvl4\pnlcltr\pnstart1\pnindent720\pnhang{\pntxta )}}{\*\pnseclvl5\pndec\pnstart1\pnindent720\pnhang{\pntxtb (}{\pntxta )}}{\*\pnseclvl6
+\pnlcltr\pnstart1\pnindent720\pnhang{\pntxtb (}{\pntxta )}}{\*\pnseclvl7\pnlcrm\pnstart1\pnindent720\pnhang{\pntxtb (}{\pntxta )}}{\*\pnseclvl8\pnlcltr\pnstart1\pnindent720\pnhang{\pntxtb (}{\pntxta )}}{\*\pnseclvl9\pnlcrm\pnstart1\pnindent720\pnhang
+{\pntxtb (}{\pntxta )}}\pard\plain \s1\ql \li0\ri0\keepn\widctlpar\faauto\outlinelevel0\adjustright\rin0\lin0\itap0 \f1\fs40\lang1049\langfe1049\cgrid\langnp1049\langfenp1049 {\lang1033\langfe1049\langnp1033 TProperty
+\par }\pard\plain \ql \li0\ri0\widctlpar\faauto\adjustright\rin0\lin0\itap0 \fs20\lang1049\langfe1049\cgrid\langnp1049\langfenp1049 {\f1\lang1033\langfe1049\langnp1033 
+\par unit PropList
+\par 
+\par TObject - TProperty
+\par 
+\par TProperty class provides object interface to any published property (including published events) of any VCL class derived from TComponent. TProperty has special properties that allow to obtain all information about property and to get and set property val
+ue.
+\par See also: TPropertyList, TPropertyInterface
+\par 
+\par PUBLIC
+\par 
+\par methods
+\par 
+\par constructor Create(AOwner: TPropertyList; ARoot,AInstance: TComponent; APropInfo: PPropInfo); virtual;
+\par This constructor initializes internal fields by passed values and create sublist for class type and set type property.
+\par 
+\par destructor Destroy; override;
+\par Overridden destructor frees all internal objects and calls inherited destructor.
+\par 
+\par function CreatePropertyList: TPropertyList; virtual;
+\par This function is called when internal property list for subproperties must be created. You can override this function to use your own type of property list instead of standard TPropertyList. Property list class must be derived from TPropertyList.
+\par 
+\par function DisplayValue: string; virtual;
+\par This function returns value
+ that displays in the TObjectInspector. Return value is differ from GetStringValue function, for example for TFont type property DisplayValue returns '(TFont)', but GetStringValue returns integer representation of TFont object pointer.
+\par See also: DisplayValue, GetStringValue, SetStringValue, AsString
+\par 
+\par function GetStringValue: string; virtual;
+\par This function returns string representation of property value.
+\par See also: DisplayValue, GetStringValue, SetStringValue, AsString
+\par 
+\par procedure SetStringValue(const Value: string); virtual;
+\par This procedure sets property value using passed string representation.
+\par See also: DisplayValue, GetStringValue, SetStringValue, AsString
+\par 
+\par procedure ValuesList(const Values: TStrings); virtual;
+\par This procedure fills passed TStrings object by possible values list. This function is used by TObjectInspector.
+\par 
+\par function IsCompatibleObject(AObject: TObject): Boolean;
+\par This function checks compatibility between property type and passed object by checking ancestor of passed object type.
+\par See also: IsCompatibleObject, IsCompatibleType, IsType
+\par 
+\par function IsCompatibleType(ATypeInfo: PTypeInfo): Boolean;
+\par This function checks compatibility between property type and passed type info by checking ancestor of passed class type for passed type info.
+\par See also: IsCompatibleObject, IsCompatibleType, IsType
+\par 
+\par function IsType(ATypeInfo: PTypeInfo): Boolean;
+\par This function checks compatibility between property type and passed type info by checking ancestor of property type.
+\par See also: IsCompatibleObject, IsCompatibleType, IsType
+\par 
+\par function IsCompatible(P: TProperty): Boolean;
+\par This function checks compatibility with passed property.
+\par See also: IsCompatibleObject, IsCompatibleType, IsType
+\par 
+\par properties
+\par 
+\par property Emulated: Boolean GetEmulated;
+\par This property is True if property is emulated (don't link with real property), like Boolean sub-properties for set type properties, otherwise False.
+\par RO
+\par 
+\par property Owner: TPropertyList FOwner;
+\par This property indicates which property list owns this property object.
+\par RO
+\par 
+\par property OwnerProperty: TProperty read GetOwnerProperty;
+\par This property indicates which property owns this property object.
+\par RO
+\par 
+\par property Level: Integer;
+\par This property indicates nesting level. First level is 0. For example, level of Font.Color property of TLabel control is 1, level of Font.Style.fsBold (emulated property) is 2.
+\par RO
+\par 
+\par property Root: TComponent;
+\par This property contains root component that is used for retreiving method names and pointers.
+\par 
+\par property Instance: TComponent;
+\par This property contains the current component.
+\par 
+\par property TypeData: PTypeData;
+\par This property contains pointer to TTypeData record.
+\par RO
+\par 
+\par property PropType: PTypeInfo;
+\par This property contains pointer to TTypeInfo record.
+\par RO
+\par 
+\par property GetProc: Pointer;
+\par This property contains pointer to function that is used for getting the property value. This function used internally by RTTI and you don't need to call it directly.
+\par RO
+\par 
+\par property SetProc: Pointer;
+\par This property contains pointer to procedure that is used for getting the property value. This procedure used internally by RTTI and you don't need to call it directly.
+\par RO
+\par 
+\par property IsStored: Boolean;
+\par This property is True if the property is stored in the DFM-file, otherwise False. The property can be not stored if the property value is default.
+\par RO
+\par 
+\par property Index: SmallInt;
+\par This property contains index used in the 'index' directive.
+\par RO
+\par 
+\par property Default: Integer;
+\par This property contains default property value.
+\par RO
+\par 
+\par property NameIndex: SmallInt;
+\par This property contains declaration order.
+\par RO
+\par 
+\par property Name: ShortString;
+\par This property contains property name.
+\par RO
+\par 
+\par property FullName: string;
+\par This property contains full property name includig all owner properties' names. For example FullName for emulated property 'fsBold' of Font property of any control is 'Font.Style.fsBold'
+\par RO
+\par 
+\par property TypeName: string;
+\par This property contains name of property type.
+\par RO
+\par 
+\par property TypeKind: TTypeKind;
+\par This property contains property type kind.
+\par TTypeKind = (tkUnknown, tkInteger, tkChar, tkEnumeration, tkFloat,
+\par     tkString, tkSet, tkClass, tkMethod, tkWChar, tkLString, tkWString,
+\par     tkVariant, tkArray, tkRecord, tkInterface);
+\par RO
+\par 
+\par property OrdType: TOrdType;
+\par This property contains ordinal type for integer, char, set and enumeration property.
+\par TOrdType = (otSByte, otUByte, otSWord, otUWord, otSLong);
+\par RO
+\par 
+\par property MinValue: Longint GetMinValue;
+\par This property contains minimal value for integer, char and enumeration property.
+\par RO
+\par 
+\par property MaxValue: Longint;
+\par This property contains maximal value for integer, char and enumeration property.
+\par RO
+\par 
+\par property BaseType: PTypeInfo;
+\par This property contains type info of base type for enumeration property.
+\par RO
+\par 
+\par property EnumCount: Integer;
+\par This property contains count of constant in enumeration type.
+\par RO
+\par 
+\par property Names[Index: Integer]: string;
+\par This array-type property contains names of enumeration constants. Index must be between 0 and EnumCount-1.
+\par RO
+\par 
+\par property Values[Index: string]: Integer;
+\par This array-type property contains index of enumeration constants. Return value for unknown constant is 0.
+\par RO
+\par 
+\par property CompType: PTypeInfo;
+\par This property contains enumeration type info that was used for set type property.
+\par RO
+\par 
+\par property FloatType: TFloatType;
+\par This property contains type for float type property.
+\par TFloatType = (ftSingle, ftDouble, ftExtended, ftComp, ftCurr);
+\par RO
+\par 
+\par property MaxLength: Byte;
+\par This property contains maximal length for short string type property.
+\par RO
+\par 
+\par property PropClassType: TClass;
+\par This property contains type for class type property.
+\par RO
+\par 
+\par property ParentInfo: PTypeInfo;
+\par This property contains type info for ancestor type for class type property.
+\par RO
+\par 
+\par property UnitName: ShortString;
+\par This property contains name of unit where the class is declared.
+\par RO
+\par 
+\par property Properties: TPropertyList;
+\par This is a list of properties for class type property.
+\par See also: TPropertyList
+\par RO
+\par 
+\par property MethodKind: TMethodKind;
+\par This property contains method kind of method type property.
+\par TMethodKind = (mkProcedure, mkFunction, mkSafeProcedure, mkSafeFunction);
+\par RO
+\par 
+\par property ParamCount: Integer;
+\par This property contains count of method parameters for method type property.
+\par RO
+\par 
+\par property ParamFlags[Index: Integer]: TParamFlags;
+\par This array-type property contains parameters flags for each parameter of method type property.
+\par TParamFlags = set of (pfVar, pfConst, pfArray, pfAddress, pfReference, pfOut);
+\par RO
+\par 
+\par property ParamNames[Index: Integer]: ShortString;
+\par This array-type property contains names of parameters for method type property.
+\par RO
+\par 
+\par property ParamTypes[Index: Integer]: ShortString;
+\par This array-type property contains names of parameter types for method type property.
+\par RO
+\par 
+\par property ResultType: ShortString;
+\par This property contains name of result type for method type property.
+\par RO
+\par 
+\par property Parameters[Index: Integer]: ShortString;
+\par This array-type property contains full parameters for method type property.
+\par RO
+\par 
+\par property MethodDeclaration: string;
+\par This property contains full method type declaration for method type property.
+\par RO
+\par 
+\par property IntfParent: PTypeInfo;
+\par This property contains ancestor interface for interface type property.
+\par RO
+\par 
+\par property IntfFlags: TIntfFlags;
+\par This property contains interface flags for interface type property.
+\par TIntfFlags = set of (ifHasGuid, ifDispInterface, ifDispatch);
+\par RO
+\par 
+\par property GUID: TGUID;
+\par This property contains GUID for interface type property.
+\par RO
+\par 
+\par property IntfUnit: ShortString;
+\par This property contains name of unit where the class is declared.
+\par RO
+\par 
+\par property MinInt64Value: Int64;
+\par This property contains minimal value for Int64 type property.
+\par RO
+\par 
+\par property MaxInt64Value: Int64 read GetMaxInt64Value;
+\par This property contains maximal value for Int64 type property.
+\par RO
+\par 
+\par property AsFloat: Extended;
+\par This read-write property represents the value of the property as float.
+\par 
+\par property AsMethod: TMethod;
+\par This read-write property represents the value of the property as method.
+\par TMethod = record
+\par   Code, Data: Pointer;
+\par end;
+\par Code in TMethod record represents pointer to method implementation, Data represents pointer to object that has this method.
+\par 
+\par property AsInteger: Longint;
+\par This read-write property represents the value of the property as integer.
+\par 
+\par property AsChar: Char;
+\par This read-write property represents the value of the property as char.
+\par 
+\par property AsBoolean: Boolean;
+\par This read-write property represents the value of the property as boolean.
+\par 
+\par property AsObject: TObject;
+\par This read-write property represents the value of the property as object pointer.
+\par 
+\par property AsString: string;
+\par This read-write property represents the value of the property as string.
+\par See also: GetStringValue, SetStringValue
+\par 
+\par property AsVariant: Variant;
+\par This read-write property represents the value of the property as string.
+\par 
+\par 
+\par }\pard\plain \s1\ql \li0\ri0\keepn\widctlpar\faauto\outlinelevel0\adjustright\rin0\lin0\itap0 \f1\fs40\lang1049\langfe1049\cgrid\langnp1049\langfenp1049 {\lang1033\langfe1049\langnp1033 TPropertyList
+\par }\pard\plain \ql \li0\ri0\widctlpar\faauto\adjustright\rin0\lin0\itap0 \fs20\lang1049\langfe1049\cgrid\langnp1049\langfenp1049 {\f1\lang1033\langfe1049\langnp1033 
+\par unit PropList 
+\par 
+\par TObject - TPropertyList
+\par 
+\par TPropertyList is the list that contains the properties objects for each property of the selected component. TPropertyList used internally in TPropertyInterface and TObjectInspector.
+\par See also: TProperty, TPropertyInterface
+\par 
+\par PUBLIC
+\par 
+\par methods
+\par 
+\par constructor Create(AOwner: TProperty); virtual;
+\par This constructor creates and initializes a property list object.
+\par 
+\par destructor Destroy; override;
+\par This destructor destroys an instance of TPropertyList.
+\par 
+\par function CreateProperty(APropInfo: PPropInfo): TProperty; virtual;
+\par This virtual function creates TProperty instance using passed property information retreived from RTTI. The function can be overridden for creating some special TProperty descendance instead of standard TProperty.
+\par 
+\par procedure AddEmulated(P: TProperty); virtual;
+\par This virtual function adds emulated boolean properties for set type property. The function can be overridden for createing emulated properties for some other property types.
+\par 
+\par procedure Update; virtual;
+\par This virtual function refreshes the property list.
+\par 
+\par function Compare(P1,P2: TProperty): Integer; virtual;
+\par This function compares two properties for sorting the property list using properties names.
+\par 
+\par function Filter(P: TProperty): Boolean; virtual;
+\par This function is called for each property after insterting it into the property list. If this function returns False the property is to be deleted.
+\par 
+\par function IndexOf(const Item: TProperty): Integer;
+\par This function returns index of passed property object. If the property is not in the list return value is \endash 1.
+\par 
+\par function IndexOfName(const Name: string): Integer;
+\par This function returns index of property with passed name. If the property with this name is not in the list return value is \endash 1.
+\par 
+\par function FindProperty(const Name: string): TProperty;
+\par This fucntion returns property with passed name. If the property with this name is not in the list return value is nil. The property name can be complex, f.e. 'Font.Style.fsBold' or 'VertScrollBar.Visible'.
+\par 
+\par property OwnerList: TPropertyList;
+\par This property indicates which property list owns this object.
+\par RO
+\par 
+\par property Level: Integer;
+\par This property indicates nesting level. First level is 0.
+\par RO
+\par 
+\par property Count: Integer;
+\par This property indicates property count of the list.
+\par RO
+\par 
+\par property Properties[Index: Integer]: TProperty;
+\par This array-type property contains properties objects. This is a default property so you canm use MyPropertyList[i] instead of MyPropertyList.Properties[i].
+\par 
+\par property Owner: TProperty;
+\par This property indicates which property owns this property list object.
+\par RO
+\par 
+\par property Root: TComponent;
+\par This property contains root component that is used for retreiving method names and pointers.
+\par 
+\par property Instance: TComponent;
+\par This property contains the current component.
+\par 
+\par 
+\par }\pard\plain \s1\ql \li0\ri0\keepn\widctlpar\faauto\outlinelevel0\adjustright\rin0\lin0\itap0 \f1\fs40\lang1049\langfe1049\cgrid\langnp1049\langfenp1049 {\lang1033\langfe1049\langnp1033 TCustomPropertyInterface
+\par }\pard\plain \ql \li0\ri0\widctlpar\faauto\adjustright\rin0\lin0\itap0 \fs20\lang1049\langfe1049\cgrid\langnp1049\langfenp1049 {\f1\lang1033\langfe1049\langnp1033 
+\par unit PropIntf
+\par 
+\par TObject \endash  TPersistent \endash  TComponents - TCustomPropertyInterface
+\par 
+\par TCustomPropertyInterface is an abstract base class for property interface components.
+\par See also: TProperty, TPropertyList
+\par 
+\par PUBLIC
+\par 
+\par methods
+\par 
+\par constructor Create(AOwner: TComponent); override;
+\par This overridden constructor creates TPropertyInterface object.
+\par 
+\par destructor Destroy; override;
+\par This overridden destructor destroys TPropertyInterface object.
+\par 
+\par function FindProperty(const PropName: string): TProperty;
+\par This function finds
+\par 
+\par }{\f1\lang1033\langfe1049\langnp1033 function TCustomPropertyInterface.CreatePropertyList: TPropertyList; \line override;\line Overridden virtual method for creating special property list class \line instead of standard one.}{
+\f1\lang1033\langfe1049\langnp1033 
+\par 
+\par PROTECTED
+\par 
+\par properties
+\par 
+\par property Root: TComponent;
+\par This property contains root component that is used for retreiving method names and pointers.
+\par 
+\par property Instance: TComponent;
+\par This property contains the current component.
+\par 
+\par property Count: Integer;
+\par This property indicates property count of the list.
+\par RO
+\par 
+\par property Properties[Index: Integer]: TProperty;
+\par This array-type property contains properties objects. This is a default property so you canm use MyPropertyInterface[i] instead of MyPropertyInterface.Properties[i].
+\par 
+\par 
+\par }\pard\plain \s1\ql \li0\ri0\keepn\widctlpar\faauto\outlinelevel0\adjustright\rin0\lin0\itap0 \f1\fs40\lang1049\langfe1049\cgrid\langnp1049\langfenp1049 {\lang1033\langfe1049\langnp1033 TPropertyInterface
+\par }\pard\plain \ql \li0\ri0\widctlpar\faauto\adjustright\rin0\lin0\itap0 \fs20\lang1049\langfe1049\cgrid\langnp1049\langfenp1049 {\f1\lang1033\langfe1049\langnp1033 
+\par unit PropIntf
+\par 
+\par TObject \endash  TPersistent \endash  TComponents \endash  TCustomPropertyInterface - TPropertyInterface
+\par 
+\par TPropertyInterface is a public component. It just publishes some properties derived from TCustomPropertyInterface.
+\par 
+\par PUBLIC
+\par 
+\par properties
+\par 
+\par property Count;
+\par property Properties;
+\par 
+\par PUBLISHED
+\par 
+\par properties
+\par 
+\par property Root;
+\par property Instance;
+\par }}

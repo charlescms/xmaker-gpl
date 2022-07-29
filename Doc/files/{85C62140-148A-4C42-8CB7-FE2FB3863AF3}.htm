@@ -1,0 +1,170 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><title>Lançamentos</title>
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+body {
+  margin: 5px 5px 5px 5px;
+  background-color: #ffffff;
+}
+/* ========== Text Styles ========== */
+hr { color: #000000}
+body, table /* Normal text */
+{
+ font-size: 10pt;
+ font-family: 'Arial';
+ font-style: normal;
+ font-weight: normal;
+ color: #000000;
+ text-decoration: none;
+}
+span.rvts1 /* Heading */
+{
+ font-weight: bold;
+ color: #0000ff;
+}
+span.rvts2 /* Subheading */
+{
+ font-weight: bold;
+ color: #000080;
+}
+span.rvts3 /* Keywords */
+{
+ font-style: italic;
+ color: #800000;
+}
+a.rvts4, span.rvts4 /* Jump 1 */
+{
+ color: #008000;
+ text-decoration: underline;
+}
+a.rvts5, span.rvts5 /* Jump 2 */
+{
+ color: #008000;
+ text-decoration: underline;
+}
+span.rvts6 /* Font Style */
+{
+ font-size: 16pt;
+ font-family: 'MS Sans Serif';
+ color: #ffffff;
+}
+span.rvts7
+{
+ font-size: 11pt;
+ font-family: 'Verdana';
+}
+span.rvts8
+{
+ font-size: 11pt;
+ font-family: 'Verdana';
+ color: #000000;
+}
+span.rvts9
+{
+ font-size: 11pt;
+ font-family: 'Verdana';
+ font-weight: bold;
+ color: #000000;
+}
+span.rvts10 /* Font Style */
+{
+ font-family: 'MS Sans Serif';
+ color: #808080;
+}
+span.rvts11 /* Font Style */
+{
+ font-family: 'Verdana';
+ font-style: italic;
+ color: #c0c0c0;
+}
+a.rvts12, span.rvts12 /* Font Style */
+{
+ font-family: 'Verdana';
+ font-style: italic;
+ color: #6666ff;
+ text-decoration: underline;
+}
+/* ========== Para Styles ========== */
+p,ul,ol /* Paragraph Style */
+{
+ text-align: left;
+ text-indent: 0px;
+ padding: 0px 0px 0px 0px;
+ margin: 0px 0px 0px 0px;
+}
+.rvps1 /* Centered */
+{
+ text-align: center;
+}
+.rvps2 /* Paragraph Style */
+{
+ background: #9fbed0;
+ margin: 0px 0px 20px 0px;
+}
+.rvps3
+{
+ text-align: justify;
+}
+.rvps4
+{
+ text-align: justify;
+ text-indent: 24px;
+}
+.rvps5
+{
+ margin: 7px 0px 7px 0px;
+}
+.rvps6
+{
+ text-align: justify;
+ margin: 7px 0px 7px 0px;
+}
+.rvps7 /* Paragraph Style */
+{
+ text-align: center;
+ background: #e4e4e4;
+ margin: 20px 0px 0px 0px;
+}
+.rvps8 /* Paragraph Style */
+{
+ border-color: #c0c0c0;
+ border-style: solid;
+ border-width: 1px;
+ border-right: none;
+ border-bottom: none;
+ border-left: none;
+ background: #ffffff;
+ padding: 3px 0px 0px 0px;
+ margin: 27px 0px 0px 0px;
+}
+--></style>
+<body>
+
+<p class=rvps2><span class=rvts6>Lançamentos</span></p>
+<p class=rvps4><span class=rvts7>Os lançamentos poderão ser utilizados para gerar um novo registro em outra tabela após a inclusão. O projetista poderá definir lançamento avulso de livre codificação.</span></p>
+<p class=rvps4><span class=rvts7><br></span></p>
+<p class=rvps1><img alt="" hspace=1 vspace=1 src="img_61.jpg"></p>
+<p class=rvps5><span class=rvts9>Tabela alvo</span><span class=rvts8>: Tabela que irá receber o novo registro.</span>
+<br><span class=rvts9>Condição p/ inclusão</span><span class=rvts8>: Expressão lógica de condição para criação do novo registro.</span>
+<br><span class=rvts9>Campos da Tabela alvo</span><span class=rvts8>: Campos que poderão ser preenchidos, os campos chaves são obrigatórios.</span>
+<br><span class=rvts9>Preencher com</span><span class=rvts8>: Valores a serem atribuídos.</span></p>
+<p class=rvps6><span class=rvts8>Condição e Preencher com são blocos de codificações, a "Condição" deverá ser definida com a sintaxe da linguagem Delphi, os campos "Preencher com" utilizam a sintaxe "SQL" que é a linguagem nativa do Banco de Dados. Opcionalmente você poderá utilizar a caixa de definição de expressão, conforme imagem acima.</span></p>
+<p class=rvps6><span class=rvts8>Para realizar concatenação de expressão é necessário utilizar as aspas('), como exemplo podemos citar o campo "CAI_TIPO" da Tabela "LcCxBco", este campo recebe o valor "E" = Entrada ou "S" = Saída, a expressão "Preencher com" do campo alvo irá gravar a letra correspondente ao tipo de baixa ou estorno e não poderá ser utilizado "E" ou "S" diretamente sem a devida concatenação, a expressão final é: </span><span class=rvts9>'+#39+'E'+#39+'</span><span class=rvts8> ou </span><span class=rvts9>'+#39+'S'+#39+'</span><span class=rvts8> veja logo abaixo a imagem com o código gerado.</span></p>
+<p class=rvps1><img alt="" hspace=1 vspace=1 src="img_62.jpg"></p>
+<p class=rvps3><span class=rvts7><br></span></p>
+<p class=rvps6><span class=rvts8>Toda linha de "Preencher com" é transformada em linha de código, o atributo "SQL" recebe as linhas de codificação através do método "add", este método aceita somente expressões do tipo "String", as aspas (') são utilizadas para determinar o ínicio e fim de uma "String", isso é válido tanto para linguagem Delphi (Object Pascal) como para "SQL", a expressão final em "SQL" deverá ser: 'E' ou 'S', para não gerar conflito entre as linguagens na hora da compilação as aspas da expressão é representada pelo caractere "#39", "#39" é o código ASCII das aspas, vamos analisar a linha para uma maior compreensão:</span></p>
+<p class=rvps6><span class=rvts9>Sql.Add(','+#39+'E'+#39+'');</span></p>
+<p class=rvps6><span class=rvts8>O sinal de "+" faz a concatenação de "Strings", então será: , (vírgula) + ' (aspas) + E (Letra) + ' (aspas) = , 'E'</span></p>
+<p class=rvps6><span class=rvts8>O método "RetornaAutoIncremento" pode ser utilizado para buscar o próximo número de campo, exemplo: Campo alvo: "CAI_SEQUENCIA", a seqüência deste campo é subordinada aos campos "CONTA" e "CAI_DATA". Como o método retorna um número o método "IntToStr" é utilizado para converter em "String", o "#39" não é utilizado porque o campo é numérico.</span></p>
+<hr noshade size=1 style="{color : #000000}">
+<p class=rvps5><span class=rvts8>Declaração do Método "RetornaAutoIncremento":</span></p>
+<p class=rvps5><span class=rvts9>function</span><span class=rvts8> RetornaAutoIncremento(TabelaPrincipal: TTabela; Campo: String; Condicao: String; Qtd: Integer = 1): Variant;</span></p>
+<hr noshade size=1 style="{color : #000000}">
+<p class=rvps5><span class=rvts8>Retorna o próximo número a ser utilizado em uma Tabela. O projetista poderá informar uma expressão de filtro em “Condicao”, como default o próximo registro será acrescido de 1 (um).</span></p>
+<p class=rvps3><span class=rvts7><br></span></p>
+<p class=rvps1><span class=rvts7>Lançamento “Avulso”</span></p>
+<p class=rvps1><img alt="" hspace=1 vspace=1 src="img_63.jpg"></p>
+<p><span class=rvts7>O projetista poderá codificar as instruções a serem executadas após a inclusão do registro.</span></p>
+<p class=rvps7><span class=rvts10>Copyright © 2005, Modular Software</span></p>
+
+</body></html>

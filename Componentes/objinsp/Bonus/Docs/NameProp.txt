@@ -1,0 +1,27 @@
+*****************************************************************
+ GREATIS DELPHI BONUS
+*****************************************************************
+
+ GREATIS DELPHI BONUS is a free, unsupported software.
+
+*****************************************************************
+ NameProp
+*****************************************************************
+
+About NameProp
+~~~~~~~~~~~~~~
+
+NameProp is an advanced editor for Name property. After 
+installation you can see NameProp button on each Name property.
+
+
+Recommended Prefixes
+~~~~~~~~~~~~~~~~~~~~
+
+If you want to use our recommended prefixes:
+
+1) Run Explorer
+2) Choose your Greatis Delphi Bonus folder
+3) Double click "NAMEPROP.REG" file
+
+*****************************************************************

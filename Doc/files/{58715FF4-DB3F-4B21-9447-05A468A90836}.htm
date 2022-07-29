@@ -1,0 +1,179 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><title>Principais Eventos</title>
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+body {
+  margin: 5px 5px 5px 5px;
+  background-color: #ffffff;
+}
+/* ========== Text Styles ========== */
+hr { color: #000000}
+body, table /* Normal text */
+{
+ font-size: 10pt;
+ font-family: 'Arial';
+ font-style: normal;
+ font-weight: normal;
+ color: #000000;
+ text-decoration: none;
+}
+span.rvts1 /* Heading */
+{
+ font-weight: bold;
+ color: #0000ff;
+}
+span.rvts2 /* Subheading */
+{
+ font-weight: bold;
+ color: #000080;
+}
+span.rvts3 /* Keywords */
+{
+ font-style: italic;
+ color: #800000;
+}
+a.rvts4, span.rvts4 /* Jump 1 */
+{
+ color: #008000;
+ text-decoration: underline;
+}
+a.rvts5, span.rvts5 /* Jump 2 */
+{
+ color: #008000;
+ text-decoration: underline;
+}
+span.rvts6 /* Font Style */
+{
+ font-size: 16pt;
+ font-family: 'MS Sans Serif';
+ color: #ffffff;
+}
+span.rvts7
+{
+ font-size: 11pt;
+ font-family: 'Verdana';
+}
+span.rvts8
+{
+ font-size: 11pt;
+ font-family: 'Verdana';
+ font-style: italic;
+ font-weight: bold;
+ color: #ffffff;
+}
+span.rvts9 /* Font Style */
+{
+ font-family: 'MS Sans Serif';
+ color: #808080;
+}
+span.rvts10 /* Font Style */
+{
+ font-family: 'Verdana';
+ font-style: italic;
+ color: #c0c0c0;
+}
+a.rvts11, span.rvts11 /* Font Style */
+{
+ font-family: 'Verdana';
+ font-style: italic;
+ color: #6666ff;
+ text-decoration: underline;
+}
+/* ========== Para Styles ========== */
+p,ul,ol /* Paragraph Style */
+{
+ text-align: left;
+ text-indent: 0px;
+ padding: 0px 0px 0px 0px;
+ margin: 0px 0px 0px 0px;
+}
+.rvps1 /* Centered */
+{
+ text-align: center;
+}
+.rvps2 /* Paragraph Style */
+{
+ background: #9fbed0;
+ margin: 0px 0px 20px 0px;
+}
+.rvps3
+{
+ text-align: justify;
+ text-indent: 36px;
+}
+.rvps4
+{
+ text-align: justify;
+}
+.rvps5
+{
+ text-align: center;
+ text-indent: 36px;
+}
+.rvps6
+{
+ text-align: center;
+ page-break-after: avoid;
+ background: #008080;
+ margin: 16px 0px 16px 0px;
+}
+.rvps7 /* Paragraph Style */
+{
+ text-align: center;
+ background: #e4e4e4;
+ margin: 20px 0px 0px 0px;
+}
+.rvps8 /* Paragraph Style */
+{
+ border-color: #c0c0c0;
+ border-style: solid;
+ border-width: 1px;
+ border-right: none;
+ border-bottom: none;
+ border-left: none;
+ background: #ffffff;
+ padding: 3px 0px 0px 0px;
+ margin: 27px 0px 0px 0px;
+}
+--></style>
+<body>
+
+<p class=rvps2><span class=rvts6>Principais Eventos</span></p>
+<p class=rvps6><span class=rvts8>Inicialização (FormShow)</span></p>
+<p class=rvps3><span class=rvts7>Este evento é utilizado para fazer a ligação entre os componentes e os campos da Tabela, algumas configurações visuais são tratadas também neste evento. O evento é chamando quando o formulário é executado pela primeira vez, quando o formulário é fechado e executado novamente conta-se como sendo a primeira vez. O projetista deverá respeitar os blocos 05 e 06.</span></p>
+<p class=rvps6><span class=rvts8>Abertura de Tabelas (AbreTabelas)</span></p>
+<p class=rvps3><span class=rvts7>Todas as Tabelas do projeto são abertas na inicialização do projeto final, o projetista não irá encontrar neste evento as codificações de abertura da Tabela manipulada pelo formulário. Este evento foi mantido visando uma possível necessidade do usuário em realizar uma abertura de Tabela de forma Local no formulário. </span></p>
+<p class=rvps6><span class=rvts8>Confirma Inclusão (ConfirmaInclusao)</span></p>
+<p class=rvps3><span class=rvts7>Cada vez que o usuário do projeto final pedir uma inclusão de registro, o evento “ConfirmaInclusao” será chamado, este evento retorna uma expressão lógica permitindo ou não a inclusão. Como padrão o evento retorna sempre verdadeiro, o projetista poderá criar uma condição para manipular o retorno.</span></p>
+<p class=rvps6><span class=rvts8>Confirma Modificação (ConfirmaModificacao)</span></p>
+<p class=rvps3><span class=rvts7>Cada vez que o usuário do projeto final pedir uma modificação do registro, o evento “ConfirmaModificacao” será chamado, este evento retorna uma expressão lógica permitindo ou não a modificação. Como padrão o evento retorna sempre verdadeiro, o projetista poderá criar uma condição para manipular o retorno.</span></p>
+<p class=rvps6><span class=rvts8>Confirma Exclusão (ConfirmaExclusao)</span></p>
+<p class=rvps3><span class=rvts7>Cada vez que o usuário do projeto final pedir uma exclusão de registro, o evento “ConfirmaExclusao” será chamado, este evento retorna uma expressão lógica permitindo ou não a exclusão. Como padrão o evento retorna sempre verdadeiro, o projetista poderá criar uma condição para manipular o retorno.</span></p>
+<p class=rvps6><span class=rvts8>Confirma Gravação (ConfirmaGravacao)</span></p>
+<p class=rvps3><span class=rvts7>Cada vez que o usuário do projeto final pedir para salvar um registro, o evento “ConfirmaGravacao” será chamado, este evento retorna uma expressão lógica permitindo ou não que o registro seja salvo. Como padrão o evento retorna sempre verdadeiro, o projetista poderá criar uma condição para manipular o retorno.</span></p>
+<p class=rvps6><span class=rvts8>Ao Entrar Manutenção (TelaManutencao)</span></p>
+<p class=rvps3><span class=rvts7>Toda vez que a tela de manutenção do formulário for ativada o evento “TelaManutencao” será chamado, ao navegar entre os registros com a tela de manutenção ativa o evento será chamado também. Esse evento é muito útil para realizar alterações de propriedades visuais em tempo de execução. Exemplo: um Cadastro de Clientes, aonde o tipo de pessoa (Física ou Jurídica) determina o preenchimento de certos campos, o projetista terá que codificar essas particularidades exigidas. Os campos a serem habilitados ou desabilitados serão codificados nesse evento.</span></p>
+<p class=rvps4><span class=rvts7><br></span></p>
+<p class=rvps6><span class=rvts8>Ao Entrar Consulta (TelaConsulta)</span></p>
+<p class=rvps3><span class=rvts7>Toda vez que a tela de consulta do formulário for ativada o evento “TelaConsulta” será chamado. </span></p>
+<p class=rvps6><span class=rvts8>Atribui Valores (AtribuiValoresPadrao)</span></p>
+<p class=rvps5><span class=rvts7>Quando o usuário do projeto final pedir uma inclusão de registro o evento “AtribuiValoresPadrao” será chamado, o X-Maker utilize este evento para atribuir a função de auto-incremento de um campo. O projetista poderá utilizar este evento para atribuir valores aos campos da Tabela.</span></p>
+<p class=rvps6><span class=rvts8>Antes de Salvar (AntesdeSalvar)</span></p>
+<p class=rvps3><span class=rvts7>Este evento será chamado antes de salvar um registro através do botão “Salvar” do formulário. O projetista poderá realizar codificações de atribuição de campos ou para quaisquer outros fins.</span></p>
+<p class=rvps6><span class=rvts8>Antes de Incluir (AntesdeIncluir)</span></p>
+<p class=rvps3><span class=rvts7>Este evento será chamado antes de entrar no modo de inclusão de registro, através do botão “Incluir” da barra de ferramentas.</span></p>
+<p class=rvps6><span class=rvts8>Antes de Modificar (AntesdeModificar)</span></p>
+<p class=rvps3><span class=rvts7>Este evento será chamado antes de entrar no modo de modificação de registro, através do botão “Modificar” da barra de ferramentas.</span></p>
+<p class=rvps6><span class=rvts8>Antes de Excluir (AntesdeExcluir)</span></p>
+<p class=rvps3><span class=rvts7>Este evento será chamado antes de entrar no modo de exclusão de registro, através do botão “Excluir” da barra de ferramentas.</span></p>
+<p class=rvps6><span class=rvts8>Depois de Incluir (DepoisdeIncluir)</span></p>
+<p class=rvps3><span class=rvts7>Este evento será chamado depois da inclusão de um registro, através do botão “Incluir” da barra de ferramentas.</span></p>
+<p class=rvps6><span class=rvts8>Depois de Modificar (DepoisdeModificar)</span></p>
+<p class=rvps3><span class=rvts7>Este evento será chamado depois da modificação de um registro, através do botão “Modificar” da barra de ferramentas.</span></p>
+<p class=rvps6><span class=rvts8>Depois de Excluir (DepoisdeExcluir)</span></p>
+<p class=rvps3><span class=rvts7>Este evento será chamado depois da exclusão de um registro, através do botão “Excluir” da barra de ferramentas.</span></p>
+<p class=rvps6><span class=rvts8>Finalização (FormClose)</span></p>
+<p class=rvps3><span class=rvts7>Este evento será chamado quando o usuário do projeto final fechar o formulário.</span></p>
+<p class=rvps7><span class=rvts9>Copyright © 2005, Modular Software</span></p>
+
+</body></html>

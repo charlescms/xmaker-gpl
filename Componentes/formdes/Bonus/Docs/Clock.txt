@@ -1,0 +1,71 @@
+*****************************************************************
+ GREATIS DELPHI BONUS
+*****************************************************************
+
+ GREATIS DELPHI BONUS is a free, unsupported software.
+
+*****************************************************************
+ TClock
+*****************************************************************
+
+About TClock
+~~~~~~~~~~~~
+
+TClock is an advanced clock component that allow to add the 
+clock feature into any form in your application.
+
+
+TClock Hierarchy
+~~~~~~~~~~~~~~~~
+
+TGraphicControl
+	TClock
+
+TClock Interface
+~~~~~~~~~~~~~~~~
+
+Methods
+
+public
+
+constructor Create(AOwner: TComponent); override;
+Standard constructor overriden for initializing internal fields.
+
+procedure Paint; override;
+Standard paint method overriden for painting clockface and hands.
+
+Properties
+
+published
+
+property FaceShape: TShapeType;
+This property determines the shape of clockface.
+
+property BackColor: TColor;
+property FaceColor: TColor;
+property HandColor: TColor;
+Colors of control background, clockface and hands.
+
+property Time: TTime;
+Time that currently displayed. The TClock component does not get
+the time itself, so you have to use Time property for setting the
+time in your program.
+
+property ShowSeconds: Boolean;
+If this property is True the second hand is visible.
+
+property HandMode: THandMode;
+Mode of hands drawing. THandMode is defined as:
+THandMode = (hmNormal,hmFilled,hmTransparent);
+hmNormal	hands are filled by FaceColor
+hmFilled	hands are filled by HandColor
+hmTransparent	hads are not filled
+
+property HandShape: THandShape;
+Shape of hands. THandShape is defined as:
+THandShape = (hsRectangle,hsTrapeze,hsTriangle);
+
+property HoursVisible: Boolean;
+If this property is True, the hour marks are shown.
+
+*****************************************************************

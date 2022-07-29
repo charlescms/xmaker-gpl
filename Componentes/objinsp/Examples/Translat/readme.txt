@@ -1,0 +1,8 @@
+*******************************************************
+ GREATIS OBJECT INSPECTOR EXAMPLES
+ Copyright (C) 2002-2006 Greatis Software
+*******************************************************
+
+This example demonstrates how to change values 
+"on the fly". 
+"True" and "False" replaced by "Yes" and "No".

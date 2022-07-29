@@ -1,0 +1,621 @@
+unit PackageInfo;
+
+interface
+
+uses Classes, WinTypes;
+
+type
+  TPackageClassesAndUnits = class
+  protected
+    FModuleName: string;
+    FUnitList: TStringList;
+    FClassList: TList;
+    procedure MethodGetClass(AClass: TPersistentClass);
+  public
+    constructor Create(ModuleHandle: THandle); Overload;
+    constructor Create(ModuleName: String); Overload;
+    destructor Destroy; override;
+    property ClassList: TList read FClassList;
+    property Units: TStringList read FUnitList;
+    property ModuleName: string read FModuleName;
+  end;
+
+{ TClassFinder }
+
+  TGetClass = procedure (AClass: TPersistentClass) of object;
+
+  TClassFinder = class
+  private
+    FGroups: TList;
+  public
+    constructor Create(AClass: TPersistentClass = nil;
+      AIncludeActiveGroups: Boolean = False);
+    destructor Destroy; override;
+    function GetClass(const AClassName: string): TPersistentClass;
+    procedure GetClasses(Proc: TGetClass);
+  end;
+
+{ TRegGroup }
+
+  TRegGroup = class
+  private
+    FClassList: TList;
+    FAliasList: TStringList;
+    FGroupClasses: TList;
+    FActive: Boolean;
+    function BestClass(AClass: TPersistentClass): TPersistentClass;
+  public
+    constructor Create(AClass: TPersistentClass);
+    destructor Destroy; override;
+    class function BestGroup(Group1, Group2: TRegGroup; AClass: TPersistentClass): TRegGroup;
+    procedure AddClass(AClass: TPersistentClass);
+    function GetClass(const AClassName: string): TPersistentClass;
+    procedure GetClasses(Proc: TGetClass);
+    function InGroup(AClass: TPersistentClass): Boolean;
+    procedure RegisterClass(AClass: TPersistentClass);
+    procedure RegisterClassAlias(AClass: TPersistentClass; const Alias: string);
+    function Registered(AClass: TPersistentClass): Boolean;
+    procedure UnregisterClass(AClass: TPersistentClass);
+    procedure UnregisterModuleClasses(Module: HMODULE);
+    property Active: Boolean read FActive write FActive;
+  end;
+
+  TRegGroups = class
+  private
+    FGroups: TList;
+    FLock: TRTLCriticalSection;
+    FActiveClass: TPersistentClass;
+    function FindGroup(AClass: TPersistentClass): TRegGroup;
+  public
+    constructor Create;
+    destructor Destroy; override;
+    procedure Activate(AClass: TPersistentClass);
+    procedure AddClass(ID: Integer; AClass: TPersistentClass);
+    function GetClass(const AClassName: string): TPersistentClass;
+    function GroupedWith(AClass: TPersistentClass): TPersistentClass;
+    procedure GroupWith(AClass, AGroupClass: TPersistentClass);
+    procedure Lock;
+    procedure RegisterClass(AClass: TPersistentClass);
+    procedure RegisterClassAlias(AClass: TPersistentClass; const Alias: string);
+    function Registered(AClass: TPersistentClass): Boolean;
+    procedure StartGroup(AClass: TPersistentClass);
+    procedure Unlock;
+    procedure UnregisterClass(AClass: TPersistentClass);
+    procedure UnregisterModuleClasses(Module: HMODULE);
+    property ActiveClass: TPersistentClass read FActiveClass;
+  end;
+
+var
+  RegGroups: TRegGroups;
+
+implementation
+
+uses TypInfo, Windows, SysUtils, Contnrs, Consts;
+
+procedure PackageInfoMethod(const Name: string; NameType: TNameType; Flags: Byte; Param: Pointer);
+var
+  UnitList: TStringList;
+begin
+  // add unit
+  if NameType = ntContainsUnit then
+  begin
+    UnitList := TStringList(Param); // should work when Param is FUnitList from TPackageClassesAndUnits
+    UnitList.Add(Name);
+  end;
+end;
+
+
+{ TPackageClassesAndUnits }
+
+constructor TPackageClassesAndUnits.Create(ModuleHandle: THandle);
+var
+  flags: integer;
+
+  function GetModuleName(Module: HMODULE): string;
+  var
+    ModName: array[0..MAX_PATH] of Char;
+  begin
+    SetString(Result, ModName, Windows.GetModuleFileName(Module, ModName, SizeOf(ModName)));
+  end;
+
+begin
+  // create class list
+  FClassList:= TList.Create;
+  // create unit list (sorted, ignore duplicates)
+  FUnitList := TStringList.Create;
+  FUnitList.Duplicates := dupIgnore;
+  FUnitList.Sorted := true;
+
+  FModuleName := GetModuleName(ModuleHandle);
+
+  // build unit list
+  GetPackageInfo(ModuleHandle, FUnitList, flags, @PackageInfoMethod);
+
+  // build class list
+  with TClassFinder.Create(nil, false) do
+  try
+    GetClasses(MethodGetClass);
+  finally
+    Free;
+  end;
+end;
+
+constructor TPackageClassesAndUnits.Create(ModuleName: String);
+begin
+  self.Create(GetModuleHandle(PChar(ModuleName)));
+end;
+
+destructor TPackageClassesAndUnits.Destroy;
+begin
+  FClassList.Free;
+  FUnitList.Free;
+  inherited;
+end;
+
+procedure TPackageClassesAndUnits.MethodGetClass(AClass: TPersistentClass);
+var
+  TypeData: PTypeData;
+begin
+  // get typedata pointer
+  TypeData := GetTypeData(AClass.ClassInfo);
+  // add class when unit name of class typedate in unit list and not
+  // already added
+  if (FUnitList.IndexOf(TypeData^.UnitName) >= 0) and
+    (FClassList.IndexOf(AClass) < 0) then
+    FClassList.Add(AClass);
+end;
+
+{procedure TPackageClassesAndUnits.MethodGetClass(AClass: TPersistentClass);
+var
+  TypeData: PTypeData;
+begin
+  // get typedata pointer
+  TypeData := GetTypeData(AClass.ClassInfo);
+  // add class when unit name of class typedate in unit list and not
+  // already added
+  if (FUnitList.IndexOf(TypeData^.UnitName) >= 0) and
+    (FClassList.IndexOf(AClass) < 0) then
+    FClassList.Add(AClass);
+    //deze heb ik er extra aan toegevoegd
+    FClassNames.Add(AClass.ClassName);
+end;}
+
+{ TClassFinder }
+
+constructor TClassFinder.Create(AClass: TPersistentClass;
+  AIncludeActiveGroups: Boolean);
+var
+  I: Integer;
+  Group: TRegGroup;
+begin
+  inherited Create;
+  FGroups := TList.Create;
+  RegGroups.Lock;
+  try
+    if AClass = nil then AClass := RegGroups.ActiveClass;
+    for I := 0 to RegGroups.FGroups.Count - 1 do
+    begin
+      Group := RegGroups.FGroups[I];
+      //if Group.InGroup(AClass) then
+        FGroups.Add(Group);
+    end;
+    if AIncludeActiveGroups then
+      for I := 0 to RegGroups.FGroups.Count - 1 do
+      begin
+        Group := RegGroups.FGroups[I];
+        if Group.Active then
+          FGroups.Add(Group);
+      end;
+  finally
+    RegGroups.Unlock;
+  end;
+end;
+
+destructor TClassFinder.Destroy;
+begin
+  FGroups.Free;
+  inherited;
+end;
+
+function TClassFinder.GetClass(const AClassName: string): TPersistentClass;
+var
+  I: Integer;
+begin
+  Result := nil;
+  RegGroups.Lock;
+  try
+    for I := 0 to FGroups.Count - 1 do
+      with TRegGroup(FGroups[I]) do
+      begin
+        Result := GetClass(AClassName);
+        if Result <> nil then Exit;
+      end;
+  finally
+    RegGroups.Unlock;
+  end;
+end;
+
+procedure TClassFinder.GetClasses(Proc: TGetClass);
+var
+  I: Integer;
+begin
+  RegGroups.Lock;
+  try
+    for I := 0 to FGroups.Count - 1 do
+      TRegGroup(FGroups[I]).GetClasses(Proc);
+  finally
+    RegGroups.Unlock;
+  end;
+end;
+
+{ TRegGroup }
+
+procedure TRegGroup.AddClass(AClass: TPersistentClass);
+begin
+  FGroupClasses.Add(AClass);
+end;
+
+function TRegGroup.BestClass(AClass: TPersistentClass): TPersistentClass;
+var
+  I: Integer;
+  Current: TPersistentClass;
+begin
+  Result := nil;
+  for I := 0 to FGroupClasses.Count - 1 do
+  begin
+    Current := FGroupClasses[I];
+    if AClass.InheritsFrom(Current) then
+      if (Result = nil) or Current.InheritsFrom(Result) then
+        Result := Current;
+  end;
+end;
+
+class function TRegGroup.BestGroup(Group1, Group2: TRegGroup;
+  AClass: TPersistentClass): TRegGroup;
+var
+  Group1Class: TPersistentClass;
+  Group2Class: TPersistentClass;
+begin
+  if Group1 <> nil then
+    Group1Class := Group1.BestClass(AClass) else
+    Group1Class := nil;
+  if Group2 <> nil then
+    Group2Class := Group2.BestClass(AClass) else
+    Group2Class := nil;
+  if Group1Class = nil then
+    if Group2Class = nil then
+      // AClass is not in either group, no best group
+      Result := nil
+    else
+      // AClass is in Group2 but not Group1, Group2 is best
+      Result := Group2
+  else
+    if Group2Class = nil then
+      // AClass is in Group1 but not Group2, Group1 is best
+      Result := Group1
+    else
+      // AClass is in both groups, select the group with the closest ancestor
+      if Group1Class.InheritsFrom(Group2Class) then
+        Result := Group1
+      else
+        Result := Group2;
+end;
+
+constructor TRegGroup.Create(AClass: TPersistentClass);
+begin
+  inherited Create;
+  FClassList := TList.Create;
+  FAliasList := TStringList.Create;
+  FGroupClasses := TList.Create;
+  FGroupClasses.Add(AClass);
+end;
+
+destructor TRegGroup.Destroy;
+begin
+  inherited Destroy;
+  FClassList.Free;
+  FAliasList.Free;
+  FGroupClasses.Free;
+end;
+
+function TRegGroup.GetClass(const AClassName: string): TPersistentClass;
+var
+  I: Integer;
+begin
+  for I := 0 to FClassList.Count - 1 do
+  begin
+    Result := FClassList[I];
+    if Result.ClassNameIs(AClassName) then Exit;
+  end;
+  I := FAliasList.IndexOf(AClassName);
+  if I >= 0 then
+  begin
+    Result := TPersistentClass(FAliasList.Objects[I]);
+    Exit;
+  end;
+  Result := nil;
+end;
+
+procedure TRegGroup.GetClasses(Proc: TGetClass);
+var
+  I: Integer;
+begin
+  for I := 0 to FClassList.Count - 1 do
+    Proc(TPersistentClass(FClassList[I]));
+end;
+
+function TRegGroup.InGroup(AClass: TPersistentClass): Boolean;
+var
+  I: Integer;
+begin
+  Result := True;
+  for I := 0 to FGroupClasses.Count - 1 do
+    if AClass.InheritsFrom(TPersistentClass(FGroupClasses[I])) then Exit;
+  Result := False;
+end;
+
+procedure TRegGroup.RegisterClass(AClass: TPersistentClass);
+var
+  LClassName: string;
+begin
+  LClassName := AClass.ClassName;
+  if GetClass(LClassName) <> nil then
+    raise EFilerError.CreateResFmt(@SDuplicateClass, [LClassName]);
+  FClassList.Add(AClass);
+end;
+
+procedure TRegGroup.RegisterClassAlias(AClass: TPersistentClass;
+  const Alias: string);
+begin
+  RegisterClass(AClass);
+  FAliasList.AddObject(Alias, TObject(AClass));
+end;
+
+function TRegGroup.Registered(AClass: TPersistentClass): Boolean;
+begin
+  Result := FClassList.IndexOf(AClass) >= 0;
+end;
+
+procedure TRegGroup.UnregisterClass(AClass: TPersistentClass);
+var
+  I: Integer;
+begin
+  FClassList.Remove(AClass);
+  for I := FAliasList.Count - 1 downto 0 do
+    if FAliasList.Objects[I] = TObject(AClass) then
+      FAliasList.Delete(I);
+end;
+
+function PointerInModule(Ptr: Pointer; Module: HMODULE): Boolean;
+begin
+  Result := (Module = 0) or (FindHInstance(Ptr) = Module);
+end;
+
+procedure TRegGroup.UnregisterModuleClasses(Module: HMODULE);
+var
+  I: Integer;
+begin
+  // Even though the group criterion changes we do not need to recalculate the
+  // groups because the groups are based on ancestry. If an ancestor of a class
+  // is removed because its module was unloaded we can safely assume that all
+  // descendents have also been unloaded or are being unloaded as well. This
+  // means that any classes left in the registry are not descendents of the
+  // classes being removed and, therefore, will not be affected by the change
+  // to the FGroupClasses list.
+  for I := FGroupClasses.Count - 1 downto 0 do
+    if PointerInModule(FGroupClasses[I], Module) then
+      FGroupClasses.Delete(I);
+  for I := FClassList.Count - 1 downto 0 do
+    if PointerInModule(FClassList[I], Module) then
+      FClassList.Delete(I);
+  for I := FAliasList.Count - 1 downto 0 do
+    if PointerInModule(FAliasList.Objects[I], Module) then
+      FAliasList.Delete(I);
+end;
+
+{ TRegGroups }
+
+procedure TRegGroups.Activate(AClass: TPersistentClass);
+var
+  I: Integer;
+begin
+  if FActiveClass <> AClass then
+  begin
+    FActiveClass := AClass;
+    for I := 0 to FGroups.Count - 1 do
+      with TRegGroup(FGroups[I]) do
+        Active := InGroup(AClass);
+  end;
+end;
+
+procedure TRegGroups.AddClass(ID: Integer; AClass: TPersistentClass);
+begin
+  TRegGroup(FGroups[ID]).AddClass(AClass);
+end;
+
+constructor TRegGroups.Create;
+var
+  Group: TRegGroup;
+begin
+  inherited Create;
+  FGroups := TList.Create;
+  InitializeCriticalSection(FLock);
+  // Initialize default group
+  Group := TRegGroup.Create(TPersistent);
+  FGroups.Add(Group);
+  Group.Active := True;
+end;
+
+destructor TRegGroups.Destroy;
+var
+  I: Integer;
+begin
+  DeleteCriticalSection(FLock);
+  for I := 0 to FGroups.Count - 1 do
+    TRegGroup(FGroups[I]).Free;
+  FGroups.Free;
+  inherited;
+end;
+
+function TRegGroups.FindGroup(AClass: TPersistentClass): TRegGroup;
+var
+  I: Integer;
+  Current: TRegGroup;
+begin
+  Result := nil;
+  for I := 0 to FGroups.Count - 1 do
+  begin
+    Current := FGroups[I];
+    Result := TRegGroup.BestGroup(Current, Result, AClass);
+  end;
+end;
+
+function TRegGroups.GetClass(const AClassName: string): TPersistentClass;
+var
+  I: Integer;
+begin
+  Result := nil;
+  for I := 0 to FGroups.Count - 1 do
+    with TRegGroup(FGroups[I]) do
+    begin
+      if Active then Result := GetClass(AClassName);
+      if Result <> nil then Exit;
+    end;
+end;
+
+function TRegGroups.GroupedWith(AClass: TPersistentClass): TPersistentClass;
+var
+  Group: TRegGroup;
+begin
+  Result := nil;
+  Group := FindGroup(AClass);
+  if Group <> nil then
+    Result := TPersistentClass(Group.FGroupClasses[0]);
+end;
+
+procedure TRegGroups.GroupWith(AClass, AGroupClass: TPersistentClass);
+
+  procedure Error;
+  const
+    SUnknownGroup = '%s not in a class registration group';
+  begin
+    raise EFilerError.CreateFmt(SUnknownGroup, [AGroupClass.ClassName]);
+  end;
+
+var
+  Group: TRegGroup;
+  CurrentGroup: TRegGroup;
+  CurrentClass: TPersistentClass;
+  I, J: Integer;
+begin
+  Group := FindGroup(AGroupClass);
+  if Group = nil then Error;
+  Group.AddClass(AClass);
+
+  // The group criterion has changed. We need to recalculate which groups the
+  // classes that have already been registered belong to. We can skip
+  // Group since we would just be moving a class to a group it already belongs
+  // to. We also only need to find the new group of classes that descend from
+  // AClass since that is the only criterion being changed. In other words,
+  // we only need to move classes that descend from AClass to Group if they
+  // are in another group.
+  for I := 0 to FGroups.Count - 1 do
+  begin
+    CurrentGroup := FGroups[I];
+    if CurrentGroup <> Group then
+      for J := CurrentGroup.FClassList.Count - 1 downto 0 do
+      begin
+        CurrentClass := CurrentGroup.FClassList[J];
+        if CurrentClass.InheritsFrom(AClass) then
+          // Check CurrentClass should be put into Group based on the new
+          // criterion. Their might be a descendent of AClass registered that
+          // overrides Group's criterion.
+          if FindGroup(CurrentClass) = Group then
+          begin
+            CurrentGroup.FClassList.Delete(J);
+            Group.FClassList.Add(CurrentClass);
+          end;
+      end;
+  end;
+end;
+
+procedure TRegGroups.Lock;
+begin
+  EnterCriticalSection(FLock);
+end;
+
+procedure TRegGroups.RegisterClass(AClass: TPersistentClass);
+var
+  Group: TRegGroup;
+begin
+  Group := FindGroup(AClass);
+  if Group <> nil then Group.RegisterClass(AClass);
+end;
+
+procedure TRegGroups.RegisterClassAlias(AClass: TPersistentClass;
+  const Alias: string);
+var
+  Group: TRegGroup;
+begin
+  Group := FindGroup(AClass);
+  if Group <> nil then Group.RegisterClassAlias(AClass, Alias);
+end;
+
+function TRegGroups.Registered(AClass: TPersistentClass): Boolean;
+var
+  I: Integer;
+begin
+  Result := True;
+  for I := 0 to FGroups.Count - 1 do
+    if TRegGroup(FGroups[I]).Registered(AClass) then Exit;
+  Result := False;
+end;
+
+procedure TRegGroups.StartGroup(AClass: TPersistentClass);
+var
+  I: Integer;
+begin
+  // Do not start a group that already exists
+  for I := 0 to FGroups.Count - 1 do
+    if TRegGroup(FGroups[I]).FGroupClasses.IndexOf(AClass) >= 0 then
+      Exit;
+  // Create the group
+  FGroups.Add(TRegGroup.Create(AClass));
+end;
+
+procedure TRegGroups.Unlock;
+begin
+  LeaveCriticalSection(FLock);
+end;
+
+procedure TRegGroups.UnregisterClass(AClass: TPersistentClass);
+var
+  I: Integer;
+begin
+  for I := 0 to FGroups.Count - 1 do
+    TRegGroup(FGroups[I]).UnregisterClass(AClass);
+end;
+
+procedure TRegGroups.UnregisterModuleClasses(Module: HMODULE);
+var
+  I: Integer;
+  Group: TRegGroup;
+begin
+  for I := FGroups.Count - 1 downto 0 do
+  begin
+    Group := TRegGroup(FGroups[I]);
+    Group.UnregisterModuleClasses(Module);
+    if Group.FGroupClasses.Count = 0 then
+    begin
+      Group.Free;
+      FGroups.Delete(I);
+    end;
+  end;
+end;
+
+initialization
+
+  RegGroups := TRegGroups.Create;
+
+end.
+

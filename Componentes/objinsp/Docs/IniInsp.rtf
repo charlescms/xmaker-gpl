@@ -1,0 +1,106 @@
+{\rtf1\ansi\ansicpg1251\uc1 \deff0\deflang1049\deflangfe1049{\fonttbl{\f0\froman\fcharset204\fprq2{\*\panose 02020603050405020304}Times New Roman;}{\f1\fswiss\fcharset204\fprq2{\*\panose 020b0604020202020204}Arial;}
+{\f30\froman\fcharset0\fprq2 Times New Roman;}{\f28\froman\fcharset238\fprq2 Times New Roman CE;}{\f31\froman\fcharset161\fprq2 Times New Roman Greek;}{\f32\froman\fcharset162\fprq2 Times New Roman Tur;}
+{\f33\froman\fcharset177\fprq2 Times New Roman (Hebrew);}{\f34\froman\fcharset178\fprq2 Times New Roman (Arabic);}{\f35\froman\fcharset186\fprq2 Times New Roman Baltic;}{\f38\fswiss\fcharset0\fprq2 Arial;}{\f36\fswiss\fcharset238\fprq2 Arial CE;}
+{\f39\fswiss\fcharset161\fprq2 Arial Greek;}{\f40\fswiss\fcharset162\fprq2 Arial Tur;}{\f41\fswiss\fcharset177\fprq2 Arial (Hebrew);}{\f42\fswiss\fcharset178\fprq2 Arial (Arabic);}{\f43\fswiss\fcharset186\fprq2 Arial Baltic;}}
+{\colortbl;\red0\green0\blue0;\red0\green0\blue255;\red0\green255\blue255;\red0\green255\blue0;\red255\green0\blue255;\red255\green0\blue0;\red255\green255\blue0;\red255\green255\blue255;\red0\green0\blue128;\red0\green128\blue128;\red0\green128\blue0;
+\red128\green0\blue128;\red128\green0\blue0;\red128\green128\blue0;\red128\green128\blue128;\red192\green192\blue192;}{\stylesheet{\ql \li0\ri0\widctlpar\faauto\adjustright\rin0\lin0\itap0 \fs20\lang1049\langfe1049\cgrid\langnp1049\langfenp1049 \snext0 
+Normal;}{\s1\ql \li0\ri0\keepn\widctlpar\faauto\outlinelevel0\adjustright\rin0\lin0\itap0 \f1\fs40\lang1033\langfe1049\cgrid\langnp1033\langfenp1049 \sbasedon0 \snext0 heading 1;}{\*\cs10 \additive Default Paragraph Font;}}{\info
+{\title TCustomComponentComboBox}{\author Silent}{\operator Ilya}{\creatim\yr2003\mo1\dy10\hr13\min5}{\revtim\yr2006\mo2\dy9\hr2\min4}{\version4}{\edmins10}{\nofpages2}{\nofwords325}{\nofchars1855}{\*\company Home}{\nofcharsws0}{\vern8249}}
+\paperw11906\paperh16838\margl1701\margr850\margt1134\margb1134 \widowctrl\ftnbj\aenddoc\noxlattoyen\expshrtn\noultrlspc\dntblnsbdb\nospaceforul\hyphcaps0\formshade\horzdoc\dghspace120\dgvspace120\dghorigin1701\dgvorigin1984\dghshow0\dgvshow3
+\jcompress\viewkind4\viewscale153\viewzk2\pgbrdrhead\pgbrdrfoot\nolnhtadjtbl \fet0\sectd \linex0\headery709\footery709\colsx709\endnhere\sectdefaultcl {\*\pnseclvl1\pnucrm\pnstart1\pnindent720\pnhang{\pntxta .}}{\*\pnseclvl2
+\pnucltr\pnstart1\pnindent720\pnhang{\pntxta .}}{\*\pnseclvl3\pndec\pnstart1\pnindent720\pnhang{\pntxta .}}{\*\pnseclvl4\pnlcltr\pnstart1\pnindent720\pnhang{\pntxta )}}{\*\pnseclvl5\pndec\pnstart1\pnindent720\pnhang{\pntxtb (}{\pntxta )}}{\*\pnseclvl6
+\pnlcltr\pnstart1\pnindent720\pnhang{\pntxtb (}{\pntxta )}}{\*\pnseclvl7\pnlcrm\pnstart1\pnindent720\pnhang{\pntxtb (}{\pntxta )}}{\*\pnseclvl8\pnlcltr\pnstart1\pnindent720\pnhang{\pntxtb (}{\pntxta )}}{\*\pnseclvl9\pnlcrm\pnstart1\pnindent720\pnhang
+{\pntxtb (}{\pntxta )}}\pard\plain \s1\ql \li0\ri0\keepn\widctlpar\faauto\outlinelevel0\adjustright\rin0\lin0\itap0 \f1\fs40\lang1033\langfe1049\cgrid\langnp1033\langfenp1049 {TCustomIniInspector
+\par }\pard\plain \ql \li0\ri0\widctlpar\faauto\adjustright\rin0\lin0\itap0 \fs20\lang1049\langfe1049\cgrid\langnp1049\langfenp1049 {\f1\lang1033\langfe1049\langnp1033 
+\par unit IniInsp
+\par 
+\par TObject \endash  TPersistent \endash  TComponent \endash  TControl \endash  TWinControl \endash  TCustomListBox - TCustomInspector
+\par 
+\par TCustomIniInspector is the base class for ini-file inspectors.
+\par 
+\par PROTECTED
+\par 
+\par methods
+\par 
+\par function GetName(TheIndex: Integer): string; override;
+\par This overriden method returns section of record name.
+\par 
+\par function GetValue(TheIndex: Integer): string; override;
+\par This overriden method returns string value of the ini-file record.
+\par 
+\par procedure SetValue(TheIndex: Integer; const Value: string); override;
+\par This overriden method sets the inif-file record value by passed Value.
+\par 
+\par function GetReadOnly(TheIndex: Integer): Boolean; override;
+\par This overriden method returns True for section items otherwise False.
+\par 
+\par function GetLevel: Integer; override;
+\par This overriden method returns 0 for section items and 1 for record items.
+\par 
+\par function GetAutoApply(TheIndex: Integer): Boolean; override;
+\par This overriden method returns True for record items otherwise False.
+\par 
+\par procedure Expand(TheIndex: Integer); override;
+\par This overriden method adds record items when selected section expanding.
+\par 
+\par procedure Collapse(TheIndex: Integer); override;
+\par This overriden method deletes record items when selected section collapsing.
+\par 
+\par properties
+\par 
+\par property FileName: TFileName;
+\par This property contains file name of the loaded ini-file.
+\par 
+\par PUBLIC
+\par 
+\par methods
+\par 
+\par procedure CreateWnd; override;
+\par This overriden method initialized internal fields after window creating.
+\par 
+\par }\pard\plain \s1\ql \li0\ri0\keepn\widctlpar\faauto\outlinelevel0\adjustright\rin0\lin0\itap0 \f1\fs40\lang1033\langfe1049\cgrid\langnp1033\langfenp1049 {TIniInspector
+\par }\pard\plain \ql \li0\ri0\widctlpar\faauto\adjustright\rin0\lin0\itap0 \fs20\lang1049\langfe1049\cgrid\langnp1049\langfenp1049 {\f1\lang1033\langfe1049\langnp1033 
+\par unit IniInsp
+\par 
+\par TObject \endash  TPersistent \endash  TComponent \endash  TControl \endash  TWinControl \endash  TCustomListBox \endash  TCustomInspector - TCustomIniInspector
+\par 
+\par TIniInspector is the published ini-file inspector class.
+\par 
+\par PUBLISHED
+\par 
+\par property Anchors;
+\par property Constraints;
+\par property Align;
+\par property BorderStyle;
+\par property Color;
+\par property Ctl3D;
+\par property DragCursor;
+\par property DragMode;
+\par property Enabled;
+\par property Font;
+\par property IntegralHeight;
+\par property ParentColor;
+\par property ParentCtl3D;
+\par property ParentFont;
+\par property ParentShowHint;
+\par property PopupMenu;
+\par property ShowHint;
+\par property Sorted;
+\par property TabOrder;
+\par property TabStop;
+\par property Visible;
+\par property FileName;
+\par property Splitter;
+\par property PaintStyle;
+\par 
+\par events
+\par 
+\par property OnDragDrop;
+\par property OnDragOver;
+\par property OnEndDrag;
+\par property OnEnter;
+\par property OnExit;
+\par property OnStartDrag;
+\par }{\f1\lang1033\langfe1049\langnp1033 property OnDeselectItem;
+\par property OnSelectItem;  }{\lang1033\langfe1049\langnp1033 
+\par }}

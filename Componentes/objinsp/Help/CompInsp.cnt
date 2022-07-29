@@ -1,0 +1,62 @@
+:Base  CompInsp.HLP
+:Title CompInsp
+1 Greatis Component Inspector User Manual 
+2 TCustomComponentComboBox
+3 TCustomComponentComboBox class=TCustomComponentComboBox
+3 Hierarchy=HierarchyTCustomComponentComboBox>main
+3 Interface
+4 Methods=TCustomComponentComboBox_Methods>main
+4 Properties=TCustomComponentComboBox_Properties>main
+4 Events=TCustomComponentComboBox_Events>main
+2 TComponentComboBox
+3 TComponentComboBox class=TComponentComboBox
+3 Hierarchy=HierarchyTCustomComponentComboBox>main
+3 Interface
+4 Methods=TComponentComboBox_Methods>main
+4 Properties=TComponentComboBox_Properties>main
+4 Events=TComponentComboBox_Events>main
+2 TCompInspPropertyList
+3 TCompInspPropertyList class=TCompInspPropertyList
+3 Hierarchy=HierarchyTCompInspPropertyList>main
+3 Interface
+4 Methods=TCompInspPropertyList_Methods>main
+4 Properties=TCompInspPropertyList_Properties>main
+2 TCompInspList
+3 TCompInspList class=TCompInspList
+3 Hierarchy=HierarchyTCompInspList>main
+3 Interface
+4 Methods=TCompInspList_Methods>main
+4 Properties=TCompInspList_Properties>main
+2 TCustomComponentInspector
+3 TCustomComponentInspector class=TCustomComponentInspector
+3 Hierarchy=HierarchyTCustomComponentInspector>main
+3 Interface
+4 Methods=TCustomComponentInspector_Methods>main
+4 Properties=TCustomComponentInspector_Properties>main
+4 Events=TCustomComponentInspector_Events>main
+2 TComponentInspector
+3 TComponentInspector class=TComponentInspector
+3 Hierarchy=HierarchyTCustomComponentInspector>main
+3 Interface
+4 Methods=TComponentInspector_Methods>main
+4 Properties=TComponentInspector_Properties>main
+4 Events=TComponentInspector_Events>main
+2 TCompInspProperty
+3 TCompInspProperty class=TCompInspProperty
+3 Hierarchy=HierarchyTCompInspProperty>main
+3 Interface
+4 Methods=TCompInspProperty_Methods>main
+2 TCustomComponentTree
+3 TCustomComponentTree class=TCustomComponentTree
+3 Hierarchy=HierarchyTCustomComponentTree>main
+3 Interface
+4 Methods=TCustomComponentTree_Methods>main
+4 Properties=TCustomComponentTree_Properties>main
+4 Events=TCustomComponentTree_Events>main
+2 TComponentTree
+3 TComponentTree class=TComponentTree
+3 Hierarchy=HierarchyTCustomComponentTree>main
+3 Interface
+4 Methods=TComponentTree_Methods>main
+4 Properties=TComponentTree_Properties>main
+4 Events=TComponentTree_Events>main

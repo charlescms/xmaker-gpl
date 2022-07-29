@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<Package Name="JvJans" Design="-1">
+  <Description>JVCL Jans Components</Description>
+  <ClxDescription>JVCLX Jans Components</ClxDescription>
+  <GUID>{E207A9DB-95B3-4B55-9811-1C417007E088}</GUID>
+  <C5PFlags>-LUvcl50 -LUdclstd50 -LUdsnide50 -LUCJcl50</C5PFlags>
+  <C6PFlags>-LUDesignIde -LUCJcl</C6PFlags>
+  <C5Libs/>
+  <C6Libs/>
+  <Requires>
+    <Package Name="JvJans-R" Targets="all" Condition=""/>
+    <Package Name="JvCore-D" Targets="all" Condition=""/>
+    <Package Name="vcl50" Targets="C5,C5s,D5,D5s" Condition=""/>
+    <Package Name="vclsmp50" Targets="C5,C5s" Condition=""/>
+    <Package Name="rtl" Targets="C6,C6p" Condition=""/>
+    <Package Name="designide" Targets="C6,C6p,D6,D6p,D7,D7p,D9" Condition=""/>
+    <Package Name="clxdesigner" Targets="D7clx" Condition=""/>
+    <Package Name="vcl" Targets="C6,C6p,D6,D6p" Condition=""/>
+    <Package Name="vclsmp" Targets="C6,C6p" Condition=""/>
+    <Package Name="vclx" Targets="D6,D6p" Condition=""/>
+  </Requires>
+  <Contains>
+    <File Name="..\..\design\JvJansReg.pas" Targets="all" Formname="" Condition=""/>
+    <File Name="..\..\design\JvCsvBaseEditor.pas" Targets="all" Formname="" Condition=""/>
+  </Contains>
+</Package>

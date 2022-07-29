@@ -1,0 +1,424 @@
+{\rtf1\ansi\ansicpg1251\uc1 \deff0\deflang1049\deflangfe1049{\fonttbl{\f0\froman\fcharset204\fprq2{\*\panose 02020603050405020304}Times New Roman;}{\f1\fswiss\fcharset204\fprq2{\*\panose 020b0604020202020204}Arial;}
+{\f97\froman\fcharset0\fprq2 Times New Roman;}{\f95\froman\fcharset238\fprq2 Times New Roman CE;}{\f98\froman\fcharset161\fprq2 Times New Roman Greek;}{\f99\froman\fcharset162\fprq2 Times New Roman Tur;}
+{\f100\froman\fcharset177\fprq2 Times New Roman (Hebrew);}{\f101\froman\fcharset178\fprq2 Times New Roman (Arabic);}{\f102\froman\fcharset186\fprq2 Times New Roman Baltic;}{\f105\fswiss\fcharset0\fprq2 Arial;}{\f103\fswiss\fcharset238\fprq2 Arial CE;}
+{\f106\fswiss\fcharset161\fprq2 Arial Greek;}{\f107\fswiss\fcharset162\fprq2 Arial Tur;}{\f108\fswiss\fcharset177\fprq2 Arial (Hebrew);}{\f109\fswiss\fcharset178\fprq2 Arial (Arabic);}{\f110\fswiss\fcharset186\fprq2 Arial Baltic;}}
+{\colortbl;\red0\green0\blue0;\red0\green0\blue255;\red0\green255\blue255;\red0\green255\blue0;\red255\green0\blue255;\red255\green0\blue0;\red255\green255\blue0;\red255\green255\blue255;\red0\green0\blue128;\red0\green128\blue128;\red0\green128\blue0;
+\red128\green0\blue128;\red128\green0\blue0;\red128\green128\blue0;\red128\green128\blue128;\red192\green192\blue192;}{\stylesheet{\ql \li0\ri0\widctlpar\faauto\adjustright\rin0\lin0\itap0 \fs20\lang1049\langfe1049\cgrid\langnp1049\langfenp1049 \snext0 
+Normal;}{\s1\ql \li0\ri0\keepn\widctlpar\faauto\outlinelevel0\adjustright\rin0\lin0\itap0 \f1\fs40\lang1033\langfe1049\cgrid\langnp1033\langfenp1049 \sbasedon0 \snext0 heading 1;}{\*\cs10 \additive Default Paragraph Font;}}{\info{\author Silent}
+{\operator Ilya}{\creatim\yr2002\mo5\dy19\hr14\min21}{\revtim\yr2006\mo2\dy9\hr2\min6}{\version24}{\edmins117}{\nofpages8}{\nofwords2326}{\nofchars13259}{\*\company Home}{\nofcharsws0}{\vern8249}}
+\paperw11906\paperh16838\margl1701\margr850\margt1134\margb1134 \widowctrl\ftnbj\aenddoc\noxlattoyen\expshrtn\noultrlspc\dntblnsbdb\nospaceforul\hyphcaps0\formshade\horzdoc\dghspace120\dgvspace120\dghorigin1701\dgvorigin1984\dghshow0\dgvshow3
+\jcompress\viewkind4\viewscale153\viewzk2\pgbrdrhead\pgbrdrfoot\nolnhtadjtbl \fet0\sectd \linex0\headery709\footery709\colsx709\endnhere\sectdefaultcl {\*\pnseclvl1\pnucrm\pnstart1\pnindent720\pnhang{\pntxta .}}{\*\pnseclvl2
+\pnucltr\pnstart1\pnindent720\pnhang{\pntxta .}}{\*\pnseclvl3\pndec\pnstart1\pnindent720\pnhang{\pntxta .}}{\*\pnseclvl4\pnlcltr\pnstart1\pnindent720\pnhang{\pntxta )}}{\*\pnseclvl5\pndec\pnstart1\pnindent720\pnhang{\pntxtb (}{\pntxta )}}{\*\pnseclvl6
+\pnlcltr\pnstart1\pnindent720\pnhang{\pntxtb (}{\pntxta )}}{\*\pnseclvl7\pnlcrm\pnstart1\pnindent720\pnhang{\pntxtb (}{\pntxta )}}{\*\pnseclvl8\pnlcltr\pnstart1\pnindent720\pnhang{\pntxtb (}{\pntxta )}}{\*\pnseclvl9\pnlcrm\pnstart1\pnindent720\pnhang
+{\pntxtb (}{\pntxta )}}\pard\plain \s1\ql \li0\ri0\keepn\widctlpar\faauto\outlinelevel0\adjustright\rin0\lin0\itap0 \f1\fs40\lang1033\langfe1049\cgrid\langnp1033\langfenp1049 {TCustomInspector
+\par }\pard\plain \ql \li0\ri0\widctlpar\faauto\adjustright\rin0\lin0\itap0 \fs20\lang1049\langfe1049\cgrid\langnp1049\langfenp1049 {\f1\lang1033\langfe1049\langnp1033 
+\par unit InspCtrl
+\par 
+\par TObject \endash  TPersistent \endash  TComponent \endash  TControl \endash  TWinControl \endash  TCustomListBox \endash  TCustomInspector
+\par 
+\par TCustomInspector is the abstract base class for all inspector controls.
+\par 
+\par PROTECTED
+\par 
+\par methods
+\par 
+\par procedure WndProc(var Message: TMessage); override;
+\par TCustomInspector override this method to provide specific message responses for the inspector control.
+\par 
+\par function ValidateChar(TheIndex: Integer; var Key: Char): Boolean; virtual;
+\par This function check the key input in the selection edit. The char can be changed within this method. To ignore char function must return False.
+\par 
+\par procedure SetSelectionPos(TheIndex: Integer; NeedUpdate: Boolean);
+\par This procedure sets selection position. TheIndex is the item index in
+ the parent list box. If NeedUpdate is set to True selection is updated even TheIndex is equal to current item index of the inspector control. This procedure is used intenally in the inspector controls and you don't need to call it directly.
+\par 
+\par procedure DrawPropertyName(TheCanvas: TCanvas; TheIndex: Integer; R: TRect); virtual;
+\par This procedure draws property name in the left half of inspector control.
+\par 
+\par  procedure DrawPropertyValue(TheCanvas: TCanvas; TheIndex: Integer; R: TRect); virtual;
+\par This procedure draws property value in the right half of inspector control.
+\par 
+\par procedure DrawVerticalSeparator(TheCanvas: TCanvas; TheIndex: Integer; R: TRect); virtual;
+\par This procedure draws vertical separator line between name and value of the property.
+\par 
+\par procedure DrawHorizontalSeparator(TheCanvas: TCanvas; TheIndex: Integer; R: TRect); virtual;
+\par This procedure draws horizontal separator line between name and value of the property.
+\par 
+\par procedure DrawBorders(TheCanvas: TCanvas; TheIndex: Integer; R: TRect); virtual;
+\par This procedure draws 3D border around selected list item.
+\par 
+\par function GetName(TheIndex: Integer): string; virtual;
+\par This function returns name of the property for the passed index.
+\par 
+\par function GetValue(TheIndex: Integer): string; virtual;
+\par This function returns value of the property for the passed index.
+\par 
+\par function GetNextValue(TheIndex: Integer): string; virtual;
+\par This function returns next value of the property for the passed index. This fucntion is used for the changing property value by double-click.
+\par 
+\par procedure SetValue(TheIndex: Integer; const Value: string); virtual;
+\par This procedure sets the property value.
+\par 
+\par function GetButtonType(TheIndex: Integer): TButtonType; virtual;
+\par This function returns button type for the passed index.
+\par TButtonType = (btNone,btDropDown,btDialog);
+\par btNone\tab \tab no button
+\par btDropDown\tab button with down arrow for calling drop down list
+\par btDialog\tab button with ellipsis for calling external edit dialog
+\par 
+\par function GetInlineEditorType(TheIndex: Integer): TInlineEditorType; virtual;
+\par This function returns inline editor type for the passed index.
+\par TInlineEditorType = (ilNone,ilEdit,ilCheckBox);
+\par ilNone\tab \tab no inline editor
+\par ilEdit\tab \tab TEdit is used
+\par ilCheckBox\tab TCheckBox is used
+\par 
+\par function GetMaxLength(TheIndex: Integer): Integer; virtual;
+\par This function returns maximal value length for the passed index.
+\par 
+\par function GetEditMask(TheIndex: Integer): string; virtual;
+\par This function returns the edit mask for the property assosiated with the passed index. By default this function just calls OnGetEditMask event.
+\par 
+\par function GetEnableExternalEditor(TheIndex: Integer): Boolean; virtual;
+\par This function enables using of external editor for the passed index.
+\par External editor is called by double-click on the property value or by click on the button when GetButtonType returns btDialog.
+\par 
+\par function GetReadOnly(TheIndex: Integer): Boolean; virtual;
+\par This function returns read-only state for the passed index. This value used only if GetInlineEditorType returns ilEdit.
+\par 
+\par function GetExpandState(TheIndex: Integer): TExpandState; virtual;
+\par This function returns expand-collapse state for the passed index. 
+\par TExpandState = (esNone,esExpand,esCollapse);
+\par esNone\tab \tab no icon
+\par esExpand\tab "+" icon
+\par esCollapse\tab "\endash " icon
+\par 
+\par function GetLevel(TheIndex: Integer): Integer; virtual;
+\par This function returns nesting level for the passed index. This value is used for indenting of the property name.
+\par 
+\par function GetData(TheIndex: Integer): Pointer; virtual;
+\par This function returns pointer to any data for the passed index. Inspector control does not use this feature, so any user data can be returned.
+\par 
+\par procedure GetValuesList(TheIndex: Integer; const Strings: TStrings); virtual;
+\par This procedure fills passed strings object using for the passed index. The list is displayed in drop-down list.
+\par 
+\par function GetSortValuesList(TheIndex: Integer): Boolean; virtual;
+\par Return value of this function is used for drop-down list.
+\par 
+\par function GetSelectedValue(TheIndex: Integer): string; virtual;
+\par This function returns value that must be selected in the drop-down list.
+\par 
+\par function GetAutoApply(TheIndex: Integer): Boolean; virtual;
+\par If this function returns True the property is updated when the user selects another property in the inspector control, otherwise property is updated only when user press Enter key.
+\par 
+\par procedure GetNameFont(TheIndex: Integer; TheFont: TFont); virtual;
+\par This procedure sets the property name font font for the passed item index. Any font property can be changed, but the height of the item is calculated using the inspector font height, so the text can be clipped if the height of the font is too large.
+
+\par 
+\par function GetNameColor(TheIndex: Integer): TColor; virtual;
+\par This function returns the property name area background color for the passed item index.
+\par 
+\par procedure GetValueFont(TheIndex: Integer; TheFont: TFont); virtual;
+\par This procedure sets the property value font for the passed item index. Any font property can be changed, but the height of the item is calculated using the inspector font height, so the text can be clipped if the height of the font is too large.
+\par 
+\par function GetValueColor(TheIndex: Integer): TColor; virtual;
+\par This function returns the property value area background color for the passed item index.
+\par 
+\par function GetIndent: Integer; virtual;
+\par This function returns the amount of indentation in pixels between parent and child levels.
+\par 
+\par function CallEditor(TheIndex: Integer): Boolean; virtual;
+\par This function must call external editor for the passed index.
+\par 
+\par procedure Expand(TheIndex: Integer); virtual;
+\par This function must expand item when the expand state for the passed index is esExpand.
+\par 
+\par procedure Collapse(TheIndex: Integer); virtual;
+\par This function must collapse item when the expand state for the passed index is esCollapse.
+\par 
+\par procedure SetEditedText(const AText: string); virtual;
+\par This procedure sets the text of inplace editor directly.
+\par 
+\par procedure DragValue(TheIndex,Offset: Integer); virtual;
+\par This procedure is called when user drags the updown type button. TheIndex represents selected item index, Offset represents current drag offset from the middle of the button.
+\par 
+\par properties
+\par 
+\par property ItemCount: Integer;
+\par This property contains inspector control's item count.
+\par 
+\par property Splitter: Integer;
+\par This property contains vertical splitter line position in the pixels.
+\par 
+\par property CheckBoxes: Boolean;
+\par If this property is set to True check box is used for all items with GetInlineEditorType = ilCheckBox.
+\par 
+\par property PaintStyle: TPaintStyle;
+\par This property determinees the paint style of the inspector control. 
+\par TPaintStyle = (psClassic,psTree,psGreatis);
+\par psClassic\tab Classic paint style, like IDE's Object Inspector
+\par psTree\tab \tab Tree paint style, like tree view
+\par psGreatis\tab Alternative paint style by Greatis Software
+\par 
+\par events
+\par 
+\par property OnUpdate: TNotifyEvent;
+\par This event occurs when the inspector control is about to be updated.
+\par TNotifyEvent = procedure(Sender: TObject) of object;
+\par 
+\par property OnValidateChar: TValidateCharEvent;
+\par This event occurs when user enter value from the keyboard. The char can be changed within event handler. If the event handler returns False the char is ignored.
+\par TValidateCharEvent = function(Sender: TObject; TheIndex: Integer; var Key: Char): Boolean of object;
+\par 
+\par property OnDrawName: TIndexDrawEvent;
+\par This event occurs when property name must be drawn.
+\par TIndexDrawEvent = procedure(Sender: TObject; TheIndex: Integer; TheCanvas: TCanvas; TheRect: TRect) of object;
+\par 
+\par property OnDrawValue: TIndexDrawEvent;
+\par This event occurs when property value must be drawn.
+\par TIndexDrawEvent = procedure(Sender: TObject; TheIndex: Integer; TheCanvas: TCanvas; TheRect: TRect) of object;
+\par 
+\par property OnGetName: TGetStringEvent;
+\par This event occurs when name of the property is needed.
+\par TGetStringEvent = procedure(Sender: TObject; TheIndex: Integer; var Value: string) of object;
+\par 
+\par property OnGetValue: TGetStringEvent;
+\par This event occurs when value of the property is needed.
+\par TGetStringEvent = procedure(Sender: TObject; TheIndex: Integer; var Value: string) of object;
+\par 
+\par property OnGetNextValue: TGetStringEvent;
+\par This event occurs when next value of the property is needed. Next value is set when user double-click on the property value area.
+\par TGetStringEvent = procedure(Sender: TObject; TheIndex: Integer; var Value: string) of object;
+\par 
+\par property OnSetValue: TSetStringEvent;
+\par This event is called when the value of the property must be set.
+\par TSetStringEvent = procedure(Sender: TObject; TheIndex: Integer; const Value: string) of object;
+\par 
+\par property OnGetButtonType: TButtonTypeEvent;
+\par This event occurs when the button type is needed.
+\par TButtonTypeEvent = procedure(Sender: TObject; TheIndex: Integer; var Value: TButtonType) of object;
+\par 
+\par property OnGetInlineEditorType: TInlineEditorTypeEvent;
+\par This event occurs when the inline editor type is needed.
+\par TInlineEditorTypeEvent = procedure(Sender: TObject; TheIndex: Integer; var Value: TInlineEditorType) of object;
+\par 
+\par property OnGetMaxLength: TIntegerEvent;
+\par This event occurs when maximal length of the value is needed.
+\par TIntegerEvent = procedure(Sender: TObject; TheIndex: Integer; var Value: Integer) of object;
+\par 
+\par property OnGetEditMask: TGetStringEvent;
+\par This event occurs when user selects the new property in the inspector, so you can set indidual edit mask for each property in the list. See TMaskEdit.EditMask for more detailed information.
+\par TGetStringEvent = procedure(Sender: TObject; TheIndex: Integer; var Value: string) of object;
+\par 
+\par property OnGetEnableExternalEditor: TBooleanEvent;
+\par This event occurs when the inspector control needs to enable or disable external editor calling.
+\par TBooleanEvent = procedure(Sender: TObject; TheIndex: Integer; var Value: Boolean) of object;
+\par 
+\par property OnGetReadOnly: TBooleanEvent;
+\par This event occurs when read-only state for inline editor is needed.
+\par TBooleanEvent = procedure(Sender: TObject; TheIndex: Integer; var Value: Boolean) of object;
+\par 
+\par property OnGetExpandState: TExpandStateEvent;
+\par This event occurs when expand state is needed.
+\par TExpandStateEvent = procedure(Sender: TObject; TheIndex: Integer; var Value: TExpandState) of object;
+\par 
+\par property OnGetLevel: TIntegerEvent;
+\par This event occurs when nesting level is needed.
+\par TIntegerEvent = procedure(Sender: TObject; TheIndex: Integer; var Value: Integer) of object;
+\par 
+\par property OnGetData: TPointerEvent;
+\par This event occurs when user data is needed. The inspector control does not use this event so it can be used for any user data.
+\par TPointerEvent = procedure(Sender: TObject; TheIndex: Integer; var Value: Pointer) of object;
+\par 
+\par property OnGetValuesList: TStringsEvent;
+\par This event occurs when values list is needed. The object inspector control uses this list for drop-down values list.
+\par TStringsEvent = procedure(Sender: TObject; TheIndex: Integer; const Strings: TStrings) of object;
+\par 
+\par property OnGetSortValuesList: TBooleanEvent;
+\par This event occurs when value list is about to be sorted.
+\par TBooleanEvent = procedure(Sender: TObject; TheIndex: Integer; var Value: Boolean) of object;
+\par 
+\par property OnGetSelectedValue: TGetStringEvent;
+\par This event occurs when selected value in the values list is needed.
+\par TGetStringEvent = procedure(Sender: TObject; TheIndex: Integer; var Value: string) of object;
+\par 
+\par property OnGetAutoApply: TBooleanEvent;
+\par This event occurs when auto-apply state is needed.
+\par TBooleanEvent = procedure(Sender: TObject; TheIndex: Integer; var Value: Boolean) of object;
+\par 
+\par property OnGetNameFont: TFontEvent;
+\par This event occurs before drawing the property name. Any font parameters can be changed.
+\par TFontEvent = procedure(Sender: TObject; TheIndex: Integer; const TheFont: TFont) of object;
+\par 
+\par property OnGetNameColor: TColorEvent;
+\par This event occurs before drawing the property name background.
+\par TColorEvent = procedure(Sender: TObject; TheIndex: Integer; var Value: TColor) of object;
+\par 
+\par property OnGetValueFont: TFontEvent;
+\par This event occurs before drawing the property value. Any font parameters can be changed.
+\par TFontEvent = procedure(Sender: TObject; TheIndex: Integer; const TheFont: TFont) of object;
+\par 
+\par property OnGetValueColor: TColorEvent;
+\par This event occurs before drawing the property value background.
+\par TColorEvent = procedure(Sender: TObject; TheIndex: Integer; var Value: TColor) of object;
+\par 
+\par property OnCallEditor: TCallEditorEvent;
+\par This event occurs when external editor must be called. If the event handler returns True the property is updated.
+\par TCallEditorEvent = function(Sender: TObject; TheIndex: Integer): Boolean of object;
+\par 
+\par property OnExpand: TIndexNotifyEvent;
+\par This event occurs when the inspector control's item must be expanded.
+\par TIndexNotifyEvent = procedure(Sender: TObject; TheIndex: Integer) of object;
+\par 
+\par property OnCollapse: TIndexNotifyEvent;
+\par This event occurs when the inspector control's item must be collapsed.
+\par TIndexNotifyEvent = procedure(Sender: TObject; TheIndex: Integer) of object;
+\par 
+\par property OnValueDblClick: TIndexEnableEvent;
+\par This event occurs when user double-clicks the item value.
+\par TIndexEnableEvent = procedure(Sender: TObject; TheIndex: Integer; var EnableDefault: Boolean) of object;
+\par 
+\par property OnChangeValue: TChangeValueEvent;
+\par This event occurs when the value in the inplace editor is changed by user input or direct setting when selecting the property, updating the component, etc.
+\par TChangeValueEvent = procedure(Sender: TObject; TheIndex: Integer; Editing: Boolean; const Value: string) of object;
+\par 
+\par }{\f1\lang1033\langfe1049\langnp1033 property OnSelectItem: TIndexNotifyEvent;\line TIndexNotifyEvent = procedure(Sender: TObject; TheIndex: Integer) of \line object;\line This event fires after selecting the new item in the inspector.\line \line 
+property OnDeselectItem: TIndexNotifyEvent;\line TIndexNotifyEvent = procedure(Sender: TObject; TheIndex: Integer) of \line object;\line This event fires after deselecting the item in the inspector when new \line item was chosen.}{
+\f1\lang1033\langfe1049\langnp1033 
+\par 
+\par public
+\par 
+\par constructor Create(AOwner: TComponent); override;
+\par This overridden constructor creates and initializes inspector control.
+\par 
+\par destructor Destroy; override;
+\par This overridden destructor frees all internal objects and structures and calls inherited Destroy to free the object.
+\par 
+\par procedure Update; override;
+\par This overridden method updates all child controls when updating.
+\par 
+\par procedure CreateWnd; override;
+\par This overridden method initializes some internal variables after creating the window handle.
+\par 
+\par procedure Lock; virtual;
+\par This procedure locks updating of the inspector control.
+\par 
+\par procedure Unlock; virtual;
+\par This procedure unlocks updating of the inspector control.
+\par 
+\par procedure DrawPropertyNameDefault(TheCanvas: TCanvas; TheIndex: Integer; R: TRect);
+\par This procedure draws property name and can be called within owner-drawing procedure.
+\par 
+\par procedure DrawPropertyValueDefault(TheCanvas: TCanvas; TheIndex: Integer; R: TRect);
+\par This procedure draws property value and can be called within owner-drawing procedure.
+\par 
+\par property Locked: Boolean;
+\par This property indicates lock state.
+\par 
+\par property Names[Index: Integer]: string;
+\par This property simplify access to properties' names.
+\par 
+\par property Values[Index: Integer]: string;
+\par This property simplify access to properties' values.
+\par 
+\par property ButtonType[Index: Integer]: TButtonType;
+\par This property simplify access to properties' button types.
+\par 
+\par property InlineEditorType[Index: Integer]: TInlineEditorType;
+\par This property simplify access to properties' inline editor's types.
+\par 
+\par property EnableExternalEditor[Index: Integer]: Boolean;
+\par This property simplify access to properties' enable external editors' states.
+\par 
+\par property ReadOnly[Index: Integer]: Boolean;
+\par This property simplify access to properties' read only states.
+\par 
+\par property ExpandState[Index: Integer]: TExpandState;
+\par This property simplify access to properties' expand states.
+\par 
+\par }\pard\plain \s1\ql \li0\ri0\keepn\widctlpar\faauto\outlinelevel0\adjustright\rin0\lin0\itap0 \f1\fs40\lang1033\langfe1049\cgrid\langnp1033\langfenp1049 {TCommonInspector
+\par }\pard\plain \ql \li0\ri0\widctlpar\faauto\adjustright\rin0\lin0\itap0 \fs20\lang1049\langfe1049\cgrid\langnp1049\langfenp1049 {\f1\lang1033\langfe1049\langnp1033 
+\par unit InspCtrl
+\par 
+\par TObject \endash  TPersistent \endash  TComponent \endash  TControl \endash  TWinControl \endash  TCustomListBox \endash  TCustomInspector \endash  TInspector
+\par 
+\par TInspector is the inspector control that can be totally controlled by events.
+\par 
+\par PUBLISHED
+\par 
+\par properties
+\par 
+\par from standard components (check it yourself)
+\par 
+\par property Align;
+\par property BorderStyle;
+\par property Color;
+\par property Ctl3D;
+\par property DragCursor;
+\par property DragMode;
+\par property Enabled;
+\par property Font;
+\par property ImeMode;
+\par property ImeName;
+\par property IntegralHeight;
+\par property ParentColor;
+\par property ParentCtl3D;
+\par property ParentFont;
+\par property ParentShowHint;
+\par property PopupMenu;
+\par property ShowHint;
+\par property TabOrder;
+\par property TabStop;
+\par property Visible;
+\par 
+\par from TCustomInspector
+\par 
+\par property ItemCount;
+\par property CheckBoxes;
+\par property Splitter;
+\par property PaintStyle;
+\par 
+\par events
+\par 
+\par from standard components (check it yourself)
+\par 
+\par property OnDragDrop;
+\par property OnDragOver;
+\par property OnEndDrag;
+\par property OnEnter;
+\par property OnExit;
+\par property OnStartDrag;
+\par 
+\par from TCustonInspector
+\par 
+\par property OnUpdate;
+\par property OnValidateChar;
+\par property OnDrawName;
+\par property OnDrawValue;
+\par property OnGetName;
+\par property OnGetValue;
+\par property OnGetNextValue;
+\par property OnSetValue;
+\par property OnGetButtonType;
+\par property OnGetMaxLength;
+\par property OnGetEditMask;
+\par property OnGetInlineEditorType;
+\par property OnGetEnableExternalEditor;
+\par property OnGetReadOnly;
+\par property OnGetExpandState;
+\par property OnGetLevel;
+\par property OnGetData;
+\par property OnGetValuesList;
+\par property OnGetSortValuesList;
+\par property OnGetSelectedValue;
+\par property OnGetAutoApply;
+\par property OnGetNameFont;
+\par property OnGetNameColor;
+\par property OnGetValueFont;
+\par property OnGetValueColor;
+\par property OnCallEditor;
+\par property OnExpand;
+\par property OnCollapse;
+\par }{\f1\lang1033\langfe1049\langnp1033 property OnDeselectItem;
+\par property OnSelectItem;  }{\f1\lang1033\langfe1049\langnp1033 
+\par }}

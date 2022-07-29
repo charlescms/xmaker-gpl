@@ -1,0 +1,238 @@
+*****************************************************************
+ GREATIS DELPHI BONUS
+*****************************************************************
+
+ GREATIS DELPHI BONUS is a free, unsupported software.
+
+*****************************************************************
+ TCoolorDialog
+*****************************************************************
+
+About TCoolorDialog
+~~~~~~~~~~~~~~~~~~~
+
+TCoolorDialog is an advanced replacement for standard 
+TColorDialog.
+
+TCoolorDialog provides:
+• selecting color in any of most widespread color models: HSB, 
+  RGB, CMY, CMYK
+• selecting color from fixed palettes: VGA, Internet 
+  (browser-safe), Windows
+• creation and editing of reference color
+• creation and editing of user colors collection (up to 32 
+  colors)
+• the simple changing reference color and user colors by 
+  Drag&Drop
+• setup of the dialog pages
+• setting and getting color in any format: HSB, RGB, CMY, CMYK, 
+  TColor
+• setting and getting color in string format: RGB Hex string 
+  (RRGGBB) and HTML format (#RRGGBB)
+• modal and non-modal show modes
+
+TCoolorDialog Hierarchy
+~~~~~~~~~~~~~~~~~~~~~~~
+TObject
+	TPersistent
+		TComponent
+
+
+TCoolorDialog Interface
+~~~~~~~~~~~~~~~~~~~~~~~
+
+Methods
+
+public
+
+constructor Create(AOwner: TComponent); override;
+Standard constructor overriden for intializing properties.
+
+function Execute: Boolean;
+This function shows TCoolorDialog form in modal mode. 
+This function returns True, if the user close the dialog by 
+OK button, False otherwise.
+
+procedure Show;
+This procedure shows TCoolorDialog form in non-modal mode.
+
+procedure DoApply(ForSure: Boolean); virtual;
+This virtual procedure is called when changes have to applied. 
+By default this procedure just calls OnApply event. ForSure 
+parameter is True when applying must do without dependence from 
+AutoApply property value (for example, ForSure is True when user 
+pressed OK button in modal mode). If ForSure parameter is False,
+OnApply is called only when AutoUpdate is True. You can override 
+this method to realize your own apply procedure.
+
+Properties
+
+public
+
+property HSBColor: THSBColor;
+property RGBColor: TRGBColor;
+property CMYColor: TCMYColor;
+property CMYKColor: TCMYKColor;
+Read-write properties for setting and getting colors in various 
+color models.
+
+property RGBHex: TRGBHex;
+property HTMLColor: THTMLColor;
+Read-write properties for setting and getting colors in 
+hexadecimal string formats. Format is 'RRGGBB' for RGBHex and 
+'#RRGGBB' for HTMLColor.
+
+property UserColors[Index: Integer]: TColor;
+Array-type read-write property for setting and getting 
+user-defined colors. Index must be between 1 and UserColorCount.
+
+property Dialog: TForm;
+This read-only property points to the dialog form object. 
+If the dialog is not visible, this property contains nil.
+
+property Handle: HWND;
+This read-only property contains dialog window handle or 0 if 
+the dialog is not visible. This is obsolete property used only 
+for compatibility with earlier versions. You have to use Dialog 
+property instead.
+
+published
+
+property Color: TColor;
+This property contains selected color.
+
+property ReferenceColor: TColor;
+This property contains reference color, displayed near to 
+selected color. User can change reference color by dragging 
+from selected color.
+
+property AutoApply: Boolean;
+If this property is set to True, OnApply is called immediately 
+when user change color in the dialog, otherwise OnApply is 
+called only when user presses Apply or OK button.
+
+property StayOnTop: Boolean;
+If this property is set to True dialog remains on top of the 
+desktop and of other forms in the application.
+
+property ActivePage: TDialogPage;
+This property contains current active page in the dialog. 
+TDialogPage is defined as:
+TDialogPage = (
+pageVGA, // Standard VGA colors
+pageInternet, // Browser-safe palette (216 colors)
+pageHSB, // HSB color model page
+pageRGB, // RGB color model page
+pageCMY, // CMY color model page
+pageCMYK, // CMYK color model page
+pageGray, // Grayscale page
+pageWindows, // Windows items colors
+pageInfo); // Color information page
+
+property VisiblePages: TDialogPages;
+This property determines, which pages will be visible. 
+TDialogPages is defined as:
+TDialogPages = set of TDialogPage;
+
+property Ctl3D: Boolean;
+This property determines whether the dialog has a 
+three-dimensional look.
+
+property HelpButton: Boolean;
+If this property is set to True, Help button is displayed in 
+the dialog.
+
+property HelpContext: THelpContext;
+This property contains context number for online help.
+
+property AutoHelpContext: Boolean;
+If this property set to True, help context of the dialog is 
+determines as HelpContext+Ord(ActivePage).
+
+property Caption: string;
+Specifies the text in the dialog caption.
+
+Colors unit
+~~~~~~~~~~~
+
+Types
+
+TRealType = Double;
+Defines main float type for using in the color models records. 
+By default this type is Double, but you can change it.
+
+TRGB = record Red,Green,Blue: TRealType end;
+TCMY = record Cyan,Magenta,Yellow: TRealType end;
+TCMYK = record Cyan,Magenta,Yellow,Black: TRealType end;
+THSB = record Hue,Saturation,Brightness: TRealType end;
+Real-type records for the color models.
+
+TRGBColor = record Red,Green,Blue: Integer end;
+TCMYColor = record Cyan,Magenta,Yellow: Integer end;
+TCMYKColor = record Cyan,Magenta,Yellow,Black: Integer end;
+THSBColor = record Hue,Saturation,Brightness: Integer end;
+Integer-type records for the color models.
+
+THTMLColor = string;
+TRGBHex = string;
+String types for hexadecimal color formats.
+
+Functions
+
+function MakeHSB(H,S,B: TRealType): THSB;
+function MakeRGB(R,G,B: TRealType): TRGB;
+function MakeCMY(C,M,Y: TRealType): TCMY;
+function MakeCMYK(C,M,Y,K: TRealType): TCMYK;
+function MakeGrayRGB(B: TRealType): TRGB;
+function MakeGrayColor(B: TRealType): TColor;
+Functions for creating color model records from the values.
+
+function RGBEqual(Color1,Color2: TRGB): Boolean;
+Function for comparing two RGB colors. This function returns 
+True if colors are equal, otherwise False.
+
+function RGBGray(Color: TRGB): Boolean;
+This function returns True, if RGB color in the parameter is 
+gray (R=G=B), otherwise False.
+
+function HueToColor(Hue: TRealType): TColor;
+function HueToRGB(Hue: TRealType): TRGB;
+These functions return TColor and RGB value for Hue from the 
+parameter. Result of these functions is color with highest 
+brigtness and saturation.
+
+function RGBToHue(RGB: TRGB): TRealType;
+function ColorToRGB(Value: TColor): TRGB;
+These functions return hue for the color in the parameter.
+
+function RGBToColor(Value: TRGB): TColor;
+function RGBToCMY(Value: TRGB): TCMY;
+function CMYToRGB(Value: TCMY): TRGB;
+function ColorToCMY(Value: TColor): TCMY;
+function CMYToColor(Value: TCMY): TColor;
+function RGBToCMYK(Value: TRGB): TCMYK;
+function CMYKToRGB(Value: TCMYK): TRGB;
+function ColorToCMYK(Value: TColor): TCMYK;
+function CMYKToColor(Value: TCMYK): TColor;
+function RGBToHSB(Value: TRGB): THSB;
+function HSBToRGB(Value: THSB): TRGB;
+function HSBToColor(Value: THSB): TColor;
+function ColorToHSB(Value: TColor): THSB;
+function RGBToRGBColor(Value: TRGB): TRGBColor;
+function RGBColorToRGB(Value: TRGBColor): TRGB;
+function HSBToHSBColor(Value: THSB): THSBColor;
+function HSBColorToHSB(Value: THSBColor): THSB;
+function CMYToCMYColor(Value: TCMY): TCMYColor;
+function CMYColorToCMY(Value: TCMYColor): TCMY;
+function CMYKToCMYKColor(Value: TCMYK): TCMYKColor;
+function CMYKColorToCMYK(Value: TCMYKColor): TCMYK;
+function HTMLToColor(Value: THTMLColor): TColor;
+function ColorToHTML(Value: TColor): THTMLColor;
+function RGBHexToColor(Value: TRGBHex): TColor;
+function ColorToRGBHex(Value: TColor): TRGBHex;
+These functions converts color between color models. 
+Any color may be converted from/to RGB (XXXToRGB, RGBToXXX), 
+TColor (XXXToColor, ColorToXXX), and between real-type and 
+integer-type records (XXXToXXXColor, XXXColorToXXX);
+
+*****************************************************************

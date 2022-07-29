@@ -1,0 +1,131 @@
+unit DEntrada;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs,
+  StdCtrls, Buttons, ToolWin, ComCtrls, ExtCtrls, Tabs, IniFiles, Grids,
+  DBGrids, clipbrd, mwCustomEdit, RTDesign;
+
+type
+  TFormEntradaDados = class(TForm)
+    PagePrincipal: TPageControl;
+    TabManutencao: TTabSheet;
+    TabConsulta: TTabSheet;
+    PnSalva: TPanel;
+    PnSup: TPanel;
+    ShapeSup: TShape;
+    TabPaginas: TTabSet;
+    PnInfConsulta: TPanel;
+    GridConsulta: TDBGrid;
+    LbTituloForm: TLabel;
+    BtnAjuda: TSpeedButton;
+    BtnFechar: TSpeedButton;
+    PgPagina1: TScrollBox;
+    BtnSalvar: TBitBtn;
+    BtnDesistir: TBitBtn;
+    AbaConsulta: TTabSet;
+    NoManutencao: TNotebook;
+    ScrollBox0: TScrollBox;
+    ScrollBox1: TScrollBox;
+    ScrollBox2: TScrollBox;
+    ScrollBox3: TScrollBox;
+    ScrollBox4: TScrollBox;
+    ScrollBox5: TScrollBox;
+    ScrollBox6: TScrollBox;
+    ScrollBox7: TScrollBox;
+    ScrollBox8: TScrollBox;
+    ScrollBox9: TScrollBox;
+    ScrollBox10: TScrollBox;
+    RTDesigner: TRTDesigner;
+    procedure FormShow(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure FormResize(Sender: TObject);
+    procedure TabPaginasClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+    NomeForm: String;
+    NrTabela: String;
+  end;
+
+var
+  FormEntradaDados: TFormEntradaDados;
+  LastControl: TWinControl;
+
+implementation
+
+{$R *.DFM}
+
+uses Rotinas, Paleta1, Princ, Gera_01, Paleta2, Formular;
+
+procedure TFormEntradaDados.FormShow(Sender: TObject);
+Var
+  I: Integer;
+begin
+  Height := 393;
+  Width := 574;
+
+  FormPaleta1 := TFormPaleta1.Create(FormEntradaDados);
+  try
+    Left := 0;
+    Top := 35;
+    //EdTabela.Text := FormFormularios.ComboTabela.Text;
+    //EdTabela.Hint := FormFormularios.ComboTabela.Text;
+    //EdTabela.ReadOnly := True;
+    Show;
+  Finally
+  end;
+  FormResize(Self);
+  if FileExists(Projeto.Pasta + NomeForm + '.T00') then
+    RTDesigner.LoadBCFromFile(Projeto.Pasta + NomeForm + '.T00')
+  else
+    RTDesigner.LoadBCFromFile(Projeto.PastaGerador + 'Lib\Tela.T00');
+end;
+
+procedure TFormEntradaDados.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  if FormPaleta1 <> nil then
+    FormPaleta1.Close;
+end;
+
+procedure TFormEntradaDados.FormResize(Sender: TObject);
+begin
+  BtnAjuda.Left  := ShapeSup.Width - 37;
+  BtnFechar.Left := ShapeSup.Width - 19;
+end;
+
+procedure TFormEntradaDados.TabPaginasClick(Sender: TObject);
+begin
+  if PagePrincipal.ActivePageIndex = 0 then
+  begin
+    NoManutencao.SetFocus;
+    NoManutencao.PageIndex := TabPaginas.TabIndex;
+    {if NoManutencao.PageIndex = 0 then
+      RTDesigner.BaseControl := ScrollBox0
+    else if NoManutencao.PageIndex = 1 then
+      RTDesigner.BaseControl := ScrollBox1
+    else if NoManutencao.PageIndex = 2 then
+      RTDesigner.BaseControl := ScrollBox2
+    else if NoManutencao.PageIndex = 3 then
+      RTDesigner.BaseControl := ScrollBox3
+    else if NoManutencao.PageIndex = 4 then
+      RTDesigner.BaseControl := ScrollBox4
+    else if NoManutencao.PageIndex = 5 then
+      RTDesigner.BaseControl := ScrollBox5
+    else if NoManutencao.PageIndex = 6 then
+      RTDesigner.BaseControl := ScrollBox6
+    else if NoManutencao.PageIndex = 7 then
+      RTDesigner.BaseControl := ScrollBox7
+    else if NoManutencao.PageIndex = 8 then
+      RTDesigner.BaseControl := ScrollBox8
+    else if NoManutencao.PageIndex = 9 then
+      RTDesigner.BaseControl := ScrollBox9
+    else if NoManutencao.PageIndex = 10 then
+      RTDesigner.BaseControl := ScrollBox10;}
+  end;
+end;
+
+end.

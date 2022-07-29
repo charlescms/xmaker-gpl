@@ -1,0 +1,17 @@
+:Base  InspCtrl.HLP>
+:Title InspCtrl
+1 Greatis InspCtrl User Manual 
+2 TCustomInspector
+3 TCustomInspector class=TCustomInspector
+3 Hierarchy=HierarchyTCustomInspector
+3 Interface
+4 Methods=TCustomInspector_Methods
+4 Properties=TCustomInspector_Properties
+4 Events=TCustomInspector_Events
+2 TCommonInspector
+3 TCommonInspector class=TCommonInspector
+3 Hierarchy=HierarchyTCustomInspector
+3 Interface
+4 Methods=TCommonInspector_Methods
+4 Properties=TCommonInspector_Properties
+4 Events=TCommonInspector_Events

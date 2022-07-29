@@ -1,0 +1,115 @@
+Delphi 7 Build 7.0.8.1 =====================
+
+Added "C:\Projetos\XMaker\XMAKER~3\COMPON~1\JVCL300\jcl\lib\D7;C:\Projetos\XMaker\XMAKER~3\COMPON~1\JVCL300\jcl\source" to library path.
+
+Added "C:\Projetos\XMaker\XMAKER~3\COMPON~1\JVCL300\jcl\source\common;C:\Projetos\XMaker\XMAKER~3\COMPON~1\JVCL300\jcl\source\windows;C:\Projetos\XMaker\XMAKER~3\COMPON~1\JVCL300\jcl\source\vcl;C:\Projetos\XMaker\XMAKER~3\COMPON~1\JVCL300\jcl\source\visclx;" to library browsing path.
+
+Added "C:\Projetos\XMaker\XMAKER~3\COMPON~1\JVCL300\jcl\lib\D7\debug" to Debug DCU Path.
+
+Making common library units for Delphi 7
+
+Compiling .dcu files...
+Borland Delphi Version 15.0
+Copyright (c) 1983,2002 Borland Software Corporation
+216324 lines, 0.78 seconds, 803 bytes code, 68 bytes data.
+
+Making windows library units for Delphi 7
+
+Compiling .dcu files...
+Borland Delphi Version 15.0
+Copyright (c) 1983,2002 Borland Software Corporation
+185037 lines, 1.12 seconds, 47501 bytes code, 16736 bytes data.
+
+Making vcl library units for Delphi 7
+
+Compiling .dcu files...
+Borland Delphi Version 15.0
+Copyright (c) 1983,2002 Borland Software Corporation
+17075 lines, 0.20 seconds, 8510 bytes code, 8 bytes data.
+
+Making visclx library units for Delphi 7
+
+Compiling .dcu files...
+Borland Delphi Version 15.0
+Copyright (c) 1983,2002 Borland Software Corporation
+10304 lines, 0.81 seconds, 11555 bytes code, 52 bytes data.
+
+Making common library debug units for Delphi 7
+
+Compiling .dcu files...
+Borland Delphi Version 15.0
+Copyright (c) 1983,2002 Borland Software Corporation
+216324 lines, 0.78 seconds, 913 bytes code, 68 bytes data.
+
+Making windows library debug units for Delphi 7
+
+Compiling .dcu files...
+Borland Delphi Version 15.0
+Copyright (c) 1983,2002 Borland Software Corporation
+185037 lines, 0.81 seconds, 47637 bytes code, 16736 bytes data.
+
+Making vcl library debug units for Delphi 7
+
+Compiling .dcu files...
+Borland Delphi Version 15.0
+Copyright (c) 1983,2002 Borland Software Corporation
+17075 lines, 0.17 seconds, 10567 bytes code, 8 bytes data.
+
+Making visclx library debug units for Delphi 7
+
+Compiling .dcu files...
+Borland Delphi Version 15.0
+Copyright (c) 1983,2002 Borland Software Corporation
+10304 lines, 0.11 seconds, 16501 bytes code, 52 bytes data.
+
+Installing package C:\Projetos\XMaker\XMAKER~3\COMPON~1\JVCL300\jcl\packages\d7\DJcl.dpk...
+Borland Delphi Version 15.0
+Copyright (c) 1983,2002 Borland Software Corporation
+128 lines, 0.22 seconds, 762588 bytes code, 44057 bytes data.
+...done.
+
+Installing package C:\Projetos\XMaker\XMAKER~3\COMPON~1\JVCL300\jcl\packages\d7\DJclVClx.dpk...
+Borland Delphi Version 15.0
+Copyright (c) 1983,2002 Borland Software Corporation
+51 lines, 0.42 seconds, 25320 bytes code, 585 bytes data.
+...done.
+
+Installing package C:\Projetos\XMaker\XMAKER~3\COMPON~1\JVCL300\jcl\packages\d7\DJclVcl.dpk...
+Borland Delphi Version 15.0
+Copyright (c) 1983,2002 Borland Software Corporation
+53 lines, 0.14 seconds, 70504 bytes code, 897 bytes data.
+...done.
+
+Installing package C:\Projetos\XMaker\XMAKER~3\COMPON~1\JVCL300\jcl\examples\vcl\debugextension\JclDebugIdeD70.dpk...
+Borland Delphi Version 15.0
+Copyright (c) 1983,2002 Borland Software Corporation
+3936 lines, 0.17 seconds, 15728 bytes code, 157 bytes data.
+...done.
+
+Installing package C:\Projetos\XMaker\XMAKER~3\COMPON~1\JVCL300\jcl\examples\vcl\projectanalyzer\ProjectAnalyzerD70.dpk...
+Borland Delphi Version 15.0
+Copyright (c) 1983,2002 Borland Software Corporation
+3851 lines, 0.08 seconds, 17848 bytes code, 157 bytes data.
+...done.
+
+Installing package C:\Projetos\XMaker\XMAKER~3\COMPON~1\JVCL300\jcl\examples\vcl\idefavopendialogs\IdeOpenDlgFavoriteD70.dpk...
+Borland Delphi Version 15.0
+Copyright (c) 1983,2002 Borland Software Corporation
+4896 lines, 0.08 seconds, 10172 bytes code, 169 bytes data.
+...done.
+
+Installing Exception Dialog...
+-> C:\PROJETOS\XMAKER\XMAKER~3\COMPON~1\JVCL300\JCL\EXAMPLES\VCL\DEBUGE~1\DIALOG\EXCEPTDLG.PAS
+-> C:\PROJETOS\XMAKER\XMAKER~3\COMPON~1\JVCL300\JCL\EXAMPLES\VCL\DEBUGE~1\DIALOG\EXCEPTDLG.ico
+...done.
+
+Installing Exception Dialog with Send...
+-> C:\PROJETOS\XMAKER\XMAKER~3\COMPON~1\JVCL300\JCL\EXAMPLES\VCL\DEBUGE~1\DIALOG\EXCEPTDLGMAIL.PAS
+-> C:\PROJETOS\XMAKER\XMAKER~3\COMPON~1\JVCL300\JCL\EXAMPLES\VCL\DEBUGE~1\DIALOG\EXCEPTDLGMAIL.ico
+...done.
+
+Installing CLX Exception Dialog...
+-> C:\PROJETOS\XMAKER\XMAKER~3\COMPON~1\JVCL300\JCL\EXAMPLES\VCL\DEBUGE~1\DIALOG\CLXEXCEPTDLG.PAS
+-> C:\PROJETOS\XMAKER\XMAKER~3\COMPON~1\JVCL300\JCL\EXAMPLES\VCL\DEBUGE~1\DIALOG\CLXEXCEPTDLG.ico
+...done.
+

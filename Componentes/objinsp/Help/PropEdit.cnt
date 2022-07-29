@@ -1,0 +1,8 @@
+:Base  PropEdit.HLP>
+:Title PropEdit
+1 Greatis Property Editor User Manual 
+2 TPropertyEditor
+3 TPropertyEditor class=TPropertyEditor
+3 Hierarchy=HierarchyTPropertyEditor>main
+3 Interface
+4 Methods=TPropertyEditor_Methods>main

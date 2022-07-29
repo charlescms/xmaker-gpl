@@ -1,0 +1,347 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><title>Estrutura do Componente Tabela</title>
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+body {
+  margin: 5px 5px 5px 5px;
+  background-color: #ffffff;
+}
+/* ========== Text Styles ========== */
+hr { color: #000000}
+body, table /* Normal text */
+{
+ font-size: 10pt;
+ font-family: 'Arial';
+ font-style: normal;
+ font-weight: normal;
+ color: #000000;
+ text-decoration: none;
+}
+span.rvts1 /* Heading */
+{
+ font-weight: bold;
+ color: #0000ff;
+}
+span.rvts2 /* Subheading */
+{
+ font-weight: bold;
+ color: #000080;
+}
+span.rvts3 /* Keywords */
+{
+ font-style: italic;
+ color: #800000;
+}
+a.rvts4, span.rvts4 /* Jump 1 */
+{
+ color: #008000;
+ text-decoration: underline;
+}
+a.rvts5, span.rvts5 /* Jump 2 */
+{
+ color: #008000;
+ text-decoration: underline;
+}
+span.rvts6 /* Font Style */
+{
+ font-size: 16pt;
+ font-family: 'MS Sans Serif';
+ color: #ffffff;
+}
+span.rvts7
+{
+ font-size: 11pt;
+ font-family: 'Verdana';
+}
+span.rvts8
+{
+ font-size: 11pt;
+ font-family: 'Verdana';
+ font-weight: bold;
+ color: #0000ff;
+}
+span.rvts9
+{
+ font-size: 11pt;
+ font-family: 'Verdana';
+ font-weight: bold;
+}
+span.rvts10
+{
+ font-size: 11pt;
+ font-family: 'Verdana';
+ color: #0000ff;
+}
+span.rvts11
+{
+ font-size: 11pt;
+ font-family: 'Verdana';
+}
+span.rvts12 /* Font Style */
+{
+ font-family: 'MS Sans Serif';
+ color: #808080;
+}
+span.rvts13 /* Font Style */
+{
+ font-family: 'Verdana';
+ font-style: italic;
+ color: #c0c0c0;
+}
+a.rvts14, span.rvts14 /* Font Style */
+{
+ font-family: 'Verdana';
+ font-style: italic;
+ color: #6666ff;
+ text-decoration: underline;
+}
+/* ========== Para Styles ========== */
+p,ul,ol /* Paragraph Style */
+{
+ text-align: left;
+ text-indent: 0px;
+ padding: 0px 0px 0px 0px;
+ margin: 0px 0px 0px 0px;
+}
+.rvps1 /* Centered */
+{
+ text-align: center;
+}
+.rvps2 /* Paragraph Style */
+{
+ background: #9fbed0;
+ margin: 0px 0px 20px 0px;
+}
+.rvps3
+{
+ text-align: justify;
+ text-indent: 36px;
+}
+.rvps4
+{
+ text-align: center;
+ text-indent: 36px;
+}
+.rvps5 /* Paragraph Style */
+{
+ text-align: center;
+ background: #e4e4e4;
+ margin: 20px 0px 0px 0px;
+}
+.rvps6 /* Paragraph Style */
+{
+ border-color: #c0c0c0;
+ border-style: solid;
+ border-width: 1px;
+ border-right: none;
+ border-bottom: none;
+ border-left: none;
+ background: #ffffff;
+ padding: 3px 0px 0px 0px;
+ margin: 27px 0px 0px 0px;
+}
+--></style>
+<body>
+
+<p class=rvps2><span class=rvts6>Estrutura do Componente Tabela</span></p>
+<p class=rvps3><span class=rvts7>O componente “Tabela” é utilizado para manipular as tabelas do projeto, o módulo fonte é o “Tabela.Pas”. Todo acesso às tabelas deverá ser realizado através deste componente, sua utilização padroniza e facilita o uso dentro do projeto.</span></p>
+<p class=rvps3><span class=rvts7><br></span></p>
+<p class=rvps3><span class=rvts7>Segue abaixo as principais propriedades do componente “Tabela”.</span></p>
+<p class=rvps4><span class=rvts7><br></span></p>
+<div class=rvps1><table width=436 border=1 style="border-width : 0px" cellpadding=2 cellspacing=-1 style="border-color: #000000; border-collapse: collapse;">
+<tr valign=top>
+<td width=177 valign=top style="border-width : 1px; border-color: #000000;">
+<p class=rvps1><span class=rvts10> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class=rvts8>Propriedade</span></p>
+</td>
+<td width=247 valign=top style="border-width : 1px; border-color: #000000;">
+<p class=rvps1><span class=rvts8>Definição / Utilização</span></p>
+</td>
+</tr>
+<tr valign=top>
+<td width=177 valign=top style="border-width : 1px; border-color: #000000;">
+<p class=rvps1><span class=rvts9>NomeTabela: String</span></p>
+</td>
+<td width=247 valign=top style="border-width : 1px; border-color: #000000;">
+<p class=rvps1><span class=rvts7>Retorna o nome da tabela.</span></p>
+<p class=rvps1><span class=rvts7>Exemplo: DCLIENTES.NomeTabela;</span></p>
+<p class=rvps1><span class=rvts7>Retorno: </span><span class=rvts11>&#8216;</span><span class=rvts7>CLIENTES</span><span class=rvts11>&#8217;</span><span class=rvts7> = Conforme exemplo.</span></p>
+</td>
+</tr>
+<tr valign=top>
+<td width=177 valign=top style="border-width : 1px; border-color: #000000;">
+<p class=rvps1><span class=rvts9>Titulo: String</span></p>
+</td>
+<td width=247 valign=top style="border-width : 1px; border-color: #000000;">
+<p class=rvps1><span class=rvts7>Retorna o título da tabela.</span></p>
+<p class=rvps1><span class=rvts7>Exemplo: DCLIENTES.Titulo;</span></p>
+<p class=rvps1><span class=rvts7>Retorno: </span><span class=rvts11>&#8216;</span><span class=rvts7>Ficha Cadastral de Clientes</span><span class=rvts11>&#8217;</span><span class=rvts7> = Conforme exemplo.</span></p>
+</td>
+</tr>
+<tr valign=top>
+<td width=177 valign=top style="border-width : 1px; border-color: #000000;">
+<p class=rvps1><span class=rvts9>Name: String</span></p>
+</td>
+<td width=247 valign=top style="border-width : 1px; border-color: #000000;">
+<p class=rvps1><span class=rvts7>Retorna o nome interno (componente) da tabela.</span></p>
+<p class=rvps1><span class=rvts7>Exemplo: DCLIENTES.Name;</span></p>
+<p class=rvps1><span class=rvts7>Retorno: </span><span class=rvts11>&#8216;</span><span class=rvts7>DCLIENTES</span><span class=rvts11>&#8217;</span><span class=rvts7> = Conforme exemplo.</span></p>
+</td>
+</tr>
+<tr valign=top>
+<td width=177 valign=top style="border-width : 1px; border-color: #000000;">
+<p class=rvps1><span class=rvts9>&lt;Campos&gt;.Conteúdo: &lt;valor do campo&gt;</span></p>
+</td>
+<td width=247 valign=top style="border-width : 1px; border-color: #000000;">
+<p class=rvps1><span class=rvts7>Todos os campos da tabela são acessados através do componente.</span></p>
+<p class=rvps1><span class=rvts7>Exemplo: DCLIENTES.Nome.Conteúdo := </span><span class=rvts11>&#8216;</span><span class=rvts7>Modular Software</span><span class=rvts11>&#8217;</span><span class=rvts7>;</span></p>
+<p class=rvps1><span class=rvts7>Neste exemplo o campo </span><span class=rvts11>&#8216;</span><span class=rvts7>Nome</span><span class=rvts11>&#8217;</span><span class=rvts7> está recebendo o valor </span><span class=rvts11>&#8216;</span><span class=rvts7>Modular Software</span><span class=rvts11>&#8217;</span><span class=rvts7>, cada campo receberá o dado conforme sua origem, que são: Alfanumérico, Numérico, Data, Memo ou Imagem.</span></p>
+</td>
+</tr>
+<tr valign=top>
+<td width=177 valign=top style="border-width : 1px; border-color: #000000;">
+<p class=rvps1><span class=rvts9>Inclui(Campos: TListaCampos): Boolean</span></p>
+</td>
+<td width=247 valign=top style="border-width : 1px; border-color: #000000;">
+<p class=rvps1><span class=rvts7>Inclui um novo registro em branco na tabela, o parâmetro “Campos”, é utilizado no formulário de entrada de dados, é uma lista contendo os campos utilizados na tela para atribuição dos valores padrões. </span></p>
+<p class=rvps1><span class=rvts7>Em um formulário avulso ou outro tipo de finalidade utilize e opção “NIL” como parâmetro.</span></p>
+<p class=rvps1><span class=rvts7>Exemplo: DCLIENTES.Inclui(Nil);</span></p>
+<p class=rvps1><span class=rvts7>Retorno: True = Inclusão autorizada, False = Inclusão não autorizada.</span></p>
+</td>
+</tr>
+<tr valign=top>
+<td width=177 valign=top style="border-width : 1px; border-color: #000000;">
+<p class=rvps1><span class=rvts9>Modifica: Boolean</span></p>
+</td>
+<td width=247 valign=top style="border-width : 1px; border-color: #000000;">
+<p class=rvps1><span class=rvts7>Habilita o registro para edição.</span></p>
+<p class=rvps1><span class=rvts7>Exemplo: DCLIENTES.Modifica;</span></p>
+<p class=rvps1><span class=rvts7>Retorno: True = Edição autorizada, False = Edição não autorizada.</span></p>
+</td>
+</tr>
+<tr valign=top>
+<td width=177 valign=top style="border-width : 1px; border-color: #000000;">
+<p class=rvps1><span class=rvts9>Exclui: Boolean</span></p>
+</td>
+<td width=247 valign=top style="border-width : 1px; border-color: #000000;">
+<p class=rvps1><span class=rvts7>Exclui o registro atual.</span></p>
+<p class=rvps1><span class=rvts7>Exemplo: DCLIENTES.Exclui;</span></p>
+<p class=rvps1><span class=rvts7>Retorno: True = Exclusão efetivada com sucesso, False = Não foi possível excluir.</span></p>
+</td>
+</tr>
+<tr valign=top>
+<td width=177 valign=top style="border-width : 1px; border-color: #000000;">
+<p class=rvps1><span class=rvts9>Salva: Boolean</span></p>
+</td>
+<td width=247 valign=top style="border-width : 1px; border-color: #000000;">
+<p class=rvps1><span class=rvts7>Salva o registro que está em modo de inclusão ou edição. Essa propriedade utiliza o recurso de “Commit”, ou seja, ela assegura que informação seja gravada em disco e não somente no “buffer” de memória.</span></p>
+<p class=rvps1><span class=rvts7>Exemplo: DCLIENTES.Salva;</span></p>
+<p class=rvps1><span class=rvts7>Retorno: True = Registro salvo com sucesso, False = Erro ao salvar o registro.</span></p>
+</td>
+</tr>
+<tr valign=top>
+<td width=177 valign=top style="border-width : 1px; border-color: #000000;">
+<p class=rvps1><span class=rvts9>Cancela: Boolean</span></p>
+</td>
+<td width=247 valign=top style="border-width : 1px; border-color: #000000;">
+<p class=rvps1><span class=rvts7>Cancela uma operação de inclusão ou edição do registro.</span></p>
+<p class=rvps1><span class=rvts7>Exemplo: DCLIENTES.Cancela;</span></p>
+<p class=rvps1><span class=rvts7>Retorno: True = Cancelamento efetivado, False = Cancelamento abortado.</span></p>
+</td>
+</tr>
+<tr valign=top>
+<td width=177 valign=top style="border-width : 1px; border-color: #000000;">
+<p class=rvps1><span class=rvts9>LimparTabela: Boolean</span></p>
+</td>
+<td width=247 valign=top style="border-width : 1px; border-color: #000000;">
+<p class=rvps1><span class=rvts7>Exclui todos os registros da tabela, sua utilização dever ser ponderada, pois ao realizar esta operação a tabela ficará vazia, sem nenhum registro.</span></p>
+<p class=rvps1><span class=rvts7>Exemplo: DCLIENTES.LimparTabela;</span></p>
+<p class=rvps1><span class=rvts7>Retorno: True = Registros apagados com sucesso, False = Erro ao excluir os registros.</span></p>
+</td>
+</tr>
+<tr valign=top>
+<td width=177 valign=top style="border-width : 1px; border-color: #000000;">
+<p class=rvps1><span class=rvts9>DeletaTabela</span></p>
+</td>
+<td width=247 valign=top style="border-width : 1px; border-color: #000000;">
+<p class=rvps1><span class=rvts7>Exclui a tabela fisicamente do banco de dados.</span></p>
+<p class=rvps1><span class=rvts7>Exemplo: DCLIENTES.DeletaTabela;</span></p>
+<p class=rvps1><span class=rvts7>A tabela não pode estar em uso, utilize a propriedade “Close” antes de excluir a tabela.</span></p>
+</td>
+</tr>
+<tr valign=top>
+<td width=177 valign=top style="border-width : 1px; border-color: #000000;">
+<p class=rvps1><span class=rvts9>CriaTabela</span></p>
+</td>
+<td width=247 valign=top style="border-width : 1px; border-color: #000000;">
+<p class=rvps1><span class=rvts7>Cria a tabela fisicamente no banco de dados, somente se a tabela não existir.</span></p>
+<p class=rvps1><span class=rvts7>Exemplo: DCLIENTES.CriaTabela;</span></p>
+</td>
+</tr>
+<tr valign=top>
+<td width=177 valign=top style="border-width : 1px; border-color: #000000;">
+<p class=rvps1><span class=rvts9>Existe: Boolean</span></p>
+</td>
+<td width=247 valign=top style="border-width : 1px; border-color: #000000;">
+<p class=rvps1><span class=rvts7>Verifica se a tabela existe fisicamente no banco de dados.</span></p>
+<p class=rvps1><span class=rvts7>Exemplo: DCLIENTES.Existe;</span></p>
+<p class=rvps1><span class=rvts7>Retorno: True = A tabela existe, False = A Tabela não existe.</span></p>
+</td>
+</tr>
+<tr valign=top>
+<td width=177 valign=top style="border-width : 1px; border-color: #000000;">
+<p class=rvps1><span class=rvts9>Abrir: Boolean</span></p>
+</td>
+<td width=247 valign=top style="border-width : 1px; border-color: #000000;">
+<p class=rvps1><span class=rvts7>Abre a tabela para uso, a manipulação dos registros é somente possível após a abertura da mesma. </span></p>
+<p class=rvps1><span class=rvts7>Exemplo: DCLIENTES.Abrir;</span></p>
+<p class=rvps1><span class=rvts7>Retorno: True = Tabela aberta com sucesso, False = Não foi possível abrir a tabela.</span></p>
+<p class=rvps1><span class=rvts7>O projeto abre todas as tabelas em sua inicialização.</span></p>
+</td>
+</tr>
+<tr valign=top>
+<td width=177 valign=top style="border-width : 1px; border-color: #000000;">
+<p class=rvps1><span class=rvts9>AtualizaSql;</span></p>
+</td>
+<td width=247 valign=top style="border-width : 1px; border-color: #000000;">
+<p class=rvps1><span class=rvts7>Atualiza a visualização dos registros no “buffer” de memória, os registros poderão ser filtrados e ordenados. </span></p>
+<p class=rvps1><span class=rvts7>Exemplo: DCLIENTES.AtualizaSql;</span></p>
+<p class=rvps1><span class=rvts7>Sempre que uma tabela receber uma expressão de filtro ou de ordenação essa propriedade terá que ser utilizada.</span></p>
+</td>
+</tr>
+<tr valign=top>
+<td width=177 valign=top style="border-width : 1px; border-color: #000000;">
+<p class=rvps1><span class=rvts9>Filtro: TStringList</span></p>
+</td>
+<td width=247 valign=top style="border-width : 1px; border-color: #000000;">
+<p class=rvps1><span class=rvts7>Recebe uma lista de expressões para filtro.</span></p>
+<p class=rvps1><span class=rvts7>Exemplo: DCLIENTES.Filtro.Add(</span><span class=rvts11>&#8216;</span><span class=rvts7>CODIGO = 100</span><span class=rvts11>&#8217;</span><span class=rvts7>);</span></p>
+<p class=rvps1><span class=rvts7>A sintaxe utilizada para filtragem é definida pelo SQL. Para atualizar os registros com o novo filtro, utilize a propriedade “AtualizaSql”.</span></p>
+</td>
+</tr>
+<tr valign=top>
+<td width=177 valign=top style="border-width : 1px; border-color: #000000;">
+<p class=rvps1><span class=rvts9>FiltroRelac: TStringList</span></p>
+</td>
+<td width=247 valign=top style="border-width : 1px; border-color: #000000;">
+<p class=rvps1><span class=rvts7>Recebe uma lista de expressões para filtro.</span></p>
+<p class=rvps1><span class=rvts7>Exemplo: DCLIENTES.FiltroRelac.Add(</span><span class=rvts11>&#8216;</span><span class=rvts7>CODIGO = 100</span><span class=rvts11>&#8217;</span><span class=rvts7>);</span></p>
+<p class=rvps1><span class=rvts7>Segue os mesmos padrões da propriedade “Filtro”.</span></p>
+<p class=rvps1><span class=rvts7>O X-Maker utiliza este filtro extra para os “Grids de Relacionamentos” em formulários de entrada de dados. É utilizado para não gerar conflito na opção de filtragem do formulário de entrada de dados filho.</span></p>
+</td>
+</tr>
+<tr valign=top>
+<td width=177 valign=top style="border-width : 1px; border-color: #000000;">
+<p class=rvps1><span class=rvts9>ChaveIndice: String</span></p>
+</td>
+<td width=247 valign=top style="border-width : 1px; border-color: #000000;">
+<p class=rvps1><span class=rvts7>Define o conjunto de campos para ordenação da tabela.</span></p>
+<p class=rvps1><span class=rvts7>Exemplo: DCLIENTES.ChaveIndice := </span><span class=rvts11>&#8216;</span><span class=rvts7>NOME</span><span class=rvts11>&#8217;</span><span class=rvts7>;</span></p>
+<p class=rvps1><span class=rvts7>Para mais de campo para composição da chave utilize a “,“(vírgula). </span></p>
+<p class=rvps1><span class=rvts7>Exemplo: DCLIENTES.ChaveIndice := </span><span class=rvts11>&#8216;</span><span class=rvts7>NOME, SALARIO</span><span class=rvts11>&#8217;</span><span class=rvts7>;</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class=rvps5><span class=rvts12>Copyright © 2005, Modular Software</span></p>
+
+</body></html>

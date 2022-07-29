@@ -1,0 +1,988 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><title>Métodos Pré-definidos</title>
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+body {
+  margin: 5px 5px 5px 5px;
+  background-color: #ffffff;
+}
+/* ========== Text Styles ========== */
+hr { color: #000000}
+body, table /* Normal text */
+{
+ font-size: 10pt;
+ font-family: 'Arial';
+ font-style: normal;
+ font-weight: normal;
+ color: #000000;
+ text-decoration: none;
+}
+span.rvts1 /* Heading */
+{
+ font-weight: bold;
+ color: #0000ff;
+}
+span.rvts2 /* Subheading */
+{
+ font-weight: bold;
+ color: #000080;
+}
+span.rvts3 /* Keywords */
+{
+ font-style: italic;
+ color: #800000;
+}
+a.rvts4, span.rvts4 /* Jump 1 */
+{
+ color: #008000;
+ text-decoration: underline;
+}
+a.rvts5, span.rvts5 /* Jump 2 */
+{
+ color: #008000;
+ text-decoration: underline;
+}
+span.rvts6 /* Font Style */
+{
+ font-size: 16pt;
+ font-family: 'MS Sans Serif';
+ color: #ffffff;
+}
+span.rvts7
+{
+ font-size: 11pt;
+ font-family: 'Verdana';
+}
+span.rvts8
+{
+ font-size: 11pt;
+ font-family: 'Verdana';
+ font-weight: bold;
+}
+span.rvts9
+{
+ font-size: 11pt;
+ font-family: 'Verdana';
+}
+span.rvts10
+{
+ font-size: 11pt;
+ font-family: 'Verdana';
+ font-weight: bold;
+ color: #0000ff;
+}
+span.rvts11
+{
+ font-size: 11pt;
+ font-family: 'Verdana';
+ font-weight: bold;
+ color: #0000ff;
+}
+span.rvts12
+{
+ font-size: 11pt;
+ font-family: 'Verdana';
+ font-weight: bold;
+ color: #ffffff;
+}
+span.rvts13 /* Font Style */
+{
+ font-family: 'MS Sans Serif';
+ color: #808080;
+}
+span.rvts14 /* Font Style */
+{
+ font-family: 'Verdana';
+ font-style: italic;
+ color: #c0c0c0;
+}
+a.rvts15, span.rvts15 /* Font Style */
+{
+ font-family: 'Verdana';
+ font-style: italic;
+ color: #6666ff;
+ text-decoration: underline;
+}
+/* ========== Para Styles ========== */
+p,ul,ol /* Paragraph Style */
+{
+ text-align: left;
+ text-indent: 0px;
+ padding: 0px 0px 0px 0px;
+ margin: 0px 0px 0px 0px;
+}
+.rvps1 /* Centered */
+{
+ text-align: center;
+}
+.rvps2 /* Paragraph Style */
+{
+ background: #9fbed0;
+ margin: 0px 0px 20px 0px;
+}
+.rvps3
+{
+ text-align: justify;
+}
+.rvps4
+{
+ text-indent: -24px;
+ margin: 0px 0px 0px 48px;
+}
+.rvps5
+{
+ text-indent: 48px;
+}
+.rvps6
+{
+ text-align: justify;
+ margin: 0px 0px 0px 48px;
+}
+.rvps7
+{
+ text-align: justify;
+ text-indent: -24px;
+ margin: 0px 0px 0px 48px;
+}
+.rvps8
+{
+ text-align: justify;
+ text-indent: 48px;
+}
+.rvps9
+{
+ margin: 0px 0px 0px 48px;
+}
+.rvps10
+{
+ text-align: justify;
+ margin: 0px 0px 0px 24px;
+}
+.rvps11
+{
+ text-align: center;
+ page-break-after: avoid;
+ background: #008080;
+ margin: 16px 0px 16px 0px;
+}
+.rvps12 /* Paragraph Style */
+{
+ text-align: center;
+ background: #e4e4e4;
+ margin: 20px 0px 0px 0px;
+}
+.rvps13 /* Paragraph Style */
+{
+ border-color: #c0c0c0;
+ border-style: solid;
+ border-width: 1px;
+ border-right: none;
+ border-bottom: none;
+ border-left: none;
+ background: #ffffff;
+ padding: 3px 0px 0px 0px;
+ margin: 27px 0px 0px 0px;
+}
+--></style>
+<body>
+
+<p class=rvps2><span class=rvts6>Métodos Pré-definidos</span></p>
+<p class=rvps11><span class=rvts12>Função ConstStr</span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps4 style="{ margin-left: 0 }"><span class=rvts7>Declaração</span></li>
+</ul>
+<p><span class=rvts7><br></span></p>
+<p class=rvps5><span class=rvts8>function</span><span class=rvts7> ConstStr(Ch: </span><span class=rvts8>string</span><span class=rvts7>; N: </span><span class=rvts8>byte</span><span class=rvts7>): </span><span class=rvts8>string</span><span class=rvts7>;</span></p>
+<p><span class=rvts7><br></span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps4 style="{ margin-left: 0 }"><span class=rvts7>Descrição</span></li>
+</ul>
+<p><span class=rvts7><br></span></p>
+<p class=rvps6><span class=rvts7>Prenche uma variável string “Ch” com uma seqüência de caracteres de tamanho “N”.</span></p>
+<p class=rvps3><span class=rvts7><br></span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps7 style="{ margin-left: 0 }"><span class=rvts7>Exemplo</span></li>
+</ul>
+<p class=rvps3><span class=rvts7><br></span></p>
+<p class=rvps8><span class=rvts7>LbLinha.Caption := ConstStr(</span><span class=rvts9>&#8216;</span><span class=rvts7>-</span><span class=rvts9>&#8216;</span><span class=rvts7>,50);</span></p>
+<p><span class=rvts7><br></span></p>
+<p><span class=rvts7><br></span></p>
+<p class=rvps11><span class=rvts12>Função DiretorioComBarra</span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps4 style="{ margin-left: 0 }"><span class=rvts7>Declaração</span></li>
+</ul>
+<p><span class=rvts7><br></span></p>
+<p class=rvps9><span class=rvts8>function </span><span class=rvts7>DiretorioComBarra(NomeDir:</span><span class=rvts8> string</span><span class=rvts7>):</span><span class=rvts8> string;</span></p>
+<p class=rvps9><span class=rvts7><br></span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps4 style="{ margin-left: 0 }"><span class=rvts7>Descrição</span></li>
+</ul>
+<p><span class=rvts7><br></span></p>
+<p class=rvps6><span class=rvts7>Insere a última barra invertida ao nome do diretório “NomeDir”, caso seja necessário.</span></p>
+<p class=rvps3><span class=rvts7><br></span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps7 style="{ margin-left: 0 }"><span class=rvts7>Exemplo</span></li>
+</ul>
+<p class=rvps3><span class=rvts7><br></span></p>
+<p class=rvps8><span class=rvts7>Pasta := DiretorioComBarra(DirWindows);</span></p>
+<p class=rvps8><span class=rvts7><br></span></p>
+<p class=rvps11><span class=rvts12>Função DiretorioSemBarra</span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps4 style="{ margin-left: 0 }"><span class=rvts7>Declaração</span></li>
+</ul>
+<p><span class=rvts7><br></span></p>
+<p class=rvps9><span class=rvts8>function </span><span class=rvts7>DiretorioSemBarra(NomeDir:</span><span class=rvts8> string</span><span class=rvts7>):</span><span class=rvts8> string;</span></p>
+<p class=rvps9><span class=rvts7><br></span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps4 style="{ margin-left: 0 }"><span class=rvts7>Descrição</span></li>
+</ul>
+<p><span class=rvts7><br></span></p>
+<p class=rvps6><span class=rvts7>Retira a última barra invertida do nome do diretório “NomeDir”, caso seja necessário.</span></p>
+<p class=rvps3><span class=rvts7><br></span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps7 style="{ margin-left: 0 }"><span class=rvts7>Exemplo</span></li>
+</ul>
+<p class=rvps3><span class=rvts7><br></span></p>
+<p class=rvps8><span class=rvts7>Pasta := DiretorioSemBarra(DirWindows);</span></p>
+<p><span class=rvts7><br></span></p>
+<p class=rvps11><span class=rvts12>Função RetiraHK</span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps4 style="{ margin-left: 0 }"><span class=rvts7>Declaração</span></li>
+</ul>
+<p><span class=rvts7><br></span></p>
+<p class=rvps9><span class=rvts8>function </span><span class=rvts7>RetiraHK(S: </span><span class=rvts8>string</span><span class=rvts7>):</span><span class=rvts8> string;</span></p>
+<p class=rvps9><span class=rvts7><br></span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps4 style="{ margin-left: 0 }"><span class=rvts7>Descrição</span></li>
+</ul>
+<p><span class=rvts7><br></span></p>
+<p class=rvps6><span class=rvts7>Retira os caracteres “&amp;” e “...” de uma string “S”.</span></p>
+<p class=rvps3><span class=rvts7><br></span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps7 style="{ margin-left: 0 }"><span class=rvts7>Exemplo</span></li>
+</ul>
+<p class=rvps3><span class=rvts7><br></span></p>
+<p class=rvps8><span class=rvts7>titulo := RetiraHK(mnu_clientes.Caption);</span></p>
+<p><span class=rvts7><br></span></p>
+<p class=rvps11><span class=rvts12>Função ArrayOfString</span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps4 style="{ margin-left: 0 }"><span class=rvts7>Declaração</span></li>
+</ul>
+<p><span class=rvts7><br></span></p>
+<p class=rvps9><span class=rvts8>function </span><span class=rvts7>ArrayToString(OpenArray:</span><span class=rvts8> array of string; </span><span class=rvts7>Separador:</span><span class=rvts8> char</span><span class=rvts7>):</span><span class=rvts8> string;</span></p>
+<p class=rvps9><span class=rvts7><br></span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps4 style="{ margin-left: 0 }"><span class=rvts7>Descrição</span></li>
+</ul>
+<p><span class=rvts7><br></span></p>
+<p class=rvps6><span class=rvts7>Copia o conteúdo de um array “OpenArray” para uma variável string, acrescentando o caractere “separador” entre cada elemento.</span></p>
+<p class=rvps3><span class=rvts7><br></span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps7 style="{ margin-left: 0 }"><span class=rvts7>Exemplo</span></li>
+</ul>
+<p class=rvps3><span class=rvts7><br></span></p>
+<p class=rvps8><span class=rvts7>lista := ArrayToString(listbox1.items, </span><span class=rvts9>&#8216;</span><span class=rvts7>;</span><span class=rvts9>&#8217;</span><span class=rvts7>);</span></p>
+<p><span class=rvts7><br></span></p>
+<p class=rvps11><span class=rvts12>Função StringToArray</span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps4 style="{ margin-left: 0 }"><span class=rvts7>Declaração</span></li>
+</ul>
+<p><span class=rvts7><br></span></p>
+<p class=rvps9><span class=rvts8>procedure </span><span class=rvts7>StringToArray(St:</span><span class=rvts8> string</span><span class=rvts7>; Separador:</span><span class=rvts8> char; </span><span class=rvts7>Lista:</span><span class=rvts8> TStringList</span><span class=rvts7>);</span></p>
+<p class=rvps9><span class=rvts7><br></span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps4 style="{ margin-left: 0 }"><span class=rvts7>Descrição</span></li>
+</ul>
+<p><span class=rvts7><br></span></p>
+<p class=rvps6><span class=rvts7>Copia os diversos elementos de uma string “St” que estão separados pelo caractere “Separador” para uma lista do tipo “TStringList”.</span></p>
+<p class=rvps3><span class=rvts7><br></span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps7 style="{ margin-left: 0 }"><span class=rvts7>Exemplo</span></li>
+</ul>
+<p class=rvps3><span class=rvts7><br></span></p>
+<p class=rvps8><span class=rvts7>StringToArray(</span><span class=rvts9>&#8216;</span><span class=rvts7>Azul;Branco;Amarelo</span><span class=rvts9>&#8217;</span><span class=rvts7>, </span><span class=rvts9>&#8216;</span><span class=rvts7>;</span><span class=rvts9>&#8217;</span><span class=rvts7> , Lista);</span></p>
+<p><span class=rvts7><br></span></p>
+<p class=rvps11><span class=rvts12>Função DirWindows</span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps4 style="{ margin-left: 0 }"><span class=rvts7>Declaração</span></li>
+</ul>
+<p><span class=rvts7><br></span></p>
+<p class=rvps9><span class=rvts8>function </span><span class=rvts7>DirWindows:</span><span class=rvts8> string;</span></p>
+<p class=rvps9><span class=rvts7><br></span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps4 style="{ margin-left: 0 }"><span class=rvts7>Descrição</span></li>
+</ul>
+<p><span class=rvts7><br></span></p>
+<p class=rvps6><span class=rvts7>Retorna a pasta de instalação do sistema operacional “Windows”.</span></p>
+<p class=rvps3><span class=rvts7><br></span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps7 style="{ margin-left: 0 }"><span class=rvts7>Exemplo</span></li>
+</ul>
+<p class=rvps3><span class=rvts7><br></span></p>
+<p class=rvps8><span class=rvts7>Pasta := DirWindows;</span></p>
+<p><span class=rvts7><br></span></p>
+<p class=rvps11><span class=rvts12>Função RetiraBrancos</span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps4 style="{ margin-left: 0 }"><span class=rvts7>Declaração</span></li>
+</ul>
+<p><span class=rvts7><br></span></p>
+<p class=rvps9><span class=rvts8>function </span><span class=rvts7>RetiraBrancos(Str:</span><span class=rvts8> string</span><span class=rvts7>):</span><span class=rvts8> string;</span></p>
+<p class=rvps9><span class=rvts7><br></span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps4 style="{ margin-left: 0 }"><span class=rvts7>Descrição</span></li>
+</ul>
+<p><span class=rvts7><br></span></p>
+<p class=rvps6><span class=rvts7>Retira todos os caracteres brancos de uma variável string “Str”.</span></p>
+<p class=rvps3><span class=rvts7><br></span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps7 style="{ margin-left: 0 }"><span class=rvts7>Exemplo</span></li>
+</ul>
+<p class=rvps3><span class=rvts7><br></span></p>
+<p class=rvps8><span class=rvts7>Pasta := RetiraBrancos(DirWindows);</span></p>
+<p><span class=rvts7><br></span></p>
+<p class=rvps11><span class=rvts12>Função ExecutaForm</span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps4 style="{ margin-left: 0 }"><span class=rvts7>Declaração</span></li>
+</ul>
+<p><span class=rvts7><br></span></p>
+<p class=rvps9><span class=rvts8>procedure </span><span class=rvts7>ExecutaForm(FormClass:</span><span class=rvts8> TFormClass; var </span><span class=rvts7>Reference);</span></p>
+<p class=rvps9><span class=rvts7><br></span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps4 style="{ margin-left: 0 }"><span class=rvts7>Descrição</span></li>
+</ul>
+<p><span class=rvts7><br></span></p>
+<p class=rvps6><span class=rvts7>Executa formulários do tipo MDI.</span></p>
+<p class=rvps3><span class=rvts7><br></span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps7 style="{ margin-left: 0 }"><span class=rvts7>Exemplo</span></li>
+</ul>
+<p class=rvps3><span class=rvts7><br></span></p>
+<p class=rvps8><span class=rvts7>ExecutaForm(TFormClientes,FormClientes);</span></p>
+<p><span class=rvts7><br></span></p>
+<p class=rvps11><span class=rvts12>Função CopiaArquivo</span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps4 style="{ margin-left: 0 }"><span class=rvts7>Declaração</span></li>
+</ul>
+<p><span class=rvts7><br></span></p>
+<p class=rvps9><span class=rvts8>function </span><span class=rvts7>CopiaArquivo(Origem, Destino:</span><span class=rvts8> string</span><span class=rvts7>):</span><span class=rvts8> Boolean;</span></p>
+<p class=rvps9><span class=rvts7><br></span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps4 style="{ margin-left: 0 }"><span class=rvts7>Descrição</span></li>
+</ul>
+<p><span class=rvts7><br></span></p>
+<p class=rvps6><span class=rvts7>Copia o arquivo “Origem” para o arquivo “Destino”. Retorna True caso a cópia seja bem sucedida.</span></p>
+<p class=rvps3><span class=rvts7><br></span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps7 style="{ margin-left: 0 }"><span class=rvts7>Exemplo</span></li>
+</ul>
+<p class=rvps3><span class=rvts7><br></span></p>
+<p class=rvps5><span class=rvts7>Ok :=&nbsp; CopiaArquivo(</span><span class=rvts9>&#8216;</span><span class=rvts7>C:\Projeto\Base.Gdb</span><span class=rvts9>&#8217;</span><span class=rvts7>, </span><span class=rvts9>&#8216;</span><span class=rvts7>D:\Base.Gdb</span><span class=rvts9>&#8217;</span><span class=rvts7>);</span></p>
+<p><span class=rvts7><br></span></p>
+<p class=rvps11><span class=rvts12>Função CopiaArquivoMascara</span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps4 style="{ margin-left: 0 }"><span class=rvts7>Declaração</span></li>
+</ul>
+<p><span class=rvts7><br></span></p>
+<p class=rvps9><span class=rvts8>function </span><span class=rvts7>CopiaArquivosMascara(Orig, Dest, Masc:</span><span class=rvts8> string</span><span class=rvts7>):</span><span class=rvts8> Boolean;</span></p>
+<p class=rvps9><span class=rvts7><br></span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps4 style="{ margin-left: 0 }"><span class=rvts7>Descrição</span></li>
+</ul>
+<p><span class=rvts7><br></span></p>
+<p class=rvps6><span class=rvts7>Copia todos os arquivos da pasta “Origem” para a pasta “Destino”, conforme a máscara. Retorna True caso todas as cópias sejam bem sucedidas.</span></p>
+<p class=rvps3><span class=rvts7><br></span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps7 style="{ margin-left: 0 }"><span class=rvts7>Exemplo</span></li>
+</ul>
+<p class=rvps3><span class=rvts7><br></span></p>
+<p class=rvps5><span class=rvts7>Ok :=&nbsp; CopiaArquivoMascara(</span><span class=rvts9>&#8216;</span><span class=rvts7>C:\Projeto\</span><span class=rvts9>&#8217;</span><span class=rvts7>, </span><span class=rvts9>&#8216;</span><span class=rvts7>D:\</span><span class=rvts9>&#8217;</span><span class=rvts7>, </span><span class=rvts9>&#8216;</span><span class=rvts7>*.Gdb</span><span class=rvts9>&#8217;</span><span class=rvts7>) ;</span></p>
+<p><span class=rvts7><br></span></p>
+<p class=rvps11><span class=rvts12>Função PadR</span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps4 style="{ margin-left: 0 }"><span class=rvts7>Declaração</span></li>
+</ul>
+<p><span class=rvts7><br></span></p>
+<p class=rvps9><span class=rvts8>function </span><span class=rvts7>PadR(InStr:</span><span class=rvts8> string; </span><span class=rvts7>TotalLen: </span><span class=rvts8>Integer</span><span class=rvts7>):</span><span class=rvts8> string;</span></p>
+<p class=rvps9><span class=rvts7><br></span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps4 style="{ margin-left: 0 }"><span class=rvts7>Descrição</span></li>
+</ul>
+<p><span class=rvts7><br></span></p>
+<p class=rvps6><span class=rvts7>Alinha o conteúdo da variável string “InStr” à esquerda, dentro de um tamanho definido em “TotalLen”. </span></p>
+<p class=rvps3><span class=rvts7><br></span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps7 style="{ margin-left: 0 }"><span class=rvts7>Exemplo</span></li>
+</ul>
+<p class=rvps3><span class=rvts7><br></span></p>
+<p class=rvps5><span class=rvts7>S := PadR(Sistema.Titulo, 40);</span></p>
+<p><span class=rvts7><br></span></p>
+<p class=rvps11><span class=rvts12>Função PadL</span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps4 style="{ margin-left: 0 }"><span class=rvts7>Declaração</span></li>
+</ul>
+<p class=rvps9><span class=rvts8><br></span></p>
+<p class=rvps9><span class=rvts8>function </span><span class=rvts7>PadL(InStr:</span><span class=rvts8> string; </span><span class=rvts7>TotalLen: </span><span class=rvts8>Integer</span><span class=rvts7>):</span><span class=rvts8> string;</span></p>
+<p class=rvps9><span class=rvts7><br></span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps4 style="{ margin-left: 0 }"><span class=rvts7>Descrição</span></li>
+</ul>
+<p><span class=rvts7><br></span></p>
+<p class=rvps6><span class=rvts7>Alinha o conteúdo da variável string “InStr” à direita, dentro de um tamanho definido em “TotalLen”. </span></p>
+<p class=rvps3><span class=rvts7><br></span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps7 style="{ margin-left: 0 }"><span class=rvts7>Exemplo</span></li>
+</ul>
+<p class=rvps3><span class=rvts7><br></span></p>
+<p class=rvps5><span class=rvts7>S := PadL(Sistema.Titulo, 40);</span></p>
+<p><span class=rvts7><br></span></p>
+<p class=rvps11><span class=rvts12>Função Center</span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps4 style="{ margin-left: 0 }"><span class=rvts7>Declaração</span></li>
+</ul>
+<p class=rvps9><span class=rvts8><br></span></p>
+<p class=rvps9><span class=rvts8>function </span><span class=rvts7>Center(InStr:</span><span class=rvts8> string</span><span class=rvts7>; TotalLen:</span><span class=rvts8> Integer</span><span class=rvts7>):</span><span class=rvts8> string;</span></p>
+<p class=rvps9><span class=rvts7><br></span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps4 style="{ margin-left: 0 }"><span class=rvts7>Descrição</span></li>
+</ul>
+<p><span class=rvts7><br></span></p>
+<p class=rvps6><span class=rvts7>Centraliza o conteúdo da variável string “InStr”, dentro de um tamanho definido em “TotalLen”. </span></p>
+<p class=rvps3><span class=rvts7><br></span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps7 style="{ margin-left: 0 }"><span class=rvts7>Exemplo</span></li>
+</ul>
+<p class=rvps3><span class=rvts7><br></span></p>
+<p class=rvps5><span class=rvts7>S := Center(Sistema.Titulo, 40);</span></p>
+<p><span class=rvts7><br></span></p>
+<p class=rvps11><span class=rvts12>Função Space</span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps4 style="{ margin-left: 0 }"><span class=rvts7>Declaração</span></li>
+</ul>
+<p class=rvps9><span class=rvts8><br></span></p>
+<p class=rvps9><span class=rvts8>function </span><span class=rvts7>Space(TotalLen:</span><span class=rvts8> Integer</span><span class=rvts7>):</span><span class=rvts8> string;</span></p>
+<p class=rvps9><span class=rvts7><br></span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps4 style="{ margin-left: 0 }"><span class=rvts7>Descrição</span></li>
+</ul>
+<p><span class=rvts7><br></span></p>
+<p class=rvps6><span class=rvts7>Preenche uma variável string com espaços em branco conforme o tamanho contido em “TotalLen”. </span></p>
+<p class=rvps3><span class=rvts7><br></span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps7 style="{ margin-left: 0 }"><span class=rvts7>Exemplo</span></li>
+</ul>
+<p class=rvps3><span class=rvts7><br></span></p>
+<p class=rvps5><span class=rvts7>S := Space(40);</span></p>
+<p><span class=rvts7><br></span></p>
+<p class=rvps11><span class=rvts12>Função DataAtual</span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps4 style="{ margin-left: 0 }"><span class=rvts7>Declaração</span></li>
+</ul>
+<p class=rvps9><span class=rvts8><br></span></p>
+<p class=rvps9><span class=rvts8>function </span><span class=rvts7>DataAtual:</span><span class=rvts8> TDateTime;</span></p>
+<p class=rvps9><span class=rvts7><br></span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps4 style="{ margin-left: 0 }"><span class=rvts7>Descrição</span></li>
+</ul>
+<p><span class=rvts7><br></span></p>
+<p class=rvps6><span class=rvts7>Retorna a data atual do sistema. </span></p>
+<p class=rvps3><span class=rvts7><br></span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps7 style="{ margin-left: 0 }"><span class=rvts7>Exemplo</span></li>
+</ul>
+<p class=rvps3><span class=rvts7><br></span></p>
+<p class=rvps5><span class=rvts7>data := DataAtual;</span></p>
+<p><span class=rvts7><br></span></p>
+<p class=rvps11><span class=rvts12>Função HoraAtual</span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps4 style="{ margin-left: 0 }"><span class=rvts7>Declaração</span></li>
+</ul>
+<p class=rvps9><span class=rvts8><br></span></p>
+<p class=rvps9><span class=rvts8>function </span><span class=rvts7>HoraAtual:</span><span class=rvts8> string;</span></p>
+<p class=rvps9><span class=rvts7><br></span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps4 style="{ margin-left: 0 }"><span class=rvts7>Descrição</span></li>
+</ul>
+<p><span class=rvts7><br></span></p>
+<p class=rvps6><span class=rvts7>Retorna a hora atual do sistema em uma variável string, no formato 999999.</span></p>
+<p class=rvps3><span class=rvts7><br></span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps7 style="{ margin-left: 0 }"><span class=rvts7>Exemplo</span></li>
+</ul>
+<p class=rvps3><span class=rvts7><br></span></p>
+<p class=rvps5><span class=rvts7>hora := HoraAtual;</span></p>
+<p><span class=rvts7><br></span></p>
+<p class=rvps11><span class=rvts12>Função PorExtenso</span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps4 style="{ margin-left: 0 }"><span class=rvts7>Declaração</span></li>
+</ul>
+<p class=rvps9><span class=rvts8><br></span></p>
+<p class=rvps9><span class=rvts8>function </span><span class=rvts7>PorExtenso(FValor:</span><span class=rvts8> Double</span><span class=rvts7>):</span><span class=rvts8> String;</span></p>
+<p class=rvps9><span class=rvts7><br></span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps4 style="{ margin-left: 0 }"><span class=rvts7>Descrição</span></li>
+</ul>
+<p><span class=rvts7><br></span></p>
+<p class=rvps6><span class=rvts7>Retorna um valor inteiro ou fracionário por extenso.</span></p>
+<p class=rvps3><span class=rvts7><br></span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps7 style="{ margin-left: 0 }"><span class=rvts7>Exemplo</span></li>
+</ul>
+<p class=rvps3><span class=rvts7><br></span></p>
+<p class=rvps5><span class=rvts7>extenso := PorExtenso(100.50);</span></p>
+<p><span class=rvts7><br></span></p>
+<p class=rvps11><span class=rvts12>Função Encript</span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps4 style="{ margin-left: 0 }"><span class=rvts7>Declaração</span></li>
+</ul>
+<p class=rvps9><span class=rvts8><br></span></p>
+<p class=rvps9><span class=rvts8>Encript</span><span class=rvts7>(Encript :</span><span class=rvts8> String</span><span class=rvts7>):</span><span class=rvts8> string;</span></p>
+<p class=rvps9><span class=rvts7><br></span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps4 style="{ margin-left: 0 }"><span class=rvts7>Descrição</span></li>
+</ul>
+<p><span class=rvts7><br></span></p>
+<p class=rvps6><span class=rvts7>Codifica uma variável string “Encript”.</span></p>
+<p class=rvps3><span class=rvts7><br></span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps7 style="{ margin-left: 0 }"><span class=rvts7>Exemplo</span></li>
+</ul>
+<p class=rvps3><span class=rvts7><br></span></p>
+<p class=rvps5><span class=rvts7>senha := Encript(</span><span class=rvts9>&#8216;</span><span class=rvts7>x-maker</span><span class=rvts9>&#8217;</span><span class=rvts7>); // Retorna: qfjbl.w</span></p>
+<p><span class=rvts7><br></span></p>
+<p class=rvps11><span class=rvts12>Função Decript</span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps4 style="{ margin-left: 0 }"><span class=rvts7>Declaração</span></li>
+</ul>
+<p class=rvps9><span class=rvts8><br></span></p>
+<p class=rvps9><span class=rvts8>function </span><span class=rvts7>Decript(Decript :</span><span class=rvts8> String</span><span class=rvts7>):</span><span class=rvts8> string;</span></p>
+<p class=rvps9><span class=rvts7><br></span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps4 style="{ margin-left: 0 }"><span class=rvts7>Descrição</span></li>
+</ul>
+<p><span class=rvts7><br></span></p>
+<p class=rvps6><span class=rvts7>Decodifica uma variável string “Decript”.</span></p>
+<p class=rvps3><span class=rvts7><br></span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps7 style="{ margin-left: 0 }"><span class=rvts7>Exemplo</span></li>
+</ul>
+<p class=rvps3><span class=rvts7><br></span></p>
+<p class=rvps5><span class=rvts7>senha := Encript(</span><span class=rvts9>&#8216;</span><span class=rvts7>qfjbl.w</span><span class=rvts9>&#8217;</span><span class=rvts7>); // Retorna: x-maker</span></p>
+<p><span class=rvts7><br></span></p>
+<p class=rvps11><span class=rvts12>Função StrZero</span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps4 style="{ margin-left: 0 }"><span class=rvts7>Declaração</span></li>
+</ul>
+<p class=rvps9><span class=rvts8><br></span></p>
+<p class=rvps9><span class=rvts8>function </span><span class=rvts7>StrZero(N:</span><span class=rvts8> integer</span><span class=rvts7>; Tamanho:</span><span class=rvts8> integer</span><span class=rvts7>):</span><span class=rvts8> string;</span></p>
+<p class=rvps9><span class=rvts7><br></span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps4 style="{ margin-left: 0 }"><span class=rvts7>Descrição</span></li>
+</ul>
+<p><span class=rvts7><br></span></p>
+<p class=rvps6><span class=rvts7>Converte um número inteiro em string e atribui zero à esquerda conforme o tamanho definido em “Tamanho”.</span></p>
+<p class=rvps3><span class=rvts7><br></span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps7 style="{ margin-left: 0 }"><span class=rvts7>Exemplo</span></li>
+</ul>
+<p class=rvps3><span class=rvts7><br></span></p>
+<p class=rvps5><span class=rvts7>numero := StrZero(100, 5); // Retorna: 00100</span></p>
+<p class=rvps11><span class=rvts12>Função Dia</span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps4 style="{ margin-left: 0 }"><span class=rvts7>Declaração</span></li>
+</ul>
+<p class=rvps9><span class=rvts8><br></span></p>
+<p class=rvps9><span class=rvts8>function </span><span class=rvts7>Dia( Data:</span><span class=rvts8> TDateTime</span><span class=rvts7> ):</span><span class=rvts8> string;</span></p>
+<p class=rvps9><span class=rvts7><br></span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps4 style="{ margin-left: 0 }"><span class=rvts7>Descrição</span></li>
+</ul>
+<p><span class=rvts7><br></span></p>
+<p class=rvps6><span class=rvts7>Retorna uma variável string com o número do dia de uma data.</span></p>
+<p class=rvps3><span class=rvts7><br></span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps7 style="{ margin-left: 0 }"><span class=rvts7>Exemplo</span></li>
+</ul>
+<p class=rvps3><span class=rvts7><br></span></p>
+<p class=rvps5><span class=rvts7>Nr_dia := Dia(DataAtual);</span></p>
+<p><span class=rvts7><br></span></p>
+<p class=rvps11><span class=rvts12>Função Mes</span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps4 style="{ margin-left: 0 }"><span class=rvts7>Declaração</span></li>
+</ul>
+<p class=rvps9><span class=rvts8><br></span></p>
+<p class=rvps9><span class=rvts8>function</span><span class=rvts7> Mes( Data:</span><span class=rvts8> TDateTime</span><span class=rvts7> ):</span><span class=rvts8> string;</span></p>
+<p class=rvps9><span class=rvts7><br></span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps4 style="{ margin-left: 0 }"><span class=rvts7>Descrição</span></li>
+</ul>
+<p><span class=rvts7><br></span></p>
+<p class=rvps6><span class=rvts7>Retorna uma variável string com o número do mês de uma data.</span></p>
+<p class=rvps3><span class=rvts7><br></span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps7 style="{ margin-left: 0 }"><span class=rvts7>Exemplo</span></li>
+</ul>
+<p class=rvps3><span class=rvts7><br></span></p>
+<p class=rvps5><span class=rvts7>Nr_mes := Mes(DataAtual);</span></p>
+<p><span class=rvts7><br></span></p>
+<p class=rvps11><span class=rvts12>Função MesAno</span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps4 style="{ margin-left: 0 }"><span class=rvts7>Declaração</span></li>
+</ul>
+<p class=rvps9><span class=rvts8><br></span></p>
+<p class=rvps9><span class=rvts8>function</span><span class=rvts7> MesAno( Data:</span><span class=rvts8> TDateTime</span><span class=rvts7> ):</span><span class=rvts8> string;</span></p>
+<p class=rvps9><span class=rvts7><br></span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps4 style="{ margin-left: 0 }"><span class=rvts7>Descrição</span></li>
+</ul>
+<p><span class=rvts7><br></span></p>
+<p class=rvps6><span class=rvts7>Retorna uma variável string com o número do mês e ano de uma data, no formato 99/9999.</span></p>
+<p class=rvps3><span class=rvts7><br></span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps7 style="{ margin-left: 0 }"><span class=rvts7>Exemplo</span></li>
+</ul>
+<p class=rvps3><span class=rvts7><br></span></p>
+<p class=rvps5><span class=rvts7>Nr_mes_ano := MesAno(DataAtual);</span></p>
+<p><span class=rvts7><br></span></p>
+<p class=rvps11><span class=rvts12>Função Ano</span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps4 style="{ margin-left: 0 }"><span class=rvts7>Declaração</span></li>
+</ul>
+<p class=rvps9><span class=rvts8><br></span></p>
+<p class=rvps9><span class=rvts8>function</span><span class=rvts7> Ano( Data:</span><span class=rvts8> TDateTime</span><span class=rvts7> ):</span><span class=rvts8> string;</span></p>
+<p class=rvps9><span class=rvts7><br></span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps4 style="{ margin-left: 0 }"><span class=rvts7>Descrição</span></li>
+</ul>
+<p><span class=rvts7><br></span></p>
+<p class=rvps6><span class=rvts7>Retorna uma variável string com o número do ano de uma data, no formato 9999.</span></p>
+<p class=rvps3><span class=rvts7><br></span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps7 style="{ margin-left: 0 }"><span class=rvts7>Exemplo</span></li>
+</ul>
+<p class=rvps3><span class=rvts7><br></span></p>
+<p class=rvps5><span class=rvts7>Nr_ano := Ano(DataAtual);</span></p>
+<p><span class=rvts7><br></span></p>
+<p class=rvps11><span class=rvts12>Função UltimoDiadoMes</span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps4 style="{ margin-left: 0 }"><span class=rvts7>Declaração</span></li>
+</ul>
+<p class=rvps9><span class=rvts8><br></span></p>
+<p class=rvps9><span class=rvts8>function </span><span class=rvts7>UltimoDiaDoMes( MesAno:</span><span class=rvts8> string </span><span class=rvts7>):</span><span class=rvts8> string;</span></p>
+<p class=rvps9><span class=rvts7><br></span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps4 style="{ margin-left: 0 }"><span class=rvts7>Descrição</span></li>
+</ul>
+<p><span class=rvts7><br></span></p>
+<p class=rvps6><span class=rvts7>Retorna uma variável string com o número do último dia de determinado mês e ano.</span></p>
+<p class=rvps3><span class=rvts7><br></span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps7 style="{ margin-left: 0 }"><span class=rvts7>Exemplo</span></li>
+</ul>
+<p class=rvps3><span class=rvts7><br></span></p>
+<p class=rvps5><span class=rvts7>Ultimo_dia := UltimoDiadoMes(Mes(DataAtual) + Ano(DataAtual));</span></p>
+<p><span class=rvts7><br></span></p>
+<p class=rvps11><span class=rvts12>Função DDMMAA</span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps4 style="{ margin-left: 0 }"><span class=rvts7>Declaração</span></li>
+</ul>
+<p class=rvps9><span class=rvts8><br></span></p>
+<p class=rvps9><span class=rvts8>function </span><span class=rvts7>DDMMAA( Data:</span><span class=rvts8> string </span><span class=rvts7>):</span><span class=rvts8> string;</span></p>
+<p class=rvps9><span class=rvts7><br></span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps4 style="{ margin-left: 0 }"><span class=rvts7>Descrição</span></li>
+</ul>
+<p><span class=rvts7><br></span></p>
+<p class=rvps6><span class=rvts7>Converte uma variável string “Data” para o formato: 99/99/99.</span></p>
+<p class=rvps3><span class=rvts7><br></span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps7 style="{ margin-left: 0 }"><span class=rvts7>Exemplo</span></li>
+</ul>
+<p class=rvps3><span class=rvts7><br></span></p>
+<p class=rvps5><span class=rvts7>data := DDMMAA(</span><span class=rvts9>&#8216;</span><span class=rvts7>01022004</span><span class=rvts9>&#8217;</span><span class=rvts7>); // Retorno: 01/10/04</span></p>
+<p><span class=rvts7><br></span></p>
+<p class=rvps11><span class=rvts12>Função MascValor</span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps4 style="{ margin-left: 0 }"><span class=rvts7>Declaração</span></li>
+</ul>
+<p class=rvps9><span class=rvts8><br></span></p>
+<p class=rvps9><span class=rvts8>function </span><span class=rvts7>MascValor(Valor:</span><span class=rvts8> Extended</span><span class=rvts7>; Mascara:</span><span class=rvts8> string</span><span class=rvts7>):</span><span class=rvts8> string;</span></p>
+<p class=rvps9><span class=rvts7><br></span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps4 style="{ margin-left: 0 }"><span class=rvts7>Descrição</span></li>
+</ul>
+<p><span class=rvts7><br></span></p>
+<p class=rvps6><span class=rvts7>Converte uma variável fracionária “Valor” para uma string formatada “Mascara”.</span></p>
+<p class=rvps3><span class=rvts7><br></span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps7 style="{ margin-left: 0 }"><span class=rvts7>Exemplo</span></li>
+</ul>
+<p class=rvps3><span class=rvts7><br></span></p>
+<p class=rvps5><span class=rvts7>Valor :=MascValor(100.50,</span><span class=rvts9>&#8217;</span><span class=rvts7> ZZZ.ZZ9,99</span><span class=rvts9>&#8217;</span><span class=rvts7>);</span></p>
+<p><span class=rvts7><br></span></p>
+<p class=rvps11><span class=rvts12>Função MascTexto</span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps4 style="{ margin-left: 0 }"><span class=rvts7>Declaração</span></li>
+</ul>
+<p class=rvps9><span class=rvts8><br></span></p>
+<p class=rvps9><span class=rvts8>function </span><span class=rvts7>MascTexto(S, Mascara:</span><span class=rvts8> String): string;</span></p>
+<p class=rvps9><span class=rvts7><br></span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps4 style="{ margin-left: 0 }"><span class=rvts7>Descrição</span></li>
+</ul>
+<p><span class=rvts7><br></span></p>
+<p class=rvps6><span class=rvts7>Retorna uma variável string “S” formatada “Mascara”.</span></p>
+<p class=rvps3><span class=rvts7><br></span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps7 style="{ margin-left: 0 }"><span class=rvts7>Exemplo</span></li>
+</ul>
+<p class=rvps3><span class=rvts7><br></span></p>
+<p class=rvps5><span class=rvts7>Cep :=MascTexto(</span><span class=rvts9>&#8216;</span><span class=rvts7>38010020</span><span class=rvts9>&#8217;</span><span class=rvts7>,</span><span class=rvts9>&#8217;</span><span class=rvts7> 99999-999</span><span class=rvts9>&#8217;</span><span class=rvts7>);</span></p>
+<p><span class=rvts7><br></span></p>
+<p class=rvps11><span class=rvts12>Função TrocaString</span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps4 style="{ margin-left: 0 }"><span class=rvts7>Declaração</span></li>
+</ul>
+<p class=rvps9><span class=rvts8><br></span></p>
+<p class=rvps9><span class=rvts8>function </span><span class=rvts7>TrocaString(</span><span class=rvts8>const </span><span class=rvts7>S, OldPattern, NewPattern:</span><span class=rvts8> string; </span><span class=rvts7>Flags:</span><span class=rvts8> TReplaceFlags</span><span class=rvts7>):</span><span class=rvts8> string;</span></p>
+<p><span class=rvts7><br></span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps4 style="{ margin-left: 0 }"><span class=rvts7>Descrição</span></li>
+</ul>
+<p><span class=rvts7><br></span></p>
+<p class=rvps6><span class=rvts7>Substitui os caracteres “OldPattern” pelos caracteres “NewPattern” dentro do variável string “S”. As opções de substituição são definidos em “Flags”.</span></p>
+<p class=rvps3><span class=rvts7><br></span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps7 style="{ margin-left: 0 }"><span class=rvts7>Exemplo</span></li>
+</ul>
+<p class=rvps3><span class=rvts7><br></span></p>
+<p class=rvps5><span class=rvts7>cpf := TrocaString(</span><span class=rvts9>&#8216;</span><span class=rvts7>999.999.999-99</span><span class=rvts9>&#8217;</span><span class=rvts7>, </span><span class=rvts9>&#8216;</span><span class=rvts7>.</span><span class=rvts9>&#8217;</span><span class=rvts7>, </span><span class=rvts9>&#8216;&#8217;</span><span class=rvts7>, [rfReplaceAll, rfIgnoreCase]);</span></p>
+<p><span class=rvts7><br></span></p>
+<p class=rvps11><span class=rvts12>Função ContaOcorrencia</span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps4 style="{ margin-left: 0 }"><span class=rvts7>Declaração</span></li>
+</ul>
+<p class=rvps9><span class=rvts8><br></span></p>
+<p class=rvps9><span class=rvts8>function </span><span class=rvts7>ContaOcorrencia(Substr:</span><span class=rvts8> string; </span><span class=rvts7>S:</span><span class=rvts8> string): Integer;</span></p>
+<p><span class=rvts7><br></span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps4 style="{ margin-left: 0 }"><span class=rvts7>Descrição</span></li>
+</ul>
+<p><span class=rvts7><br></span></p>
+<p class=rvps6><span class=rvts7>Retorna quantas ocorrências do caractere “Substr” existe na variável “S”. </span></p>
+<p class=rvps3><span class=rvts7><br></span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps7 style="{ margin-left: 0 }"><span class=rvts7>Exemplo</span></li>
+</ul>
+<p class=rvps10><span class=rvts7><br></span></p>
+<p class=rvps5><span class=rvts7>pontos := ContaOcorrencia(</span><span class=rvts9>&#8216;</span><span class=rvts7>.</span><span class=rvts9>&#8217;</span><span class=rvts7>,</span><span class=rvts9>&#8216;</span><span class=rvts7>999.999.999-99</span><span class=rvts9>&#8217;</span><span class=rvts7>);</span></p>
+<p class=rvps11><span class=rvts12>Função FracToStr</span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps4 style="{ margin-left: 0 }"><span class=rvts7>Declaração</span></li>
+</ul>
+<p class=rvps9><span class=rvts8><br></span></p>
+<p class=rvps5><span class=rvts8>function </span><span class=rvts7>FracToStr(Valor:</span><span class=rvts8> Extended</span><span class=rvts7>):</span><span class=rvts8> String;</span></p>
+<p class=rvps5><span class=rvts7><br></span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps4 style="{ margin-left: 0 }"><span class=rvts7>Descrição</span></li>
+</ul>
+<p><span class=rvts7><br></span></p>
+<p class=rvps6><span class=rvts7>Converte um número fracionário “valor” em uma variável string. É retornado o ponto para as casas decimais e não a vírgula como no método “FloatToStr”. Este método é o mais indicado para atribuições em expressões “SQL”.</span></p>
+<p class=rvps3><span class=rvts7><br></span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps7 style="{ margin-left: 0 }"><span class=rvts7>Exemplo</span></li>
+</ul>
+<p class=rvps10><span class=rvts7><br></span></p>
+<p class=rvps5><span class=rvts7>numero := FracToStr(100.50);</span></p>
+<p><span class=rvts7><br></span></p>
+<p class=rvps11><span class=rvts12>Função CalcC</span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps4 style="{ margin-left: 0 }"><span class=rvts7>Declaração</span></li>
+</ul>
+<p class=rvps9><span class=rvts8><br></span></p>
+<p class=rvps9><span class=rvts8>function </span><span class=rvts7>CalcC(N1,N2:</span><span class=rvts8> Extended</span><span class=rvts7>;Operador: </span><span class=rvts8>String; </span><span class=rvts7>Decimal: </span><span class=rvts8>Integer</span><span class=rvts7>):</span><span class=rvts8> Extended;</span></p>
+<p class=rvps5><span class=rvts7><br></span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps4 style="{ margin-left: 0 }"><span class=rvts7>Descrição</span></li>
+</ul>
+<p><span class=rvts7><br></span></p>
+<p class=rvps6><span class=rvts7>Arredonda uma expressão de cálculo e retorna com o número de casas decimais desejados “Decimal”. Os operadores suportados são: </span><span class=rvts10>+</span><span class=rvts7> (adição), </span><span class=rvts11>&#8211;</span><span class=rvts7> (subtração), </span><span class=rvts10>*</span><span class=rvts7> (multiplicação) e </span><span class=rvts10>/</span><span class=rvts7> (divisão).</span></p>
+<p class=rvps6><span class=rvts7><br></span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps7 style="{ margin-left: 0 }"><span class=rvts7>Exemplo</span></li>
+</ul>
+<p class=rvps10><span class=rvts7><br></span></p>
+<p class=rvps5><span class=rvts7>calculo := CalcC(100, 50.50, </span><span class=rvts9>&#8217;</span><span class=rvts7>*</span><span class=rvts9>&#8217;</span><span class=rvts7>, 3);</span></p>
+<p><span class=rvts7><br></span></p>
+<p class=rvps11><span class=rvts12>Função Exponencial</span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps4 style="{ margin-left: 0 }"><span class=rvts7>Declaração</span></li>
+</ul>
+<p class=rvps9><span class=rvts8><br></span></p>
+<p class=rvps9><span class=rvts8>function </span><span class=rvts7>Exponencial(N1:</span><span class=rvts8> Extended</span><span class=rvts7>; N2:</span><span class=rvts8> Integer</span><span class=rvts7>):</span><span class=rvts8> Extended;</span></p>
+<p class=rvps5><span class=rvts7><br></span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps4 style="{ margin-left: 0 }"><span class=rvts7>Descrição</span></li>
+</ul>
+<p><span class=rvts7><br></span></p>
+<p class=rvps6><span class=rvts7>Faz o cálculo exponencial entre os valores “N1” e “N2”. </span></p>
+<p class=rvps6><span class=rvts7><br></span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps7 style="{ margin-left: 0 }"><span class=rvts7>Exemplo</span></li>
+</ul>
+<p class=rvps10><span class=rvts7><br></span></p>
+<p class=rvps5><span class=rvts7>calculo := Exponencial(5, 2);</span></p>
+<p class=rvps5><span class=rvts7><br></span></p>
+<p class=rvps11><span class=rvts12>Função StrNumerica</span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps4 style="{ margin-left: 0 }"><span class=rvts7>Declaração</span></li>
+</ul>
+<p class=rvps9><span class=rvts8><br></span></p>
+<p class=rvps9><span class=rvts8>function </span><span class=rvts7>StrNumerica(N:</span><span class=rvts8> String</span><span class=rvts7>) :</span><span class=rvts8> Boolean;</span></p>
+<p class=rvps5><span class=rvts7><br></span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps4 style="{ margin-left: 0 }"><span class=rvts7>Descrição</span></li>
+</ul>
+<p><span class=rvts7><br></span></p>
+<p class=rvps6><span class=rvts7>Verifica se variável string “N” possui apenas números. </span></p>
+<p class=rvps6><span class=rvts7><br></span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps7 style="{ margin-left: 0 }"><span class=rvts7>Exemplo</span></li>
+</ul>
+<p class=rvps10><span class=rvts7><br></span></p>
+<p class=rvps5><span class=rvts7>ok := StrNumerica(</span><span class=rvts9>&#8216;</span><span class=rvts7>123456</span><span class=rvts9>&#8217;</span><span class=rvts7>);</span></p>
+<p><span class=rvts7><br></span></p>
+<p class=rvps11><span class=rvts12>Função ConverteLogico</span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps4 style="{ margin-left: 0 }"><span class=rvts7>Declaração</span></li>
+</ul>
+<p class=rvps9><span class=rvts8><br></span></p>
+<p class=rvps9><span class=rvts8>function </span><span class=rvts7>ConverteLogico(Valor:</span><span class=rvts8> Boolean</span><span class=rvts7>):</span><span class=rvts8> string;</span></p>
+<p class=rvps5><span class=rvts7><br></span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps4 style="{ margin-left: 0 }"><span class=rvts7>Descrição</span></li>
+</ul>
+<p><span class=rvts7><br></span></p>
+<p class=rvps6><span class=rvts7>Converte uma expressão lógica em uma variável string. True = T e False = F.</span></p>
+<p class=rvps6><span class=rvts7><br></span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps7 style="{ margin-left: 0 }"><span class=rvts7>Exemplo</span></li>
+</ul>
+<p class=rvps10><span class=rvts7><br></span></p>
+<p class=rvps5><span class=rvts7>ok := ConverteLogico(True);</span></p>
+<p><span class=rvts7><br></span></p>
+<p class=rvps11><span class=rvts12>Função ConverteStrToLog</span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps4 style="{ margin-left: 0 }"><span class=rvts7>Declaração</span></li>
+</ul>
+<p class=rvps9><span class=rvts8><br></span></p>
+<p class=rvps9><span class=rvts8>function </span><span class=rvts7>ConverteLogico(Valor:</span><span class=rvts8> Boolean</span><span class=rvts7>):</span><span class=rvts8> string;</span></p>
+<p class=rvps5><span class=rvts7><br></span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps4 style="{ margin-left: 0 }"><span class=rvts7>Descrição</span></li>
+</ul>
+<p><span class=rvts7><br></span></p>
+<p class=rvps6><span class=rvts7>Converte uma variável string em uma expressão lógica. T = True e F = False.</span></p>
+<p class=rvps6><span class=rvts7><br></span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps7 style="{ margin-left: 0 }"><span class=rvts7>Exemplo</span></li>
+</ul>
+<p class=rvps10><span class=rvts7><br></span></p>
+<p class=rvps5><span class=rvts7>ok := ConverteStrToLog(</span><span class=rvts9>&#8216;</span><span class=rvts7>T</span><span class=rvts9>&#8217;</span><span class=rvts7>);</span></p>
+<p><span class=rvts7><br></span></p>
+<p class=rvps11><span class=rvts12>Função SerialHD</span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps4 style="{ margin-left: 0 }"><span class=rvts7>Declaração</span></li>
+</ul>
+<p class=rvps9><span class=rvts8><br></span></p>
+<p class=rvps9><span class=rvts8>Function </span><span class=rvts7>SerialHD(FDrive:</span><span class=rvts8>String</span><span class=rvts7>) :</span><span class=rvts8>String;</span></p>
+<p class=rvps5><span class=rvts7><br></span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps4 style="{ margin-left: 0 }"><span class=rvts7>Descrição</span></li>
+</ul>
+<p><span class=rvts7><br></span></p>
+<p class=rvps6><span class=rvts7>Retorna o número de série de uma unidade de disco. Pode ser utilizado para criar um sistema de proteção contra cópias não autorizadas.</span></p>
+<p class=rvps6><span class=rvts7><br></span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps7 style="{ margin-left: 0 }"><span class=rvts7>Exemplo</span></li>
+</ul>
+<p class=rvps10><span class=rvts7><br></span></p>
+<p class=rvps5><span class=rvts7>Serial := SerialHD(</span><span class=rvts9>&#8216;</span><span class=rvts7>C</span><span class=rvts9>&#8217;</span><span class=rvts7>); // Unidade C:\</span></p>
+<p><span class=rvts7><br></span></p>
+<p class=rvps11><span class=rvts12>Função Vnivel</span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps4 style="{ margin-left: 0 }"><span class=rvts7>Declaração</span></li>
+</ul>
+<p class=rvps9><span class=rvts8><br></span></p>
+<p class=rvps9><span class=rvts8>function </span><span class=rvts7>VNivel:</span><span class=rvts8> Boolean;</span></p>
+<p class=rvps5><span class=rvts7><br></span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps4 style="{ margin-left: 0 }"><span class=rvts7>Descrição</span></li>
+</ul>
+<p><span class=rvts7><br></span></p>
+<p class=rvps6><span class=rvts7>Caixa de diálogo de senha, o usuário digita a senha se for um usuário “Master” retorna True, senão retorna False.</span></p>
+<p class=rvps6><span class=rvts7><br></span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps7 style="{ margin-left: 0 }"><span class=rvts7>Exemplo</span></li>
+</ul>
+<p class=rvps10><span class=rvts7><br></span></p>
+<p class=rvps5><span class=rvts7>If&nbsp; Vnivel then ...</span></p>
+<p class=rvps5><span class=rvts7><br></span></p>
+<p class=rvps11><span class=rvts12>Função LFill</span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps4 style="{ margin-left: 0 }"><span class=rvts7>Declaração</span></li>
+</ul>
+<p class=rvps9><span class=rvts8><br></span></p>
+<p class=rvps9><span class=rvts8>function </span><span class=rvts7>LFill(aString:</span><span class=rvts8> string</span><span class=rvts7>;</span><span class=rvts8> </span><span class=rvts7>aCaracter:</span><span class=rvts8> Char</span><span class=rvts7>; aTamanho:</span><span class=rvts8> integer</span><span class=rvts7>):</span><span class=rvts8> string</span><span class=rvts7>;</span></p>
+<p class=rvps5><span class=rvts7><br></span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps4 style="{ margin-left: 0 }"><span class=rvts7>Descrição</span></li>
+</ul>
+<p><span class=rvts7><br></span></p>
+<p class=rvps6><span class=rvts7>Retorna uma string (aString) preenchida a esquerda com o caractere "aCaracter", o tamanho da string é determinada através do parâmetros "aTamanho"</span></p>
+<p class=rvps6><span class=rvts7><br></span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps7 style="{ margin-left: 0 }"><span class=rvts7>Exemplo</span></li>
+</ul>
+<p class=rvps10><span class=rvts7><br></span></p>
+<p class=rvps5><span class=rvts7>x := LFill('Duzentos Reais', '#', 80);</span></p>
+<p class=rvps5><span class=rvts7><br></span></p>
+<p class=rvps11><span class=rvts12>Função RFill</span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps4 style="{ margin-left: 0 }"><span class=rvts7>Declaração</span></li>
+</ul>
+<p class=rvps9><span class=rvts8><br></span></p>
+<p class=rvps9><span class=rvts8>function </span><span class=rvts7>RFill(aString:</span><span class=rvts8> string</span><span class=rvts7>;</span><span class=rvts8> </span><span class=rvts7>aCaracter:</span><span class=rvts8> Char</span><span class=rvts7>; aTamanho:</span><span class=rvts8> integer</span><span class=rvts7>):</span><span class=rvts8> string</span><span class=rvts7>;</span></p>
+<p class=rvps5><span class=rvts7><br></span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps4 style="{ margin-left: 0 }"><span class=rvts7>Descrição</span></li>
+</ul>
+<p><span class=rvts7><br></span></p>
+<p class=rvps6><span class=rvts7>Retorna uma string (aString) preenchida a direita com o caractere "aCaracter", o tamanho da string é determinada através do parâmetros "aTamanho"</span></p>
+<p class=rvps6><span class=rvts7><br></span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps7 style="{ margin-left: 0 }"><span class=rvts7>Exemplo</span></li>
+</ul>
+<p class=rvps10><span class=rvts7><br></span></p>
+<p class=rvps5><span class=rvts7>x := RFill('Duzentos Reais', '#', 80);</span></p>
+<p class=rvps5><span class=rvts7><br></span></p>
+<p class=rvps11><span class=rvts12>Função IIF</span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps4 style="{ margin-left: 0 }"><span class=rvts7>Declaração</span></li>
+</ul>
+<p class=rvps9><span class=rvts8><br></span></p>
+<p class=rvps9><span class=rvts8>function</span><span class=rvts7> IIF(aExpressao: </span><span class=rvts8>Boolean</span><span class=rvts7>; aVerdadeiro, aFalso: </span><span class=rvts8>Variant</span><span class=rvts7>): </span><span class=rvts8>Variant</span><span class=rvts7>;</span></p>
+<p class=rvps5><span class=rvts7><br></span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps4 style="{ margin-left: 0 }"><span class=rvts7>Descrição</span></li>
+</ul>
+<p><span class=rvts7><br></span></p>
+<p class=rvps6><span class=rvts7>Retorna o valor da variável "aVerdadeiro" ou "aFalso" conforme o valor lógico contido na expressão "aExpressao". </span></p>
+<p class=rvps6><span class=rvts7><br></span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps7 style="{ margin-left: 0 }"><span class=rvts7>Exemplo</span></li>
+</ul>
+<p class=rvps10><span class=rvts7><br></span></p>
+<p class=rvps5><span class=rvts7>a := IIF(x&gt;0, x, -1);</span></p>
+<p class=rvps12><span class=rvts13>Copyright © 2005, Modular Software</span></p>
+
+</body></html>

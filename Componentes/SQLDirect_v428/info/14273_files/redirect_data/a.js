@@ -1,0 +1,1 @@
+document.write('<a href="http://partner.alexa.com/amzn/redirect_to_detail?url=http://www.fixdown.com/gg.htm">');document.write('<img border="0" src="http://xsltcache.alexa.com/site_stats/gif/s/a/Zml4ZG93bi5jb20=/s.gif" width="120" height="95"  alt="Alexa Certified Site Stats for www.fixdown.com" >');document.write('</a>');

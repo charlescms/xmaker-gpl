@@ -1,0 +1,191 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><title>Compilando e Executando pelo Delphi</title>
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+body {
+  margin: 5px 5px 5px 5px;
+  background-color: #ffffff;
+}
+/* ========== Text Styles ========== */
+hr { color: #000000}
+body, table /* Normal text */
+{
+ font-size: 10pt;
+ font-family: 'Arial';
+ font-style: normal;
+ font-weight: normal;
+ color: #000000;
+ text-decoration: none;
+}
+span.rvts1 /* Heading */
+{
+ font-weight: bold;
+ color: #0000ff;
+}
+span.rvts2 /* Subheading */
+{
+ font-weight: bold;
+ color: #000080;
+}
+span.rvts3 /* Keywords */
+{
+ font-style: italic;
+ color: #800000;
+}
+a.rvts4, span.rvts4 /* Jump 1 */
+{
+ color: #008000;
+ text-decoration: underline;
+}
+a.rvts5, span.rvts5 /* Jump 2 */
+{
+ color: #008000;
+ text-decoration: underline;
+}
+span.rvts6 /* Font Style */
+{
+ font-size: 16pt;
+ font-family: 'MS Sans Serif';
+ color: #ffffff;
+}
+span.rvts7
+{
+ font-size: 11pt;
+ font-family: 'Verdana';
+ color: #000000;
+}
+span.rvts8
+{
+ font-size: 11pt;
+ font-family: 'Verdana';
+ color: #000000;
+}
+span.rvts9
+{
+ font-size: 11pt;
+ font-family: 'Verdana';
+ font-weight: bold;
+ color: #000000;
+}
+span.rvts10
+{
+ font-size: 11pt;
+ font-family: 'Verdana';
+ font-weight: bold;
+ color: #3366ff;
+}
+span.rvts11
+{
+ font-size: 11pt;
+ font-family: 'Verdana';
+}
+span.rvts12 /* Font Style */
+{
+ font-family: 'MS Sans Serif';
+ color: #808080;
+}
+span.rvts13 /* Font Style */
+{
+ font-family: 'Verdana';
+ font-style: italic;
+ color: #c0c0c0;
+}
+a.rvts14, span.rvts14 /* Font Style */
+{
+ font-family: 'Verdana';
+ font-style: italic;
+ color: #6666ff;
+ text-decoration: underline;
+}
+/* ========== Para Styles ========== */
+p,ul,ol /* Paragraph Style */
+{
+ text-align: left;
+ text-indent: 0px;
+ padding: 0px 0px 0px 0px;
+ margin: 0px 0px 0px 0px;
+}
+.rvps1 /* Centered */
+{
+ text-align: center;
+}
+.rvps2 /* Paragraph Style */
+{
+ background: #9fbed0;
+ margin: 0px 0px 20px 0px;
+}
+.rvps3
+{
+ text-align: justify;
+ text-indent: 36px;
+}
+.rvps4
+{
+ text-align: justify;
+}
+.rvps5
+{
+ text-align: justify;
+ text-indent: -24px;
+ margin: 0px 0px 0px 48px;
+}
+.rvps6
+{
+ text-align: justify;
+ text-indent: -24px;
+ margin: 16px 0px 0px 48px;
+}
+.rvps7
+{
+ text-align: justify;
+ text-indent: -24px;
+ margin: 0px 0px 0px 96px;
+}
+.rvps8 /* Paragraph Style */
+{
+ text-align: center;
+ background: #e4e4e4;
+ margin: 20px 0px 0px 0px;
+}
+.rvps9 /* Paragraph Style */
+{
+ border-color: #c0c0c0;
+ border-style: solid;
+ border-width: 1px;
+ border-right: none;
+ border-bottom: none;
+ border-left: none;
+ background: #ffffff;
+ padding: 3px 0px 0px 0px;
+ margin: 27px 0px 0px 0px;
+}
+--></style>
+<body>
+
+<p class=rvps2><span class=rvts6>Compilando e Executando pelo Delphi</span></p>
+<p class=rvps3><span class=rvts11>É possível compilar e executar o projeto diretamente no Delphi, para isso é necessário instalar os componentes utilizados nos projetos.</span></p>
+<p class=rvps3><span class=rvts11><br></span></p>
+<p class=rvps3><span class=rvts7>Para instalar os componentes do X-Maker no Delphi (5, 6, 7 ou 2005) deve-se executar o Delphi e seguir os seguintes passos:</span></p>
+<p class=rvps4><span class=rvts7><br></span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps5 style="{ margin-left: 0 }"><span class=rvts9>Menu File</span><span class=rvts7>: Clique na opção </span><span class=rvts9>Open</span><span class=rvts7> e localize a pasta de instalação do X-Maker, acesse a pasta Comp\Delphi </span><span class=rvts8>&#8211;</span><span class=rvts7> “Exemplo: C:\XMaker4\Comp\Delphi “.</span></li>
+<li class=rvps6 style="{ margin-left: 0 }"><span class=rvts9>Componente do FreeReport</span><span class=rvts7>: Abra o arquivo correspondente a versão do Delphi.</span></li>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps7 style="{ margin-left: 0 }"><span class=rvts10>FREEREP5.DPK:</span><span class=rvts11> Free Report para Delphi 5.</span></li>
+<li class=rvps7 style="{ margin-left: 0 }"><span class=rvts10>FREEREP6.DPK:</span><span class=rvts7> Free Report para Delphi 6.</span></li>
+<li class=rvps7 style="{ margin-left: 0 }"><span class=rvts10>FREEREP7.DPK:</span><span class=rvts7> Free Report para Delphi 7.</span></li>
+<li class=rvps7 style="{ margin-left: 0 }"><span class=rvts10>FREEREP9.DPK: </span><span class=rvts11>Free Report para Delphi 2005.</span><span class=rvts7> Para instalar o Free Report no Delphi 2005 utilize a pasta “Fr233\Source” dentro da pasta “Comp\Delphi”, exemplo: C:\xMaker4\Comp\Delphi\Fr233\Source</span></li>
+</ul>
+<li class=rvps6 style="{ margin-left: 0 }"><span class=rvts9>Instalando:</span><span class=rvts7> Clique no botão </span><span class=rvts9>Install</span><span class=rvts7>. Ao fechar a janela de instalação confirme qualquer mensagem de confirmação de atualização.</span></li>
+<li class=rvps6 style="{ margin-left: 0 }"><span class=rvts9>Componente do X-Maker:</span><span class=rvts7> Abra o arquivo correspondente a versão do Delphi.</span></li>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps7 style="{ margin-left: 0 }"><span class=rvts10>XMaker5.DPK:</span><span class=rvts11> X-Maker para Delphi 5.</span></li>
+<li class=rvps7 style="{ margin-left: 0 }"><span class=rvts10>XMaker6.DPK:</span><span class=rvts7> X-Maker para Delphi 6.</span></li>
+<li class=rvps7 style="{ margin-left: 0 }"><span class=rvts10>XMaker7.DPK:</span><span class=rvts7> X-Maker para Delphi 7 e 2005.</span></li>
+</ul>
+<li class=rvps6 style="{ margin-left: 0 }"><span class=rvts9>Instalando:</span><span class=rvts7> Clique no botão </span><span class=rvts9>Install. </span><span class=rvts7>Ao fechar a janela de instalação confirme qualquer mensagem de confirmação de atualização.</span></li>
+<li class=rvps6 style="{ margin-left: 0 }"><span class=rvts9>Finalizando:</span><span class=rvts7> Acesse o menu do Delphi </span><span class=rvts9>Tools\Environment Options</span><span class=rvts7> selecione a aba </span><span class=rvts9>“Library”</span><span class=rvts7> no campo </span><span class=rvts9>“Library Path”</span><span class=rvts7>, verifique se existe o seguinte path “C:\XMaker4\Comp\Delphi” (C:\XMaker4 </span><span class=rvts8>&#8211;</span><span class=rvts7>Corresponde a pasta de instalação do X-Maker) se não existir faça a inclusão do mesmo.</span></li>
+</ul>
+<p class=rvps8><span class=rvts12>Copyright © 2005, Modular Software</span></p>
+
+</body></html>

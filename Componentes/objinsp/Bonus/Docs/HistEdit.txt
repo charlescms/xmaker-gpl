@@ -1,0 +1,51 @@
+*****************************************************************
+ GREATIS DELPHI BONUS
+*****************************************************************
+
+ GREATIS DELPHI BONUS is a free, unsupported software.
+
+*****************************************************************
+ THistoryEdit
+*****************************************************************
+
+About THistoryEdit
+~~~~~~~~~~~~~~~~~~
+
+THistoryEdit component allows text entry, automatic or manual 
+history. If you are entered string early, THistoryEdit 
+automatically adds rest of word. You can choose earlier entered 
+string from history list.
+
+In addition to methods, properties and events inherited from 
+TComboBoxExcept components has the following methods and 
+properties:
+
+Methods
+
+public
+
+procedure AddHistory;
+Adds current value in a beginning of the list of a history, if 
+it is not present and resort the list (moves appropriate string 
+to a beginning of the list), if the current value already is 
+represented in the list
+
+Properties
+
+published
+
+property AutoAdd: Boolean;
+If this property is True, the current value is added to history 
+list when the component lose focus.
+
+property Active: Boolean;
+If this property is True, the rest of the word found in the 
+history list is added to current entered value.
+
+property CaseSens: Boolean;
+Case sensibility.
+
+property Limit: Integer;
+Maximum number of lines in the list of a history.
+
+*****************************************************************

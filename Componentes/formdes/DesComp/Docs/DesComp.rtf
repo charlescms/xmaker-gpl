@@ -1,0 +1,328 @@
+{\rtf1\ansi\ansicpg1251\uc1 \deff0\deflang1033\deflangfe1049{\fonttbl{\f0\froman\fcharset0\fprq2{\*\panose 02020603050405020304}Times New Roman;}{\f1\fswiss\fcharset0\fprq2{\*\panose 020b0604020202020204}Arial;}
+{\f16\froman\fcharset238\fprq2 Times New Roman CE;}{\f17\froman\fcharset204\fprq2 Times New Roman Cyr;}{\f19\froman\fcharset161\fprq2 Times New Roman Greek;}{\f20\froman\fcharset162\fprq2 Times New Roman Tur;}
+{\f21\froman\fcharset186\fprq2 Times New Roman Baltic;}{\f22\fswiss\fcharset238\fprq2 Arial CE;}{\f23\fswiss\fcharset204\fprq2 Arial Cyr;}{\f25\fswiss\fcharset161\fprq2 Arial Greek;}{\f26\fswiss\fcharset162\fprq2 Arial Tur;}
+{\f27\fswiss\fcharset186\fprq2 Arial Baltic;}}{\colortbl;\red0\green0\blue0;\red0\green0\blue255;\red0\green255\blue255;\red0\green255\blue0;\red255\green0\blue255;\red255\green0\blue0;\red255\green255\blue0;\red255\green255\blue255;\red0\green0\blue128;
+\red0\green128\blue128;\red0\green128\blue0;\red128\green0\blue128;\red128\green0\blue0;\red128\green128\blue0;\red128\green128\blue128;\red192\green192\blue192;}{\stylesheet{\widctlpar\adjustright \fs20\lang1049\cgrid \snext0 Normal;}{\*\cs10 \additive 
+Default Paragraph Font;}{\s15\qc\widctlpar\adjustright \b\fs48\cgrid \sbasedon0 \snext15 Title;}}{\info{\author Silent}{\operator Silent}{\creatim\yr2002\mo11\dy26\hr21\min21}{\revtim\yr2002\mo11\dy29\hr19\min42}{\version7}{\edmins101}{\nofpages6}
+{\nofwords1738}{\nofchars9909}{\*\company Home}{\nofcharsws0}{\vern113}}\paperw11906\paperh16838 \widowctrl\ftnbj\aenddoc\hyphcaps0\formshade\viewkind4\viewscale132\viewzk2\pgbrdrhead\pgbrdrfoot \fet0\sectd 
+\linex0\headery709\footery709\colsx709\endnhere\sectdefaultcl {\*\pnseclvl1\pnucrm\pnstart1\pnindent720\pnhang{\pntxta .}}{\*\pnseclvl2\pnucltr\pnstart1\pnindent720\pnhang{\pntxta .}}{\*\pnseclvl3\pndec\pnstart1\pnindent720\pnhang{\pntxta .}}{\*\pnseclvl4
+\pnlcltr\pnstart1\pnindent720\pnhang{\pntxta )}}{\*\pnseclvl5\pndec\pnstart1\pnindent720\pnhang{\pntxtb (}{\pntxta )}}{\*\pnseclvl6\pnlcltr\pnstart1\pnindent720\pnhang{\pntxtb (}{\pntxta )}}{\*\pnseclvl7\pnlcrm\pnstart1\pnindent720\pnhang{\pntxtb (}
+{\pntxta )}}{\*\pnseclvl8\pnlcltr\pnstart1\pnindent720\pnhang{\pntxtb (}{\pntxta )}}{\*\pnseclvl9\pnlcrm\pnstart1\pnindent720\pnhang{\pntxtb (}{\pntxta )}}\pard\plain \s15\qc\widctlpar\adjustright \b\fs48\cgrid {\f1\fs28 Greatis Form Designer
+\par }{\b0\f1\fs28 
+\par }\pard \s15\widctlpar\adjustright {\b0\f1\fs20 This version of Form Designer based on the standard VCL feature that are used in IDE and allows to access all needed events correctly through Designer property of TCustomForm class. 
+\par 
+\par }{\b0\f1\fs28 
+\par New In The Last Version
+\par }{\b0\f1\fs20 
+\par }{\b0\f1\fs28 
+\par }{\b0\f1\fs28 TCustomDesignerComponent}{\b0\f1\fs20 
+\par 
+\par protected
+\par 
+\par }{\b0\f1\fs20 procedure DoDblClick(AControl: TControl); virtual;
+\par }{\b0\f1\fs20 property OnDblClick: TComponentEvent;
+\par 
+\par }{\b0\f1\fs28 
+\par }{\b0\f1\fs28 T}{\b0\f1\fs28 D}{\b0\f1\fs28 esignerComponent}{\b0\f1\fs20 
+\par 
+\par }{\b0\f1\fs20 published}{\b0\f1\fs20 
+\par 
+\par prop}{\b0\f1\fs20 erty OnDblClick}{\b0\f1\fs20 ;
+\par }{\b0\f1\fs20 
+\par 
+\par }{\b0\f1\fs28 Installation}{\b0\f1\fs20 
+\par 
+\par To install the component just add DCReg.pas file into any existing package and recompile the package. New component appears on the "Designers" tab of the component palette.
+\par 
+\par 
+\par }{\b0\f1\fs28 Types
+\par 
+\par }{\b0\f1\fs20 TGrabType = (gtNormal, gtLocked, gtMulti);
+\par 
+\par TGrabPosition = (gpNone, gpLeftTop, gpLeftMiddle, gpLeftBottom, gpMiddleTop, gpMiddleBottom, gpRightTop, gpRightMiddle, gpRightBottom);
+\par 
+\par TMouseAction = (maNone, maDragging, maSelecting);
+\par 
+\par THintMode = (hmMove, hmSize);
+\par 
+\par TComponentAttribute = (caInvalid, caEditable, caLocked, caTransparent, caProtected, caDefaultCursor, caDefaultMenu);
+\par TComponentAttributes = set of TComponentAttribute;
+\par 
+\par TDFMFormat = (dfmBinary, dfmText);
+\par 
+\par TAlignMode = (amNoChange, amLeftTop, amCenters, amRightBottom, amSpace, amWindowCenter);
+\par 
+\par TSizeMode = (smNoChange, smToSmallest, smToLargest, smValue);
+\par 
+\par TAlignmentPaletteOption = (apAutoShow, apStayOnTop, apShowHints, apFlatButtons);
+\par TAlignmentPaletteOptions = set of TAlignmentPaletteOption;
+\par 
+\par TMessageEvent = procedure(Sender: TObject; AControl: TControl; var Message: TMessage; var Processed: Boolean) of object;
+\par 
+\par TComponentAttributesEvent = procedure(Sender: TObject; AComponent: TComponent; var Attributes: TComponentAttributes) of object;
+\par 
+\par TComponentEvent = procedure(Sender: TObject; AComponent: TComponent) of object;
+\par 
+\par TComponentAllowEvent = procedure(Sender: TObject; AComponent: TComponent; var Allow: Boolean) of object;
+\par 
+\par TChangeNameEvent = procedure(Sender: TObject; AComponent: TComponent; var AName: string) of object;
+\par 
+\par TChangeOwnerEvent = procedure(Sender: TObject; AComponent,OldOwner: TComponent; var AOwner: TComponent) of object;
+\par 
+\par TAlignmentPaletteEvent = procedure(Sender: TObject; Form: TForm) of object;
+\par 
+\par 
+\par }{\b0\f1\fs28 TCustomDesignerComponent
+\par }{\b0\f1\fs20 
+\par protected
+\par 
+\par methods
+\par 
+\par procedure PaintGrid(Canvas: TCanvas; R: TRect); virtual;
+\par Paints grid using passed canvas object and rectangle. Override this procedure in derived class to realize alternative designer grid.
+\par  
+\par procedure PaintGrab(Canvas: TCanvas; R: TRect; GrabType: TGrabType; GrabPosition: TGrabPosition); virtual;
+\par Paints grab handle as simple rectangle using appropriate color properties.
+\par 
+\par function MessageProcessor(Sender: TControl; var Message: TMessage): Boolean; virtual;
+\par Main method of TCustomDesignerComponent. This function processes all messages received from the parent form and returns True if the message must not be processed by the form itself.
+\par 
+\par procedure NotificationProcessor(AComponent: TComponent; Operation: TOperation); virtual;
+\par This procedure processes all VCL notification for unselecting deleted components and correct freeing container components and components linked with container components.
+\par 
+\par function NameProcessor(AComponent,AOwner: TComponent; AName: string): string;
+\par This function returns new name for the AComponent when it must be inserted into AOwner. AName contains the default AComponent's name. The function must return the unique name to avoid names conflicts. By default this function returns simple uniqu
+e name contained class name of AComponent and some number (for example 'Label5') if component with AName exists in AOwner.
+\par 
+\par function ComponentAttributes(AComponent: TComponent): TComponentAttributes; virtual;
+\par This function returns the attributes for the passed component.
+\par }\pard \s15\fi720\widctlpar\adjustright {\b0\f1\fs20 caInvalid\tab \tab internal value for the nil
+\par caEditable\tab \tab component can be edited (selected, moved and resized)
+\par caLocked\tab \tab component cannot be moved/resized
+\par caTransparent\tab \tab component passes the click to the parent control
+\par caProtected\tab \tab component works as usual
+\par caDefaultCursor\tab component has its default cursor in design mode
+\par caDefaultMenu\tab \tab component has its popup menu in design mode
+\par }\pard \s15\widctlpar\adjustright {\b0\f1\fs20 By default this function just calls OnComponentAttributes event.
+\par 
+\par procedure DoDblClick}{\b0\f1\fs20 (AControl: TControl); virtual;
+\par }{\b0\f1\fs20 procedure DoBeforeSelect(AControl: TControl; var Allow: Boolean); virtual;
+\par procedure DoAfterSelect(AControl: TControl); virtual;
+\par procedure DoBeforeDeselect(AControl: TControl; var Allow: Boolean); virtual;
+\par procedure DoAfterDeselect(AControl: TControl); virtual;
+\par procedure DoBeforeDrag(AControl: TControl; var Allow: Boolean); virtual;
+\par procedure DoAfterDrag(AControl: TControl); virtual;
+\par procedure DoChangeName(AComponent: TComponent; var AName: string); virtual;
+\par procedure DoChangeOwner(AComponent,OldOwner: TComponent; var AOwner: TComponent); virtual;
+\par procedure DoShowAlignmentPalette(Form: TForm); virtual;
+\par procedure DoHideAlignmentPalette(Form: TForm); virtual;
+\par This methods just call the appropriate events.
+\par 
+\par properties
+\par 
+\par property ShowNonVisual: Boolean;
+\par Set this property to True if you want to edit non-visual components.
+\par 
+\par property ShowMoveSizeHint: Boolean;
+\par }\pard \s15\widctlpar\outlinelevel0\adjustright {\b0\f1\fs20\lang1049 If this property is set to True TFormDesigner shows hint window with size/coodinate of selected control when they are moved/resized.
+\par }\pard \s15\widctlpar\adjustright {\b0\f1\fs20 
+\par }\pard \s15\widctlpar\outlinelevel0\adjustright {\b0\f1\fs20\lang1049 property GridStep: Integer;
+\par This property contains grid spacing in pixels.
+\par 
+\par property SnapToGrid: Boolean;
+\par If this property is set to True minimal step of moving or sizing is GridStep.
+\par 
+\par property DisplayGrid: Boolean;
+\par This property contains visibility of design grid.
+\par 
+\par property DesignerColor: TColor;
+\par This property contains form background color in design mode. Set this property to clNone to save default background color.
+\par 
+\par property GridColor: TColor;
+\par This property contains grid dots color. If you set this property to clNone grid color will be clWindowText.
+\par }\pard \s15\widctlpar\adjustright {\b0\f1\fs20 
+\par }\pard \s15\widctlpar\outlinelevel0\adjustright {\b0\f1\fs20\lang1049 property GrabSize: Integer;
+\par Size of grab handle. Value of this property may be between 3 and 32 pixels (5 by default).
+\par }\pard \s15\widctlpar\adjustright {\b0\f1\fs20 
+\par }\pard \s15\widctlpar\outlinelevel0\adjustright {\b0\f1\fs20\lang1049 property NormalGrabBorder: TColor;
+\par property NormalGrabFill: TColor;
+\par property LockedGrabBorder: TColor;
+\par property LockedGrabFill: TColor;
+\par property MultiGrabBorder: TColor;
+\par property MultiGrabFill: TColor;
+\par Colors for border and fill of the grab handles.
+\par }\pard \s15\widctlpar\adjustright {\b0\f1\fs20 
+\par }\pard \s15\widctlpar\outlinelevel0\adjustright {\b0\f1\fs20\lang1049 property PopupMenu: TPopupMenu;
+\par PopupMenu contains the pop-up menu associated with the TFormDesigner. This pop-up menu is called when user click right mouse button on the selected control.
+\par }\pard \s15\widctlpar\adjustright {\b0\f1\fs20 
+\par property OnBeforeMessage: TMessageEvent;
+\par This event occurs before message processing in MessageProcessor method. Set Processed to True for ignoring the default message processing.
+\par 
+\par property OnAfterMessage: TMessageEvent;
+\par This event occurs after message processing in MessageProcessor method. If Processed is set to True, the message is processed by designer component and will not send to the message sender. Set Processed to False to allow default processing the
+ message by VCL.
+\par 
+\par property OnComponentAttributes: TComponentAttributesEvent;
+\par This event occurs when component attributes are needed. See more in ComponentAttributes method description.
+\par 
+\par property OnBeforeSelect: TComponentAllowEvent;
+\par This event occurs before selecting the component. You can disallow selecting by setting Allow to False.
+\par 
+\par property OnAfterSelect: TComponentEvent;
+\par This event occurs after selecting the component.
+\par 
+\par property OnBeforeDeselect: TComponentAllowEvent;
+\par This event occurs before deselecting the component. You can disallow deselecting by setting Allow to False.
+\par 
+\par property OnAfterDeselect: TComponentEvent;
+\par This event occurs after deselecting the component.
+\par 
+\par property OnBeforeDrag: TComponentAllowEvent;
+\par This event occurs before dragging (moving/resizing) the component. You can disallow dragging by setting Allow to False.
+\par 
+\par property OnAfterDrag: TComponentEvent;
+\par This event occurs after dragging the component.
+\par 
+\par property OnChangeName: TChangeNameEvent;
+\par This event occurs when the component is pasted from clipboard. You can change name to avoid the name conflicts.
+\par 
+\par property OnChangeOwner: TChangeOwnerEvent;
+\par This event occurs when the component is pasted from clipboard. You can change owner of the component.
+\par 
+\par property OnShowAlignmentPalette: TAlignmentPaletteEvent;
+\par This event occurs before showing the alignment palette window.
+\par 
+\par property OnHideAlignmentPalette: TAlignmentPaletteEvent;
+\par This event occurs after hiding the alignment palette window.
+\par 
+\par public
+\par 
+\par constructor Create(AOwner: TComponent); override;
+\par destructor Destroy; override;
+\par Overriden constructor/destructor creates/destroys internal objects.
+\par 
+\par procedure Update; virtual;
+\par This procedure updates visibility, position and type of grab handles.
+\par 
+\par procedure LeaveMouseAction;
+\par This procedure stops any dragging mouse action.
+\par 
+\par function FindComponentContainer(AComponent: TComponent): TComponentContainer;
+\par This function returns component container control for the passed non-visual component.
+\par 
+\par function Select(AComponent: TComponent): Boolean;
+\par This function selects passed component.
+\par 
+\par function Deselect(AComponent: TComponent): Boolean;
+\par This function deselects passed component.
+\par 
+\par procedure DeselectAll;
+\par This function deselects all selected components.
+\par 
+\par function IsSelected(AComponent: TComponent): Boolean;
+\par This function returns True if the passed component is selected.
+\par 
+\par function IsSelectable(AComponent: TComponent): Boolean;
+\par This function returns True if the component can be selected, otherwise False.
+\par 
+\par procedure CopyToClipboard;
+\par This procedure copies all selected components to clipboard.
+\par 
+\par procedure CutToClipboard;
+\par This procedure cuts all selected components to clipboard.
+\par 
+\par procedure PasteFromClipboard;
+\par This procedure pasts components from clipboard.
+\par 
+\par procedure Delete;
+\par This procedure deletes all selected components.
+\par 
+\par procedure SaveToDFM(FileName: string; DFMFormat: TDFMFormat);
+\par procedure LoadFromDFM(FileName: string; DFMFormat: TDFMFormat);
+\par These procedures save/load the form to/from DFM-file.
+\par 
+\par procedure SaveToStream(Stream: TStream; DFMFormat: TDFMFormat);
+\par procedure LoadFromStream(Stream: TStream; DFMFormat: TDFMFormat);
+\par This procedures save/load the form to/from stream.
+\par 
+\par procedure AlignToGrid;
+\par This procedure aligns all selected components to design grid.
+\par 
+\par procedure AlignControls(Hor,Ver: TAlignMode);
+\par This procedure aligns selected controls using passed parameters.
+\par 
+\par procedure SizeControls(WMode: TSizeMode; WValue: Integer; HMode: TSizeMode; HValue: Integer);
+\par This procedure resizes selected controls using passed parameters.
+\par 
+\par procedure AlignDialog;
+\par This procedure calls align dialog.
+\par 
+\par procedure SizeDialog;
+\par This procedure calls size dialog.
+\par 
+\par procedure ShowAlignmentPalette;
+\par procedure HideAlignmentPalette;
+\par These procedure show/hide the alignment palette window.
+\par 
+\par procedure TabOrderDialog;
+\par This procedure calls tab order dialog.
+\par 
+\par procedure CreationOrderDialog;
+\par This procedure calls creation order dialog.
+\par 
+\par property Active: Boolean read FActive write SetActive default False;
+\par }\pard \s15\widctlpar\outlinelevel0\adjustright {\b0\f1\fs20\lang1049 This property contains activity state of the component. Set Active to True to activate it.
+\par }\pard \s15\widctlpar\adjustright {\b0\f1\fs20 
+\par property AlignmentPalette: TAlignmentPaletteOptions;
+\par }{\b0\f1\fs20\lang1049 This property determines options of alignment palette window.
+\par 
+\par }{\b0\f1\fs20 property ParentForm: TCustomForm;
+\par This read-only property points to the parent form.
+\par 
+\par property Component: TComponent;
+\par This property contains last selected component. If you write to this property, only one component will be selected. Use SelectComponent for manual selecting multiple components.
+\par 
+\par property SelectedCount: Integer;
+\par This read-only property contains count of the selected components.
+\par 
+\par property Selected[Index: Integer]: TComponent;
+\par This array-type property contains all selected components.
+\par }\pard\plain \widctlpar\adjustright \fs20\lang1049\cgrid {\f1\lang1033 
+\par 
+\par }\pard\plain \s15\widctlpar\adjustright \b\fs48\cgrid {\b0\f1\fs28 TDesignerComponent
+\par }\pard\plain \widctlpar\adjustright \fs20\lang1049\cgrid {\f1\lang1033 
+\par published
+\par 
+\par property AlignmentPalette;
+\par property ShowNonVisual;
+\par property ShowMoveSizeHint;
+\par property GridStep;
+\par property SnapToGrid;
+\par property DisplayGrid;
+\par property GridColor;
+\par property DesignerColor;
+\par property GrabSize;
+\par property NormalGrabBorder;
+\par property NormalGrabFill;
+\par property LockedGrabBorder;
+\par property LockedGrabFill;
+\par property MultiGrabBorder;
+\par property MultiGrabFill;
+\par property PopupMenu;
+\par property OnBeforeMessage;
+\par property OnAfterMessage;
+\par property OnDblClick}{\f1\lang1033 ;
+\par }{\f1\lang1033 property OnComponentAttributes;
+\par property OnBeforeSelect;
+\par property OnAfterSelect;
+\par property OnBeforeDeselect;
+\par property OnAfterDeselect;
+\par property OnBeforeDrag;
+\par property OnAfterDrag;
+\par property OnChangeName;
+\par property OnChangeOwner;
+\par property OnShowAlignmentPalette;
+\par property OnHideAlignmentPalette;
+\par 
+\par TDesignerComponent just publishes properties and events inherited from TCustomDesignerComponent.
+\par }}

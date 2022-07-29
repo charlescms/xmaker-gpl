@@ -1,0 +1,50 @@
+*****************************************************************
+ GREATIS DELPHI BONUS
+*****************************************************************
+
+ GREATIS DELPHI BONUS is a free, unsupported software.
+
+*****************************************************************
+ TIconList
+*****************************************************************
+
+About TIconList
+~~~~~~~~~~~~~~~
+
+TIconList is an advanced TImageList descendant that allows to 
+use icons from external executable files (EXE, DLL, etc.).
+
+TIconList Hierarchy
+~~~~~~~~~~~~~~~~~~~
+
+TCustomImageList
+	TIconList
+
+TIconList Interface
+~~~~~~~~~~~~~~~~~~~
+
+Methods
+
+public
+
+constructor Create(AOwner: TComponent); override;
+destructor Destroy; override;
+Standard constructor and destructor overriden for creating and 
+destroying the internal objects.
+
+Properties
+
+published
+
+property IconType: TIconType;
+Type of the icon (16x16 or 32x32). TIconType is defined as
+TIconType = (itLarge,itSmall);
+
+property Files: TStrings;
+List of files contained the icons.
+
+property DrawingStyle;
+property ImageType;
+Standard properties inherited from TCustomImageList.
+
+*****************************************************************

@@ -1,0 +1,269 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><title>Layout</title>
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+body {
+  margin: 5px 5px 5px 5px;
+  background-color: #ffffff;
+}
+/* ========== Text Styles ========== */
+hr { color: #000000}
+body, table /* Normal text */
+{
+ font-size: 10pt;
+ font-family: 'Arial';
+ font-style: normal;
+ font-weight: normal;
+ color: #000000;
+ text-decoration: none;
+}
+span.rvts1 /* Heading */
+{
+ font-weight: bold;
+ color: #0000ff;
+}
+span.rvts2 /* Subheading */
+{
+ font-weight: bold;
+ color: #000080;
+}
+span.rvts3 /* Keywords */
+{
+ font-style: italic;
+ color: #800000;
+}
+a.rvts4, span.rvts4 /* Jump 1 */
+{
+ color: #008000;
+ text-decoration: underline;
+}
+a.rvts5, span.rvts5 /* Jump 2 */
+{
+ color: #008000;
+ text-decoration: underline;
+}
+span.rvts6 /* Font Style */
+{
+ font-size: 16pt;
+ font-family: 'MS Sans Serif';
+ color: #ffffff;
+}
+span.rvts7
+{
+ font-size: 12pt;
+ font-family: 'Times New Roman';
+}
+span.rvts8
+{
+ font-size: 11pt;
+ font-family: 'Verdana';
+}
+span.rvts9
+{
+ font-size: 11pt;
+ font-family: 'Verdana';
+ font-weight: bold;
+}
+span.rvts10
+{
+ font-size: 11pt;
+ font-family: 'Verdana';
+}
+span.rvts11
+{
+ font-size: 11pt;
+ font-family: 'Verdana';
+ font-style: italic;
+ font-weight: bold;
+}
+a.rvts12, span.rvts12
+{
+ font-size: 11pt;
+ font-family: 'Verdana';
+ color: #0000ff;
+ text-decoration: underline;
+}
+a.rvts12:hover { color: #0000ff; }
+span.rvts13 /* Font Style */
+{
+ font-family: 'MS Sans Serif';
+ color: #808080;
+}
+span.rvts14 /* Font Style */
+{
+ font-family: 'Verdana';
+ font-style: italic;
+ color: #c0c0c0;
+}
+a.rvts15, span.rvts15 /* Font Style */
+{
+ font-family: 'Verdana';
+ font-style: italic;
+ color: #6666ff;
+ text-decoration: underline;
+}
+/* ========== Para Styles ========== */
+p,ul,ol /* Paragraph Style */
+{
+ text-align: left;
+ text-indent: 0px;
+ padding: 0px 0px 0px 0px;
+ margin: 0px 0px 0px 0px;
+}
+.rvps1 /* Centered */
+{
+ text-align: center;
+}
+.rvps2 /* Paragraph Style */
+{
+ background: #9fbed0;
+ margin: 0px 0px 20px 0px;
+}
+.rvps3
+{
+ text-align: justify;
+ text-indent: 36px;
+}
+.rvps4
+{
+ text-align: justify;
+}
+.rvps5
+{
+ text-align: justify;
+ text-indent: -24px;
+ margin: 0px 0px 0px 48px;
+}
+.rvps6
+{
+ text-align: center;
+ text-indent: -57px;
+ page-break-after: avoid;
+ margin: 16px 0px 16px 57px;
+}
+.rvps7 /* Paragraph Style */
+{
+ text-align: center;
+ background: #e4e4e4;
+ margin: 20px 0px 0px 0px;
+}
+.rvps8 /* Paragraph Style */
+{
+ border-color: #c0c0c0;
+ border-style: solid;
+ border-width: 1px;
+ border-right: none;
+ border-bottom: none;
+ border-left: none;
+ background: #ffffff;
+ padding: 3px 0px 0px 0px;
+ margin: 27px 0px 0px 0px;
+}
+--></style>
+<body>
+
+<p class=rvps2><span class=rvts6>Layout</span></p>
+<p class=rvps3><span class=rvts8>A definição do layout do relatório é realizada através de uma interface visual, o componente utilizado é o FreeReport (</span><span class=rvts12>http://www.fast-report.com/en/</span><span class=rvts8>) trata-se de um poderoso e prático componente de geração de relatórios. Outros componentes serão implementados em próximas versões do X-Maker, proporcionar o máximo de opções e versatilidades para o projetista é o nosso maior objetivo.</span></p>
+<p class=rvps4><span class=rvts8><br></span></p>
+<p class=rvps1><img alt="" hspace=1 vspace=1 src="img_118.jpg"></p>
+<p class=rvps4><span class=rvts8><br></span></p>
+<p class=rvps3><span class=rvts8>O editor possui uma estrutura predefinida comporta por: Cabeçalho de Página, Cabeçalho de Coluna, Dados Mestre, Sumário do Relatório e Rodapé de Página.</span></p>
+<p class=rvps3><span class=rvts8><br></span></p>
+<p class=rvps3><span class=rvts8>Na barra de ferramentas o botão </span><img alt="" hspace=1 vspace=1 src="img_119.jpg"><span class=rvts8> é responsável pela atribuição dos campos no relatório.</span></p>
+<p class=rvps4><span class=rvts8><br></span></p>
+<p class=rvps1><img alt="" hspace=1 vspace=1 src="img_120.jpg"></p>
+<p class=rvps4><span class=rvts8><br></span></p>
+<p class=rvps3><span class=rvts8>Selecione os campos a serem atribuídos e determine o seu posicionamento em “Ordem”. A opção “Inclua cabeçalhos” traz os títulos definidos em “Tabelas” para a coluna de cabeçalho, a opção “Incluir banda” não é necessária, pois como padrão o Layout utilizará uma faixa predefinida, a seguir iremos explicar a utilização das “bandas”.</span></p>
+<p class=rvps6><span class=rvts11>Bandas</span></p>
+<p class=rvps3><span class=rvts8>As “Bandas” são áreas específicas que poderão conter campos ou objetos a serem impressos. Cada banda é responsável por um recurso diferente no relatório, temos como exemplo as áreas de cabeçalho (topo do relatório), rodapé, cabeçalho de colunas, registros da tabela, grupo de quebra, etc.</span></p>
+<p class=rvps3><span class=rvts8><br></span></p>
+<p class=rvps3><span class=rvts8>Utilize o botão </span><img alt="" hspace=1 vspace=1 src="img_121.jpg"><span class=rvts8> na barra lateral para inserir uma nova “Banda”.</span></p>
+<p class=rvps4><span class=rvts8><br></span></p>
+<p class=rvps1><img alt="" hspace=1 vspace=1 src="img_122.jpg"></p>
+<p class=rvps1><span class=rvts8>Exemplo de “Bandas”.</span></p>
+<p class=rvps4><span class=rvts8><br></span></p>
+<p class=rvps1><span class=rvts9>Barra de Ferramentas Lateral</span></p>
+<p class=rvps1><span class=rvts9><br></span></p>
+<div class=rvps1><table border=1 style="border-width : 0px" cellpadding=4 cellspacing=-1 style="border-color: #000000; border-collapse: collapse;">
+<tr valign=top>
+<td width=59 valign=top style="border-width : 1px; border-color: #000000;">
+<p class=rvps1><img alt="" hspace=1 vspace=1 src="img_123.jpg"></p>
+</td>
+<td width=523 valign=top style="border-width : 1px; border-color: #000000;">
+<p class=rvps1><img alt="" hspace=1 vspace=1 src="img_124.jpg"><span class=rvts8> Insere um campo/texto em uma “Banda”, o campo/texto poderá conter um campo da Tabela, texto ou fórmula de cálculo.</span></p>
+<p class=rvps1><img alt="" hspace=1 vspace=1 src="img_125.jpg"><span class=rvts8> Este botão é utilizado para inserir uma nova banda no relatório</span></p>
+<p class=rvps1><img alt="" hspace=1 vspace=1 src="img_126.jpg"><span class=rvts8> Insere uma imagem (bmp, ico, wmf ou emf) em uma “Banda”, normalmente é utilizado para mostrar um Logotipo no relatório.</span></p>
+<p class=rvps1><img alt="" hspace=1 vspace=1 src="img_127.jpg"><span class=rvts8> Insere uma nova página de relatório, sua utilização é justificável para relatórios mais complexos com muitos objetos de definição.</span></p>
+<p class=rvps1><img alt="" hspace=1 vspace=1 src="img_128.jpg"><span class=rvts8> Insere um desenho de uma linha, possibilita a criação de linhas.</span></p>
+<p class=rvps1><img alt="" hspace=1 vspace=1 src="img_129.jpg"><span class=rvts8> Insere uma caixa de texto com sombras, cria um efeito de fundo no relatório.</span></p>
+<p class=rvps1><img alt="" hspace=1 vspace=1 src="img_130.jpg"><span class=rvts8> Insere um gráfico, seis modelos de gráficos estão disponíveis.</span></p>
+<p class=rvps1><img alt="" hspace=1 vspace=1 src="img_131.jpg"><span class=rvts8> Insere um código de barras, muito utilizado para impressão de etiquetas de produtos.</span></p>
+<p class=rvps1><img alt="" hspace=1 vspace=1 src="img_132.jpg"><span class=rvts8> Insere um objeto “Check Box”.</span></p>
+<p class=rvps1><img alt="" hspace=1 vspace=1 src="img_133.jpg"><span class=rvts8> Insere um objeto de desenho com vários formatos.</span></p>
+<p class=rvps1><img alt="" hspace=1 vspace=1 src="img_134.jpg"><span class=rvts8> Insere uma caixa de texto.</span></p>
+<p class=rvps1><img alt="" hspace=1 vspace=1 src="img_135.jpg"><span class=rvts8> Insere um objeto de compartilhamento com outros aplicativos, tais como o Word, Excel, Corel Draw e outros.</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class=rvps4><span class=rvts9><br></span></p>
+<p class=rvps1><span class=rvts9>Cálculos em Relatórios</span></p>
+<p class=rvps4><span class=rvts8><br></span></p>
+<p class=rvps4><span class=rvts8>É possível a criação de cálculos entre campos em relatórios, ao inserir um campo/texto </span><img alt="" hspace=1 vspace=1 src="img_136.jpg"><span class=rvts8> uma janela de edição será apresentada, na caixa de texto é possível realizar codificações.</span></p>
+<p class=rvps4><span class=rvts8><br></span></p>
+<p class=rvps1><img width=432 height=381 alt="" hspace=1 vspace=1 src="img_137.jpg"></p>
+<p class=rvps4><span class=rvts8><br></span></p>
+<p class=rvps3><span class=rvts8>Todo campo da Tabela é referenciado como </span><span class=rvts9>[DVendas."PRO_CODIGO"]</span><span class=rvts8> o “DVendas” representa o nome da tabela. O nome “PRO_CODIGO” corresponde ao campo da Tabela, sendo utilizado assim o nome definido em “Tabelas”.</span></p>
+<p class=rvps3><span class=rvts8><br></span></p>
+<p class=rvps3><span class=rvts8>Os operadores matemáticos poderão ser utilizados para cálculos entre campos ou valores fixos.</span></p>
+<p class=rvps3><span class=rvts8>Exemplo 1: </span><span class=rvts9>[[DProdutos."PRO_VENDA"] * [DProdutos."PRO_QUANTIDADE"]] </span></p>
+<p class=rvps3><span class=rvts8>Exemplo 2: </span><span class=rvts9>[[DProdutos."PRO_VENDA"] * 0.5] </span></p>
+<p class=rvps3><span class=rvts8>A utilização de colchetes </span><span class=rvts10>&#8216;</span><span class=rvts8>[ ]</span><span class=rvts10>&#8217;</span><span class=rvts8> é obrigatório, pois indica que o seu conteúdo representa um campo da Tabela ou variável. Os cálculos terão que utilizar os colchetes </span><span class=rvts10>&#8216;</span><span class=rvts8>[ ]</span><span class=rvts10>&#8217;</span><span class=rvts8> também, conforme exemplo. A não utilização dos colchetes </span><span class=rvts10>&#8216;</span><span class=rvts8>[ ]</span><span class=rvts10>&#8217;</span><span class=rvts8> indica que o seu conteúdo será impresso como texto.</span></p>
+<p class=rvps3><span class=rvts8><br></span></p>
+<p class=rvps3><span class=rvts8>Alguns comandos do Delphi poderão ser utilizados, tais como: </span><span class=rvts9>if…then…else, while…do, repeat…until</span><span class=rvts8>. A utilização de blocos </span><span class=rvts9>begin..end;</span><span class=rvts8> também são aceitos.</span></p>
+<p class=rvps3><span class=rvts8><br></span></p>
+<p class=rvps3><span class=rvts8>Algumas funções internas poderão ser utilizadas, são elas:</span></p>
+<p class=rvps4><span class=rvts8><br></span></p>
+<ul style="text-indent: 0px; margin-left: 48px; list-style-position: outside;">
+<li class=rvps5 style="{ margin-left: 0 }"><span class=rvts9>Sum:</span><span class=rvts8> Totaliza campos numéricos, sintaxe: Sum(&lt;field&gt;), exemplo: [SUM([DProdutos."PRO_CUSTO"] )]</span></li>
+<li class=rvps5 style="{ margin-left: 0 }"><span class=rvts9>Count:</span><span class=rvts8> Quantifica a quantidade de registros listados, sintaxe: Count(&lt;dataset&gt;), exemplo: [Count(DProdutos)]</span></li>
+<li class=rvps5 style="{ margin-left: 0 }"><span class=rvts9>Str:</span><span class=rvts8> Converte número em string, sintaxe: Str(&lt;value&gt;)</span></li>
+<li class=rvps5 style="{ margin-left: 0 }"><span class=rvts9>Copy:</span><span class=rvts8> Retorna uma parte de uma string, sintaxe: Copy(&lt;string&gt;, &lt;from&gt;, &lt;count&gt;)</span></li>
+<li class=rvps5 style="{ margin-left: 0 }"><span class=rvts9>If:</span><span class=rvts8> Retorna uma string conforme condição, uma condição lógica irá determinar o retorno de uma String1 ou String2, sintaxe: If(&lt;expression&gt;, &lt;string1&gt;, &lt;string2&gt;)</span></li>
+<li class=rvps5 style="{ margin-left: 0 }"><span class=rvts9>FormatFloat: </span><span class=rvts8> Converte um número em uma string formatada, sintaxe FormatFloat(&lt;formatstr&gt;, &lt;value&gt;), o &lt;formatstr&gt; segue os padrões do Delphi de formatação.</span></li>
+<li class=rvps5 style="{ margin-left: 0 }"><span class=rvts9>FormatDateTime:</span><span class=rvts8> Converte uma data/hora em uma string formatada, sintaxe: FormatDateTime(&lt;formatstr&gt;, &lt;value&gt;)</span></li>
+<li class=rvps5 style="{ margin-left: 0 }"><span class=rvts9>StrToDate:</span><span class=rvts8> Converte uma string em data, sintaxe: StrToDate(&lt;value&gt;)</span></li>
+<li class=rvps5 style="{ margin-left: 0 }"><span class=rvts9>StrToTime:</span><span class=rvts8> Converte uma string em hora, sintaxe: StrToTime(&lt;value&gt;)</span></li>
+<li class=rvps5 style="{ margin-left: 0 }"><span class=rvts9>UpperCase:</span><span class=rvts8> Converte os caracteres de uma string em caracteres maiúsculos, sintaxe: UpperCase(&lt;value&gt;)</span></li>
+<li class=rvps5 style="{ margin-left: 0 }"><span class=rvts9>LowerCase:</span><span class=rvts8> Converte os caracteres de uma string em caracteres minúsculos, sintaxe: LowerCase(&lt;value&gt;)</span></li>
+<li class=rvps5 style="{ margin-left: 0 }"><span class=rvts9>Int:</span><span class=rvts8> Retorna a parte inteira de um número, sintaxe: Int(&lt;value&gt;)</span></li>
+<li class=rvps5 style="{ margin-left: 0 }"><span class=rvts9>Frac:</span><span class=rvts8> Retorna a parte fracionária de um número, sintaxe: Frac(&lt;value&gt;)</span></li>
+<li class=rvps5 style="{ margin-left: 0 }"><span class=rvts9>Round:</span><span class=rvts8> Arredonda um número, sintaxe: Round(&lt;value&gt;)</span></li>
+<li class=rvps5 style="{ margin-left: 0 }"><span class=rvts9>Mod:</span><span class=rvts8> Retorna o resto da divisão entre dois números, sintaxe: value1 Mod value2</span></li>
+<li class=rvps5 style="{ margin-left: 0 }"><span class=rvts9>Input:</span><span class=rvts8> Mostra uma caixa de texto, onde o usuário poderá digitar qualquer informação extra, sintaxe: Input(&lt;caption&gt; [,&lt;default&gt;])</span></li>
+<li class=rvps5 style="{ margin-left: 0 }"><span class=rvts9>MascValor:</span><span class=rvts8> Formata um número inteiro ou fracionário e retorna em “String”, sintaxe: MascValor(&lt;valor&gt;,&lt;máscara&gt;), exemplo: [MascValor([DProdutos."PRO_CUSTO"],</span><span class=rvts10>&#8217;</span><span class=rvts8> ZZZ.ZZ9,99</span><span class=rvts10>&#8217;</span><span class=rvts8>)]</span></li>
+<li class=rvps5 style="{ margin-left: 0 }"><span class=rvts9>ConstStr:</span><span class=rvts8> Retorna uma “String” replicada N vezes, sintaxe: ConstStr(&lt;string&gt;,&lt;qtde&gt;), exemplo: [ConstStr(</span><span class=rvts10>&#8216;</span><span class=rvts8>-</span><span class=rvts10>&#8216;</span><span class=rvts8>,80)]</span></li>
+<li class=rvps5 style="{ margin-left: 0 }"><span class=rvts9>RetiraBrancos:</span><span class=rvts8> Retira os espaços em branco de uma “String”, sintaxe: RetiraBrancos(&lt;string&gt;), exemplo: [RetiraBrancos([Dprodutos.”PRO_DESCRICAO”])]</span></li>
+<li class=rvps5 style="{ margin-left: 0 }"><span class=rvts9>PadR:</span><span class=rvts8> Alinha uma “String” à esquerda, dentro de um tamanho determinado, sintaxe: PadR(&lt;string&gt;,&lt;tamanho&gt;), exemplo: [PadR([Dprodutos.”PRO_DESCRICAO”], 80)]</span></li>
+<li class=rvps5 style="{ margin-left: 0 }"><span class=rvts9>PadL:</span><span class=rvts8> Alinha uma “String” à direita, dentro de um tamanho determinado, sintaxe: PadL(&lt;string&gt;,&lt;tamanho&gt;), exemplo: [PadL([Dprodutos.”PRO_DESCRICAO”], 80)]</span></li>
+<li class=rvps5 style="{ margin-left: 0 }"><span class=rvts9>Center:</span><span class=rvts8> Centraliza uma “String”, dentro de um tamanho determinado, sintaxe: Center(&lt;string&gt;,&lt;tamanho&gt;), exemplo: [Center([Dprodutos.”PRO_DESCRICAO”], 80)]</span></li>
+<li class=rvps5 style="{ margin-left: 0 }"><span class=rvts9>Space:</span><span class=rvts8> Cria uma “String” em branco de tamanho determinado, sintaxe: Space(&lt;tamanho&gt;), exemplo: [Space(80)]</span></li>
+<li class=rvps5 style="{ margin-left: 0 }"><span class=rvts9>PorExtenso:</span><span class=rvts8> Retorna um número por extenso, em português, sintaxe: PorExtenso(&lt;valor&gt;), exemplo: [PorExtenso([Dproduto.”PRO_PRECO”])]</span></li>
+<li class=rvps5 style="{ margin-left: 0 }"><span class=rvts9>StrZero:</span><span class=rvts8> Converte um número inteiro em “String” com zeros à esquerda, sintaxe: StrZero(&lt;número&gt;,&lt;tamanho&gt;),&nbsp; exemplo: [StrZero([Dproduto.”PRO_CODIGO”], 05)]</span></li>
+<li class=rvps5 style="{ margin-left: 0 }"><span class=rvts9>FormatMaskText:</span><span class=rvts8> Formata uma “String” conforme a máscara informada, sintaxe: FormatMaskText(&lt;máscara&gt;, &lt;string&gt;), exemplo: [FormatMaskText(</span><span class=rvts10>&#8216;</span><span class=rvts8>XXXX</span><span class=rvts10>&#8217;</span><span class=rvts8>, [Dprodutos.”PRO_UNIDADE”])]</span></li>
+<li class=rvps5 style="{ margin-left: 0 }"><span class=rvts9>MascTexto:</span><span class=rvts8> Formata uma “String” conforme a máscara informada, sintaxe: MascTexto(&lt;string&gt;, &lt;máscara&gt;), exemplo: [MascTexto([DClientes."CEP"], '99999-999')]</span></li>
+<li class=rvps5 style="{ margin-left: 0 }"><span class=rvts9>MascData:</span><span class=rvts8> Formata uma data conforme a máscara informada, sintaxe: MascData(&lt;data&gt;, &lt;máscara&gt;), exemplo: [MascData([DVendas."VEN_DATA"], 'dd/mm/yy')]</span></li>
+<li class=rvps5 style="{ margin-left: 0 }"><span class=rvts9>CalcC_0: </span><span class=rvts8>Arredonda uma expressão de cálculo e retorna sem casas decimais, sintaxe: CalcC_0(&lt;valor 1&gt;, &lt;valor 2&gt;, &lt;operador&gt;), exemplo: [CalcC_0(99.56, 85.56, </span><span class=rvts10>&#8216;</span><span class=rvts8>+</span><span class=rvts10>&#8217;</span><span class=rvts8>)]</span></li>
+<li class=rvps5 style="{ margin-left: 0 }"><span class=rvts9>CalcC_1:</span><span class=rvts8> Arredonda uma expressão de cálculo e retorna com uma casa decimal, sintaxe: CalcC_1(&lt;valor 1&gt;, &lt;valor 2&gt;, &lt;operador&gt;, exemplo: [CalcC_1(99.56, 85.56, </span><span class=rvts10>&#8216;</span><span class=rvts8>-</span><span class=rvts10>&#8216;</span><span class=rvts8>)]</span></li>
+<li class=rvps5 style="{ margin-left: 0 }"><span class=rvts9>CalcC_2:</span><span class=rvts8> Arredonda uma expressão de cálculo e retorna com duas casas decimais, sintaxe: CalcC_2(&lt;valor 1&gt;, &lt;valor 2&gt;, &lt;operador&gt;, exemplo: [CalcC_2(99.56, 85.56, </span><span class=rvts10>&#8216;</span><span class=rvts8>*</span><span class=rvts10>&#8216;</span><span class=rvts8>)]</span></li>
+<li class=rvps5 style="{ margin-left: 0 }"><span class=rvts9>CalcC_3:</span><span class=rvts8> Arredonda uma expressão de cálculo e retorna com três casas decimais, sintaxe: CalcC_3(&lt;valor 1&gt;, &lt;valor 2&gt;, &lt;operador&gt;, exemplo: [CalcC_3(99.56, 85.56, </span><span class=rvts10>&#8216;</span><span class=rvts8>/</span><span class=rvts10>&#8216;</span><span class=rvts8>)]</span></li>
+<li class=rvps5 style="{ margin-left: 0 }"><span class=rvts9>CalcC_4:</span><span class=rvts8> Arredonda uma expressão de cálculo e retorna com quatro casas decimais, sintaxe: CalcC_4(&lt;valor 1&gt;, &lt;valor 2&gt;, &lt;operador&gt;, exemplo: [CalcC_4(99.56, 85.56, </span><span class=rvts10>&#8216;</span><span class=rvts8>+</span><span class=rvts10>&#8216;</span><span class=rvts8>)]</span></li>
+<li class=rvps5 style="{ margin-left: 0 }"><span class=rvts9>CalcC_5:</span><span class=rvts8> Arredonda uma expressão de cálculo e retorna com cinco casas decimais, sintaxe: CalcC_5(&lt;valor 1&gt;, &lt;valor 2&gt;, &lt;operador&gt;, exemplo: [CalcC_5(99.56, 85.56, </span><span class=rvts10>&#8216;</span><span class=rvts8>-</span><span class=rvts10>&#8216;</span><span class=rvts8>)]</span></li>
+</ul>
+<p class=rvps4><span class=rvts8><br></span></p>
+<p class=rvps4><span class=rvts9>Dica:</span></p>
+<p class=rvps4><span class=rvts8><br></span></p>
+<p class=rvps3><span class=rvts8>A pasta “C:\XMaker4\Comp\Delphi”, contem o arquivo de ajuda do FreeReport, o nome do arquivo é “FRUSER.HLP”.</span></p>
+<p class=rvps7><span class=rvts13>Copyright © 2005, Modular Software</span></p>
+
+</body></html>

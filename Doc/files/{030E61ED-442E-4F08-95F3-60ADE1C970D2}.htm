@@ -1,0 +1,188 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><title>Processos Diretos/Inversos</title>
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+body {
+  margin: 5px 5px 5px 5px;
+  background-color: #ffffff;
+}
+/* ========== Text Styles ========== */
+hr { color: #000000}
+body, table /* Normal text */
+{
+ font-size: 10pt;
+ font-family: 'Arial';
+ font-style: normal;
+ font-weight: normal;
+ color: #000000;
+ text-decoration: none;
+}
+span.rvts1 /* Heading */
+{
+ font-weight: bold;
+ color: #0000ff;
+}
+span.rvts2 /* Subheading */
+{
+ font-weight: bold;
+ color: #000080;
+}
+span.rvts3 /* Keywords */
+{
+ font-style: italic;
+ color: #800000;
+}
+a.rvts4, span.rvts4 /* Jump 1 */
+{
+ color: #008000;
+ text-decoration: underline;
+}
+a.rvts5, span.rvts5 /* Jump 2 */
+{
+ color: #008000;
+ text-decoration: underline;
+}
+span.rvts6 /* Font Style */
+{
+ font-size: 16pt;
+ font-family: 'MS Sans Serif';
+ color: #ffffff;
+}
+span.rvts7
+{
+ font-size: 11pt;
+ font-family: 'Verdana';
+}
+span.rvts8
+{
+ font-size: 11pt;
+ font-family: 'Verdana';
+ font-weight: bold;
+}
+span.rvts9
+{
+ font-size: 11pt;
+ font-family: 'Verdana';
+ color: #000000;
+}
+span.rvts10
+{
+ font-size: 11pt;
+ font-family: 'Verdana';
+ font-weight: bold;
+ color: #000000;
+}
+span.rvts11 /* Font Style */
+{
+ font-family: 'MS Sans Serif';
+ color: #808080;
+}
+span.rvts12 /* Font Style */
+{
+ font-family: 'Verdana';
+ font-style: italic;
+ color: #c0c0c0;
+}
+a.rvts13, span.rvts13 /* Font Style */
+{
+ font-family: 'Verdana';
+ font-style: italic;
+ color: #6666ff;
+ text-decoration: underline;
+}
+/* ========== Para Styles ========== */
+p,ul,ol /* Paragraph Style */
+{
+ text-align: left;
+ text-indent: 0px;
+ padding: 0px 0px 0px 0px;
+ margin: 0px 0px 0px 0px;
+}
+.rvps1 /* Centered */
+{
+ text-align: center;
+}
+.rvps2 /* Paragraph Style */
+{
+ background: #9fbed0;
+ margin: 0px 0px 20px 0px;
+}
+.rvps3
+{
+ text-align: justify;
+}
+.rvps4
+{
+ text-align: justify;
+ margin: 0px 0px 0px 24px;
+}
+.rvps5
+{
+ text-align: justify;
+ text-indent: 39px;
+}
+.rvps6
+{
+ text-align: justify;
+ margin: 7px 0px 7px 0px;
+}
+.rvps7
+{
+ text-align: center;
+ text-indent: -24px;
+ margin: 0px 0px 0px 24px;
+}
+.rvps8 /* Paragraph Style */
+{
+ text-align: center;
+ background: #e4e4e4;
+ margin: 20px 0px 0px 0px;
+}
+.rvps9 /* Paragraph Style */
+{
+ border-color: #c0c0c0;
+ border-style: solid;
+ border-width: 1px;
+ border-right: none;
+ border-bottom: none;
+ border-left: none;
+ background: #ffffff;
+ padding: 3px 0px 0px 0px;
+ margin: 27px 0px 0px 0px;
+}
+--></style>
+<body>
+
+<p class=rvps2><span class=rvts6>Processos Diretos/Inversos</span></p>
+<p class=rvps5><span class=rvts7>Os processos diretos/inversos permitem a atualização das tabelas relacionadas, o processo direto está vinculado à inclusão e modificação dos registros e o processo inverso está vinculado à exclusão e modificação. Como exemplo podemos citar uma Tabela de Vendas que deverá atualizar a Tabela de Estoque, ao vender um produto a quantidade do estoque é baixada (processo direto), ao excluir um produto vendido à quantidade do estoque é estornada (processo inverso). O projetista poderá definir Processos e Lançamentos avulso, neste caso não é necessário nenhum tipo de relacionamento e a codificação é livre, ou seja, o projetista poderá codificar qualquer tipo de instruções.</span></p>
+<p class=rvps5><span class=rvts7><br></span></p>
+<p class=rvps1><img alt="" hspace=1 vspace=1 src="img_54.jpg"></p>
+<p class=rvps6><span class=rvts10>Tabela alvo</span><span class=rvts9>: Somente Tabelas relacionadas poderão ser escolhidas.</span>
+<br><span class=rvts10>Campo alvo</span><span class=rvts9>: Campo da Tabela alvo que irá sofrer o processo.</span>
+<br><span class=rvts10>Condição</span><span class=rvts9>: Expressão lógica de condição para execução do processo, quando não houver expressão o processo sempre será executado.</span>
+<br><span class=rvts10>Processo direto</span><span class=rvts9>: Expressão de atualização após a inclusão ou modificação.</span>
+<br><span class=rvts10>Processo inverso</span><span class=rvts9>: Expressão de atualização antes de exclusão ou modificação.</span></p>
+<p class=rvps1><img alt="" hspace=1 vspace=1 src="img_55.jpg"></p>
+<p class=rvps6><span class=rvts9>Condição, Processo direto e inverso são blocos de codificações, a "Condição" deverá ser definida com a sintaxe da linguagem Delphi, os "Processos" utiliza a sintaxe "SQL" que é a linguagem nativa do Banco de Dados. Opcionalmente você poderá utilizar a caixa de definição de expressão, conforme imagem acima.</span></p>
+<p class=rvps6><span class=rvts9>A "Condição" será utilizada na criação de uma condição para execução dos "Processos", tanto para o direto quanto para o inverso, na imagem abaixo é possível visualizar a expressão de "Condição" transformada em linha de código com a utilização do condicional </span><span class=rvts10>"if ... then"</span><span class=rvts9>.</span></p>
+<p class=rvps1><img alt="" hspace=1 vspace=1 src="img_56.jpg"></p>
+<p class=rvps6><span class=rvts9>As expressões de "Processos" são vinculadas ao "Campo alvo" da "Tabela alvo", utilize o botão "Campo" na janela de definição da Expressão para obter a sintaxe correta do campo a ser utilizado, na figura abaixo o processo é realizado no campo "CON_BAIXA" da Tabela "Contas", a sintaxe final em SQL será:</span></p>
+<hr noshade size=1 style="{color : #000000}">
+<p class=rvps3><span class=rvts8>set update</span><span class=rvts7> Contas CON_BAIXA = :BX_CONTAS_CON_BAIXA, CON_PAGO = CON_PAGO + :BXCONTAS_CON_PAGO </span><span class=rvts8>where</span><span class=rvts7> CLI_CODIGO = 1 </span><span class=rvts8>and</span><span class=rvts7> CON_DOCUMENTO = '1' </span><span class=rvts8>and</span><span class=rvts7> CON_PARCELA = 1</span></p>
+<hr noshade size=1 style="{color : #000000}">
+<p class=rvps3><span class=rvts7><br></span></p>
+<p class=rvps3><span class=rvts7>Os valores de atribuição na clausula "where" é apenas ilustrativo, pois o relacionamento é que irá fornecê-los. O "Campo alvo" será atualizado somente com a expressão ":BX_CONTAS_CON_BAIXA", o conteúdo restante após a vírgula é um complemento, pois podemos inserir mais atualizações em um mesmo processo separados por vírgula.</span></p>
+<p class=rvps3><span class=rvts7><br></span></p>
+<p class=rvps1><img alt="" hspace=1 vspace=1 src="img_57.jpg"></p>
+<p class=rvps3><span class=rvts7><br></span></p>
+<p class=rvps1><span class=rvts7>Processo “Direto”.</span></p>
+<p class=rvps1><img alt="" hspace=1 vspace=1 src="img_58.jpg"></p>
+<p class=rvps3><span class=rvts7><br></span></p>
+<p class=rvps1><span class=rvts7>Processo “Inverso”.</span></p>
+<p class=rvps1><img alt="" hspace=1 vspace=1 src="img_59.jpg"></p>
+<p class=rvps4><span class=rvts7><br></span></p>
+<p class=rvps7><span class=rvts7>Processo “Avulso - Direto/Inverso”</span></p>
+<p class=rvps7><img alt="" hspace=1 vspace=1 src="img_60.jpg"></p>
+<p class=rvps8><span class=rvts11>Copyright © 2005, Modular Software</span></p>
+
+</body></html>

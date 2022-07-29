@@ -1,0 +1,35 @@
+#------------------------------------------------------------------------------
+VERSION = BWS.01
+#------------------------------------------------------------------------------
+!ifndef ROOT
+ROOT = $(MAKEDIR)\..
+!endif
+#------------------------------------------------------------------------------
+MAKE = $(ROOT)\bin\make.exe -$(MAKEFLAGS) -f$**
+DCC = $(ROOT)\bin\dcc32.exe $**
+BRCC = $(ROOT)\bin\brcc32.exe $**
+#------------------------------------------------------------------------------
+PROJECTS = DJcl70.bpl DJclVcl70.bpl DJclVClx70.bpl IdeOpenDlgFavoriteD70.bpl \
+  JclDebugIdeD70.bpl ProjectAnalyzerD70.bpl 
+#------------------------------------------------------------------------------
+default: $(PROJECTS)
+#------------------------------------------------------------------------------
+
+DJcl70.bpl: D7\DJcl.dpk
+  $(DCC)
+
+DJclVcl70.bpl: D7\DJclVcl.dpk
+  $(DCC)
+
+DJclVClx70.bpl: D7\DJclVClx.dpk
+  $(DCC)
+
+JclDebugIdeD70.bpl: ..\examples\vcl\debugextension\JclDebugIdeD70.dpk
+  $(DCC)
+
+ProjectAnalyzerD70.bpl: ..\examples\vcl\projectanalyzer\ProjectAnalyzerD70.dpk
+  $(DCC)
+
+IdeOpenDlgFavoriteD70.bpl: ..\examples\vcl\idefavopendialogs\IdeOpenDlgFavoriteD70.dpk
+  $(DCC)
+

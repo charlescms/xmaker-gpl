@@ -1,0 +1,398 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><title>Dicas de Programação</title>
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+body {
+  margin: 5px 5px 5px 5px;
+  background-color: #ffffff;
+}
+/* ========== Text Styles ========== */
+hr { color: #000000}
+body, table /* Normal text */
+{
+ font-size: 10pt;
+ font-family: 'Arial';
+ font-style: normal;
+ font-weight: normal;
+ color: #000000;
+ text-decoration: none;
+}
+span.rvts1 /* Heading */
+{
+ font-weight: bold;
+ color: #0000ff;
+}
+span.rvts2 /* Subheading */
+{
+ font-weight: bold;
+ color: #000080;
+}
+span.rvts3 /* Keywords */
+{
+ font-style: italic;
+ color: #800000;
+}
+a.rvts4, span.rvts4 /* Jump 1 */
+{
+ color: #008000;
+ text-decoration: underline;
+}
+a.rvts5, span.rvts5 /* Jump 2 */
+{
+ color: #008000;
+ text-decoration: underline;
+}
+span.rvts6 /* Font Style */
+{
+ font-size: 16pt;
+ font-family: 'MS Sans Serif';
+ color: #ffffff;
+}
+span.rvts7
+{
+ font-size: 11pt;
+ font-family: 'Verdana';
+}
+a.rvts8, span.rvts8
+{
+ font-size: 11pt;
+ font-family: 'Verdana';
+ color: #0000ff;
+ text-decoration: underline;
+}
+span.rvts9
+{
+ font-size: 11pt;
+ font-family: 'Verdana';
+}
+span.rvts10
+{
+ font-size: 11pt;
+ font-family: 'Verdana';
+ font-weight: bold;
+ color: #ffffff;
+}
+span.rvts11
+{
+ font-size: 11pt;
+ font-family: 'Verdana';
+ font-weight: bold;
+ color: #ffffff;
+}
+span.rvts12
+{
+ font-family: 'Courier New';
+}
+span.rvts13
+{
+ font-family: 'Courier New';
+ font-weight: bold;
+}
+span.rvts14
+{
+ font-family: 'Courier New';
+ color: #0000ff;
+}
+a.rvts15, span.rvts15
+{
+ font-size: 11pt;
+ font-family: 'Verdana';
+ color: #0000ff;
+ text-decoration: underline;
+}
+a.rvts15:hover { color: #0000ff; }
+span.rvts16
+{
+ font-size: 11pt;
+ font-family: 'Verdana';
+ font-weight: bold;
+}
+span.rvts17
+{
+ font-size: 11pt;
+ font-family: 'Verdana';
+}
+span.rvts18
+{
+ font-size: 11pt;
+ font-family: 'Verdana';
+ font-weight: bold;
+ color: #ffffff;
+ background-color: #008080;
+}
+span.rvts19
+{
+ font-family: 'Courier New';
+ color: #ff0000;
+}
+span.rvts20
+{
+ font-family: 'Courier New';
+ font-weight: bold;
+ color: #ff0000;
+}
+span.rvts21 /* Font Style */
+{
+ font-family: 'MS Sans Serif';
+ color: #808080;
+}
+span.rvts22 /* Font Style */
+{
+ font-family: 'Verdana';
+ font-style: italic;
+ color: #c0c0c0;
+}
+a.rvts23, span.rvts23 /* Font Style */
+{
+ font-family: 'Verdana';
+ font-style: italic;
+ color: #6666ff;
+ text-decoration: underline;
+}
+/* ========== Para Styles ========== */
+p,ul,ol /* Paragraph Style */
+{
+ text-align: left;
+ text-indent: 0px;
+ padding: 0px 0px 0px 0px;
+ margin: 0px 0px 0px 0px;
+}
+.rvps1 /* Centered */
+{
+ text-align: center;
+}
+.rvps2 /* Paragraph Style */
+{
+ background: #9fbed0;
+ margin: 0px 0px 20px 0px;
+}
+.rvps3
+{
+ margin: 7px 0px 7px 0px;
+}
+.rvps4
+{
+ text-align: center;
+ background: #008080;
+}
+.rvps5
+{
+ text-align: center;
+ background: #008080;
+ margin: 7px 0px 7px 0px;
+}
+.rvps6
+{
+ text-align: justify;
+ margin: 7px 0px 7px 0px;
+}
+.rvps7 /* Paragraph Style */
+{
+ text-align: center;
+ background: #e4e4e4;
+ margin: 20px 0px 0px 0px;
+}
+.rvps8 /* Paragraph Style */
+{
+ border-color: #c0c0c0;
+ border-style: solid;
+ border-width: 1px;
+ border-right: none;
+ border-bottom: none;
+ border-left: none;
+ background: #ffffff;
+ padding: 3px 0px 0px 0px;
+ margin: 27px 0px 0px 0px;
+}
+--></style>
+<body>
+
+<p class=rvps2><span class=rvts6>Dicas de Programação</span></p>
+<p class=rvps4><span class=rvts10>Executar link de e-mail ou URL</span></p>
+<p><span class=rvts9><br></span></p>
+<p class=rvps3><span class=rvts7>ShellExecute(0, nil, pchar('mailto:</span><span class=rvts8>xmaker@xmaker.com.br'</span><span class=rvts7>), nil, nil, SW_SHOWNORMAL);</span></p>
+<p class=rvps3><span class=rvts7>ShellExecute(0, nil, pchar('</span><span class=rvts8>http://www.xmaker.com.br'</span><span class=rvts7>), nil, nil, SW_MAXIMIZE);</span></p>
+<p class=rvps3><span class=rvts7>Obs.: Declare em "uses" a unit ShellAPI</span></p>
+<p class=rvps5><span class=rvts11>Enviar dados para o Excel</span></p>
+<p class=rvps3><span class=rvts7>Declare uma variável do tipo "OleVariant", exemplo:</span></p>
+<p class=rvps3><span class=rvts12>&nbsp; ...</span>
+<br><span class=rvts12>&nbsp;&nbsp;&nbsp; </span><span class=rvts14>{ Private declarations }</span>
+<br><span class=rvts12>&nbsp;&nbsp;&nbsp; excel: OleVariant;</span>
+<br><span class=rvts12>&nbsp; </span><span class=rvts13>public</span>
+<br><span class=rvts12>&nbsp;&nbsp;&nbsp; </span><span class=rvts14>{ Public declarations }</span>
+<br><span class=rvts12>&nbsp; </span><span class=rvts13>end</span><span class=rvts12>;</span>
+<br><span class=rvts12>&nbsp; ...</span></p>
+<p class=rvps3><span class=rvts7>Codificação: </span></p>
+<p class=rvps3><span class=rvts13>try</span>
+<br><span class=rvts12>&nbsp; excel:=CreateOleObject(</span><span class=rvts14>'Excel.Application'</span><span class=rvts12>);</span>
+<br><span class=rvts12>&nbsp; excel.Workbooks.add(1); </span><span class=rvts14>// Para "nova" planilha ...</span>
+<br><span class=rvts12>&nbsp; </span><span class=rvts14>//excel.Workbooks.open('c:\xmaker4\projetos\excel\exemplo.xls'); // Abrir planilha já existente</span>
+<br><span class=rvts13>except</span>
+<br><span class=rvts12>&nbsp; Application.MessageBox (</span><span class=rvts14>'Versão do Ms-Excel'</span><span class=rvts12>+</span><span class=rvts14>'Incompatível'</span><span class=rvts12>,</span><span class=rvts14>'Erro'</span><span class=rvts12>,MB_OK+MB_ICONEXCLAMATION);</span>
+<br><span class=rvts12>&nbsp; exit;</span>
+<br><span class=rvts13>end</span><span class=rvts12>;</span>
+<br><span class=rvts12>excel.cells[05, 03] := 5999.99;&nbsp; </span><span class=rvts14>// Atribui o valor 5999.99 na linha 05, coluna 03</span>
+<br><span class=rvts12>excel.columns.AutoFit;</span>
+<br><span class=rvts12>excel.visible:=true;</span></p>
+<p class=rvps5><span class=rvts11>Utilizar componentes não suportados pelo X-Maker em formulários</span></p>
+<p class=rvps6><span class=rvts7>Os componentes de terceiros não suportados pelo Layout de formulário do X-Maker podem ser utilizados através de codificação direta no fonte, para exemplo iremos implementar a chamada do componente RDPrint (</span><a class=rvts15 href="http://www.deltress.com.br/" target="_blank">http://www.deltress.com.br</a><span class=rvts7>), exemplo:</span></p>
+<p class=rvps6><span class=rvts14>{utilize o "var" para declarar variáveis}</span>
+<br><span class=rvts13>var</span>
+<br><span class=rvts12>&nbsp; RdPrint: TRDPrint;</span>
+<br><span class=rvts12>&nbsp; Linha: Integer;</span>
+<br><span class=rvts13>begin</span>
+<br><span class=rvts12>&nbsp; </span><span class=rvts14>{codificação...}</span>
+<br><span class=rvts12>&nbsp; RdPrint := TRDPrint.Create(Self);</span>
+<br><span class=rvts12>&nbsp; </span><span class=rvts13>try</span>
+<br><span class=rvts12>&nbsp;&nbsp;&nbsp; </span><span class=rvts13>with</span><span class=rvts12> RdPrint </span><span class=rvts13>do</span>
+<br><span class=rvts12>&nbsp;&nbsp;&nbsp; </span><span class=rvts13>begin</span>
+<br><span class=rvts12>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; OpcoesPreview.Preview := True; </span><span class=rvts14>// Habilita a visualização do Relatório</span>
+<br><span class=rvts12>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; abrir;&nbsp; </span><span class=rvts14>// Inicia a montagem do relatório...</span>
+<br><span class=rvts12>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; TabGlobal.DATIVIDADES.First;</span>
+<br><span class=rvts12>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Linha := 0;</span>
+<br><span class=rvts12>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts13>while not</span><span class=rvts12> TabGlobal.DATIVIDADES.Eof </span><span class=rvts13>do</span>
+<br><span class=rvts12>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts13>begin</span>
+<br><span class=rvts12>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; inc(Linha);</span>
+<br><span class=rvts12>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; imp(Linha, 01, StrZero(TabGlobal.DATIVIDADES.ATI_CODIGO.Conteudo, 04));</span>
+<br><span class=rvts12>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; imp(Linha, 06, TabGlobal.DATIVIDADES.ATI_DESCRICAO.Conteudo);</span>
+<br><span class=rvts12>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; TabGlobal.DATIVIDADES.Next;</span>
+<br><span class=rvts12>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts13>end</span><span class=rvts12>;</span>
+<br><span class=rvts12>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Fechar; </span><span class=rvts14>// Fecha a montagem do relatório...</span>
+<br><span class=rvts12>&nbsp;&nbsp;&nbsp; </span><span class=rvts13>end</span><span class=rvts12>;</span>
+<br><span class=rvts12>&nbsp; </span><span class=rvts13>finally</span>
+<br><span class=rvts12>&nbsp;&nbsp;&nbsp; RdPrint.Free;</span>
+<br><span class=rvts12>&nbsp; </span><span class=rvts13>end</span><span class=rvts12>;</span>
+<br><span class=rvts13>end</span><span class=rvts12>;</span></p>
+<p class=rvps6><span class=rvts7>O componente "RDPrint" é um componente não visual, e este tipo de componente não necessita de linha, coluna, altura e largura, pois não será visualizado pelo usuário. Os componentes visuais necessitam dessas informações, após o "Create" faça a atribuição, exemplo:</span></p>
+<p class=rvps6><span class=rvts12>Label3D := TLabel3D.Create(Self);</span>
+<br><span class=rvts13>with</span><span class=rvts12> Label3D </span><span class=rvts13>do</span>
+<br><span class=rvts13>begin</span>
+<br><span class=rvts12>&nbsp; Parent := Panel1; </span><span class=rvts14>// O componente será criado dentro do componente "Panel1"</span>
+<br><span class=rvts12>&nbsp; Left&nbsp;&nbsp; := 5;</span>
+<br><span class=rvts12>&nbsp; Top&nbsp;&nbsp;&nbsp; := 10;</span>
+<br><span class=rvts12>&nbsp; Width&nbsp; := 30;</span>
+<br><span class=rvts12>&nbsp; Height := 16;</span>
+<br><span class=rvts13>end</span><span class=rvts12>;</span></p>
+<p class=rvps6><span class=rvts7>Obs. Os componentes utilizados devem ser declarados em "uses" do formulário.</span></p>
+<p class=rvps5><span class=rvts11>Filtrar Dia/Mês/Ano em SQL (Interbase/Firebird)</span></p>
+<p class=rvps3><span class=rvts7>Utilize o método "Extract" em uma expressão SQL, exemplos:</span></p>
+<p class=rvps3><span class=rvts7>(</span><span class=rvts16>Extract</span><span class=rvts7>(month </span><span class=rvts16>from</span><span class=rvts7> Atendimentos.ATE_DATA) = 11) and (</span><span class=rvts16>Extract</span><span class=rvts7>(year </span><span class=rvts16>from</span><span class=rvts7> Atendimentos.ATE_DATA) = 2005)</span></p>
+<p class=rvps3><span class=rvts7>Em relat</span><span class=rvts17>&#243;</span><span class=rvts7>rio o projetista pode utilizar os valores de componentes de uma caixa de di</span><span class=rvts17>&#225;</span><span class=rvts7>logo, exemplo:</span></p>
+<p class=rvps3><span class=rvts7>(</span><span class=rvts16>Extract</span><span class=rvts7>(month </span><span class=rvts16>from</span><span class=rvts7> Atendimentos.ATE_DATA) = :XNumEdit1) and (</span><span class=rvts16>Extract</span><span class=rvts7>(year </span><span class=rvts16>from</span><span class=rvts7> Atendimentos.ATE_DATA) = :XNumEdit2)</span></p>
+<p class=rvps3><span class=rvts7>O projetista poder</span><span class=rvts17>&#225;</span><span class=rvts7> extrair o dia tamb</span><span class=rvts17>&#233;</span><span class=rvts7>m, exemplo:</span></p>
+<p class=rvps3><span class=rvts16>Extract</span><span class=rvts7>(day </span><span class=rvts16>from</span><span class=rvts7> Atendimentos.ATE_DATA) = 08)</span></p>
+<p class=rvps5><span class=rvts11>Importar registros de um arquivo texto</span></p>
+<p class=rvps3><span class=rvts7>Exemplo de utilização dos métodos "assignfile (Delphi)" e "StringToArray (X-Maker)".</span></p>
+<p class=rvps3><span class=rvts14>{utilize o "var" para declarar variáveis}</span>
+<br><span class=rvts13>var</span>
+<br><span class=rvts12>&nbsp; f: textfile;</span>
+<br><span class=rvts12>&nbsp; i: Integer;</span>
+<br><span class=rvts12>&nbsp; Linha: String;</span>
+<br><span class=rvts12>&nbsp; Lista: TStringList;</span>
+<br><span class=rvts13>begin</span>
+<br><span class=rvts12>&nbsp; </span><span class=rvts14>{codificação...}</span>
+<br><span class=rvts12>&nbsp; </span><span class=rvts13>if Not</span><span class=rvts12> FileExists(Sistema.Pasta + 'Bairros.txt') </span><span class=rvts13>then</span>
+<br><span class=rvts12>&nbsp; </span><span class=rvts13>begin</span>
+<br><span class=rvts12>&nbsp;&nbsp;&nbsp; MessageDlg('Arquivo não encontrado!' + ^M+^M + Sistema.Pasta + 'Bairros.txt', mtWarning, [mbOk], 0);</span>
+<br><span class=rvts12>&nbsp;&nbsp;&nbsp; exit;</span>
+<br><span class=rvts12>&nbsp; </span><span class=rvts13>end</span><span class=rvts12>;</span>
+<br><span class=rvts12>&nbsp; </span><span class=rvts13>if</span><span class=rvts12> MessageDlg('Importar arquivo de Bairros?', mtConfirmation, [mbYes, mbNo], 0) &lt;&gt; mrYes </span><span class=rvts13>then</span>
+<br><span class=rvts12>&nbsp;&nbsp;&nbsp; exit;</span>
+<br><span class=rvts12>&nbsp; </span><span class=rvts13>if</span><span class=rvts12> CheckBox1.Checked </span><span class=rvts13>then</span><span class=rvts12>&nbsp; </span><span class=rvts14>// Limpa a Tabela se o componente "CheckBox1" estiver habilitado</span>
+<br><span class=rvts12>&nbsp;&nbsp;&nbsp; TabGlobal.DCEP_Bairros.LimparTabela;</span>
+<br><span class=rvts12>&nbsp; Lista := TStringList.Create;</span>
+<br><span class=rvts12>&nbsp; assignfile(f, Sistema.Pasta + 'Bairros.txt');</span>
+<br><span class=rvts12>&nbsp; reset(f);</span>
+<br><span class=rvts12>&nbsp; </span><span class=rvts13>try</span>
+<br><span class=rvts12>&nbsp;&nbsp;&nbsp; readln(f, Linha);</span>
+<br><span class=rvts12>&nbsp;&nbsp;&nbsp; while not Eof(f) do</span>
+<br><span class=rvts12>&nbsp;&nbsp;&nbsp; </span><span class=rvts13>begin</span>
+<br><span class=rvts12>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; readln(f, Linha);</span>
+<br><span class=rvts12>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; StringToArray(Linha, ';', Lista);</span>
+<br><span class=rvts12>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; TabGlobal.DCEP_Bairros.Inclui(Nil);</span>
+<br><span class=rvts12>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; TabGlobal.DCEP_Bairros.BAI_ID.Conteudo&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; := StrToIntDef(Lista[0], 0);</span>
+<br><span class=rvts12>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; TabGlobal.DCEP_Bairros.BAI_NOME.Conteudo&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; := Lista[3];</span>
+<br><span class=rvts12>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; TabGlobal.DCEP_Bairros.BAI_UF.Conteudo&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; := Lista[1];</span>
+<br><span class=rvts12>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; TabGlobal.DCEP_Bairros.BAI_LOCALIDADE.Conteudo := StrToIntDef(Lista[2], 0);</span>
+<br><span class=rvts12>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; TabGlobal.DCEP_Bairros.Post;</span>
+<br><span class=rvts12>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Application.ProcessMessages;</span>
+<br><span class=rvts12>&nbsp;&nbsp;&nbsp; </span><span class=rvts13>end</span><span class=rvts12>;</span>
+<br><span class=rvts12>&nbsp; </span><span class=rvts13>finally</span>
+<br><span class=rvts12>&nbsp;&nbsp;&nbsp; CloseFile(f);</span>
+<br><span class=rvts12>&nbsp;&nbsp;&nbsp; Lista.Free;</span>
+<br><span class=rvts12>&nbsp;&nbsp;&nbsp; Application.ProcessMessages;</span>
+<br><span class=rvts12>&nbsp;&nbsp;&nbsp; TabGlobal.DCEP_Bairros.Transaction.CommitRetaining;</span>
+<br><span class=rvts12>&nbsp;&nbsp;&nbsp; Application.ProcessMessages;</span>
+<br><span class=rvts12>&nbsp; </span><span class=rvts13>end</span><span class=rvts12>;</span>
+<br><span class=rvts13>end</span><span class=rvts12>;</span></p>
+<p class=rvps5><span class=rvts11>Exportação de registros para arquivo texto</span></p>
+<p class=rvps3><span class=rvts7>Exemplo de leitura e gravação de registros em arquivo texto.</span></p>
+<p class=rvps3><span class=rvts13>var</span>
+<br><span class=rvts12>&nbsp; f: textfile;</span>
+<br><span class=rvts12>&nbsp; i: Integer;</span>
+<br><span class=rvts12>&nbsp; Linha: String;</span>
+<br><span class=rvts12>&nbsp; Campo: TAtributo;</span>
+<br><span class=rvts12>&nbsp; Nome, Separador: String;</span>
+<br><span class=rvts13>begin</span>
+<br><span class=rvts13>&nbsp; </span><span class=rvts12>Separador := ';' </span><span class=rvts14>// Separar campos por ; (ponto-e-vírgula)</span>
+<br><span class=rvts12>&nbsp; </span><span class=rvts13>if</span><span class=rvts12> MessageDlg('Exportar Bairros?', mtConfirmation, [mbYes, mbNo], 0) &lt;&gt; mrYes </span><span class=rvts13>then</span>
+<br><span class=rvts12>&nbsp;&nbsp;&nbsp; exit;</span>
+<br><span class=rvts12>&nbsp; Nome := 'CEP_Bairros.txt';</span>
+<br><span class=rvts12>&nbsp; InputQuery('Bairros', 'Nome do Arquivo:', Nome);</span>
+<br><span class=rvts12>&nbsp; </span><span class=rvts13>if</span><span class=rvts12> Trim(Nome) = '' </span><span class=rvts13>then</span>
+<br><span class=rvts12>&nbsp;&nbsp;&nbsp; exit;</span>
+<br><span class=rvts12>&nbsp; TabGlobal.DCEP_Bairros.Filtro.Clear;</span>
+<br><span class=rvts12>&nbsp; TabGlobal.DCEP_Bairros.AtualizaSql;</span>
+<br><span class=rvts12>&nbsp; assignfile(f, Sistema.Pasta + Nome);</span>
+<br><span class=rvts12>&nbsp; rewrite(f);</span>
+<br><span class=rvts12>&nbsp; </span><span class=rvts13>while not</span><span class=rvts12> TabGlobal.DCEP_Bairros.Eof </span><span class=rvts13>do</span>
+<br><span class=rvts12>&nbsp; </span><span class=rvts13>begin</span>
+<br><span class=rvts12>&nbsp;&nbsp;&nbsp; Application.ProcessMessages;</span>
+<br><span class=rvts12>&nbsp;&nbsp;&nbsp; Linha := '';</span>
+<br><span class=rvts12>&nbsp;&nbsp;&nbsp; </span><span class=rvts13>for</span><span class=rvts12> I:=0 </span><span class=rvts13>to</span><span class=rvts12> TabGlobal.DCEP_Bairros.Campos.Count-1 </span><span class=rvts13>do</span>
+<br><span class=rvts12>&nbsp;&nbsp;&nbsp; </span><span class=rvts13>begin</span>
+<br><span class=rvts12>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Campo := TAtributo(TabGlobal.DCEP_Bairros.Campos[I]);</span>
+<br><span class=rvts12>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=rvts13>if not</span><span class=rvts12> Campo.Extra </span><span class=rvts13>then</span>
+<br><span class=rvts12>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Linha := Linha + Campo.Valor.AsString + Separador;</span>
+<br><span class=rvts12>&nbsp;&nbsp;&nbsp; </span><span class=rvts13>end</span><span class=rvts12>;</span>
+<br><span class=rvts12>&nbsp;&nbsp;&nbsp; </span><span class=rvts13>if</span><span class=rvts12> Trim(Linha) &lt;&gt; '' </span><span class=rvts13>then </span><span class=rvts14>// Retira o último separador da linha</span>
+<br><span class=rvts12>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Linha := Copy(Linha, 01, Length(Linha)-1);</span>
+<br><span class=rvts12>&nbsp;&nbsp;&nbsp; writeln(f , Linha);</span>
+<br><span class=rvts12>&nbsp;&nbsp;&nbsp; TabGlobal.DCEP_Bairros.Next;</span>
+<br><span class=rvts12>&nbsp; </span><span class=rvts13>end</span><span class=rvts12>;&nbsp; </span>
+<br><span class=rvts12>&nbsp; CloseFile(f);</span>
+<br><span class=rvts12>&nbsp; MessageDlg('Arquivo Gerado: '+Sistema.Pasta + Nome, mtInformation, [mbOk], 0);</span>
+<br><span class=rvts12>&nbsp; Application.ProcessMessages;</span>
+<br><span class=rvts13>end</span><span class=rvts12>;</span></p>
+<p class=rvps5><span class=rvts18>Ler linhas de um campo do tipo "Memo"</span></p>
+<p class=rvps6><span class=rvts7>Para ler o conteúdo de um campo "Memo" utilize a propriedade "Conteudo" do objeto, essa propriedade é do tipo "TStringList", exemplo:</span></p>
+<p class=rvps6><span class=rvts13>var</span>
+<br><span class=rvts12>&nbsp; I: Integer;</span>
+<br><span class=rvts13>begin</span>
+<br><span class=rvts12>&nbsp; </span><span class=rvts13>for</span><span class=rvts12> I:=0 to TabGlobal.DCLIENTES.Obs.Conteudo.Count-1 </span><span class=rvts13>do</span>
+<br><span class=rvts12>&nbsp;&nbsp;&nbsp; ShowMessage(TabGlobal.DCLIENTES.Obs.Conteudo[I]);</span>
+<br><span class=rvts13>end</span><span class=rvts12>;</span></p>
+<p class=rvps5><span class=rvts18>Campo "Calculado" para mostrar a primeira linha de um campo "Memo"</span></p>
+<p class=rvps6><span class=rvts7>Campos do tipo "Memo" não são visualizados em "Grid" de Consulta, uma alternativa é criar um campo "Calculado" (Alfanumérico) e atribuir uma fórmula para capturar a primeira linha do "Memo", exemplo:</span></p>
+<p class=rvps6><span class=rvts14>{ a variável "Result" deverá conter o resultado, exemplo:</span>
+<br><span class=rvts14>&nbsp; I := TabGlobal.DAtendimentos.ATE_RESUMO.Conteudo + 'ABC';</span>
+<br><span class=rvts14>&nbsp; Result := I; }</span>
+<br><span class=rvts13>if</span><span class=rvts12> TabGlobal.DAtendimentos.ATE_OBSERVACAO.Conteudo.Count &gt; 0 </span><span class=rvts13>then</span>
+<br><span class=rvts12>&nbsp; Result := TabGlobal.DAtendimentos.ATE_OBSERVACAO.Conteudo[0]</span>
+<br><span class=rvts13>else</span>
+<br><span class=rvts12>&nbsp; Result := '';</span></p>
+<p class=rvps5><span class=rvts11>Associar "DataSource" com tabelas do projeto</span></p>
+<p class=rvps3><span class=rvts7>Para associar um "DataSource" com qualquer tabela do projeto utilize a propriedade "DataSet", exemplo:</span></p>
+<p class=rvps3><span class=rvts12>DataSource.DataSet := TabGlobal.DCEP_Logradouros;</span></p>
+<p class=rvps3><span class=rvts7>Faça a codificação no evento "FormShow" ou "FormCreate" do formulário.</span></p>
+<p class=rvps5><span class=rvts11>Agrupar e totalizar registros em SQL (Interbase/Firebird)</span></p>
+<p class=rvps3><span class=rvts7>Para agrupar registro em SQL utilize o comando "Group By", exemplo:</span></p>
+<p class=rvps3><span class=rvts13>Select</span><span class=rvts12> VENDAS.CLI_CODIGO </span><span class=rvts13>IS</span><span class=rvts12> CLI_CODIGO, SUM(TOTAL) </span><span class=rvts13>IS</span><span class=rvts12> TOTAL_GERAL </span><span class=rvts13>FROM</span><span class=rvts12> VENDAS </span><span class=rvts13>GROUP BY</span><span class=rvts12> CLI_CODIGO</span></p>
+<p class=rvps6><span class=rvts7>Esse tipo de SQL pode ser utilizado em relatórios/gráficos, na definição do relatório clique no botão: SQL e digite a instrução desejada, o exemplo acima totaliza o campo "Total" por Cliente, o projetista tem a liberdade de criar as instruções em SQL.</span></p>
+<p class=rvps5><span class=rvts11>Utilização de Sub-Select's em Select (Interbase/Firebird)</span></p>
+<p class=rvps6><span class=rvts7>O Interbase/Firebird permite a utilização de Sub-Select's em um Select, para exemplificar a sua utilização iremos tomar por base o tópico anterior "Agrupar e totalizar registros em SQL ...", para mostrar o nome do Cliente iremos utilizar um sub-select, exemplo:</span></p>
+<p class=rvps6><span class=rvts13>Select</span><span class=rvts12> VENDAS.CLI_CODIGO </span><span class=rvts13>IS</span><span class=rvts12> CLI_CODIGO, </span><span class=rvts19>(</span><span class=rvts20>Select</span><span class=rvts19> CLIENTES.CLI_NOME </span><span class=rvts20>IS</span><span class=rvts19> CLI_NOME </span><span class=rvts20>From</span><span class=rvts19> CLIENTES </span><span class=rvts20>Where</span><span class=rvts19> CLIENTES.CLI_CODIGO = VENDAS.CLI_CODIGO)</span><span class=rvts12> </span><span class=rvts13>IS</span><span class=rvts12> CLI_NOME, SUM(TOTAL) </span><span class=rvts13>IS</span><span class=rvts12> TOTAL_GERAL </span><span class=rvts13>FROM</span><span class=rvts12> VENDAS </span><span class=rvts13>GROUP BY</span><span class=rvts12> CLI_CODIGO </span><span class=rvts13>ORDER BY</span><span class=rvts12> 2</span></p>
+<p class=rvps6><span class=rvts7>A totalização por Cliente será ordenada pelo nome do Cliente, a instrução "Order By" permite a utilização do número da coluna, o número dois (2) nesse exemplo é a coluna "CLI_NOME"</span></p>
+<p class=rvps7><span class=rvts21>Copyright © 2005, Modular Software</span></p>
+
+</body></html>

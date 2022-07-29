@@ -1,0 +1,17 @@
+:Base  AppInsp.HLP
+:Title AppInsp
+1 Greatis Application Inspector User Manual
+2 TCustomApplicationInspector
+3 TCustomApplicationInspector class=TCustomApplicationInspector
+3 Hierarchy=HierarchyAppInsp>main
+3 Interface
+4 Methods=TCustomApplicationInspector_Methods>main
+4 Properties=TCustomApplicationInspector_Properties>main
+4 Events=TCustomApplicationInspector_Events>main
+2 TApplicationInspector
+3 TApplicationInspector class=TApplicationInspector
+3 Hierarchy=HierarchyAppInsp>main
+3 Interface
+4 Methods=TApplicationInspector_Methods>main
+4 Properties=TApplicationInspector_Properties>main
+4 Events=TApplicationInspector_Events>main

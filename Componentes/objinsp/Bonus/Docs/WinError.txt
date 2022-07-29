@@ -1,0 +1,41 @@
+*****************************************************************
+ GREATIS DELPHI BONUS
+*****************************************************************
+
+ GREATIS DELPHI BONUS is a free, unsupported software.
+
+*****************************************************************
+ TWinError
+*****************************************************************
+
+About TWinError
+~~~~~~~~~~~~~~~
+
+TWinError is a component for the easy access to the last Windows
+error.
+
+TWinError Hierarchy
+~~~~~~~~~~~~~~~~~~~
+
+TComponent
+	TWinError
+
+TWinError Interface
+~~~~~~~~~~~~~~~~~~~
+
+Methods
+
+public
+
+procedure ShowError(BoxCaption: string);
+This procedure shows the error box with BoxCaption caption.
+The error text is a decoded text of the last Windows error.
+
+Properties
+
+public
+
+property ErrorText: string;
+This property contains text of the last Windows error.
+
+*****************************************************************

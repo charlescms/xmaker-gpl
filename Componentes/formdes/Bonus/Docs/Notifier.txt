@@ -1,0 +1,36 @@
+*****************************************************************
+ GREATIS DELPHI BONUS
+*****************************************************************
+
+ GREATIS DELPHI BONUS is a free, unsupported software.
+
+*****************************************************************
+ TNotifier
+*****************************************************************
+
+About TNotifier
+~~~~~~~~~~~~~~~
+
+TNotifier is a component fired special event when any component
+is added or deleted on the form.
+
+TNotifier Hierarchy
+~~~~~~~~~~~~~~~~~~~
+
+TComponent
+	TNotifier
+
+TNotifier Interface
+~~~~~~~~~~~~~~~~~~~
+
+Events
+
+published
+
+OnNotification(Sender: TObject; AComponent: TComponent;
+	Operation: TOperation);
+This event fires when a component is added to the form or 
+deleted from the form. The event parameters are similar to
+standard Notification method.
+
+*****************************************************************

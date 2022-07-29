@@ -1,0 +1,27 @@
+:Base  CtrlDes.HLP
+:Title CtrlDes
+1 Greatis Control Designer User Manual
+2 About Greatis Control Designer=About_Greatis_Control_Designer 
+2 Installation=Installation
+2 Types=Types
+2 TControlDesignerFrame
+3 TControlDesignerFrame class=TControlDesignerFrame
+3 Hierarchy=HierarchyFrame>main
+3 Interface
+4 Methods=TControlDesignerFrame_Methods>main
+4 Properties=TControlDesignerFrame_Properties>main
+4 Events=TControlDesignerFrame_Events>main
+2 TCustomControlDesigner
+3 TCustomControlDesigner class=TCustomControlDesigner
+3 Hierarchy=HierarchyDesigner>main
+3 Interface
+4 Methods=TCustomControlDesigner_Methods>main
+4 Properties=TCustomControlDesigner_Properties>main
+4 Events=TCustomControlDesigner_Events>main
+2 TControlDesigner
+3 TControlDesigner class=TControlDesigner
+3 Hierarchy=HierarchyDesigner>main
+3 Interface
+4 Methods=TControlDesigner_Methods>main
+4 Properties=TControlDesigner_Properties>main
+4 Events=TControlDesigner_Events>main

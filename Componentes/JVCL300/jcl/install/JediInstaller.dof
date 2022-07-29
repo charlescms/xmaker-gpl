@@ -1,0 +1,14 @@
+[Directories]
+OutputDir=..\bin
+UnitOutputDir=.
+Conditionals=JCLINSTALL
+[Version Info Keys]
+CompanyName=Project JEDI
+FileDescription=Jedi installer
+FileVersion=2.1.0.1802
+InternalName=JediInstaller
+LegalCopyright=Copyright (C) 1999, 2005 Project JEDI
+LegalTrademarks=
+OriginalFilename=JediInstaller.dpr
+ProductName=Jedi Installer
+ProductVersion=2.1

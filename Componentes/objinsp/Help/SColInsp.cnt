@@ -1,0 +1,17 @@
+:Base  SColInsp.HLP
+:Title SColInsp
+1 Greatis System Colors Inspector User Manual
+2 TCustomSystemColorsInspector
+3 TCustomSystemColorsInspector class=TCustomSystemColorsInspector
+3 Hierarchy=HierarchySysColorsInsp>main
+3 Interface
+4 Methods=TCustomSystemColorsInspector_Methods>main
+4 Properties=TCustomSystemColorsInspector_Properties>main
+4 Events=TCustomSystemColorsInspector_Events>main
+2 TSystemColorsInspector
+3 TSystemColorsInspector class=TSystemColorsInspector
+3 Hierarchy=HierarchySysColorsInsp>main
+3 Interface
+4 Methods=TSystemColorsInspector_Methods>main
+4 Properties=TSystemColorsInspector_Properties>main
+4 Events=TSystemColorsInspector_Events>main

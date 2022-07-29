@@ -1,0 +1,113 @@
+*****************************************************************
+ GREATIS DELPHI BONUS
+*****************************************************************
+
+ GREATIS DELPHI BONUS is a free, unsupported software.
+
+*****************************************************************
+ Life
+*****************************************************************
+
+About Life
+~~~~~~~~~~
+
+Greatis Life (TLife component) represents realization of known 
+Conway's algorithm "Life". You will see life of a new 
+civilization directly on your computer! It is beautiful and 
+entertaining!
+
+
+TLife component
+~~~~~~~~~~~~~~~
+
+Methods
+
+public
+
+constructor Create(AOwner: TComponent); override;
+destructor Destroy; override;
+procedure Paint; override;
+inherited methods
+
+procedure Lock;
+procedure Unlock;
+locks and unlocks drawing (see also Lock property)
+
+procedure Fill;
+fills the field (see also FillDensity property)
+
+procedure Clear;
+clears the field
+
+procedure NextGeneration
+generates next generation from current state
+
+function CellFromPoint(P: TPoint): TPoint;
+converts control coordinates to cell coordinate
+
+Properties
+
+public
+
+property SurviveCellCount: Integer; read-only
+contains survive cell count
+
+property XRange: Integer; read-only
+property YRange: Integer; read-only
+contains field size in cells
+
+property Generation: Integer; read-only
+contains generation number
+
+property Cells[X,Y: Integer]: TCellState; read/write
+set and get cell state
+TCellShape = (shSquare,shCircle,shOwnerDraw);
+
+property Canvas: TCanvas;
+inherited property
+
+published
+
+property BackgroundColor: TColor; read/write
+background color of the field
+
+property GridColor: TColor; read/write
+grid dots color
+
+property LonelinessColor: TColor; read/write
+property OvercrowdingColor: TColor; read/write
+property SurviveColor: TColor; read/write
+colors of cell states
+
+property CellSize: Integer; read/write
+size of the cell
+
+property EnableRandomLife: Boolean; read/write
+enable/disabe random life
+
+property RandomLife: Integer; read/write
+random life nascenty
+
+property CellShape: TCellShape; read/write
+shape of cells (see also OnDrawCell)
+TCellShape = (shSquare,shCircle,shOwnerDraw);
+
+property ShowGrid: Boolean; read/write
+show/hide grid
+
+property ShowDying: Boolean; read/write
+show/hide dying cells
+if False realises "Pure Conway"
+
+property Closed: Boolean; read/write
+if True field is closed by opposite sides
+
+property FillDensity: Boolean; read/write
+initial fill density (1/value) (see also Fill)
+
+property OnDrawCell: TDrawCellEvent; read/write
+user draw event (see also CellShape property)
+TDrawLifeCell = procedure(Sender: TObject; 
+  X,Y: Integer; R: TRect) of object;
+
+*****************************************************************

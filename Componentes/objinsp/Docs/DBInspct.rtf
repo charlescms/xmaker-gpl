@@ -1,0 +1,146 @@
+{\rtf1\ansi\ansicpg1251\uc1 \deff0\deflang1033\deflangfe1049{\fonttbl{\f0\froman\fcharset204\fprq2{\*\panose 02020603050405020304}Times New Roman;}{\f1\fswiss\fcharset204\fprq2{\*\panose 020b0604020202020204}Arial;}
+{\f18\froman\fcharset0\fprq2 Times New Roman;}{\f16\froman\fcharset238\fprq2 Times New Roman CE;}{\f19\froman\fcharset161\fprq2 Times New Roman Greek;}{\f20\froman\fcharset162\fprq2 Times New Roman Tur;}
+{\f21\froman\fcharset186\fprq2 Times New Roman Baltic;}{\f24\fswiss\fcharset0\fprq2 Arial;}{\f22\fswiss\fcharset238\fprq2 Arial CE;}{\f25\fswiss\fcharset161\fprq2 Arial Greek;}{\f26\fswiss\fcharset162\fprq2 Arial Tur;}
+{\f27\fswiss\fcharset186\fprq2 Arial Baltic;}}{\colortbl;\red0\green0\blue0;\red0\green0\blue255;\red0\green255\blue255;\red0\green255\blue0;\red255\green0\blue255;\red255\green0\blue0;\red255\green255\blue0;\red255\green255\blue255;\red0\green0\blue128;
+\red0\green128\blue128;\red0\green128\blue0;\red128\green0\blue128;\red128\green0\blue0;\red128\green128\blue0;\red128\green128\blue128;\red192\green192\blue192;}{\stylesheet{\nowidctlpar\widctlpar\adjustright \fs20\lang1049\cgrid \snext0 
+\'ce\'e1\'fb\'f7\'ed\'fb\'e9;}{\*\cs10 \additive \'ce\'f1\'ed\'ee\'e2\'ed\'ee\'e9 \'f8\'f0\'e8\'f4\'f2;}{\s15\nowidctlpar\widctlpar\adjustright \fs20\lang1049\cgrid \snext15 Normal;}{\s16\keepn\nowidctlpar\widctlpar\outlinelevel0\adjustright 
+\f1\fs40\cgrid \sbasedon15 \snext15 heading 1;}{\*\cs17 \additive Default Paragraph Font;}}{\info{\title TCustomComponentComboBox}{\author Silent}{\operator Silent}{\creatim\yr2003\mo1\dy10\hr12\min43}{\revtim\yr2005\mo6\dy16\hr20\min30}{\version8}
+{\edmins16}{\nofpages3}{\nofwords591}{\nofchars3374}{\*\company Home}{\nofcharsws0}{\vern73}}\paperw11906\paperh16838 \widowctrl\ftnbj\aenddoc\hyphcaps0\formshade\viewkind4\viewscale132\viewzk2\pgbrdrhead\pgbrdrfoot \fet0\sectd 
+\linex0\headery709\footery709\colsx709\endnhere\sectdefaultcl {\*\pnseclvl1\pnucrm\pnstart1\pnindent720\pnhang{\pntxta .}}{\*\pnseclvl2\pnucltr\pnstart1\pnindent720\pnhang{\pntxta .}}{\*\pnseclvl3\pndec\pnstart1\pnindent720\pnhang{\pntxta .}}{\*\pnseclvl4
+\pnlcltr\pnstart1\pnindent720\pnhang{\pntxta )}}{\*\pnseclvl5\pndec\pnstart1\pnindent720\pnhang{\pntxtb (}{\pntxta )}}{\*\pnseclvl6\pnlcltr\pnstart1\pnindent720\pnhang{\pntxtb (}{\pntxta )}}{\*\pnseclvl7\pnlcrm\pnstart1\pnindent720\pnhang{\pntxtb (}
+{\pntxta )}}{\*\pnseclvl8\pnlcltr\pnstart1\pnindent720\pnhang{\pntxtb (}{\pntxta )}}{\*\pnseclvl9\pnlcrm\pnstart1\pnindent720\pnhang{\pntxtb (}{\pntxta )}}\pard\plain \s16\keepn\nowidctlpar\widctlpar\outlinelevel0\adjustright \f1\fs40\cgrid {
+TCustomDBInspector
+\par }\pard\plain \s15\nowidctlpar\widctlpar\adjustright \fs20\lang1049\cgrid {\f1\lang1033 
+\par unit DBInspct
+\par 
+\par TObject \endash  TPersistent \endash  TComponent \endash  TControl \endash  TWinControl \endash  TCustomListBox - TCustomInspector
+\par 
+\par TCustomDBInspector is the base class for database inspectors.
+\par 
+\par PROTECTED
+\par 
+\par methods
+\par 
+\par procedure ChangeValue(TheIndex: Integer; Editing: Boolean; const AText: string); override;
+\par This overriden method sets linked dataset to edit mode then calls inherited method.
+\par 
+\par function GetName(TheIndex: Integer): string; override;
+\par This overriden method returns field name.
+\par 
+\par function GetValue(TheIndex: Integer): string; override;
+\par This overriden method returns field string value.
+\par 
+\par procedure SetValue(TheIndex: Integer; const Value: string); override;
+\par This overriden method sets the field value by passed Value.
+\par 
+\par function GetMaxLength(TheIndex: Integer): Integer; override;
+\par This overriden method returns the field size as maximal length of edited text.
+\par 
+\par function GetReadOnly(TheIndex: Integer): Boolean; override;
+\par This overriden method returns True for BLOB fields otherwise False.
+\par 
+\par function GetIndent: Integer; override;
+\par This overriden method returns zero, because DBInspector doesn't need to support sub-properties.
+\par 
+\par function GetAutoApply(TheIndex: Integer): Boolean; override;
+\par This overriden method always returns True for auto-changing current field value when selecting another field.
+\par 
+\par function GetButtonType(TheIndex: Integer): TButtonType; override;
+\par This override method returns btDialog if GetBlobEditor returns beText or beImage otherwise calls inherited method.
+\par 
+\par function GetEnableExternalEditor(TheIndex: Integer): Boolean; override;
+\par This override method returns True if GetBlobEditor returns beText or beImage otherwise calls inherited method.
+\par 
+\par function CallEditor(TheIndex: Integer): Boolean; override;
+\par This overriden method calls text and image editor if GetBlobEditor returns beText or beImage.
+\par 
+\par function GetBlobEditor: TBlobEditorType; virtual;
+\par This method just calls OnGetBlobEditor event for each BLOB-type field.
+\par TBlobEditorType = (beNone,beText,beImage);
+\par beNone\tab \tab The external editor is not available
+\par beText\tab \tab The text editor can be called
+\par beImage\tab The image editor can be called
+\par 
+\par properties
+\par 
+\par property DataSource: TDataSource;
+\par DataSource links the inspector control to the dataset.
+\par 
+\par property ReadOnly: Boolean;
+\par ReadOnly determines whether the user can change the contents of the linked dataset.
+\par 
+\par events
+\par 
+\par property OnGetBlobEditorType: TGetBlobEditorTypeEvent;
+\par This event occurs when user select BLOB-type field in the inspector controls. Returned value is used for displaying the editor-type button and for calling the default external editors for text and image BLOB fields.
+\par 
+\par PUBLIC
+\par 
+\par methods
+\par 
+\par constructor Create(AOwner: TComponent); override;
+\par This constructor creates an instance of the component and create internal data link object.
+\par 
+\par destructor Destroy; override;
+\par This destructor frees internal data link object then destroys an instabce of the component.
+\par 
+\par 
+\par }\pard\plain \s16\keepn\nowidctlpar\widctlpar\outlinelevel0\adjustright \f1\fs40\cgrid {TDBInspector
+\par }\pard\plain \s15\nowidctlpar\widctlpar\adjustright \fs20\lang1049\cgrid {\f1\lang1033 
+\par unit DBInsp
+\par 
+\par TObject \endash  TPersistent \endash  TComponent \endash  TControl \endash  TWinControl \endash  TCustomListBox \endash  TCustomInspector - TCustomDBInspector
+\par 
+\par TDBInspector is the published database inspector class.
+\par 
+\par PUBLISHED
+\par 
+\par property Anchors;
+\par property Constraints;
+\par property Align;
+\par property BorderStyle;
+\par property Color;
+\par property Ctl3D;
+\par property DragCursor;
+\par property DragMode;
+\par property Enabled;
+\par property Font;
+\par property IntegralHeight;
+\par property ParentColor;
+\par property ParentCtl3D;
+\par property ParentFont;
+\par property ParentShowHint;
+\par property PopupMenu;
+\par property ShowHint;
+\par property Sorted;
+\par property TabOrder;
+\par property TabStop;
+\par property Visible;
+\par property PaintStyle;
+\par property Splitter;
+\par property DataSource;
+\par property ReadOnly;
+\par 
+\par events
+\par 
+\par property OnDragDrop;
+\par property OnDragOver;
+\par property OnEndDrag;
+\par property OnEnter;
+\par property OnExit;
+\par property OnStartDrag;
+\par property OnGetNextValue;
+\par property OnGetEditMask;
+\par property OnGetButtonType;
+\par property OnGetEnableExternalEditor;
+\par property OnGetValuesList;
+\par property OnGetSortValuesList;
+\par property OnGetSelectedValue;
+\par property OnGetNameFont;
+\par property OnGetNameColor;
+\par property OnGetValueFont;
+\par property OnGetValueColor;
+\par property OnCallEditor;
+\par property OnValueDoubleClick;
+\par property OnGetBlobEditorType;
+\par }}

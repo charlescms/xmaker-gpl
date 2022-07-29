@@ -1,0 +1,1211 @@
+{
+  Definição de componentes internos
+}
+unit Extras;
+
+interface
+
+uses Classes, IniFiles, Dialogs, Forms, ComCtrls, SysUtils, WinTypes,
+     Messages, Windows, Graphics, Controls, Menus, Commctrl, ExtCtrls;
+
+type
+  TfrPage = class(TObject);
+
+  TfrReportDesigner = class(TForm)
+  public
+    Page: TfrPage;
+    Modified: Boolean;
+    procedure RegisterObject(ButtonBmp: TBitmap; const ButtonHint: String;
+      ButtonTag: Integer); virtual; abstract;
+    procedure RegisterTool(MenuCaption: String; ButtonBmp: TBitmap;
+      OnClick: TNotifyEvent); virtual; abstract;
+    procedure BeforeChange; virtual; abstract;
+    procedure AfterChange; virtual; abstract;
+    procedure RedrawPage; virtual; abstract;
+  end;
+
+  TfrDesignerForm = class(TForm);
+  TFrView = Class(TObject);
+  TfrDesignerDrawMode = (dmAll, dmSelection, dmShape);
+
+  TfrSplitInfo = record
+    SplRect: TRect;
+    SplX: Integer;
+    View1, View2: TfrView;
+  end;
+
+  TfrDesignerPage = class(TPanel)
+  private
+    Down,                          // mouse button was pressed
+    Moved,                         // mouse was moved (with pressed btn)
+    DFlag,                         // was double click
+    RFlag: Boolean;                // selecting objects by framing
+    Mode: (mdInsert, mdSelect);    // current mode
+    CT: (ctNone, ct1, ct2, ct3, ct4, ct5, ct6, ct7, ct8);  // cursor type
+    LastX, LastY: Integer;         // here stored last mouse coords
+    SplitInfo: TfrSplitInfo;
+    RightBottom: Integer;
+    LeftTop: TPoint;
+    FirstBandMove: Boolean;
+    FDesigner: TfrDesignerForm;
+    procedure NormalizeRect(var r: TRect);
+    procedure NormalizeCoord(t: TfrView);
+    function FindNearestEdge(var x, y: Integer): Boolean;
+    procedure RoundCoord(var x, y: Integer);
+    procedure Draw(N: Integer; ClipRgn: HRGN);
+    procedure DrawPage(DrawMode: TfrDesignerDrawMode);
+    procedure DrawRectLine(Rect: TRect);
+    procedure DrawFocusRect(Rect: TRect);
+    procedure DrawHSplitter(Rect: TRect);
+    procedure DrawSelection(t: TfrView);
+    procedure DrawShape(t: TfrView);
+    procedure MDown(Sender: TObject; Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
+    procedure MUp(Sender: TObject; Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
+    procedure MMove(Sender: TObject; Shift: TShiftState; X, Y: Integer);
+    procedure CMMouseLeave(var Message: TMessage); message CM_MOUSELEAVE;
+    procedure DClick(Sender: TObject);
+  protected
+    procedure Paint; override;
+  public
+    constructor Create(AOwner: TComponent); override;
+    procedure Init;
+    procedure SetPage;
+    procedure GetMultipleSelected;
+  end;
+
+implementation
+
+constructor TfrDesignerPage.Create(AOwner: TComponent);
+begin
+  inherited Create(AOwner);
+  Parent := AOwner as TWinControl;
+  BevelInner := bvNone;
+  BevelOuter := bvNone;
+  Color  := clWhite;
+  BorderStyle := bsNone;
+  OnMouseDown := MDown;
+  OnMouseUp := MUp;
+  OnMouseMove := MMove;
+  OnDblClick := DClick;
+end;
+
+procedure TfrDesignerPage.Init;
+begin
+  Down := False; DFlag := False; RFlag := False;
+  Cursor := crDefault; CT := ctNone;
+end;
+
+procedure TfrDesignerPage.SetPage;
+var
+  Pgw,Pgh: Integer;
+begin
+  Pgw := FDesigner.Page.PrnInfo.Pgw;
+  Pgh := FDesigner.Page.PrnInfo.Pgh;
+  if Pgw > Parent.Width then
+    SetBounds(10, 10, Pgw, Pgh) else
+    SetBounds((Parent.Width - Pgw) div 2, 10, Pgw, Pgh);
+  FDesigner.BPanel.Top := Top + Height + 10;
+  FDesigner.RPanel.Left := Left + Width + 10;
+end;
+
+procedure TfrDesignerPage.Paint;
+begin
+  Draw(10000, 0);
+end;
+
+procedure TfrDesignerPage.NormalizeCoord(t: TfrView);
+begin
+  if t.dx < 0 then
+  begin
+    t.dx := -t.dx;
+    t.x := t.x - t.dx;
+  end;
+  if t.dy < 0 then
+  begin
+    t.dy := -t.dy;
+    t.y := t.y - t.dy;
+  end;
+end;
+
+procedure TfrDesignerPage.NormalizeRect(var r: TRect);
+var
+  i: Integer;
+begin
+  with r do
+  begin
+    if Left > Right then begin i := Left; Left := Right; Right := i end;
+    if Top > Bottom then begin i := Top; Top := Bottom; Bottom := i end;
+  end;
+end;
+
+procedure TfrDesignerPage.DrawHSplitter(Rect: TRect);
+begin
+  with Canvas do
+  begin
+    Pen.Mode := pmXor;
+    Pen.Color := clSilver;
+    Pen.Width := 1;
+    MoveTo(Rect.Left, Rect.Top);
+    LineTo(Rect.Right, Rect.Bottom);
+    Pen.Mode := pmCopy;
+  end;
+end;
+
+procedure TfrDesignerPage.DrawRectLine(Rect: TRect);
+begin
+  with Canvas do
+  begin
+    Pen.Mode := pmNot;
+    Pen.Style := psSolid;
+    Pen.Width := Round(LastLineWidth);
+    with Rect do
+      if Abs(Right - Left) > Abs(Bottom - Top) then
+      begin
+        MoveTo(Left, Top);
+        LineTo(Right, Top);
+      end
+      else
+      begin
+        MoveTo(Left, Top);
+        LineTo(Left, Bottom);
+      end;
+    Pen.Mode := pmCopy;
+  end;
+end;
+
+procedure TfrDesignerPage.DrawFocusRect(Rect: TRect);
+begin
+  with Canvas do
+  begin
+    Pen.Mode := pmXor;
+    Pen.Color := clSilver;
+    Pen.Width := 1;
+    Pen.Style := psSolid;
+    Brush.Style := bsClear;
+    if (Rect.Right = Rect.Left + 1) or (Rect.Bottom = Rect.Top + 1) then
+    begin
+      if Rect.Right = Rect.Left + 1 then
+        Dec(Rect.Right, 1) else
+        Dec(Rect.Bottom, 1);
+      MoveTo(Rect.Left, Rect.Top);
+      LineTo(Rect.Right, Rect.Bottom);
+    end
+    else
+      Rectangle(Rect.Left, Rect.Top, Rect.Right, Rect.Bottom);
+    Pen.Mode := pmCopy;
+    Brush.Style := bsSolid;
+  end;
+end;
+
+procedure TfrDesignerPage.DrawSelection(t: TfrView);
+var
+  px, py: Word;
+  procedure DrawPoint(x, y: Word);
+  begin
+    Canvas.MoveTo(x, y);
+    Canvas.LineTo(x, y);
+  end;
+begin
+  if t.Selected then
+  with t, Canvas do
+  begin
+    Pen.Width := 5;
+    Pen.Mode := pmXor;
+    Pen.Color := clWhite;
+    px := x + dx div 2;
+    py := y + dy div 2;
+    DrawPoint(x, y); DrawPoint(x + dx, y);
+    DrawPoint(x, y + dy);
+    if Objects.IndexOf(t) = RightBottom then
+      Pen.Color := clTeal;
+    DrawPoint(x + dx, y + dy);
+    Pen.Color := clWhite;
+    if SelNum = 1 then
+    begin
+      DrawPoint(px, y); DrawPoint(px, y + dy);
+      DrawPoint(x, py); DrawPoint(x + dx, py);
+    end;
+    Pen.Mode := pmCopy;
+  end;
+end;
+
+procedure TfrDesignerPage.DrawShape(t: TfrView);
+begin
+  if t.Selected then
+  with t do
+    DrawFocusRect(Rect(x, y, x + dx + 1, y + dy + 1))
+end;
+
+procedure TfrDesignerPage.Draw(N: Integer; ClipRgn: HRGN);
+var
+  i: Integer;
+  t: TfrView;
+  R, R1: HRGN;
+  Objects: TList;
+  procedure DrawBackground;
+  var
+    i, j: Integer;
+  begin
+    with Canvas do
+    begin
+      if FDesigner.ShowGrid and (FDesigner.GridSize <> 18) then
+      begin
+        with GridBitmap.Canvas do
+        begin
+          Brush.Color := clWhite;
+          FillRect(Rect(0, 0, 8, 8));
+          Pixels[0, 0] := clBlack;
+          if FDesigner.GridSize = 4 then
+          begin
+            Pixels[4, 0] := clBlack;
+            Pixels[0, 4] := clBlack;
+            Pixels[4, 4] := clBlack;
+          end;
+        end;
+        Brush.Bitmap := GridBitmap;
+      end
+      else
+      begin
+        Brush.Color := clWhite;
+        Brush.Style := bsSolid;
+      end;
+      FillRgn(Handle, R, Brush.Handle);
+      if FDesigner.ShowGrid and (FDesigner.GridSize = 18) then
+      begin
+        i := 0;
+        while i < Width do
+        begin
+          j := 0;
+          while j < Height do
+          begin
+            if RectVisible(Handle, Rect(i, j, i + 1, j + 1)) then
+              SetPixel(Handle, i, j, clBlack);
+            Inc(j, FDesigner.GridSize);
+          end;
+          Inc(i, FDesigner.GridSize);
+        end;
+      end;
+      Brush.Style := bsClear;
+      Pen.Width := 1;
+      Pen.Color := clGray;
+      Pen.Style := psSolid;
+      Pen.Mode := pmCopy;
+      with FDesigner.Page do
+      begin
+        if UseMargins then
+          Rectangle(LeftMargin, TopMargin, RightMargin, BottomMargin);
+        if ColCount > 1 then
+        begin
+          ColWidth := (RightMargin - LeftMargin) div ColCount;
+          Pen.Style := psDot;
+          j := LeftMargin;
+          for i := 1 to ColCount do
+          begin
+            Rectangle(j, -1, j + ColWidth + 1,  PrnInfo.Pgh + 1);
+            Inc(j, ColWidth + ColGap);
+          end;
+          Pen.Style := psSolid;
+        end;
+      end;
+    end;
+  end;
+  function IsVisible(t: TfrView): Boolean;
+  var
+    R: HRGN;
+  begin
+    R := t.GetClipRgn(rtNormal);
+    Result := CombineRgn(R, R, ClipRgn, RGN_AND) <> NULLREGION;
+    DeleteObject(R);
+  end;
+
+begin
+  if FDesigner.Page = nil then Exit;
+  DocMode := dmDesigning;
+  Objects := FDesigner.Page.Objects;
+  if ClipRgn = 0 then
+    with Canvas.ClipRect do
+      ClipRgn := CreateRectRgn(Left, Top, Right, Bottom);
+  R := CreateRectRgn(0, 0, Width, Height);
+  for i := Objects.Count - 1 downto 0 do
+  begin
+    t := Objects[i];
+    if i <= N then
+      if t.Selected then
+        t.Draw(Canvas)
+      else if IsVisible(t) then
+      begin
+        R1 := CreateRectRgn(0, 0, 1, 1);
+        CombineRgn(R1, ClipRgn, R, RGN_AND);
+        SelectClipRgn(Canvas.Handle, R1);
+        DeleteObject(R1);
+        t.Draw(Canvas);
+      end;
+    R1 := t.GetClipRgn(rtNormal);
+    CombineRgn(R, R, R1, RGN_DIFF);
+    DeleteObject(R1);
+    SelectClipRgn(Canvas.Handle, R);
+  end;
+  CombineRgn(R, R, ClipRgn, RGN_AND);
+  DrawBackground;
+
+  DeleteObject(R);
+  DeleteObject(ClipRgn);
+  SelectClipRgn(Canvas.Handle, 0);
+  if not Down then
+    DrawPage(dmSelection);
+end;
+
+procedure TfrDesignerPage.DrawPage(DrawMode: TfrDesignerDrawMode);
+var
+  i: Integer;
+  t: TfrView;
+begin
+  if DocMode <> dmDesigning then Exit;
+  for i := 0 to Objects.Count - 1 do
+  begin
+    t := Objects[i];
+    case DrawMode of
+      dmAll: t.Draw(Canvas);
+      dmSelection: DrawSelection(t);
+      dmShape: DrawShape(t);
+    end;
+  end;
+end;
+
+function TfrDesignerPage.FindNearestEdge(var x, y: Integer): Boolean;
+var
+  i: Integer;
+  t: TfrView;
+  min: Double;
+  p: TPoint;
+  function DoMin(a: Array of TPoint): Boolean;
+  var
+    i: Integer;
+    d: Double;
+  begin
+    Result := False;
+    for i := Low(a) to High(a) do
+    begin
+      d := sqrt((x - a[i].x) * (x - a[i].x) + (y - a[i].y) * (y - a[i].y));
+      if d < min then
+      begin
+        min := d;
+        p := a[i];
+        Result := True;
+      end;
+    end;
+  end;
+begin
+  Result := False;
+  min := FDesigner.GridSize;
+  p := Point(x, y);
+  for i := 0 to Objects.Count - 1 do
+  begin
+    t := Objects[i];
+    if DoMin([Point(t.x, t.y), Point(t.x + t.dx, t.y),
+         Point(t.x + t.dx, t.y + t.dy),  Point(t.x, t.y + t.dy)]) then
+      Result := True;
+  end;
+  x := p.x; y := p.y;
+end;
+
+procedure TfrDesignerPage.RoundCoord(var x, y: Integer);
+begin
+  with FDesigner do
+    if GridAlign then
+    begin
+      x := x div GridSize * GridSize;
+      y := y div GridSize * GridSize;
+    end;
+end;
+
+procedure TfrDesignerPage.GetMultipleSelected;
+var
+  i, j, k: Integer;
+  t: TfrView;
+begin
+  j := 0; k := 0;
+  LeftTop := Point(10000, 10000);
+  RightBottom := -1;
+  MRFlag := False;
+  if SelNum > 1 then                  {find right-bottom element}
+  begin
+    for i := 0 to Objects.Count-1 do
+    begin
+      t := Objects[i];
+      if t.Selected then
+      begin
+        t.OriginalRect := Rect(t.x, t.y, t.dx, t.dy);
+        if (t.x + t.dx > j) or ((t.x + t.dx = j) and (t.y + t.dy > k)) then
+        begin
+          j := t.x + t.dx;
+          k := t.y + t.dy;
+          RightBottom := i;
+        end;
+        if t.x < LeftTop.x then LeftTop.x := t.x;
+        if t.y < LeftTop.y then LeftTop.y := t.y;
+      end;
+    end;
+    t := Objects[RightBottom];
+    OldRect := Rect(LeftTop.x, LeftTop.y, t.x + t.dx, t.y + t.dy);
+    OldRect1 := OldRect;
+    MRFlag := True;
+  end;
+end;
+
+procedure TfrDesignerPage.MDown(Sender: TObject; Button: TMouseButton;
+  Shift: TShiftState; X, Y: Integer);
+var
+  i: Integer;
+  f, DontChange, v: Boolean;
+  t: TfrView;
+  Rgn: HRGN;
+  p: TPoint;
+begin
+  if DFlag then
+  begin
+    DFlag := False;
+    Exit;
+  end;
+  if (Button = mbRight) and Down and RFlag then
+    DrawFocusRect(OldRect);
+  RFlag := False;
+  DrawPage(dmSelection);
+  Down := True;
+  DontChange := False;
+  if Button = mbLeft then
+    if (ssCtrl in Shift) or (Cursor = crCross) then
+    begin
+      RFlag := True;
+      if Cursor = crCross then
+      begin
+        DrawFocusRect(OldRect);
+        RoundCoord(x, y);
+        OldRect1 := OldRect;
+      end;
+      OldRect := Rect(x, y, x, y);
+      FDesigner.Unselect;
+      SelNum := 0;
+      RightBottom := -1;
+      MRFlag := False;
+      FirstSelected := nil;
+      Exit;
+    end
+    else if Cursor = crPencil then
+    begin
+      with FDesigner do
+      if GridAlign then
+        if not FindNearestEdge(x, y) then
+        begin
+          x := Round(x / GridSize) * GridSize;
+          y := Round(y / GridSize) * GridSize;
+        end;
+      OldRect := Rect(x, y, x, y);
+      FDesigner.Unselect;
+      SelNum := 0;
+      RightBottom := -1;
+      MRFlag := False;
+      FirstSelected := nil;
+      LastX := x;
+      LastY := y;
+      Exit;
+    end;
+  if Cursor = crDefault then
+  begin
+    f := False;
+    for i := Objects.Count - 1 downto 0 do
+    begin
+      t := Objects[i];
+      Rgn := t.GetClipRgn(rtNormal);
+      v := PtInRegion(Rgn, X, Y);
+      DeleteObject(Rgn);
+      if v then
+      begin
+        if ssShift in Shift then
+        begin
+          t.Selected := not t.Selected;
+          if t.Selected then Inc(SelNum) else Dec(SelNum);
+        end
+        else
+        begin
+          if not t.Selected then
+          begin
+            FDesigner.Unselect;
+            SelNum := 1;
+            t.Selected := True;
+          end
+          else DontChange := True;
+        end;
+        if SelNum = 0 then FirstSelected := nil
+        else if SelNum = 1 then FirstSelected := t
+        else if FirstSelected <> nil then
+          if not FirstSelected.Selected then FirstSelected := nil;
+        f := True;
+        break;
+      end;
+    end;
+    if not f then
+    begin
+      FDesigner.Unselect;
+      SelNum := 0;
+      FirstSelected := nil;
+      if Button = mbLeft then
+      begin
+        RFlag := True;
+        OldRect := Rect(x, y, x, y);
+        Exit;
+      end;
+    end;
+    GetMultipleSelected;
+    if not DontChange then FDesigner.SelectionChanged;
+  end;
+  if SelNum = 0 then
+  begin // reset multiple selection
+    RightBottom := -1;
+    MRFlag := False;
+  end;
+  LastX := x;
+  LastY := y;
+  Moved := False;
+  FirstChange := True;
+  FirstBandMove := True;
+  if Button = mbRight then
+  begin
+    DrawPage(dmSelection);
+    Down := False;
+    GetCursorPos(p);
+    FDesigner.Popup1Popup(nil);
+    TrackPopupMenu(FDesigner.Popup1.Handle,
+      TPM_LEFTALIGN or TPM_RIGHTBUTTON, p.X, p.Y, 0, FDesigner.Handle, nil);
+  end
+  else if FDesigner.ShapeMode = smFrame then
+    DrawPage(dmShape);
+end;
+
+procedure TfrDesignerPage.MUp(Sender: TObject; Button: TMouseButton; Shift: TShiftState;
+  X, Y: Integer);
+var
+  i, k, dx, dy: Integer;
+  t: TfrView;
+  ObjectInserted: Boolean;
+  procedure AddObject(ot: Byte);
+  begin
+    Objects.Add(frCreateObject(ot, ''));
+    t := Objects.Last;
+  end;
+  procedure CreateSection;
+  var
+    s: String;
+  begin
+    frBandTypesForm := TfrBandTypesForm.Create(nil);
+    ObjectInserted := frBandTypesForm.ShowModal = mrOk;
+    if ObjectInserted then
+    begin
+      Objects.Add(TfrBandView.Create);
+      t := Objects.Last;
+      (t as TfrBandView).BandType := frBandTypesForm.SelectedTyp;
+      s := frBandNames[Integer(frBandTypesForm.SelectedTyp)];
+      if Pos(' ', s) <> 0 then
+      begin
+        s[Pos(' ', s) + 1] := UpCase(s[Pos(' ', s) + 1]);
+        Delete(s, Pos(' ', s), 1);
+      end;
+      THackView(t).BaseName := s;
+      SendBandsToDown;
+    end;
+    frBandTypesForm.Free;
+  end;
+  procedure CreateSubReport;
+  begin
+    Objects.Add(TfrSubReportView.Create);
+    t := Objects.Last;
+    (t as TfrSubReportView).SubPage := CurReport.Pages.Count;
+    CurReport.Pages.Add;
+  end;
+
+begin
+  if Button <> mbLeft then Exit;
+  Down := False;
+  if FDesigner.ShapeMode = smFrame then
+    DrawPage(dmShape);
+// inserting a new object
+  if Cursor = crCross then
+  begin
+    Mode := mdSelect;
+    DrawFocusRect(OldRect);
+    if (OldRect.Left = OldRect.Right) and (OldRect.Top = OldRect.Bottom) then
+      OldRect := OldRect1;
+    NormalizeRect(OldRect);
+    RFlag := False;
+    ObjectInserted := True;
+    with FDesigner.Panel4 do
+    for i := 0 to ControlCount - 1 do
+      if Controls[i] is TfrSpeedButton then
+      with Controls[i] as TfrSpeedButton do
+        if Down then
+        begin
+          if Tag = gtBand then
+            if GetUnusedBand <> btNone then
+              CreateSection else
+              Exit
+          else if Tag = gtSubReport then
+            CreateSubReport
+          else if Tag >= gtAddIn then
+          begin
+            k := Tag - gtAddIn;
+            Objects.Add(frCreateObject(gtAddIn, frAddIns[k].ClassRef.ClassName));
+            t := Objects.Last;
+          end
+          else
+            AddObject(Tag);
+          break;
+        end;
+    if ObjectInserted then
+    begin
+      t.CreateUniqueName;
+      with OldRect do
+        if (Left = Right) or (Top = Bottom) then
+        begin
+          dx := 40; dy := 40;
+          if t is TfrMemoView then
+            FDesigner.GetDefaultSize(dx, dy);
+          OldRect := Rect(Left, Top, Left + dx, Top + dy);
+        end;
+      FDesigner.Unselect;
+      t.x := OldRect.Left; t.y := OldRect.Top;
+      t.dx := OldRect.Right - OldRect.Left; t.dy := OldRect.Bottom - OldRect.Top;
+      if (t is TfrBandView) and
+         (TfrBandType(t.FrameTyp) in [btCrossHeader..btCrossFooter]) and
+         (t.dx > Width - 10) then
+         t.dx := 40;
+      t.FrameWidth := LastFrameWidth;
+      t.FrameColor := LastFrameColor;
+      t.FillColor := LastFillColor;
+      t.Selected := True;
+      if t.Typ <> gtBand then
+        t.FrameTyp := LastFrameTyp;
+      if t is TfrMemoView then
+        with t as TfrMemoView do
+        begin
+          Font.Name := LastFontName;
+          Font.Size := LastFontSize;
+          Font.Color := LastFontColor;
+          Font.Style := frSetFontStyle(LastFontStyle);
+          Adjust := LastAdjust;
+        end;
+      SelNum := 1;
+      if t.Typ = gtBand then
+        Draw(10000, t.GetClipRgn(rtExtended))
+      else
+      begin
+        t.Draw(Canvas);
+        DrawSelection(t);
+      end;
+      with FDesigner do
+      begin
+        SelectionChanged;
+        AddUndoAction(acInsert);
+        if EditAfterInsert then
+          ShowEditor;
+      end;
+    end;
+    if not ObjRepeat then
+      FDesigner.OB1.Down := True else
+      DrawFocusRect(OldRect);
+    Exit;
+  end;
+// line drawing
+  if Cursor = crPencil then
+  begin
+    DrawRectLine(OldRect);
+    AddObject(gtLine);
+    t.CreateUniqueName;
+    t.x := OldRect.Left; t.y := OldRect.Top;
+    t.dx := OldRect.Right - OldRect.Left; t.dy := OldRect.Bottom - OldRect.Top;
+    if t.dx < 0 then
+    begin
+      t.dx := -t.dx; if Abs(t.dx) > Abs(t.dy) then t.x := OldRect.Right;
+    end;
+    if t.dy < 0 then
+    begin
+      t.dy := -t.dy; if Abs(t.dy) > Abs(t.dx) then t.y := OldRect.Bottom;
+    end;
+    t.Selected := True;
+    t.FrameWidth := LastLineWidth;
+    t.FrameColor := LastFrameColor;
+    SelNum := 1;
+    t.Draw(Canvas);
+    DrawSelection(t);
+    FDesigner.SelectionChanged;
+    FDesigner.AddUndoAction(acInsert);
+    Exit;
+  end;
+
+// calculating which objects contains in frame (if user select it with mouse+Ctrl key)
+  if RFlag then
+  begin
+    DrawFocusRect(OldRect);
+    RFlag := False;
+    NormalizeRect(OldRect);
+    for i := 0 to Objects.Count - 1 do
+    begin
+      t := Objects[i];
+      with OldRect do
+      if t.Typ <> gtBand then
+        if not ((t.x > Right) or (t.x + t.dx < Left) or
+                (t.y > Bottom) or (t.y + t.dy < Top)) then
+        begin
+          t.Selected := True;
+          Inc(SelNum);
+        end;
+    end;
+    GetMultipleSelected;
+    FDesigner.SelectionChanged;
+    DrawPage(dmSelection);
+    Exit;
+  end;
+// splitting
+  if Moved and MRFlag and (Cursor = crHSplit) then
+  begin
+    with SplitInfo do
+    begin
+      dx := SplRect.Left - SplX;
+      if (View1.dx + dx > 0) and (View2.dx - dx > 0) then
+      begin
+        Inc(View1.dx, dx);
+        Inc(View2.x, dx);
+        Dec(View2.dx, dx);
+      end;
+    end;
+    GetMultipleSelected;
+    Draw(TopSelected, ClipRgn);
+    Exit;
+  end;
+// resizing several objects
+  if Moved and MRFlag and (Cursor <> crDefault) then
+  begin
+    Draw(TopSelected, ClipRgn);
+    Exit;
+  end;
+// redrawing all moved or resized objects
+  if not Moved then DrawPage(dmSelection);
+  if (SelNum >= 1) and Moved then
+    if SelNum > 1 then
+    begin
+      Draw(TopSelected, ClipRgn);
+      GetMultipleSelected;
+      FDesigner.ShowPosition;
+    end
+    else
+    begin
+      t := Objects[TopSelected];
+      NormalizeCoord(t);
+      if Cursor <> crDefault then t.Resized;
+      Draw(TopSelected, ClipRgn);
+      FDesigner.ShowPosition;
+    end;
+  Moved := False;
+  CT := ctNone;
+end;
+
+procedure TfrDesignerPage.MMove(Sender: TObject; Shift: TShiftState; X, Y: Integer);
+var
+  i, j, kx, ky, w, dx, dy: Integer;
+  t, t1, Bnd: TfrView;
+  nx, ny, x1, x2, y1, y2: Double;
+  hr, hr1: HRGN;
+
+  function Cont(px, py, x, y: Integer): Boolean;
+  begin
+    Result := (x >= px - w) and (x <= px + w + 1) and
+      (y >= py - w) and (y <= py + w + 1);
+  end;
+  function GridCheck:Boolean;
+  begin
+    with FDesigner do
+    begin
+      Result := (kx >= GridSize) or (kx <= -GridSize) or
+                (ky >= GridSize) or (ky <= -GridSize);
+      if Result then
+      begin
+        kx := kx - kx mod GridSize;
+        ky := ky - ky mod GridSize;
+      end;
+    end;
+  end;
+
+  procedure AddRgn(var HR: HRGN; T: TfrView);
+  var
+    tr: HRGN;
+  begin
+    tr := t.GetClipRgn(rtExtended);
+    CombineRgn(HR, HR, TR, RGN_OR);
+    DeleteObject(TR);
+  end;
+
+
+begin
+  Moved := True;
+  w := 2;
+  if FirstChange and Down and not RFlag then
+  begin
+    kx := x - LastX;
+    ky := y - LastY;
+    if not FDesigner.GridAlign or GridCheck then
+    begin
+      GetRegion;
+      FDesigner.AddUndoAction(acEdit);
+    end;
+  end;
+
+  if not Down then
+    if FDesigner.OB6.Down then
+    begin
+      Mode := mdSelect;
+      Cursor := crPencil;
+    end
+    else if FDesigner.OB1.Down then
+    begin
+      Mode := mdSelect;
+      Cursor := crDefault;
+    end
+    else
+    begin
+      Mode := mdInsert;
+      if Cursor <> crCross then
+      begin
+        RoundCoord(x, y);
+        kx := Width; ky := 40;
+        if not FDesigner.OB3.Down then
+          FDesigner.GetDefaultSize(kx, ky);
+        OldRect := Rect(x, y, x + kx, y + ky);
+        DrawFocusRect(OldRect);
+      end;
+      Cursor := crCross;
+    end;
+  if (Mode = mdInsert) and not Down then
+  begin
+    DrawFocusRect(OldRect);
+    RoundCoord(x, y);
+    OffsetRect(OldRect, x - OldRect.Left, y - OldRect.Top);
+    DrawFocusRect(OldRect);
+    ShowSizes := True;
+    FDesigner.PBox1Paint(nil);
+    ShowSizes := False;
+    Exit;
+  end;
+
+ // cursor shapes
+  if not Down and (SelNum = 1) and (Mode = mdSelect) and
+    not FDesigner.OB6.Down then
+  begin
+    t := Objects[TopSelected];
+    if Cont(t.x, t.y, x, y) or Cont(t.x + t.dx, t.y + t.dy, x, y) then
+      Cursor := crSizeNWSE
+    else if Cont(t.x + t.dx, t.y, x, y) or Cont(t.x, t.y + t.dy, x, y)then
+      Cursor := crSizeNESW
+    else if Cont(t.x + t.dx div 2, t.y, x, y) or Cont(t.x + t.dx div 2, t.y + t.dy, x, y) then
+      Cursor := crSizeNS
+    else if Cont(t.x, t.y + t.dy div 2, x, y) or Cont(t.x + t.dx, t.y + t.dy div 2, x, y) then
+      Cursor := crSizeWE
+    else
+      Cursor := crDefault;
+  end;
+  // selecting a lot of objects
+  if Down and RFlag then
+  begin
+    DrawFocusRect(OldRect);
+    if Cursor = crCross then
+      RoundCoord(x, y);
+    OldRect := Rect(OldRect.Left, OldRect.Top, x, y);
+    DrawFocusRect(OldRect);
+    ShowSizes := True;
+    if Cursor = crCross then
+      FDesigner.PBox1Paint(nil);
+    ShowSizes := False;
+    Exit;
+  end;
+  // line drawing
+  if Down and (Cursor = crPencil) then
+  begin
+    kx := x - LastX;
+    ky := y - LastY;
+    if FDesigner.GridAlign and not GridCheck then Exit;
+    DrawRectLine(OldRect);
+    OldRect := Rect(OldRect.Left, OldRect.Top, OldRect.Right + kx, OldRect.Bottom + ky);
+    DrawRectLine(OldRect);
+    Inc(LastX, kx);
+    Inc(LastY, ky);
+    Exit;
+  end;
+  // check for multiple selected objects - right-bottom corner
+  if not Down and (SelNum > 1) and (Mode = mdSelect) then
+  begin
+    t := Objects[RightBottom];
+    if Cont(t.x + t.dx, t.y + t.dy, x, y) then
+      Cursor := crSizeNWSE
+  end;
+  // split checking
+  if not Down and (SelNum > 1) and (Mode = mdSelect) then
+  begin
+    for i := 0 to Objects.Count-1 do
+    begin
+      t := Objects[i];
+      if (t.Typ <> gtBand) and t.Selected then
+        if (x >= t.x) and (x <= t.x + t.dx) and (y >= t.y) and (y <= t.y + t.dy) then
+        begin
+          for j := 0 to Objects.Count - 1 do
+          begin
+            t1 := Objects[j];
+            if (t1.Typ <> gtBand) and (t1 <> t) and t1.Selected then
+              if ((t.x = t1.x + t1.dx) and ((x >= t.x) and (x <= t.x + 2))) or
+              ((t1.x = t.x + t.dx) and ((x >= t1.x - 2) and (x <= t.x))) then
+              begin
+                Cursor := crHSplit;
+                with SplitInfo do
+                begin
+                  SplRect := Rect(x, t.y, x, t.y + t.dy);
+                  if t.x = t1.x + t1.dx then
+                  begin
+                    SplX := t.x;
+                    View1 := t1;
+                    View2 := t;
+                  end
+                  else
+                  begin
+                    SplX := t1.x;
+                    View1 := t;
+                    View2 := t1;
+                  end;
+                  SplRect.Left := SplX;
+                  SplRect.Right := SplX;
+                end;
+              end;
+          end;
+        end;
+    end;
+  end;
+  // splitting
+  if Down and MRFlag and (Mode = mdSelect) and (Cursor = crHSplit) then
+  begin
+    kx := x - LastX;
+    ky := 0;
+    if FDesigner.GridAlign and not GridCheck then Exit;
+    with SplitInfo do
+    begin
+      DrawHSplitter(SplRect);
+      SplRect := Rect(SplRect.Left + kx, SplRect.Top, SplRect.Right + kx, SplRect.Bottom);
+      DrawHSplitter(SplRect);
+    end;
+    Inc(LastX, kx);
+    Exit;
+  end;
+  // sizing several objects
+  if Down and MRFlag and (Mode = mdSelect) and (Cursor <> crDefault) then
+  begin
+    kx := x - LastX;
+    ky := y - LastY;
+    if FDesigner.GridAlign and not GridCheck then Exit;
+
+    if FDesigner.ShapeMode = smFrame then
+      DrawPage(dmShape)
+    else
+    begin
+      hr := CreateRectRgn(0, 0, 0, 0);
+      hr1 := CreateRectRgn(0, 0, 0, 0);
+    end;
+    OldRect := Rect(OldRect.Left, OldRect.Top, OldRect.Right + kx, OldRect.Bottom + ky);
+    nx := (OldRect.Right - OldRect.Left) / (OldRect1.Right - OldRect1.Left);
+    ny := (OldRect.Bottom - OldRect.Top) / (OldRect1.Bottom - OldRect1.Top);
+    for i := 0 to Objects.Count - 1 do
+    begin
+      t := Objects[i];
+      if t.Selected then
+      begin
+        if FDesigner.ShapeMode = smAll then
+          AddRgn(hr, t);
+        x1 := (t.OriginalRect.Left - LeftTop.x) * nx;
+        x2 := t.OriginalRect.Right * nx;
+        dx := Round(x1 + x2) - (Round(x1) + Round(x2));
+        t.x := LeftTop.x + Round(x1); t.dx := Round(x2) + dx;
+
+        y1 := (t.OriginalRect.Top - LeftTop.y) * ny;
+        y2 := t.OriginalRect.Bottom * ny;
+        dy := Round(y1 + y2) - (Round(y1) + Round(y2));
+        t.y := LeftTop.y + Round(y1); t.dy := Round(y2) + dy;
+        if FDesigner.ShapeMode = smAll then
+          AddRgn(hr1, t);
+      end;
+    end;
+    if FDesigner.ShapeMode = smFrame then
+      DrawPage(dmShape)
+    else
+    begin
+      Draw(10000, hr);
+      Draw(10000, hr1);
+    end;
+    Inc(LastX, kx);
+    Inc(LastY, ky);
+    FDesigner.PBox1Paint(nil);
+    Exit;
+  end;
+  // moving
+  if Down and (Mode = mdSelect) and (SelNum >= 1) and (Cursor = crDefault) then
+  begin
+    kx := x - LastX;
+    ky := y - LastY;
+    if FDesigner.GridAlign and not GridCheck then Exit;
+    if FirstBandMove and (SelNum = 1) and ((kx <> 0) or (ky <> 0)) and
+      not (ssAlt in Shift) then
+      if TfrView(Objects[TopSelected]).Typ = gtBand then
+      begin
+        Bnd := Objects[TopSelected];
+        for i := 0 to Objects.Count-1 do
+        begin
+          t := Objects[i];
+          if t.Typ <> gtBand then
+            if (t.x >= Bnd.x) and (t.x + t.dx <= Bnd.x + Bnd.dx) and
+               (t.y >= Bnd.y) and (t.y + t.dy <= Bnd.y + Bnd.dy) then
+            begin
+              t.Selected := True;
+              Inc(SelNum);
+            end;
+        end;
+        FDesigner.SelectionChanged;
+        GetMultipleSelected;
+      end;
+    FirstBandMove := False;
+    if FDesigner.ShapeMode = smFrame then
+      DrawPage(dmShape)
+    else
+    begin
+      hr := CreateRectRgn(0, 0, 0, 0);
+      hr1 := CreateRectRgn(0, 0, 0, 0);
+    end;
+    for i := 0 to Objects.Count - 1 do
+    begin
+      t := Objects[i];
+      if not t.Selected then continue;
+      if FDesigner.ShapeMode = smAll then
+        AddRgn(hr, t);
+      t.x := t.x + kx;
+      t.y := t.y + ky;
+      if FDesigner.ShapeMode = smAll then
+        AddRgn(hr1, t);
+    end;
+    if FDesigner.ShapeMode = smFrame then
+      DrawPage(dmShape)
+    else
+    begin
+      CombineRgn(hr, hr, hr1, RGN_OR);
+      DeleteObject(hr1);
+      Draw(10000, hr);
+    end;
+    Inc(LastX, kx);
+    Inc(LastY, ky);
+    FDesigner.PBox1Paint(nil);
+  end;
+ // resizing
+  if Down and (Mode = mdSelect) and (SelNum = 1) and (Cursor <> crDefault) then
+  begin
+    kx := x - LastX;
+    ky := y - LastY;
+    if FDesigner.GridAlign and not GridCheck then Exit;
+    t := Objects[TopSelected];
+    if FDesigner.ShapeMode = smFrame then
+      DrawPage(dmShape) else
+      hr := t.GetClipRgn(rtExtended);
+    w := 3;
+    if Cursor = crSizeNWSE then
+      if (CT <> ct2) and ((CT = ct1) or Cont(t.x, t.y, LastX, LastY)) then
+      begin
+        t.x := t.x + kx;
+        t.dx := t.dx - kx;
+        t.y := t.y + ky;
+        t.dy := t.dy - ky;
+        CT := ct1;
+      end
+      else
+      begin
+        t.dx := t.dx + kx;
+        t.dy := t.dy + ky;
+        CT := ct2;
+      end;
+    if Cursor = crSizeNESW then
+      if (CT <> ct4) and ((CT = ct3) or Cont(t.x + t.dx, t.y, LastX, LastY)) then
+      begin
+        t.y := t.y + ky;
+        t.dx := t.dx + kx;
+        t.dy := t.dy - ky;
+        CT := ct3;
+      end
+      else
+      begin
+        t.x := t.x + kx;
+        t.dx := t.dx - kx;
+        t.dy := t.dy + ky;
+        CT := ct4;
+      end;
+    if Cursor = crSizeWE then
+      if (CT <> ct6) and ((CT = ct5) or Cont(t.x, t.y + t.dy div 2, LastX, LastY)) then
+      begin
+        t.x := t.x + kx;
+        t.dx := t.dx - kx;
+        CT := ct5;
+      end
+      else
+      begin
+        t.dx := t.dx + kx;
+        CT := ct6;
+      end;
+    if Cursor = crSizeNS then
+      if (CT <> ct8) and ((CT = ct7) or Cont(t.x + t.dx div 2, t.y, LastX, LastY)) then
+      begin
+        t.y := t.y + ky;
+        t.dy := t.dy - ky;
+        CT := ct7;
+      end
+      else
+      begin
+        t.dy := t.dy + ky;
+        CT := ct8;
+      end;
+    if FDesigner.ShapeMode = smFrame then
+      DrawPage(dmShape)
+    else
+    begin
+      CombineRgn(hr, hr, t.GetClipRgn(rtExtended), RGN_OR);
+      Draw(10000, hr);
+    end;
+    Inc(LastX, kx);
+    Inc(LastY, ky);
+    FDesigner.PBox1Paint(nil);
+  end;
+end;
+
+procedure TfrDesignerPage.DClick(Sender: TObject);
+begin
+  Down := False;
+  if SelNum = 0 then
+  begin
+    FDesigner.PgB3Click(nil);
+    DFlag := True;
+  end
+  else if SelNum = 1 then
+  begin
+    DFlag := True;
+    FDesigner.ShowEditor;
+  end
+  else Exit;
+end;
+
+procedure TfrDesignerPage.CMMouseLeave(var Message: TMessage);
+begin
+  if (Mode = mdInsert) and not Down then
+  begin
+    DrawFocusRect(OldRect);
+    OffsetRect(OldRect, -10000, -10000);
+  end;
+end;
+
+end.
