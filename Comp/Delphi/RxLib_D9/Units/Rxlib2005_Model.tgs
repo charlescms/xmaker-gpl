@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<ProjectSupport>
+  <SupportedProjects>
+    <ProjectName>dclrxdb2005</ProjectName>
+    <ProjectName>dclrx2005</ProjectName>
+    <ProjectName>rxbde2005</ProjectName>
+    <ProjectName>rxctl2005</ProjectName>
+    <ProjectName>dclrxbd2005</ProjectName>
+    <ProjectName>rxdb2005</ProjectName>
+  </SupportedProjects>
+</ProjectSupport>
