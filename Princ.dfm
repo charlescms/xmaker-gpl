@@ -1,6 +1,6 @@
 object FormPrincipal: TFormPrincipal
-  Left = 640
-  Top = 262
+  Left = 183
+  Top = 101
   Width = 840
   Height = 607
   HelpContext = 1
@@ -1153,10 +1153,11 @@ object FormPrincipal: TFormPrincipal
   end
   object StatusBarPrincipal: TStatusBar
     Left = 0
-    Top = 533
+    Top = 535
     Width = 832
     Height = 18
     Panels = <>
+    SimplePanel = False
   end
   object PnSuperior: TPanel
     Left = 0
@@ -1248,7 +1249,7 @@ object FormPrincipal: TFormPrincipal
         object BtnForms: TToolButton
           Left = 141
           Top = 0
-          Hint = 'Formul'#225'rios do Projeto'
+          Hint = 'Formulários do Projeto'
           Caption = 'BtnForms'
           ImageIndex = 107
           OnClick = BtnFormsClick
@@ -1274,7 +1275,7 @@ object FormPrincipal: TFormPrincipal
         object BtnDadosGenericos: TToolButton
           Left = 0
           Top = 0
-          Hint = 'Defini'#231#227'o das Propriedades do Projeto'
+          Hint = 'Definição das Propriedades do Projeto'
           Caption = 'BtnDadosGenericos'
           Enabled = False
           ImageIndex = 101
@@ -1283,7 +1284,7 @@ object FormPrincipal: TFormPrincipal
         object BtnTabelas: TToolButton
           Left = 24
           Top = 0
-          Hint = 'Defini'#231#227'o de Tabelas, Campos e Banco de Dados do Projeto'
+          Hint = 'Definição de Tabelas, Campos e Banco de Dados do Projeto'
           Caption = 'BtnTabelas'
           Enabled = False
           ImageIndex = 106
@@ -1293,7 +1294,7 @@ object FormPrincipal: TFormPrincipal
           Tag = 1000
           Left = 48
           Top = 0
-          Hint = 'Defini'#231#227'o de Formul'#225'rios do Projeto'
+          Hint = 'Definição de Formulários do Projeto'
           Caption = 'BtnFormularios'
           Enabled = False
           ImageIndex = 105
@@ -1303,7 +1304,7 @@ object FormPrincipal: TFormPrincipal
           Tag = 2000
           Left = 72
           Top = 0
-          Hint = 'Defini'#231#227'o de Relat'#243'rios e Gr'#225'ficos do Projeto'
+          Hint = 'Definição de Relatórios e Gráficos do Projeto'
           Caption = 'BtnRelatorios'
           Enabled = False
           ImageIndex = 102
@@ -1312,7 +1313,7 @@ object FormPrincipal: TFormPrincipal
         object BtnMenuPrincipal: TToolButton
           Left = 96
           Top = 0
-          Hint = 'Defini'#231#227'o do Menu Principal do Projeto'
+          Hint = 'Definição do Menu Principal do Projeto'
           Caption = 'BtnMenuPrincipal'
           Enabled = False
           ImageIndex = 104
@@ -1367,7 +1368,7 @@ object FormPrincipal: TFormPrincipal
         object BtnDiario: TToolButton
           Left = 85
           Top = 0
-          Hint = 'Di'#225'rio do Projeto'
+          Hint = 'Diário do Projeto'
           Caption = 'BtnDiario'
           Enabled = False
           ImageIndex = 38
@@ -1402,11 +1403,9 @@ object FormPrincipal: TFormPrincipal
           Width = 540
           Height = 22
           CloseButton = False
-          PageList = Paleta
           Tabs = <
             item
-              Caption = 'Padr'#227'o'
-              Selected = True
+              Caption = 'Padrão'
             end
             item
               Caption = 'Adicional'
@@ -1427,7 +1426,7 @@ object FormPrincipal: TFormPrincipal
               Caption = 'ADO'
             end
             item
-              Caption = 'Di'#225'logos'
+              Caption = 'Diálogos'
             end
             item
               Caption = 'Win 3.1'
@@ -1450,6 +1449,7 @@ object FormPrincipal: TFormPrincipal
             item
               Caption = 'QuickReport'
             end>
+          PageList = Paleta
         end
         object Paleta: TJvPageList
           Left = 0
@@ -1560,7 +1560,7 @@ object FormPrincipal: TFormPrincipal
     Left = 0
     Top = 60
     Width = 832
-    Height = 473
+    Height = 475
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 4
@@ -1568,7 +1568,8 @@ object FormPrincipal: TFormPrincipal
       Left = 100
       Top = 23
       Width = 1
-      Height = 450
+      Height = 452
+      Cursor = crHSplit
       Color = clBtnFace
       ParentColor = False
     end
@@ -1578,17 +1579,16 @@ object FormPrincipal: TFormPrincipal
       Width = 832
       AutoFreeClosed = False
       Margin = 3
-      Painter = JvModernTabBarPainter1
       Tabs = <
         item
           Caption = 'Assistente   '
-          Selected = True
           Tag = 10
         end
         item
-          Caption = 'Hist'#243'rico dos '#250'ltimos projetos ...'
+          Caption = 'Histórico dos últimos projetos ...'
           Tag = 11
         end>
+      Painter = JvModernTabBarPainter1
       OnTabClosed = JvTabBar_AssistenteTabClosed
       OnTabSelected = JvTabBar_AssistenteTabSelected
     end
@@ -1596,7 +1596,7 @@ object FormPrincipal: TFormPrincipal
       Left = 0
       Top = 23
       Width = 100
-      Height = 450
+      Height = 452
       Align = alLeft
       BevelOuter = bvNone
       TabOrder = 1
@@ -1604,7 +1604,7 @@ object FormPrincipal: TFormPrincipal
         Left = 2
         Top = 4
         Width = 98
-        Height = 442
+        Height = 444
         Align = alClient
         Color = 15395562
         Columns = <>
@@ -1637,7 +1637,7 @@ object FormPrincipal: TFormPrincipal
       end
       object Panel3: TPanel
         Left = 0
-        Top = 446
+        Top = 448
         Width = 100
         Height = 4
         Align = alBottom
@@ -1648,7 +1648,7 @@ object FormPrincipal: TFormPrincipal
         Left = 0
         Top = 4
         Width = 2
-        Height = 442
+        Height = 444
         Align = alLeft
         BevelOuter = bvNone
         TabOrder = 3
@@ -1658,7 +1658,7 @@ object FormPrincipal: TFormPrincipal
       Left = 101
       Top = 23
       Width = 731
-      Height = 450
+      Height = 452
       Align = alClient
       BevelOuter = bvNone
       TabOrder = 2
@@ -1666,7 +1666,7 @@ object FormPrincipal: TFormPrincipal
         Left = 0
         Top = 4
         Width = 727
-        Height = 393
+        Height = 395
         Align = alClient
         Columns = <>
         Font.Charset = DEFAULT_CHARSET
@@ -1689,7 +1689,7 @@ object FormPrincipal: TFormPrincipal
         Left = 727
         Top = 4
         Width = 4
-        Height = 393
+        Height = 395
         Align = alRight
         BevelOuter = bvNone
         TabOrder = 1
@@ -1705,7 +1705,7 @@ object FormPrincipal: TFormPrincipal
       end
       object Panel1: TPanel
         Left = 0
-        Top = 446
+        Top = 448
         Width = 731
         Height = 4
         Align = alBottom
@@ -1714,7 +1714,7 @@ object FormPrincipal: TFormPrincipal
       end
       object PnIdentificacao: TPanel
         Left = 0
-        Top = 397
+        Top = 399
         Width = 731
         Height = 49
         Align = alBottom
@@ -2486,7 +2486,7 @@ object FormPrincipal: TFormPrincipal
           Width = 488
           Height = 39
           Caption = 
-            '%1'#13#10#13#10'X-Maker - Vers'#227'o: %2  Release: %3 - %4 - Licen'#231'a de Uso: L' +
+            '%1'#13#10#13#10'X-Maker - Versão: %2  Release: %3 - %4 - Licença de Uso: L' +
             'eia em readme-gpl-3.0.txt'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindow
@@ -2520,7 +2520,7 @@ object FormPrincipal: TFormPrincipal
           Top = 0
           Width = 220
           Height = 24
-          Caption = 'VERS'#195'O BETA-TESTE'
+          Caption = 'VERSÃO BETA-TESTE'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clRed
           Font.Height = -19
@@ -6658,15 +6658,15 @@ object FormPrincipal: TFormPrincipal
     Footer.DefaultFont.Height = -13
     Footer.DefaultFont.Name = 'Arial'
     Footer.DefaultFont.Style = []
-    Margins.Left = 25.000000000000000000
-    Margins.Right = 15.000000000000000000
-    Margins.Top = 25.000000000000000000
-    Margins.Bottom = 25.000000000000000000
-    Margins.Header = 15.000000000000000000
-    Margins.Footer = 15.000000000000000000
-    Margins.LeftHFTextIndent = 2.000000000000000000
-    Margins.RightHFTextIndent = 2.000000000000000000
-    Margins.HFInternalMargin = 0.500000000000000000
+    Margins.Left = 25
+    Margins.Right = 15
+    Margins.Top = 25
+    Margins.Bottom = 25
+    Margins.Header = 15
+    Margins.Footer = 15
+    Margins.LeftHFTextIndent = 2
+    Margins.RightHFTextIndent = 2
+    Margins.HFInternalMargin = 0.5
     Margins.MirrorMargins = False
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
@@ -6822,7 +6822,7 @@ object FormPrincipal: TFormPrincipal
         OnClick = SelecionarClick
       end
       object ModoSelecao: TMenuItem
-        Caption = 'Altera Modo de Sele'#231#227'o'
+        Caption = 'Altera Modo de Seleção'
         Enabled = False
         ShortCut = 16458
         OnClick = ModoSelecaoClick
@@ -6839,9 +6839,9 @@ object FormPrincipal: TFormPrincipal
         OnClick = LocalizarClick
       end
       object Proximo: TMenuItem
-        Caption = 'Pr'#243'ximo'
+        Caption = 'Próximo'
         Enabled = False
-        Hint = 'Continuar Localiza'#231#227'o'
+        Hint = 'Continuar Localização'
         ImageIndex = 53
         ShortCut = 16460
         OnClick = ProximoClick
@@ -6890,9 +6890,9 @@ object FormPrincipal: TFormPrincipal
         OnClick = EnviarparafrenteClick
       end
       object Enviarparatras: TMenuItem
-        Caption = 'Enviar para tr'#225's'
+        Caption = 'Enviar para trás'
         Enabled = False
-        Hint = 'Enviar para tr'#225's'
+        Hint = 'Enviar para trás'
         ImageIndex = 95
         OnClick = EnviarparatrasClick
       end
@@ -6918,9 +6918,9 @@ object FormPrincipal: TFormPrincipal
         OnClick = TamanhoClick
       end
       object TabOrder: TMenuItem
-        Caption = 'Sequ'#234'ncia (Tab Ordem)'
+        Caption = 'Sequência (Tab Ordem)'
         Enabled = False
-        Hint = 'Sequ'#234'ncia dos campos - '#39'Enter ou Tab'#39
+        Hint = 'Sequência dos campos - '#39'Enter ou Tab'#39
         ImageIndex = 92
         OnClick = TabOrderClick
       end
@@ -6956,23 +6956,23 @@ object FormPrincipal: TFormPrincipal
           OnClick = BrAssistenteClick
         end
         object BrHistorico: TMenuItem
-          Caption = 'Hist'#243'rico'
+          Caption = 'Histórico'
           Checked = True
-          Hint = 'Atividar/Desativar Hist'#243'ricos'
+          Hint = 'Atividar/Desativar Históricos'
           OnClick = BrHistoricoClick
         end
       end
       object DiarioProjeto: TMenuItem
-        Caption = 'Di'#225'rio do Projeto'
+        Caption = 'Diário do Projeto'
         Enabled = False
-        Hint = 'Di'#225'rio do Projeto'
+        Hint = 'Diário do Projeto'
         ImageIndex = 38
         ShortCut = 118
         OnClick = DiarioProjetoClick
       end
       object Calendario: TMenuItem
-        Caption = 'Calend'#225'rio'
-        Hint = 'Calend'#225'rio'
+        Caption = 'Calendário'
+        Hint = 'Calendário'
         ShortCut = 116
         OnClick = CalendarioClick
       end
@@ -6995,7 +6995,7 @@ object FormPrincipal: TFormPrincipal
       object ExibirCaixadeMensagem: TMenuItem
         Caption = 'Exibir Janela de Mensagem'
         Checked = True
-        Hint = 'Exibir janela de mensagem na inicializa'#231#227'o do X-Maker'
+        Hint = 'Exibir janela de mensagem na inicialização do X-Maker'
         OnClick = ExibirCaixadeMensagemClick
       end
     end
@@ -7005,7 +7005,7 @@ object FormPrincipal: TFormPrincipal
         Caption = 'Propriedades'
         Enabled = False
         HelpContext = 120
-        Hint = 'Defini'#231#227'o das Propriedades do Projeto'
+        Hint = 'Definição das Propriedades do Projeto'
         ImageIndex = 101
         OnClick = BtnDadosGenericosClick
       end
@@ -7013,25 +7013,25 @@ object FormPrincipal: TFormPrincipal
         Caption = 'Tabelas'
         Enabled = False
         HelpContext = 130
-        Hint = 'Defini'#231#227'o de Tabelas, Campos e Banco de Dados do Projeto'
+        Hint = 'Definição de Tabelas, Campos e Banco de Dados do Projeto'
         ImageIndex = 106
         OnClick = BtnTabelasClick
       end
       object Formularios: TMenuItem
         Tag = 1000
-        Caption = 'Formul'#225'rios'
+        Caption = 'Formulários'
         Enabled = False
         HelpContext = 200
-        Hint = 'Defini'#231#227'o de Formul'#225'rios do Projeto'
+        Hint = 'Definição de Formulários do Projeto'
         ImageIndex = 105
         OnClick = BtnFormulariosClick
       end
       object Relatorios: TMenuItem
         Tag = 2000
-        Caption = 'Relat'#243'rios'
+        Caption = 'Relatórios'
         Enabled = False
         HelpContext = 250
-        Hint = 'Defini'#231#227'o de Relat'#243'rios e Gr'#225'ficos do Projeto'
+        Hint = 'Definição de Relatórios e Gráficos do Projeto'
         ImageIndex = 102
         OnClick = BtnFormulariosClick
       end
@@ -7039,7 +7039,7 @@ object FormPrincipal: TFormPrincipal
         Caption = 'Menu Principal'
         Enabled = False
         HelpContext = 320
-        Hint = 'Defini'#231#227'o do Menu Principal do Projeto'
+        Hint = 'Definição do Menu Principal do Projeto'
         ImageIndex = 104
         OnClick = BtnMenuPrincipalClick
       end
@@ -7074,60 +7074,60 @@ object FormPrincipal: TFormPrincipal
       end
     end
     object PopMenuConfiguracoes: TMenuItem
-      Caption = 'Configura'#231#227'o'
+      Caption = 'Configuração'
       object Delphi: TMenuItem
         Caption = 'Delphi'
         object Delphi50: TMenuItem
           Caption = 'Delphi 5.0'
           HelpContext = 60
-          Hint = 'Par'#226'metros de Compila'#231#227'o do Delphi 5.0'
+          Hint = 'Parâmetros de Compilação do Delphi 5.0'
           ImageIndex = 11
           OnClick = Delphi50Click
         end
         object Delphi60: TMenuItem
           Caption = 'Delphi 6.0'
           HelpContext = 60
-          Hint = 'Par'#226'metros de Compila'#231#227'o do Delphi 6.0'
+          Hint = 'Parâmetros de Compilação do Delphi 6.0'
           ImageIndex = 77
           OnClick = Delphi60Click
         end
         object Delphi70: TMenuItem
           Caption = 'Delphi 7.0'
           HelpContext = 60
-          Hint = 'Par'#226'metros de Compila'#231#227'o do Delphi 7.0'
+          Hint = 'Parâmetros de Compilação do Delphi 7.0'
           ImageIndex = 84
           OnClick = Delphi70Click
         end
         object Delphi2005: TMenuItem
           Caption = 'Delphi 2005'
-          Hint = 'Par'#226'metros de Compila'#231#227'o do Delphi 2005'
+          Hint = 'Parâmetros de Compilação do Delphi 2005'
           ImageIndex = 112
           OnClick = Delphi2005Click
         end
         object Delphi2006: TMenuItem
           Caption = 'Delphi 2006'
-          Hint = 'Par'#226'metros de Compila'#231#227'o do Delphi 2006'
+          Hint = 'Parâmetros de Compilação do Delphi 2006'
           ImageIndex = 112
           OnClick = Delphi2006Click
         end
         object TurboDelphi1: TMenuItem
           Caption = 'Turbo Delphi 2006'
-          Hint = 'Par'#226'metros de Compila'#231#227'o do Turbo Delphi'
+          Hint = 'Parâmetros de Compilação do Turbo Delphi'
           ImageIndex = 112
           OnClick = TurboDelphi1Click
         end
       end
       object Firebird1: TMenuItem
         Caption = 'Firebird'
-        Hint = 'Utilit'#225'rios Firebird'
+        Hint = 'Utilitários Firebird'
         object IBConsole1: TMenuItem
           Caption = 'IBConsole'
-          Hint = 'Utilit'#225'rio "IBConsole"'
+          Hint = 'Utilitário "IBConsole"'
           OnClick = IBConsole1Click
         end
         object UsurioMaster1: TMenuItem
-          Caption = 'Usu'#225'rio Master'
-          Hint = 'Usu'#225'rio Master definido no Firebird'
+          Caption = 'Usuário Master'
+          Hint = 'Usuário Master definido no Firebird'
           OnClick = UsurioMaster1Click
         end
       end
@@ -7150,7 +7150,7 @@ object FormPrincipal: TFormPrincipal
       object CamposPredefinidos: TMenuItem
         Caption = 'Campos Predefinidos'
         HelpContext = 80
-        Hint = 'Defini'#231#227'o de Campos Predefinidos'
+        Hint = 'Definição de Campos Predefinidos'
         ImageIndex = 3
         OnClick = CamposPredefinidosClick
       end
@@ -7182,8 +7182,8 @@ object FormPrincipal: TFormPrincipal
         OnClick = MinimizaTodasClick
       end
       object Organizaricones: TMenuItem
-        Caption = 'Organizar '#237'cones'
-        Hint = 'Organizar '#237'cones das Janelas'
+        Caption = 'Organizar ícones'
+        Hint = 'Organizar ícones das Janelas'
         ImageIndex = 50
         OnClick = OrganizariconesClick
       end
@@ -7191,7 +7191,7 @@ object FormPrincipal: TFormPrincipal
     object PopMenuAjuda: TMenuItem
       Caption = 'Ajuda'
       object Conteudo: TMenuItem
-        Caption = 'Conte'#250'do'
+        Caption = 'Conteúdo'
         Hint = 'Ajuda do Gerador'
         ImageIndex = 1
         ShortCut = 112
