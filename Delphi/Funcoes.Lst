@@ -1,0 +1,67 @@
+String|Copy|Copy(<S:String>,<Inicio:Integer>,<Qtde:Integer>)|Retorna uma <Substring> de uma string <S> a partir da posição <Inicio> e quantidade de elementos em <Qtde>.
+String|ConstStr|ConstStr(<S:String>,<Qtde:Integer>)|Retorna uma <String> repetida <Qtde> vezes.
+String|DiretorioComBarra|DiretorioComBarra(<S:String>)|Retorna uma <String> com '\' no final.
+String|DiretorioSemBarra|DiretorioComBarra(<S:String>)|Retorna uma <String> sem '\' no final.
+String|ArrayToString|ArrayToString(<A:Array>,<S:Separador>)|Retorna uma <String> com os elementos de uma matriz.
+String|StringToArray|StringToArray(<S:String>,<S:Separador>,<A:Array>)|Atribui elementos em um <Array>.
+String|DirWindows|DirWindows|Retorna a pasta de instalação do Windows.
+String|RetiraBrancos|RetiraBrancos(<S:String>)|Retorna uma <String> sem espaços em branco.
+String|PadR|PadR(<S:String,<Tamanho:Integer>)|Retorna uma <String> alinhada a direita.
+String|PadL|PadL(<S:String,<Tamanho:Integer>)|Retorna uma <String> alinhada a esquerda.
+String|Center|Center(<S:String,<Tamanho:Integer>)|Retorna uma <String> centralizada.
+String|Space|Space(<Tamanho:Integer>|Retorna uma <String> com espaços em branco.
+String|PorExtenso|PorExtenso(<Valor:Double>)|Retorna um valor por extenso no formato de uma <String>.
+String|Encript|Encript(<S:String>)|Retorna uma <String> codificada.
+String|Decript|Decript(<S:String>)|Retorna uma <String> decodificada.
+String|StrZero|StrZero(<N:Integer,<T:Integer>)|Converte um número inteiro <N> com zeros a esquerda de tamanho <T> e retorna no formato de uma <String>.
+String|Dia|Dia(<D:TDateTime>)|Retorna o número do dia da data <D> no formato de uma <String>.
+String|Mes|Mes(<D:TDateTime>)|Retorna o número do mês da data <D> no formato de uma <String>.
+String|MesAno|MesAno(<D:TDateTime>)|Retorna o mês e o ano da data <D> no formato de uma <String> 99/99.
+String|Ano|Ano(<D:TDateTime>)|Retorna o número do ano da data <D> no formato de uma <String>.
+String|UltimoDiadoMes|UltimoDiadoMes(<MesAno:String>)|Retorna o último dia do mês da string <MesAno> no formato de uma <String>.
+String|DDMMAA|DDMMAA(<D:String>)|Retorna uma <String> no formato 99/99/99.
+String|MascValor|MascValor(<V:Extended>,<Mascara:String>)|Formata um <V> com a <Mascara> informada e retorna no formato de uma <String>.
+String|FracToStr|FracToStr(<N:Extended>)|Converte um número <N> em string, o caractere ',' será substituido por '.' para os valores fracionários.
+String|FloatToStr|FloatToStr(<N:Extended>)|Converte um número <N> em string.
+String|IntToStr|IntToStr(<N:Integer>)|Converte um número <N> em string.
+String|TrocaString|TrocaString(<Const:S>,<Old:String>,<New:String>,<Flags:TReplaceFlags>)|Retorna uma <String> após a troca os caracteres <Old> por <New>, flags: rfReplaceAll e rfIgnoreCase.
+String|ConverteLogico|ConverteLogico(<L:Boolean>)|Converte e retorna o valor lógico <L> em uma <String>, true = T e false = F.
+String|ConverteStrToLog|ConverteStrToLog(<S:String)|Converte e retorna uma string <S> em valor lógico, T = true e F = false.
+String|LowerCase|LowerCase(<S:String>)|Retorna uma string <S> convertida em caracteres minúsculos.
+String|UpperCase|UpperCase(<S:String>)|Retorna uma string <S> convertida em caracteres maiúsculos.
+String|Pos|Pos(<Substring:String>,<S:String>)|Retorna a posição de uma <Substring> dentro de uma string <S>.
+String|ContaOcorrencia|ContaOcorrencia(<Substr:String>,<S:String>)|Conta e rotorna a quantidade de ocorrências da <Substr> dentro da <S>.
+String|Length|Length(<S:String>)|Retorna a quantidade de caracteres de uma string <S>.
+String|Trim|Trim(<S:String>)|Retorna uma string <S> sem espaços em branco a esquerda e a direita.
+String|TrimLeft|TrimLeft(<S:String>)|Retorna uma string <S> sem espaços em branco a esquerda.
+String|TrimRight|TrimRight(<S:String>)|Retorna uma string <S> sem espaços em branco a direita.
+Matemática|CalcC|CalcC(<N1:Extended>,<N2:Extended>,<Operador:String>,<Decimal:Integer>)|Retorna o cálculo arredondado entre os números <N1> e <N2> conforme o <Operador>, o número de casas decimais é definido em <Decimal>.
+Matemática|Exponencial|Exponencial(<N1:Extended>,<N2:Integer>)|Retorna o exponencial de um número <N1> o expoente é o <N2>.
+Matemática|StrNumerica|StrNumerica(<S:String>)|Retorna true se a string <S> for composta apenas por números.
+Matemática|Int|Int(<N:Extended>)|Retorna a parte inteira de um número <N>.
+Matemática|Max|Max(<N1:Extended>,<N2:Extended>)|Retorna o maior entre os dois números <N1> e <N2>.
+Matemática|Min|Min(<N1:Extended>,<N2:Extended>)|Retorna o menor entre os dois números <N1> e <N2>.
+Matemática|RestoDiv|RestoDiv(<N1:Extended>,<N2:Extended>)|Retorna o restante da divisão os dois números <N1> e <N2>.
+Matemática|Round|Round(<N:Extended>)|Retorna o arredondamento de um valor <N1>.
+Matemática|StrToFloat|StrToFloat(<S:String>)|Converte uma string <S> em número fracionário.
+Matemática|StrToInt|IntToStr(<S:String>)|Converte uma string <S> em número inteiro.
+Matemática|StrToIntDef|IntToStrDef(<S:String>,<Default:Integer)|Converte uma string <S> em número inteiro, em caso de erro o número <Default> será retornado.
+Data e Hora|Date|Date|Retorna a data atual.
+Data e Hora|DataAtual|DataAtual|Retorna a data atual.
+Data e Hora|Time|Time|Retorna a hora atual.
+Data e Hora|HoraAtual|HoraAtual|Retorna a hora atual no formato de <String> 99:99:99.
+Data e Hora|StrToDate|StrToDate(<S:String>)|Converte uma <String> para data.
+Data e Hora|StrToTime|StrToTime(<S:String>)|Converte uma <String> para hora.
+Data e Hora|DayOfWeek|DayOfWeek(<D:Date>)|Retorna o número do dia da semana.
+Data e Hora|DayOf|DayOf(<D:Date>)|Retorna o número do dia ( 1..31) de determinada data <D>.
+Data e Hora|MonthOf|MonthOf(<D:Date>)|Retorna o número do mês (1..12) de determinada data <D>.
+Data e Hora|YearOf|YearOf(<D:Date>)|Retorna o número do ano de determinada data <D>.
+Tabela|RetornaAutoIncremento|RetornaAutoIncremento(<Tabela:TTabela>,<Campo:String>,<Condicao:String>)|Retorna o próximo valor ("Variant") sequêncial de um <Campo> da <Tabela>, informe a expressão de filtro em <Condicao>.
+Tabela|PTabela|PTabela(<Tabela:TTabela>,<CamposArray:Array>,<ValoresArray:ArrayofVariant>)|Pesquisa na <Tabela> se um determinado registro existe, <CamposArray> = Campos da pesquisa, <ValoresArray> = Valores de comparação para os <CamposArray>.
+Tabela|PTabela|PTabela(<Tabela:TTabela>,<CalculosArray:Array>,<Filtro:String>,<ValoresRetornar:Variant>)|Pesquisa na <Tabela> se um determinado registro existe, <CamposArray> = Campos da pesquisa, <ValoresArray> = Valores de comparação para os <CamposArray>.
+Segurança|ProcuraRestricao|ProcuraRestricao(<NomeTabela:String>,<Tipo:String>)|Procura na tabela <NomeTabela> a restrição <Tipo> e retorna o valor lógico true ou false.
+Segurança|VNivel|VNivel|Pedi a senha do usuário "Master", se o sistema estiver logado no usuário "Master" a função retorna "true" automaticamente.
+Diversas|ExecutaForm|ExecutaForm(<TFormClass>,<Reference>)|Executa uma formulário do tipo MDI.
+Diversas|CopiaArquivo|CopiaArquivo(<Origem>,<Destino>)|Copia uma arquivo e retorna se foi bem sucedido.
+Diversas|CopiaArquivosMascara|CopiaArquivosMascara(<Origem>,<Destino>,<Mascara>)|Copia vários arquivos conforme a máscara.
+Diversas|DesabilitaFuncoesEd|DesabilitaFuncoesEd|Desabilita os botões e menu de manutenção dos formulários de Entrada de Dados.

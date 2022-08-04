@@ -1,0 +1,96 @@
+Numero 001
+  Nome = TELEFONE
+  Tipo = Alfanumérico
+  Tamanho = 12   
+  Edicao = Edição Padrão ( Edit )
+  Mascara = (Z999)Z999-9999
+  Titulo = Telefone
+  Ajuda = Informe o telefone
+  Padrao = 
+  Validacao = 
+  Validos = 
+  Descricao = 
+Numero 002
+  Nome = CEP
+  Tipo = Alfanumérico
+  Tamanho = 8    
+  Edicao = Edição Padrão ( Edit )
+  Mascara = 99999-999
+  Titulo = CEP
+  Ajuda = Informe o CEP
+  Padrao = 
+  Validacao = 
+  Validos = 
+  Descricao = 
+Numero 003
+  Nome = UF
+  Tipo = Alfanumérico
+  Tamanho = 2    
+  Edicao = Edição Padrão ( Edit )
+  Mascara = A*
+  Titulo = UF
+  Ajuda = Informe a unidade da federação
+  Padrao = 
+  Validacao = VUF
+  Validos = 
+  Descricao = 
+Numero 004
+  Nome = CNPJ
+  Tipo = Alfanumérico
+  Tamanho = 14   
+  Edicao = Edição Padrão ( Edit )
+  Mascara = 99.999.999/9999-99
+  Titulo = CNPJ
+  Ajuda = Informe o número do CNPJ
+  Padrao = 
+  Validacao = VCNPJ
+  Validos = 
+  Descricao = 
+Numero 005
+  Nome = CPF
+  Tipo = Alfanumérico
+  Tamanho = 11   
+  Edicao = Edição Padrão ( Edit )
+  Mascara = 999.999.999-99
+  Titulo = CPF
+  Ajuda = Informe o número do CPF
+  Padrao = 
+  Validacao = VCPF
+  Validos = 
+  Descricao = 
+Numero 006
+  Nome = PIS
+  Tipo = Alfanumérico
+  Tamanho = 11   
+  Edicao = Edição Padrão ( Edit )
+  Mascara = 
+  Titulo = PIS
+  Ajuda = Informe o número do PIS
+  Padrao = 
+  Validacao = VPIS
+  Validos = 
+  Descricao = 
+Numero 007
+  Nome = PLACA
+  Tipo = Alfanumérico
+  Tamanho = 7    
+  Edicao = Edição Padrão ( Edit )
+  Mascara = AAA-9999
+  Titulo = Placa
+  Ajuda = Informe o número da placa
+  Padrao = 
+  Validacao = 
+  Validos = 
+  Descricao = 
+Numero 008
+  Nome = TIPO_PESSOA
+  Tipo = Alfanumérico
+  Tamanho = 1    
+  Edicao = Optativo ( Rádio Buttom )
+  Mascara = X
+  Titulo = Tipo de Pessoa
+  Ajuda = Informe o tipo de pessoa
+  Padrao = F
+  Validacao = VALORNULO
+  Validos = F;J
+  Descricao = Física;Jurídica
