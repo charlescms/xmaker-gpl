@@ -1,6 +1,6 @@
 {
    Programa.: XMakerModelo.PAS
-   Copyright: Modular Software 2006
+   Copyright: X-Maker
             : Todos os direitos reservados
    Site.....: http://www.xmaker.com.br
 }
@@ -26,8 +26,8 @@ type
     BtnAjuda: TSpeedButton;
     BtnFechar: TSpeedButton;
     frDBDataSet: TfrDBDataSet;
-    {01-Início do Bloco Modular. Modificações não serão preservadas}
-    {99-Final do Bloco Modular. Modificações não serão preservadas}
+    {01-Início do Bloco X-Maker. Modificações não serão preservadas}
+    {99-Final do Bloco X-Maker. Modificações não serão preservadas}
     frDesigner: TfrDesigner;
     frReport: TfrReport;
     Selecao_1: TScrollBox;
@@ -48,15 +48,15 @@ type
   private
     { Private declarations }
     QyRelatorio: TTabela;
-    {02-Início do Bloco Modular. Modificações não serão preservadas}
-    {99-Final do Bloco Modular. Modificações não serão preservadas}
+    {02-Início do Bloco X-Maker. Modificações não serão preservadas}
+    {99-Final do Bloco X-Maker. Modificações não serão preservadas}
     procedure ConstroiSql;
     procedure InicializaVariaveis;
     procedure Parametros(Tabela: TTabela);
   public
     { Public declarations }
-    {03-Início do Bloco Modular. Modificações não serão preservadas}
-    {99-Final do Bloco Modular. Modificações não serão preservadas}
+    {03-Início do Bloco X-Maker. Modificações não serão preservadas}
+    {99-Final do Bloco X-Maker. Modificações não serão preservadas}
   end;
 
 var
@@ -72,8 +72,8 @@ procedure TFormXMakerModelo.ConstroiSql;
 var
   I: Integer;
 begin
-  {04-Início do Bloco Modular. Modificações não serão preservadas}
-  {99-Final do Bloco Modular. Modificações não serão preservadas}
+  {04-Início do Bloco X-Maker. Modificações não serão preservadas}
+  {99-Final do Bloco X-Maker. Modificações não serão preservadas}
 end;
 
 procedure TFormXMakerModelo.Parametros(Tabela: TTabela);
@@ -113,12 +113,12 @@ procedure TFormXMakerModelo.FormShow(Sender: TObject);
 Var
   I: Integer;
 begin
-  {05-Início do Bloco Modular. Modificações não serão preservadas}
+  {05-Início do Bloco X-Maker. Modificações não serão preservadas}
   LbTituloForm.Caption := '';
   Caption              := '';
-  {99-Final do Bloco Modular. Modificações não serão preservadas}
-  {06-Início do Bloco Modular. Modificações não serão preservadas}
-  {99-Final do Bloco Modular. Modificações não serão preservadas}
+  {99-Final do Bloco X-Maker. Modificações não serão preservadas}
+  {06-Início do Bloco X-Maker. Modificações não serão preservadas}
+  {99-Final do Bloco X-Maker. Modificações não serão preservadas}
   BtnAjuda.Visible  := False;
   BtnFechar.Visible := False;
   FormResize(Self);
@@ -192,12 +192,12 @@ end;
 procedure TFormXMakerModelo.FormClose(Sender: TObject;
   var Action: TCloseAction);
 begin
-  {07-Início do Bloco Modular. Modificações não serão preservadas}
-  {99-Final do Bloco Modular. Modificações não serão preservadas}
+  {07-Início do Bloco X-Maker. Modificações não serão preservadas}
+  {99-Final do Bloco X-Maker. Modificações não serão preservadas}
 end;
 
-{08-Início do Bloco Modular. Modificações não serão preservadas}
-{99-Final do Bloco Modular. Modificações não serão preservadas}
+{08-Início do Bloco X-Maker. Modificações não serão preservadas}
+{99-Final do Bloco X-Maker. Modificações não serão preservadas}
 
 procedure TFormXMakerModelo.FuncoesExtras(const Name: String; p1, p2,
   p3: Variant; var Val: String);

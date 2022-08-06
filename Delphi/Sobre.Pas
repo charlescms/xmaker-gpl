@@ -1,6 +1,6 @@
 {
    Programa.: Sobre.PAS
-   Copyright: Modular Software 2006
+   Copyright: X-Maker
             : Todos os direitos reservados
    Site.....: http://www.xmaker.com.br
 }
