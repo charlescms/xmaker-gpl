@@ -1,0 +1,54 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<title>Custom transitions</title>
+</head>
+
+<body bgcolor="#FFFFFF">
+
+<h3>Custom transitions</h3>
+
+<p>To create a custom transition you have to derive a new class from one of the available
+classes. The root class is <a href="transeff.htm">TTransitionEffect</a>. It handles all
+the basics to perform transitions, but it is completely inoperative by itself. All the
+transitions derive directly or indirectly from it. In order to configure your custom
+transitions you may have to override some virtual methods, depending on your needs. This
+methods are:
+
+<ul type="disc">
+  <li><a href="transeff.htm#DoExecute">DoExecute</a></li>
+  <li>GetPixelFormat</li>
+  <li><a href="transeff.htm#NeedDstImage">NeedDstImage</a></li>
+  <li><a href="transeff.htm#NeedSrcImage">NeedSrcImage</a></li>
+  <li><a href="transeff.htm#RenderWhenClipped">RenderWhenClipped</a></li>
+  <li><a href="transeff.htm#TwoPassesCapable">TwoPassesCapable</a></li>
+  <li><a href="transeff.htm#UseOffScreenBmp">UseOffScreenBmp</a></li>
+</ul>
+
+<p>As an example, we have taken the <a href="shake.htm">TShakeTransition</a> of the Demo
+project.</p>
+
+<p>If you want to CPU-independently time your transition you can derive it from <a
+href="ttimedte.htm">TTimedTransitionEffect</a> instead. This way you can take advantage of
+its built in time handling algorithm. In this case you don't have to override <a
+href="transeff.htm#DoExecute">DoExecute</a> because you will use <a href="ttimedte.htm">TTimedTransitionEffect</a>'s
+one. Instead, you have to override some of the following methods:
+
+<ul type="disc">
+  <li><a href="ttimedte.htm#ExecuteFrame">ExecuteFrame</a></li>
+  <li><a href="ttimedte.htm#Finalize">Finalize</a></li>
+  <li><a href="ttimedte.htm#Initialize">Initialize</a></li>
+</ul>
+
+<p>An example of this is the <a href="simple.htm">TSimpleWipeTransition</a> of the Demo
+project.</p>
+
+<p>If you have created nice transitions we could put them into our website.</p>
+
+<p>We are planning to develope many more transitions. If you don't like to create your own
+you can always request it to us. We will give preference to the most requested and
+interesting ones.</p>
+</body>
+</html>

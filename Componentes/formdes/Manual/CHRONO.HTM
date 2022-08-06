@@ -1,0 +1,110 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<title>TTEChrono</title>
+</head>
+
+<body bgcolor="#FFFFFF">
+
+<h3>TTEChrono</h3>
+
+<p><font face="Arial">Unit</font>
+
+<dl>
+  <dd><font size="2">teChrono</font></dd>
+</dl>
+
+<p><font face="Arial">Declaration</font>
+
+<dl>
+  <dd><font size="2">TTEChrono = class(TObject)</font></dd>
+</dl>
+
+<p><font face="Arial">Description</font>
+
+<dl>
+  <dd><font size="2">This is an utility class used internally by TTimedTransitionEffect to
+    accurately measure the time. It has been made public so you can use it for your own needs.</font></dd>
+</dl>
+
+<p><font size="2"><a href="#Properties">Properties</a> <a href="#Methods">Methods</a></font></p>
+
+<p><a name="Properties"><font face="Arial">Properties</font></a></p>
+
+<p><font size="2"><b>Passes</b></font>
+
+<dl>
+  <dd><font size="2"><b>Declaration:</b> property Passes: Longint read FPasses;</font></dd>
+  <dd><font size="2"><b>Description:</b> Counts the number of calls to the <a href="#Start">Start</a>
+    method since the last <a href="#Reset">Reset</a>.</font></dd>
+  <dd><font size="2"><b>See also:</b> <a href="#Start">Start</a> <a href="#Reset">Reset</a></font></dd>
+</dl>
+
+<p><a name="Paused"><font size="2"><b>Paused</b></font></a>
+
+<dl>
+  <dd><font size="2"><b>Declaration:</b> property Paused: Boolean read FPaused;</font></dd>
+  <dd><font size="2"><b>Description:</b> Indicates if the chronograph is not measuring time at
+    that moment.</font></dd>
+  <dd><font size="2"><b>See also:</b> <a href="#Resetted">Resetted</a></font></dd>
+</dl>
+
+<p><font size="2"><b>Resets</b></font>
+
+<dl>
+  <dd><font size="2"><b>Declaration:</b> property Resets: Longint read FResets;</font></dd>
+  <dd><font size="2"><b>Description:</b> Counts the total number of calls to <a href="#Reset">Reset</a>.</font></dd>
+  <dd><font size="2"><b>See also:</b> <a href="#Reset">Reset</a></font></dd>
+</dl>
+
+<p><a name="Resetted"><font size="2"><b>Resetted</b></font></a>
+
+<dl>
+  <dd><font size="2"><b>Declaration:</b> property Working: Boolean read FWorking;</font></dd>
+  <dd><font size="2"><b>Description:</b> Indicates if the chronograph is currently resetted.</font></dd>
+  <dd><font size="2"><b>See also:</b> <a href="#Paused">Paused</a></font></dd>
+</dl>
+
+<p><a name="Methods"><font face="Arial">Methods</font></a></p>
+
+<p><a name="Milliseconds"><font size="2"><b>Milliseconds</b></font></a>
+
+<dl>
+  <dd><font size="2"><b>Declaration:</b> function Milliseconds: Double;</font></dd>
+  <dd><font size="2"><b>Description:</b> The elapsed time in milliseconds. Note that its
+    precision can be so high that a <em>double</em> value is returned.</font></dd>
+</dl>
+
+<p><a name="Pause"><font size="2"><b>Pause</b></font></a>
+
+<dl>
+  <dd><font size="2"><b>Declaration:</b> procedure Pause;</font></dd>
+  <dd><font size="2"><b>Description:</b> Pauses the chrono. If you call <a href="#Start">Start</a>
+    without calling <a href="#Reset">Reset</a> before, the previously elapsed time is
+    preserved.</font></dd>
+  <dd><font size="2"><b>See also:</b> <a href="#Start">Start</a> <a href="#Reset">Reset</a> <a
+    href="#Milliseconds">Milliseconds</a></font></dd>
+</dl>
+
+<p><a name="Reset"><font size="2"><b>Reset</b></font></a>
+
+<dl>
+  <dd><font size="2"><b>Declaration:</b> procedure Reset;</font></dd>
+  <dd><font size="2"><b>Description:</b> Resets the chrono so the elapsed time is set to 0.</font></dd>
+  <dd><font size="2"><b>See also:</b> <a href="#Start">Start</a> <a href="#Pause">Pause</a> <a
+    href="#Milliseconds">Milliseconds</a></font></dd>
+</dl>
+
+<p><a name="Start"><font size="2"><b>Start</b></font></a>
+
+<dl>
+  <dd><font size="2"><b>Declaration:</b> procedure Start;</font></dd>
+  <dd><font size="2"><b>Description:</b> Starts to measure the time.</font></dd>
+  <dd><font size="2"><b>See also:</b> <a href="#Pause">Pause</a> <a href="#Reset">Reset</a> <a
+    href="#Milliseconds">Milliseconds</a></font></dd>
+  <dd>&nbsp;</dd>
+</dl>
+</body>
+</html>

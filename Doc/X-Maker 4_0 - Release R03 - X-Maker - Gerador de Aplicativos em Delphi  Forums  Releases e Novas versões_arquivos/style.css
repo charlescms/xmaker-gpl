@@ -1,0 +1,69 @@
+BODY {
+	SCROLLBAR-FACE-COLOR: #e9e9e9; SCROLLBAR-HIGHLIGHT-COLOR: white; SCROLLBAR-SHADOW-COLOR: #000000; SCROLLBAR-3DLIGHT-COLOR: #d3d3d3; SCROLLBAR-ARROW-COLOR: #999999; SCROLLBAR-TRACK-COLOR: #d3d3d3; SCROLLBAR-DARKSHADOW-COLOR: #cccccc
+}
+A:link {
+	COLOR: #000066; TEXT-DECORATION: none
+}
+A:visited {
+	COLOR: #666699; TEXT-DECORATION: none
+}
+A:hover {
+	COLOR: orange; TEXT-DECORATION: none
+}
+INPUT {
+	TEXT-INDENT: 1px
+}
+.textbox {
+	BORDER-RIGHT: #000000 1px solid; BORDER-TOP: #000000 1px solid; BACKGROUND: white; BORDER-LEFT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid
+}
+.mwpThemeHeader {
+	BACKGROUND-IMAGE: url(h_bg.jpg); WIDTH: 100%; BACKGROUND-COLOR: #c4c4c4
+}
+.mwpThemeHeader_menu {
+	BACKGROUND-IMAGE: url(hback.jpg)
+}
+.mwpThemeNavBar {
+	BACKGROUND-IMAGE: url(t_bg.jpg); WIDTH: 100%
+}
+.mwpThemeBlock {
+	BORDER-RIGHT: 0px; BORDER-TOP: 0px; BORDER-LEFT: 0px; BORDER-BOTTOM: 0px; BACKGROUND-COLOR: white
+}
+.mwpThemeBlock_tl {
+	BACKGROUND-IMAGE: url(tl.gif); WIDTH: 12px; HEIGHT: 11px; BACKGROUND-COLOR: #cccccc
+}
+.mwpThemeBlock_tc {
+	BACKGROUND-IMAGE: url(tc.gif); WIDTH: 100%; HEIGHT: 11px; BACKGROUND-COLOR: #cccccc
+}
+.mwpThemeBlock_tr {
+	BACKGROUND-IMAGE: url(tr.gif); WIDTH: 12px; HEIGHT: 11px; BACKGROUND-COLOR: #cccccc
+}
+.mwpThemeBlock_ml {
+	BACKGROUND-IMAGE: url(ml.gif); WIDTH: 12px; BACKGROUND-COLOR: #cccccc
+}
+.mwpThemeBlock_mr {
+	BACKGROUND-IMAGE: url(mr.gif); WIDTH: 12px; BACKGROUND-COLOR: #cccccc
+}
+.mwpThemeBlock_bl {
+	BACKGROUND-IMAGE: url(bl.gif); WIDTH: 12px; HEIGHT: 11px; BACKGROUND-COLOR: #cccccc
+}
+.mwpThemeBlock_bc {
+	BACKGROUND-IMAGE: url(bc.gif); WIDTH: 100%; HEIGHT: 11px; BACKGROUND-COLOR: #cccccc
+}
+.mwpThemeBlock_br {
+	BACKGROUND-IMAGE: url(br.gif); WIDTH: 12px; HEIGHT: 11px; BACKGROUND-COLOR: #cccccc
+}
+.mwpThemeBlock_title {
+	BACKGROUND-IMAGE: url(t_bg.jpg); WIDTH: 100%; HEIGHT: 11px; BACKGROUND-COLOR: #cccccc
+}
+.mwpThemeBlock_subTitleCell {
+	BACKGROUND-IMAGE: url(t_bg.jpg); BACKGROUND-COLOR: #e9e9e9
+}
+.mwpThemeBlock_forumCategoryCell {
+	BACKGROUND-IMAGE: url(t_bg.jpg); BACKGROUND-COLOR: #cccccc
+}
+.mwpThemeSmallBlock {
+	BORDER-RIGHT: #d3d3d3 1px solid; BORDER-TOP: #d3d3d3 1px solid; BORDER-LEFT: #d3d3d3 1px solid; BORDER-BOTTOM: #d3d3d3 1px solid
+}
+.mwpThemeFooterBlock {
+	BORDER-RIGHT: #d3d3d3 1px solid; BORDER-TOP: #d3d3d3 1px solid; BACKGROUND-IMAGE: url(t_bg.jpg); BORDER-LEFT: #d3d3d3 1px solid; BORDER-BOTTOM: #d3d3d3 1px solid
+}

@@ -1,0 +1,93 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<title>Transition effects guide</title>
+</head>
+
+<body bgcolor="#FFFFFF">
+
+<h3>Transition effects guide</h3>
+
+<p>When <a href="fcguide.htm#To use a transition">using transitions directly with
+FormContainer</a> you only have to use the transition properties to configure it at your
+pleasure and pass it to the <a href="FormCont.htm#ShowFormEx">ShowFormEx</a> procedure.
+FormContainer will make the rest. But in order to use them with other controls you'll need
+to call some functions to make it work.</p>
+
+<p>All transitions derive from <a href="transeff.htm">TTransitionEffect</a>. They are a
+class hierarchy, not components. To use a transition you have to create, configure,
+execute and destroy it:</p>
+
+<pre>	var
+	  Transition: TPushTransition;
+	begin
+	  Transition := TPushTransition.Create;
+	  try
+	    Transition.Milliseconds := 1000;
+	    Transition.Prepare(MyControl, MyControl.ClientRect);
+
+	    // Make changes to the visual appearance of MyControl or its childs...
+
+	    Transition.Execute;
+	  finally
+	    Transition.Free;
+	  end;
+	end;</pre>
+
+<p>When you call <a href="transeff.htm#Prepare">Prepare</a> the transition object '<a
+href="transeff.htm#Freeze">freezes</a>' the given area owned by <em>MyControl</em> (a
+controls owns its window area except those areas owned by other windows that are in front
+of it and are not its childs). This area will be given in client coordinates if
+ClientCoordinates is <em>True</em>. This way you can make changes that affect to that area
+without refreshing the screen. Once you have finished with your changes (trying to be
+brief) call <a href="transeff.htm#Execute">Execute</a> and the actual aspect of the
+component will be showed applying the given transition effect.</p>
+
+<p>You can control if the transition will be direct or it will have two passes with the <a
+href="transeff.htm#PassSetting">PassSetting</a> property. Set it to <a
+href="passet.htm#teOnePass">teOnePass</a> if you always want a direct transition (you have
+to verify it in 256 colors video mode, because you can have a palette conflict). To always
+have two passes set it to <a href="passet.htm#teTwoPasses">teTwoPasses</a>. If you have
+palette conflicts set it to <a href="passet.htm#tePaletteDependent">tePaletteDependent</a>
+because this way you will have one pass under real color video modes, and two passes under
+256 colors video mode. To know at run-time if you will have one or two passes use the
+function <a href="transeff.htm#Passes">Passes</a>. The configuration of the second pass is
+controlled by the <a href="transeff.htm#Pass2Options">Pass2Options</a> property. </p>
+
+<p>When using two passes and the <a href="pass2.htm#UseSolidColor">UseSolidColor</a>
+property of <a href="transeff.htm#Pass2Options">Pass2Options</a> is <em>False</em> you
+have to call <a href="transeff.htm#Prepare2ndPass">Prepare2ndPass</a> to 'take the photo'
+of the intermediate image. For example:</p>
+
+<pre>	Transition.Prepare(MyControl, MyControl.ClientRect);
+
+	// Make some changes to the visual appearance of MyControl or its childs...
+
+	Transition.Prepare2ndPass;
+
+	// Make the definitive changes to the visual appearance of MyControl or its childs...
+
+	Transition.Execute;</pre>
+
+<p>If you need more control you can <a href="transeff.htm#Freeze">Freeze</a> the area
+before calling <a href="transeff.htm#Prepare">Prepare</a> (see unit About.pas in the Demo
+project for an example of using it). You can also force the rendering of the source image
+setting <a href="transeff.htm#ForceRendering">ForceRendering</a> to <em>True</em>. <a
+href="transeff.htm#Reversed">Reversed</a> controls if the transition will be applied 'as
+is' or with the opposite configuration.</p>
+
+<p>You can disable a transition setting its <a href="transeff.htm#Enabled">Enabled</a>
+property to <em>False</em> and even disable all transitions at once setting <a
+href="globdisa.htm">TEGlobalDisabled</a> to <em>True</em>. A disabled transition will
+perform as a <a href="flicker.htm">FlickerFree</a> transition if the <a
+href="transeff.htm#FlickerFreeWhenDisabled">FlickerFreeWhenDisabled</a> property is set to
+<em>True</em>. Otherwise it will be simply ignored.</p>
+
+<p>Transitions have two events to allow synchronization with your code: <a
+href="transeff.htm#OnStartTransition">OnStartTransition</a> and <a
+href="transeff.htm#OnEndTransition">OnEndTransition</a>. The demo project shows how to use
+them to synchronize a transition with a sound effect.</p>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<title>RegisterTEControl</title>
+</head>
+
+<body bgcolor="#FFFFFF">
+
+<h3>RegisterTEControl</h3>
+
+<p><font face="Arial">Unit</font>
+
+<dl>
+  <dd><font size="2">reRender</font></dd>
+</dl>
+
+<p><font face="Arial">Declaration</font>
+
+<dl>
+  <dd><font size="2">procedure RegisterTEControl(const ControlName: String;
+    NonClientRenderMode, ClientRenderMode: Integer; RefreshNonClient, RefreshClient: Boolean);</font></dd>
+</dl>
+
+<p><font face="Arial">Description</font>
+
+<dl>
+  <dd><font size="2">This global procedure makes possible the fine-tunning of third-party
+    controls rendering.<br>
+    <em>ControlName</em> is the class type of the control we want to register.<br>
+    <em>NonClientRenderMode</em> indicates the method to render the non-client area of the
+    control. See <a href="constren.htm">control rendering constants</a> for possible values.<br>
+    <em>ClientRenderMode</em> indicates the method to render the client area of the control.
+    See c<a href="constren.htm">ontrol rendering constants</a> for possible values.<br>
+    If <em>RefreshNonClient</em> is <em>True</em> then the non-client area of the control will
+    be refreshed once the transition has finished.<br>
+    If <em>RefreshClient</em> is <em>True</em> then the client area of the control will be
+    refreshed once the transition has finished.</font></dd>
+  <dt>&nbsp;</dt>
+  <dd><font size="2">For example, if you want to use the TChartfx control (a third party OCX
+    included in some versions of Delphi) in your transitions, you should include the following
+    sentence (a good site to do this could be in the initialization part of your main form:</font></dd>
+</dl>
+
+<pre><font size="2" face="Courier New">	RegisterTEControl('TChartfx', teNoRender, teNoRender,</font><font
+size="2"> </font><font size="2" face="Courier New">True, True);</font></pre>
+
+<dl>
+  <dd>You must play with the parameters until you obtain the appropiate combination.</dd>
+  <dt>&nbsp;</dt>
+  <dd><a name="One of the main problems">One of the main problems</a> you can encounter when
+    trying to render a third party control is that it handles the WM_NCPAINT message to paint
+    its non-client area (the frame). The only solution is to modify its source code, because
+    this message queerly doesn't accept a device context as parameter, on the contrary that
+    WM_PAINT. You have two approachs in order to correctly render the non-client area:</dd>
+</dl>
+
+<ol type="1" start="1">
+  <li>The standard approach is to handle the WM_PRINTCLIENT message.</li>
+  <li>A non standard one is to use the <em>LParam</em> parameter of the WM_NCPAINT message as
+    a device context. This message doesn't use this parameter at all, so this should not break
+    your code. For example, the following code represents the typical code of a WM_NCPAINT
+    message handler:</li>
+</ol>
+
+<pre>	procedure TMyControl.WMNCPaint(var Message: TMessage);
+	var
+	  DC: HDC;
+	begin
+	  DC := GetWindowDC(Handle);
+	  try
+	    ... Drawing routines
+	  finally
+	    ReleaseDC(Handle, DC);
+	  end;
+	end;</pre>
+
+<dl>
+  <dd>We should modify it this way:</dd>
+</dl>
+
+<pre>	procedure TMyControl.WMNCPaint(var Message: TMessage);
+	var
+	  DC: HDC;
+	begin
+	  if Message.lParam &lt;&gt; 0
+	  then DC := HDC(Message.lParam)
+	  else DC := GetWindowDC(Handle);
+	  try
+	    ... Drawing routines
+	  finally
+	    if Message.lParam = 0 then
+	      ReleaseDC(Handle, DC);
+	  end;
+	end;</pre>
+</body>
+</html>

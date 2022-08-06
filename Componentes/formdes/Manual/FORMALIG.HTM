@@ -1,0 +1,65 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type"
+content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="Microsoft FrontPage Express 2.0">
+<title>TFCFormAlign</title>
+</head>
+
+<body bgcolor="#FFFFFF">
+
+<h3>TFCFormAlign</h3>
+
+<p><font face="Arial">Unit</font></p>
+
+<dl>
+    <dd><font size="2">FormCont</font></dd>
+</dl>
+
+<p><font face="Arial">Declaration</font></p>
+
+<dl>
+    <dd><font size="2">TFCFormAlign = (fcfaDefault, fcfaNone,
+        fcfaCenter, fcfaClient, fcfaTopLeft);</font></dd>
+</dl>
+
+<p><font face="Arial">Description</font></p>
+
+<dl>
+    <dd><font size="2">These are the different possibilities to
+        align a form into a </font><a href="FormCont.htm"><font
+        size="2">FormContainer</font></a><font size="2">:</font></dd>
+    <dd>&nbsp;<dl>
+            <dd><font size="2"><i>fcfaNone</i>: it doesn&#146;t
+                adjust the size and position of the form.</font></dd>
+            <dd><a name="fcfaCenter"><font size="2"><i>fcfaCenter</i></font></a><font
+                size="2">: it maintains the size, but positions
+                it at the center of the FormContainer.</font></dd>
+            <dd><font size="2"><i>fcfaClient</i>: the form will
+                cover the client area of the FormContainer.</font></dd>
+            <dd><font size="2"><i>fcfaTopLeft</i>: it maintains
+                the size, but positions it at the top left corner
+                of the FormContainer.</font></dd>
+            <dd><a name="fcfaDefault"><font size="2"><i>fcfaDefault</i></font></a><font
+                size="2">: the alignment will depend on the value
+                of these properties of the form:</font></dd>
+            <dt>&nbsp;</dt>
+            <dd><dl>
+                    <dd><font size="2"><i>BorderIcons</i>: if <i>biMaximize</i>
+                        is set, then it is equivalent to <i>fcfaClient</i>.
+                        If not, the following applies:</font></dd>
+                    <dt>&nbsp;</dt>
+                    <dd><font size="2"><i>Position</i>: if its
+                        value is <i>poDesigned</i>, then it is
+                        equivalent to <i>fcfaNone</i>, else if it
+                        is<i> poScreenCenter</i>, it is
+                        equivalent to <i>fcfaCenter</i>. Any
+                        other value will default to <em>fcfaTopLeft</em>.</font></dd>
+                </dl>
+            </dd>
+        </dl>
+    </dd>
+</dl>
+</body>
+</html>

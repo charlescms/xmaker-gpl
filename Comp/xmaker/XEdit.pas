@@ -1,7 +1,8 @@
 {
    Componente.: XEdit.pas
-   Copyright..: Modular Software - http://www.modularsoftware.com.br
-   Data.......: 01/10/2003
+   Copyright..: X-Maker 
+   http://www.X-Makersoftware.com.br
+  
 }
 unit XEdit;
 

@@ -54,6 +54,7 @@ type
     procedure SetShowSeparator(Value: Boolean);
     procedure SetValue(Val: Extended);
     procedure SetZeroLength(Value: Byte);
+    procedure SetValueInt(Val: integer);
     procedure ValidateKey;
     procedure CMEnter(var Msg: TCMEnter); message CM_ENTER;
     procedure CMExit(var Msg: TCMExit); message CM_EXIT;
@@ -68,6 +69,10 @@ type
     function GetTextMargins: TPoint;
     function GetValue: Extended;
     function StrToValue(S: string): Extended;
+
+    function GetValueInt: Integer;
+    function StrToValueInt(S: string): Integer;
+
   protected
     procedure CreateParams(var Params: TCreateParams); override;
     procedure CreateWnd; override;
@@ -111,6 +116,7 @@ type
     property ShowSeparator: Boolean read FShowSeparator write SetShowSeparator default True;
     property TabOrder;
     property TabStop;
+    property ValueInt: Integer read GetValueInt write SetValueInt;
     property Value: Extended read GetValue write SetValue;
     property Visible;
     property ZeroLength: Byte read FZeroLength write SetZeroLength default 0;
@@ -416,6 +422,21 @@ begin
   Invalidate;
 end;
 
+procedure TXNumEdit.SetValueInt(Val: Integer );
+begin
+  if (Val = 0) and (csDesigning in ComponentState) then
+    Text := Name
+  else
+    if FZeroLength > 0 then
+      Text := StrZero(intToStr(Val), FZeroLength)
+    else
+      Text := intToStr(Val);
+  if Focused then
+    SelectAll;
+  Invalidate;
+end;
+
+
 function TXNumEdit.GetValue: Extended;
 begin
   if (Text = Name) then
@@ -438,6 +459,34 @@ begin
   if (N <> '0') and (Pos('-', S) = 1) then
     Result := -StrToFloat(N)
 end;
+
+
+
+function TXNumEdit.GetValueInt: integer ;
+begin
+  if (Text = Name) then
+    Result := 0
+  else
+    Result := StrToValueInt(Text);
+end;
+
+function TXNumEdit.StrToValueInt(S: string): integer;
+var
+  N: string;
+  I: Integer;
+begin
+  N := '0';
+  for I := 1 to Length(S) do
+    if ((S[I] = DecimalSeparator) and (Pos(DecimalSeparator, N) = 0))
+      or (S[I] in ['0'..'9']) then
+      N := N + S[I];
+  Result := StrToInt(N);
+  if (N <> '0') and (Pos('-', S) = 1) then
+    Result := -StrToInt(N)
+end;
+
+
+
 
 function TXNumEdit.GetEnabledBtn: Boolean;
 begin

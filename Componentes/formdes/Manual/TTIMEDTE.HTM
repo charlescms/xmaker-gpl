@@ -1,0 +1,73 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<title>TTimedTransitionEffect</title>
+</head>
+
+<body bgcolor="#FFFFFF">
+
+<h3>TTimedTransitionEffect</h3>
+
+<p><font face="Arial">Unit</font>
+
+<dl>
+  <dd><font size="2">teTimed</font></dd>
+</dl>
+
+<p><font face="Arial">Declaration</font>
+
+<dl>
+  <dd><font size="2">TTimedTransitionEffect = class(<a href="transeff.htm">TTransitionEffect</a>)</font></dd>
+</dl>
+
+<p><font face="Arial">Description</font>
+
+<dl>
+  <dd><font size="2">This is the base class for all the timed transitions. A timed transition
+    will last <a href="transeff.htm#Milliseconds">Milliseconds</a> msecs. You&#146;ll never
+    have to instantiate <i>TTimedTransitionEffect</i>, because by itself it is inoperative.</font></dd>
+</dl>
+
+<p><a href="#Methods"><font size="2">Methods</font></a></p>
+
+<p><a name="Methods"><font face="Arial">Methods</font></a></p>
+
+<p><a name="ExecuteFrame"><font size="2"><b>ExecuteFrame</b></font></a>
+
+<dl>
+  <dd><font size="2"><b>Declaration:</b> procedure ExecuteFrame(Data: TTETransitionData;
+    CurrentFrame, Step: Word); virtual; abstract;</font></dd>
+  <dd><font size="2"><b>Description:</b> This abstract method has to be overriden in all
+    derived classes to execute the transition. <em>CurrentFrame</em> is the frame number (from
+    1 to the maximum number of frames). <em>Step</em> is the difference between the last
+    executed frame and <em>CurrentFrame</em>. On slow machines the number of frames executed
+    could be less than on fast machines, if <a href="transeff.htm#Milliseconds">Milliseconds</a>
+    is not great enough. This way, the timed transitions are not CPU dependent. The best
+    results are obtained when the time it takes to complete for each frame is relatively
+    stable.</font></dd>
+</dl>
+
+<p><a name="Finalize"><font size="2"><b>Finalize</b></font></a>
+
+<dl>
+  <dd><font size="2"><b>Declaration:</b> procedure Finalize; virtual;</font></dd>
+  <dd><font size="2"><b>Description:</b> It is a method that can be overriden in derived
+    classes to execute custom code after the termination of the transition.</font></dd>
+  <dd><font size="2"><b>See also:</b> <a href="#Initialize">Initialize</a></font></dd>
+</dl>
+
+<p><a name="Initialize"><font size="2"><b>Initialize</b></font></a>
+
+<dl>
+  <dd><font size="2"><b>Declaration:</b> procedure Initialize(Data: TTETransitionData; var
+    Frames: Word); virtual; abstract;</font></dd>
+  <dd><font size="2"><b>Description:</b> It is an abstract method that has to be overriden in
+    all derived classes. Its mission is to give a chance to properly initialize the transition
+    local variables just before it starts. You also have to assign to <em>Frames</em> the
+    maximum number of frames that can be achieved.</font></dd>
+  <dd><font size="2"><b>See also:</b> <a href="#Finalize">Finalize</a></font></dd>
+</dl>
+</body>
+</html>

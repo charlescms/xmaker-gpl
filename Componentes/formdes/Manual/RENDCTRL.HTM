@@ -1,0 +1,39 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<title>RenderControl</title>
+</head>
+
+<body bgcolor="#FFFFFF">
+
+<h3>RenderControl</h3>
+
+<p><font face="Arial">Unit</font>
+
+<dl>
+  <dd><font size="2">reRender</font></dd>
+</dl>
+
+<p><font face="Arial">Declaration</font>
+
+<dl>
+  <dd><font size="2">function RenderControl(Control: TControl; R: TRect; ClientCoordinates,
+    CheckRegion: Boolean; PixelFormat: TPixelFormat): TBitmap;</font></dd>
+</dl>
+
+<p><font face="Arial">Description</font>
+
+<dl>
+  <dd><font size="2">This global function creates and returns a bitmap with the rendered image
+    of the control contained in the supplied rectangle. The control doesn't need to be
+    visible, and the bitmap returned will only show the control and its childs. It doesn't
+    matter if any other window is clipping the control in the screen. If <em>ClientCoordinates</em>
+    is <em>True</em> then the rectangle is relative to the control client area, and if it is <em>False</em>
+    then it is relative to the control overall area (non client area is included). When <em>CheckRegion</em>
+    is <em>True</em> the clipping region of the control is taken into account. <em>PixelFormat</em>
+    is the desired pixel format of the bitmap to return.</font></dd>
+</dl>
+</body>
+</html>

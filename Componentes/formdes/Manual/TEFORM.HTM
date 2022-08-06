@@ -1,0 +1,65 @@
+<html>
+
+<head>
+<title>TFormTransitions</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+</head>
+
+<body>
+
+<h3>TFormTransitions</h3>
+
+<p><font face="Arial">Unit</font> 
+
+<dl>
+  <dd><font size="2">teForm</font></dd>
+</dl>
+
+<p><font face="Arial">Declaration</font> 
+
+<dl>
+  <dd><small>TFormTransitions = class(TComponent)</small></dd>
+</dl>
+
+<p><font face="Arial">Description</font> 
+
+<dl>
+  <dd><font size="2">By dropping this component into a form you can achieve a transition
+    effect when you call <em>Show</em> or <em>ShowModal</em>. It is designed to be used with
+    standard forms. If you insert the form into a <em>FormContainer</em> then it will have no
+    effect. The most simple use is to show a form completely flickerfree. In that case, you
+    only have to drop the component into the form. If you prefer a transition effect then you
+    have to assign it to <a href="#ShowTransition">ShowTransition</a>.</font></dd>
+</dl>
+
+<p><font face="Arial">Properties</font></p>
+
+<p><font size="2"><b>Enabled</b></font> 
+
+<dl>
+  <dd><font size="2"><b>Declaration:</b> </font><small>property Enabled: Boolean read FEnabled
+    write SetEnabled default True;</small></dd>
+  <dd><font size="2"><b>Description:</b> The component will take no effect if it isn't
+    enabled.</font></dd>
+</dl>
+
+<p><font size="2"><b>DestroyTransitions</b></font> 
+
+<dl>
+  <dd><font size="2"><b>Declaration:</b> </font><small>property DestroyTransitions: Boolean
+    read FDestroyTransitions write FDestroyTransitions default True;</small></dd>
+  <dd><font size="2"><b>Description:</b> If <em>True</em> the assigned transition will be
+    freed along with the component.</font></dd>
+</dl>
+
+<p><a name="ShowTransition"><font size="2"><b>ShowTransition</b></font></a> 
+
+<dl>
+  <dd><font size="2"><b>Declaration:</b> </font><small>property ShowTransition:
+    TTransitionEffect read FShowTransition write SetShowTransition default nil;</small></dd>
+  <dd><font size="2"><b>Description:</b> This is the transition to use when showing the form.
+    If <em>nil</em> (the default) a FlickerFree transition will be used.</font></dd>
+</dl>
+</body>
+</html>

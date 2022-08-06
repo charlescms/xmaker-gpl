@@ -1,0 +1,70 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<title>TTEPass2OptionsType</title>
+</head>
+
+<body bgcolor="#FFFFFF">
+
+<h3>TTEPass2OptionsType</h3>
+
+<p><font face="Arial">Unit</font>
+
+<dl>
+  <dd><font size="2">TransEff</font></dd>
+</dl>
+
+<p><font face="Arial">Declaration</font>
+
+<dl>
+  <dd><font size="2">TTEPass2OptionsType = record</font></dd>
+</dl>
+
+<p><font face="Arial">Description</font>
+
+<dl>
+  <dd><font size="2">Configuration of the second pass if it exists.</font></dd>
+</dl>
+
+<p><font face="Arial">Fields</font></p>
+
+<p><font size="2"><b>DistributedTime</b></font>
+
+<dl>
+  <dd><font size="2"><b>Declaration:</b> DistributedTime: Boolean;</font></dd>
+  <dd><font size="2"><b>Description:</b> If <i>False</i> (the default), the transition will
+    spend <a href="transeff.htm#Milliseconds"><i>Milliseconds</i></a> milliseconds on each
+    pass. If <i>True</i>, each pass will spend half of the time.</font></dd>
+</dl>
+
+<p><font size="2"><b>Reversed</b></font>
+
+<dl>
+  <dd><font size="2"><b>Declaration:</b> Reversed: Boolean;</font></dd>
+  <dd><font size="2"><b>Description:</b> If <i>False</i> (the default), both passes use the
+    same parameters. If <i>True</i>, the first pass is the <a href="transeff.htm#Reversed">reversed</a>
+    of the second, and the second follows the settings of the transition.</font></dd>
+</dl>
+
+<p><a name="UseSolidColor"><font size="2"><b>UseSolidColor</b></font></a>
+
+<dl>
+  <dd><font size="2"><b>Declaration:</b> UseSolidColor: Boolean;</font></dd>
+  <dd><font size="2"><b>Description:</b> If <i>True</i> (the default), the intermediate image
+    is simply a <a href="#SolidColor">solid color</a>. If <i>False</i>, the intermediate image
+    is obtained at the time <a href="transeff.htm#Prepare2ndPass"><i>Prepare2ndPass</i></a> is
+    invoked.</font></dd>
+</dl>
+
+<p><a name="SolidColor"><font size="2"><b>SolidColor</b></font></a>
+
+<dl>
+  <dd><font size="2"><b>Declaration:</b> SolidColor: TColor;</font></dd>
+  <dd><font size="2"><b>Description:</b> If <a href="#UseSolidColor"><i>UseSolidColor</i></a>
+    is True, this is the color to use. If it is <i>clNone</i>, then it will use the color of
+    the <a href="ctrlref.htm">control of reference</a>.</font></dd>
+</dl>
+</body>
+</html>
