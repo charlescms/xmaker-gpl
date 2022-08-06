@@ -1,0 +1,173 @@
+unit XEdit;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs,
+  StdCtrls;
+
+type
+  TXEdit = class(TCustomEdit)
+  private
+    FMascara: String;
+    procedure ConvertText;
+    procedure SetMascara(Value: String);
+    procedure CMTextChanged(var Message: TMessage); message CM_TEXTCHANGED;
+    procedure CMExit(var Msg: TCMExit); message CM_EXIT;
+    function ExtractInvalidChar(S: string): string;
+    function FormataStr(Texto: string; Mascara: String): string;
+  protected
+    procedure KeyPress(var Key: Char); override;
+  public
+    constructor Create(AOwner: TComponent); override;
+  published
+    property Anchors;
+    property AutoSelect;
+    property AutoSize;
+    property BorderStyle;
+    property Color;
+    property Ctl3D;
+    property Constraints;
+    property DragCursor;
+    property DragKind;
+    property DragMode;
+    property Enabled;
+    property Font;
+    property HideSelection;
+    property OEMConvert;
+    property ParentColor;
+    property ParentCtl3D;
+    property ParentFont;
+    property ParentShowHint;
+    property PopupMenu;
+    property ReadOnly;
+    property ShowHint;
+    property TabOrder;
+    property TabStop;
+    property Text;
+    property Visible;
+    property Mascara: String read FMascara write SetMascara default '';
+    property OnChange;
+    property OnClick;
+    property OnContextPopup;
+    property OnDblClick;
+    property OnDragDrop;
+    property OnDragOver;
+    property OnEndDock;
+    property OnEndDrag;
+    property OnEnter;
+    property OnExit;
+    property OnKeyDown;
+    property OnKeyPress;
+    property OnKeyUp;
+    property OnMouseDown;
+    property OnMouseMove;
+    property OnMouseUp;
+    property OnStartDock;
+    property OnStartDrag;
+  end;
+
+procedure Register;
+
+implementation
+                                                                                                                                                      {$IFDEF VER150}
+{$J+}
+
+constructor TXEdit.Create(AOwner: TComponent);
+begin
+  inherited Create(AOwner);
+  FMascara := 5;
+  MaxLength := FMascara;
+end;
+
+procedure TXEdit.SetMascara(Value: String);
+begin
+  if Value <> FMascara then
+    begin
+      FMascara := Value;
+      MaxLength := Length(FMascara);
+      ConvertText;
+    end;
+end;
+
+procedure TXEdit.CMTextChanged(var Message: TMessage);
+begin
+  inherited;
+  ConvertText;
+end;
+
+procedure TXEdit.CMExit(var Msg: TCMExit);
+begin
+  inherited;
+  Text := FormataStr(Text, FMascara);
+end;
+
+procedure TXEdit.KeyPress(var Key: Char);
+begin
+  inherited KeyPress(Key);
+  if not (Key in [^H, ^V, ^X, ^C, '0'..'9']) then
+    begin
+      Key := #0;
+      MessageBeep(0);
+    end;
+end;
+
+procedure TXEdit.ConvertText;
+begin
+  if not (csDesigning in ComponentState) then
+    begin
+      if Text = Name then
+        Text := FormataStr('0', FMascara)
+      else
+        Text := FormataStr(ExtractInvalidChar(Text), FMascara)
+    end
+  else if Text <> Name then
+    Text := FormataStr(ExtractInvalidChar(Text), FMascara);
+  if Focused then
+    SelectAll;
+end;
+
+function TXEdit.FormataStr(Texto: string; Mascara: String): string;
+var
+  a, b, c : string;
+  x_p : integer;
+begin
+  a := Texto;
+  b := Texto;
+  x_p := 0;
+  repeat
+    if (mascara[x_p] = '-') or (mascara[x_p] = ',') or (mascara[x_p] = '.') or
+       (mascara[x_p] = '(') or (mascara[x_p] = ')') or (mascara[x_p] = '/') or
+       (mascara[x_p] = '\') or (mascara[x_p] = '*') or (mascara[x_p] = '|') or
+       (mascara[x_p] = ':') then
+    begin
+      a := a;
+      b := a;
+      c := mascara;
+      delete(c, 1, (x_p - 1));
+      delete(c, 2, 20);
+      delete (a, x_p, 20);
+      delete (b, 1, (x_p - 1));
+      a := a + c + b;
+    end;
+    inc(x_p);
+  until (x_p > length(mascara));
+  Result := a;
+end;
+
+function TXEdit.ExtractInvalidChar(S: string): string;
+var
+  I: Integer;
+begin
+  Result := '';
+  for I := 1 to Length(S) do
+    if S[I] in ['0'..'9'] then
+      Result := Result + S[I];
+end;
+
+procedure Register;
+begin
+  RegisterComponents('X-Maker, [TXEdit]);
+end;
+                                                                                                                                                      {$ENDIF}
+end.
