@@ -25,7 +25,7 @@ object FormDesigner_Net: TFormDesigner_Net
     Left = 193
     Top = 0
     Width = 3
-    Height = 453
+    Height = 442
     Cursor = crHSplit
     AutoSnap = False
     MinSize = 90
@@ -34,7 +34,7 @@ object FormDesigner_Net: TFormDesigner_Net
     Left = 0
     Top = 0
     Width = 193
-    Height = 453
+    Height = 442
     Align = alLeft
     BevelOuter = bvNone
     TabOrder = 0
@@ -747,7 +747,7 @@ object FormDesigner_Net: TFormDesigner_Net
       Left = 0
       Top = 0
       Width = 193
-      Height = 453
+      Height = 442
       Align = alClient
       Images = ImageList1
       Indent = 19
@@ -759,14 +759,14 @@ object FormDesigner_Net: TFormDesigner_Net
   object PnFundo: TPanel
     Left = 196
     Top = 0
-    Width = 492
-    Height = 453
+    Width = 484
+    Height = 442
     Align = alClient
     TabOrder = 1
     object PnInferior: TPanel
       Left = 1
-      Top = 386
-      Width = 490
+      Top = 375
+      Width = 482
       Height = 66
       Align = alBottom
       BevelOuter = bvNone
@@ -775,7 +775,7 @@ object FormDesigner_Net: TFormDesigner_Net
       object ListView_nao_visuais: TListView
         Left = 4
         Top = 4
-        Width = 482
+        Width = 474
         Height = 60
         Align = alClient
         BorderStyle = bsNone
@@ -800,7 +800,7 @@ object FormDesigner_Net: TFormDesigner_Net
         TabOrder = 1
       end
       object Panel2: TPanel
-        Left = 486
+        Left = 478
         Top = 4
         Width = 4
         Height = 60
@@ -811,7 +811,7 @@ object FormDesigner_Net: TFormDesigner_Net
       object Panel4: TPanel
         Left = 0
         Top = 64
-        Width = 490
+        Width = 482
         Height = 2
         Align = alBottom
         BevelOuter = bvNone
@@ -820,7 +820,7 @@ object FormDesigner_Net: TFormDesigner_Net
       object Panel3: TPanel
         Left = 0
         Top = 0
-        Width = 490
+        Width = 482
         Height = 4
         Align = alTop
         BevelOuter = bvNone
@@ -830,18 +830,18 @@ object FormDesigner_Net: TFormDesigner_Net
     object PageList_Forms: TJvPageList
       Left = 5
       Top = 28
-      Width = 482
-      Height = 298
+      Width = 474
+      Height = 287
       PropagateEnable = False
       Align = alClient
     end
     object TabForms: TJvTabBar
       Left = 1
       Top = 1
-      Width = 490
+      Width = 482
       ShowHint = True
-      Tabs = <>
       Painter = JvModernTabBarPainter1
+      Tabs = <>
       OnTabClosing = TabFormsTabClosing
       OnTabClosed = TabFormsTabClosed
       OnTabSelecting = TabFormsTabSelecting
@@ -850,7 +850,7 @@ object FormDesigner_Net: TFormDesigner_Net
     object Panel5: TPanel
       Left = 1
       Top = 24
-      Width = 490
+      Width = 482
       Height = 4
       Align = alTop
       BevelOuter = bvNone
@@ -860,24 +860,24 @@ object FormDesigner_Net: TFormDesigner_Net
       Left = 1
       Top = 28
       Width = 4
-      Height = 298
+      Height = 287
       Align = alLeft
       BevelOuter = bvNone
       TabOrder = 4
     end
     object Panel7: TPanel
-      Left = 487
+      Left = 479
       Top = 28
       Width = 4
-      Height = 298
+      Height = 287
       Align = alRight
       BevelOuter = bvNone
       TabOrder = 5
     end
     object PnError: TSMFramePanel
       Left = 1
-      Top = 330
-      Width = 490
+      Top = 319
+      Width = 482
       Height = 56
       Align = alBottom
       BevelOuter = bvNone
@@ -887,8 +887,9 @@ object FormDesigner_Net: TFormDesigner_Net
       object ListaErros: TListBox
         Left = 12
         Top = 2
-        Width = 476
+        Width = 468
         Height = 52
+        Style = lbOwnerDrawFixed
         Align = alClient
         ItemHeight = 16
         Style = lbOwnerDrawFixed
@@ -955,8 +956,8 @@ object FormDesigner_Net: TFormDesigner_Net
     end
     object PnDivError: TPanel
       Left = 1
-      Top = 326
-      Width = 490
+      Top = 315
+      Width = 482
       Height = 4
       Align = alBottom
       BevelOuter = bvNone

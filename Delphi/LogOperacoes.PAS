@@ -1,6 +1,6 @@
 {
    Programa.: LogOperacoes.PAS
-   Copyright: Modular Software 2006
+   Copyright: X-Maker
             : Todos os direitos reservados
    Site.....: http://www.xmaker.com.br
 }
@@ -169,11 +169,11 @@ type
     procedure HabilitaEdicao(Habilita: Boolean = true);
   public
     { Public declarations }
-    {03-Início do Bloco Modular. Modificações não serão preservadas}
-    {99-Final do Bloco Modular. Modificações não serão preservadas}
+    {03-Início do Bloco X-Maker. Modificações não serão preservadas}
+    {99-Final do Bloco X-Maker. Modificações não serão preservadas}
     TabelaPrincipal: TTabela;
-    {04-Início do Bloco Modular. Modificações não serão preservadas}
-    {99-Final do Bloco Modular. Modificações não serão preservadas}
+    {04-Início do Bloco X-Maker. Modificações não serão preservadas}
+    {99-Final do Bloco X-Maker. Modificações não serão preservadas}
   end;
 
 var
@@ -189,11 +189,11 @@ uses Publicas, Princ, Rotinas, RotinaEd, Abertura, GridPesquisa, Interno,
 
 procedure TFormLogOperacoes.Inicializa;
 begin
-  {05-Início do Bloco Modular. Modificações não serão preservadas}
+  {05-Início do Bloco X-Maker. Modificações não serão preservadas}
   TabelaPrincipal    := TabGlobal.DUSER_LOG;
   TituloModulo       := 'Log de Operações ( Inclusões, Modificações e Exclusões )';
   Caption            := TituloModulo;
-  {99-Final do Bloco Modular. Modificações não serão preservadas}
+  {99-Final do Bloco X-Maker. Modificações não serão preservadas}
   Navegando          := False;
   DataSource.DataSet := TabelaPrincipal;
   ListaCamposED      := TListaCampos.Create;
@@ -203,7 +203,7 @@ begin
   TabPaginas.TabIndex:= 0;
   if not TabelaPrincipal.Active then
     TabelaPrincipal.AtualizaSql;
-  {06-Início do Bloco Modular. Modificações não serão preservadas}
+  {06-Início do Bloco X-Maker. Modificações não serão preservadas}
   AtribuiCampoEdicao(TabGlobal.DUSER_LOG, TabGlobal.DUSER_LOG.Comando, 0, ComandoExit, Nil, ListaCamposEd, FormLogOperacoes, DataSource, ChamaGridPesquisa);
   AtribuiCampoEdicao(TabGlobal.DUSER_LOG, TabGlobal.DUSER_LOG.Tipo, -1, TipoExit, Nil, ListaCamposEd, FormLogOperacoes, DataSource, ChamaGridPesquisa);
   AtribuiCampoEdicao(TabGlobal.DUSER_LOG, TabGlobal.DUSER_LOG.Tabela, -1, TabelaExit, Nil, ListaCamposEd, FormLogOperacoes, DataSource, ChamaGridPesquisa);
@@ -211,7 +211,7 @@ begin
   AtribuiCampoEdicao(TabGlobal.DUSER_LOG, TabGlobal.DUSER_LOG.Data, -1, DataExit, Nil, ListaCamposEd, FormLogOperacoes, DataSource, ChamaGridPesquisa);
   AtribuiCampoEdicao(TabGlobal.DUSER_LOG, TabGlobal.DUSER_LOG.Estacao, -1, EstacaoExit, Nil, ListaCamposEd, FormLogOperacoes, DataSource, ChamaGridPesquisa);
   AtribuiCampoEdicao(TabGlobal.DUSER_LOG, TabGlobal.DUSER_LOG.Usuario, -1, UsuarioExit, Nil, ListaCamposEd, FormLogOperacoes, DataSource, ChamaGridPesquisa);
-  {99-Final do Bloco Modular. Modificações não serão preservadas}
+  {99-Final do Bloco X-Maker. Modificações não serão preservadas}
   TabPaginas.Visible  := TabPaginas.Tabs.Count > 1;
   Divisao_inf.Visible := TabPaginas.Tabs.Count <= 1;
   CamposCalculados;
@@ -246,9 +246,9 @@ end;
 
 function TFormLogOperacoes.AbreTabelas: Boolean;
 begin
-  {07-Início do Bloco Modular. Modificações não serão preservadas}
+  {07-Início do Bloco X-Maker. Modificações não serão preservadas}
   Result := True;
-  {99-Final do Bloco Modular. Modificações não serão preservadas}
+  {99-Final do Bloco X-Maker. Modificações não serão preservadas}
 end;
 
 procedure TFormLogOperacoes.FechaTabelas;
@@ -265,8 +265,8 @@ end;
 
 procedure TFormLogOperacoes.CamposCalculados;
 begin
-  {08-Início do Bloco Modular. Modificações não serão preservadas}
-  {99-Final do Bloco Modular. Modificações não serão preservadas}
+  {08-Início do Bloco X-Maker. Modificações não serão preservadas}
+  {99-Final do Bloco X-Maker. Modificações não serão preservadas}
 end;
 
 procedure TFormLogOperacoes.BotoesManutencao(Habilita: Boolean);
@@ -770,8 +770,8 @@ begin
     raise Exception.Create(MsgErro);
 end;
 
-{11-Início do Bloco Modular. Modificações não serão preservadas}
-{99-Final do Bloco Modular. Modificações não serão preservadas}
+{11-Início do Bloco X-Maker. Modificações não serão preservadas}
+{99-Final do Bloco X-Maker. Modificações não serão preservadas}
 
 procedure TFormLogOperacoes.UsuarioExit(Sender: TObject);
 var MsgErro : string;

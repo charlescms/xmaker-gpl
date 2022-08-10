@@ -1,4 +1,4 @@
-unit Estrutura_Case;
+unit Estrutura_Case;    // Tree_Tabelas  Insp_Tabela   Insp_Tabela   DataSource_Campo
 
 interface
 
@@ -704,6 +704,7 @@ var
         TabGlobal_i.DCAMPOST.TIPO.Conteudo := 6
       else
         TabGlobal_i.DCAMPOST.TIPO.Conteudo := 1;
+
       TabGlobal_i.DCAMPOST.TAMANHO.Conteudo   := StrToIntDef(Trim(Copy(FormPrincipal.Texto.Lines[I+3],Pos('=',FormPrincipal.Texto.Lines[I+3])+2,Length(FormPrincipal.Texto.Lines[I+3]))),0);
       Valor := Trim(Copy(FormPrincipal.Texto.Lines[I+4],Pos('=',FormPrincipal.Texto.Lines[I+4])+2,Length(FormPrincipal.Texto.Lines[I+4])));
       if Valor = 'Edição Padrão ( Edit )' then
@@ -716,6 +717,7 @@ var
         TabGlobal_i.DCAMPOST.EDICAO.Conteudo := 4
       else
         TabGlobal_i.DCAMPOST.EDICAO.Conteudo := 1;
+        
       TabGlobal_i.DCAMPOST.MASCARA.Conteudo   := Trim(Copy(FormPrincipal.Texto.Lines[I+5],Pos('=',FormPrincipal.Texto.Lines[I+5])+2,Length(FormPrincipal.Texto.Lines[I+5])));
       TabGlobal_i.DCAMPOST.TITULO_C.Conteudo  := Trim(Copy(FormPrincipal.Texto.Lines[I+6],Pos('=',FormPrincipal.Texto.Lines[I+6])+2,Length(FormPrincipal.Texto.Lines[I+6])));
       TabGlobal_i.DCAMPOST.AJUDA.Conteudo     := Trim(Copy(FormPrincipal.Texto.Lines[I+7],Pos('=',FormPrincipal.Texto.Lines[I+7])+2,Length(FormPrincipal.Texto.Lines[I+7])));
@@ -2040,7 +2042,7 @@ procedure TFormDB_Case.Tree_TabelasChange(Sender: TObject; Node: TTreeNode);
   end;
 
 begin
-  if node.data <> Nil then
+  if node.data <> Nil then      // campo
   begin
     if (Node.Level = 0) and (Node.Index > 3) then
     begin
@@ -2579,6 +2581,7 @@ begin
     Seq := 1
   else
     Seq := Sequencia[0] + 1;
+
   TabGlobal_i.DCAMPOST.Inclui(Nil);
   TabGlobal_i.DCAMPOST.NUMERO.Conteudo             := NrTab;
   TabGlobal_i.DCAMPOST.NOME.Conteudo               := '';

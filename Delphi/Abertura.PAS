@@ -1,6 +1,6 @@
 {
    Programa.: Abertura.PAS
-   Copyright: Modular Software 2006
+   Copyright: X-Maker
             : Todos os direitos reservados
    Site.....: http://www.xmaker.com.br
 }
@@ -22,8 +22,8 @@ type
     procedure CamposCalculados;
   public
     { Public declarations }
-    {01-Início do Bloco Modular. Modificações não serão preservadas}
-    {99-Final do Bloco Modular. Modificações não serão preservadas}
+    {01-Início do Bloco X-Maker. Modificações não serão preservadas}
+    {99-Final do Bloco X-Maker. Modificações não serão preservadas}
     procedure AbrirTabelas;
     procedure FecharTabelas(Finalizar: Boolean);
     procedure Executa_Scripts_Criacao_BD;
@@ -143,8 +143,8 @@ var
 begin
   Lst_Procedures := TList.Create;
   Lst_Triggers   := TList.Create;
-  {02-Início do Bloco Modular. Modificações não serão preservadas}
-  {99-Final do Bloco Modular. Modificações não serão preservadas}
+  {02-Início do Bloco X-Maker. Modificações não serão preservadas}
+  {99-Final do Bloco X-Maker. Modificações não serão preservadas}
   if not FormPrincipal.ErronoSistema then
   begin
     CamposCalculados;
@@ -199,8 +199,8 @@ procedure TTabGlobal.Executa_Scripts_Criacao_BD;
 var
   I: Integer;
 begin
-  {05-Início do Bloco Modular. Modificações não serão preservadas}
-  {99-Final do Bloco Modular. Modificações não serão preservadas}
+  {05-Início do Bloco X-Maker. Modificações não serão preservadas}
+  {99-Final do Bloco X-Maker. Modificações não serão preservadas}
   for I:=0 to Lst_Tabelas.Count-1 do
     if TTabela(Lst_Tabelas[I]).TableType = ttTable then
       TTabela(Lst_Tabelas[I]).CriaForeignKeys;
@@ -208,23 +208,23 @@ end;
 
 procedure TTabGlobal.Executa_Scripts_Inicializacao;
 begin
-  {06-Início do Bloco Modular. Modificações não serão preservadas}
-  {99-Final do Bloco Modular. Modificações não serão preservadas}
+  {06-Início do Bloco X-Maker. Modificações não serão preservadas}
+  {99-Final do Bloco X-Maker. Modificações não serão preservadas}
 end;
 
 procedure TTabGlobal.Executa_Scripts_Finalizacao;
 begin
-  {07-Início do Bloco Modular. Modificações não serão preservadas}
-  {99-Final do Bloco Modular. Modificações não serão preservadas}
+  {07-Início do Bloco X-Maker. Modificações não serão preservadas}
+  {99-Final do Bloco X-Maker. Modificações não serão preservadas}
 end;
 
 procedure TTabGlobal.CamposCalculados;
 begin
-  {03-Início do Bloco Modular. Modificações não serão preservadas}
-  {99-Final do Bloco Modular. Modificações não serão preservadas}
+  {03-Início do Bloco X-Maker. Modificações não serão preservadas}
+  {99-Final do Bloco X-Maker. Modificações não serão preservadas}
 end;
 
-{04-Início do Bloco Modular. Modificações não serão preservadas}
-{99-Final do Bloco Modular. Modificações não serão preservadas}
+{04-Início do Bloco X-Maker. Modificações não serão preservadas}
+{99-Final do Bloco X-Maker. Modificações não serão preservadas}
 
 end.

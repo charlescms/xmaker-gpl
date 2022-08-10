@@ -1,16 +1,16 @@
 object FormDadosGenericos: TFormDadosGenericos
-  Left = 252
-  Top = 131
+  Left = 676
+  Top = 68
   HelpContext = 120
   BorderIcons = [biSystemMenu]
   BorderStyle = bsSingle
   Caption = 'Propriedades do Projeto'
-  ClientHeight = 462
-  ClientWidth = 461
+  ClientHeight = 569
+  ClientWidth = 567
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
-  Font.Height = -11
+  Font.Height = -14
   Font.Name = 'MS Sans Serif'
   Font.Style = []
   Icon.Data = {
@@ -30,13 +30,13 @@ object FormDadosGenericos: TFormDadosGenericos
   OnKeyPress = FormKeyPress
   OnKeyUp = FormKeyUp
   OnShow = FormShow
-  PixelsPerInch = 96
-  TextHeight = 13
+  PixelsPerInch = 120
+  TextHeight = 16
   object XBanner: TXBanner
     Left = 0
     Top = 0
-    Width = 24
-    Height = 428
+    Width = 30
+    Height = 527
     Align = alLeft
     Alignment = AtaLeftJustify
     Angle = 90
@@ -45,7 +45,7 @@ object FormDadosGenericos: TFormDadosGenericos
     ColorFor = 2966387
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWhite
-    Font.Height = -13
+    Font.Height = -17
     Font.Name = 'MS Sans Serif'
     Font.Style = [fsBold]
     Horizontal = True
@@ -55,17 +55,17 @@ object FormDadosGenericos: TFormDadosGenericos
   end
   object Panel1: TPanel
     Left = 0
-    Top = 428
-    Width = 461
-    Height = 34
+    Top = 527
+    Width = 567
+    Height = 42
     Align = alBottom
     BevelOuter = bvNone
     TabOrder = 0
     object XBanner1: TXBanner
       Left = 0
       Top = 0
-      Width = 24
-      Height = 34
+      Width = 30
+      Height = 42
       Align = alLeft
       Alignment = AtaLeftJustify
       Angle = 90
@@ -74,7 +74,7 @@ object FormDadosGenericos: TFormDadosGenericos
       ColorFor = 2966387
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWhite
-      Font.Height = -13
+      Font.Height = -17
       Font.Name = 'MS Sans Serif'
       Font.Style = [fsBold]
       Horizontal = True
@@ -83,10 +83,10 @@ object FormDadosGenericos: TFormDadosGenericos
       Style3D = A3dNormal
     end
     object BtnGravar: TBitBtn
-      Left = 221
+      Left = 272
       Top = 2
-      Width = 75
-      Height = 25
+      Width = 92
+      Height = 31
       HelpContext = 120
       Caption = '&Ok'
       ParentShowHint = False
@@ -96,10 +96,10 @@ object FormDadosGenericos: TFormDadosGenericos
       NumGlyphs = 2
     end
     object BtnFechar: TBitBtn
-      Left = 301
+      Left = 370
       Top = 2
-      Width = 75
-      Height = 25
+      Width = 93
+      Height = 31
       HelpContext = 120
       Caption = '&Cancelar'
       ParentShowHint = False
@@ -109,10 +109,10 @@ object FormDadosGenericos: TFormDadosGenericos
       NumGlyphs = 2
     end
     object BtnAjuda: TBitBtn
-      Left = 381
+      Left = 469
       Top = 2
-      Width = 75
-      Height = 25
+      Width = 92
+      Height = 31
       HelpContext = 120
       Caption = 'A&juda'
       ParentShowHint = False
@@ -123,18 +123,21 @@ object FormDadosGenericos: TFormDadosGenericos
     end
   end
   object Panel2: TPanel
-    Left = 24
+    Left = 30
     Top = 0
-    Width = 437
-    Height = 428
+    Width = 537
+    Height = 527
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 1
+    DesignSize = (
+      537
+      527)
     object PageGenerico: TPageControl
-      Left = 5
-      Top = 5
-      Width = 427
-      Height = 418
+      Left = 6
+      Top = 6
+      Width = 526
+      Height = 515
       HelpContext = 120
       ActivePage = TabPrincipal
       Anchors = [akLeft, akTop, akRight, akBottom]
@@ -145,87 +148,87 @@ object FormDadosGenericos: TFormDadosGenericos
         HelpContext = 120
         Caption = 'Principal'
         object Label8: TLabel
-          Left = 45
-          Top = 163
-          Width = 27
-          Height = 13
+          Left = 55
+          Top = 201
+          Width = 33
+          Height = 16
           Caption = 'Í&cone'
         end
         object Panel3: TPanel
           Left = 1
-          Top = 8
-          Width = 417
-          Height = 145
+          Top = 10
+          Width = 513
+          Height = 178
           HelpContext = 120
           TabOrder = 0
           object Bevel1: TBevel
-            Left = 8
-            Top = 8
-            Width = 401
-            Height = 129
+            Left = 10
+            Top = 10
+            Width = 493
+            Height = 159
           end
           object Label1: TLabel
-            Left = 9
-            Top = 19
-            Width = 62
-            Height = 13
+            Left = 11
+            Top = 23
+            Width = 76
+            Height = 16
             Alignment = taRightJustify
             AutoSize = False
             Caption = '&Título'
             FocusControl = EdTitulo
           end
           object Label6: TLabel
-            Left = 9
-            Top = 44
-            Width = 62
-            Height = 13
+            Left = 11
+            Top = 54
+            Width = 76
+            Height = 16
             Alignment = taRightJustify
             AutoSize = False
             Caption = '&Empresa'
             FocusControl = EdEmpresa
           end
           object Label2: TLabel
-            Left = 9
-            Top = 67
-            Width = 62
-            Height = 13
+            Left = 11
+            Top = 82
+            Width = 76
+            Height = 16
             Alignment = taRightJustify
             AutoSize = False
             Caption = '&Analista'
             FocusControl = EdAnalista1
           end
           object Label3: TLabel
-            Left = 9
-            Top = 115
-            Width = 62
-            Height = 13
+            Left = 11
+            Top = 142
+            Width = 76
+            Height = 16
             Alignment = taRightJustify
             AutoSize = False
             Caption = '&Versão'
             FocusControl = EdVersao
           end
           object Label4: TLabel
-            Left = 290
-            Top = 115
-            Width = 27
-            Height = 13
+            Left = 357
+            Top = 142
+            Width = 31
+            Height = 16
             Caption = '&Início'
           end
           object Label12: TLabel
-            Left = 9
-            Top = 91
-            Width = 62
-            Height = 13
+            Left = 15
+            Top = 112
+            Width = 80
+            Height = 16
             Alignment = taRightJustify
             AutoSize = False
             Caption = '&Programador'
             FocusControl = EdAnalista2
           end
           object EdTitulo: TEdit
-            Left = 74
-            Top = 16
-            Width = 321
-            Height = 21
+            Left = 96
+            Top = 20
+            Width = 390
+            Height = 24
             Hint = 'Informe o Título do Projeto'
             HelpContext = 120
             MaxLength = 60
@@ -234,10 +237,10 @@ object FormDadosGenericos: TFormDadosGenericos
             TabOrder = 0
           end
           object EdEmpresa: TEdit
-            Left = 74
-            Top = 40
-            Width = 321
-            Height = 21
+            Left = 96
+            Top = 49
+            Width = 390
+            Height = 24
             Hint = 'Informe o nome da Empresa Projetista'
             HelpContext = 120
             MaxLength = 50
@@ -246,10 +249,10 @@ object FormDadosGenericos: TFormDadosGenericos
             TabOrder = 1
           end
           object EdAnalista1: TEdit
-            Left = 74
-            Top = 64
-            Width = 321
-            Height = 21
+            Left = 96
+            Top = 79
+            Width = 390
+            Height = 24
             Hint = 
               'Informe o nome dos Analistas/Programadores Responsáveis pelo Pro' +
               'jeto'
@@ -260,10 +263,10 @@ object FormDadosGenericos: TFormDadosGenericos
             TabOrder = 2
           end
           object EdAnalista2: TEdit
-            Left = 74
-            Top = 88
-            Width = 321
-            Height = 21
+            Left = 96
+            Top = 108
+            Width = 390
+            Height = 24
             Hint = 
               'Informe o nome dos Analistas/Programadores Responsáveis pelo Pro' +
               'jeto'
@@ -274,10 +277,10 @@ object FormDadosGenericos: TFormDadosGenericos
             TabOrder = 3
           end
           object EdVersao: TEdit
-            Left = 74
-            Top = 112
-            Width = 73
-            Height = 21
+            Left = 96
+            Top = 138
+            Width = 85
+            Height = 24
             Hint = 'Informe a versão do Projeto'
             HelpContext = 120
             MaxLength = 8
@@ -286,10 +289,10 @@ object FormDadosGenericos: TFormDadosGenericos
             TabOrder = 4
           end
           object EdInicio: TXDateEdit
-            Left = 322
-            Top = 112
-            Width = 74
-            Height = 21
+            Left = 396
+            Top = 138
+            Width = 91
+            Height = 24
             Hint = 'Informe a data de ínicio do Projeto'
             Century = False
             DateText = '00/00/00'
@@ -354,26 +357,26 @@ object FormDadosGenericos: TFormDadosGenericos
           end
         end
         object Panel4: TPanel
-          Left = 286
-          Top = 154
-          Width = 37
-          Height = 32
+          Left = 352
+          Top = 190
+          Width = 46
+          Height = 39
           TabOrder = 2
           object ImagemIcone: TImage
             Left = 1
             Top = 1
-            Width = 35
-            Height = 30
+            Width = 44
+            Height = 37
             Align = alClient
             AutoSize = True
             Center = True
           end
         end
         object EdIcone: TComboEdit
-          Left = 76
-          Top = 160
-          Width = 205
-          Height = 21
+          Left = 94
+          Top = 197
+          Width = 252
+          Height = 26
           Hint = 'Informe o ícone do sistema'
           Glyph.Data = {
             96000000424D960000000000000076000000280000000A000000040000000100
@@ -381,7 +384,7 @@ object FormDadosGenericos: TFormDadosGenericos
             8000008000000080800080000000800080008080000080808000C0C0C0000000
             FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00888888888800
             0000800800800800000080080080080000008888888888000000}
-          ButtonWidth = 16
+          ButtonWidth = 20
           NumGlyphs = 1
           ParentShowHint = False
           ShowHint = True
@@ -392,9 +395,9 @@ object FormDadosGenericos: TFormDadosGenericos
         end
         object PageControl: TPageControl
           Left = 1
-          Top = 186
-          Width = 417
-          Height = 204
+          Top = 229
+          Width = 513
+          Height = 251
           ActivePage = TabParametro
           HotTrack = True
           TabOrder = 3
@@ -402,60 +405,60 @@ object FormDadosGenericos: TFormDadosGenericos
           object TabParametro: TTabSheet
             Caption = 'Parâmetros'
             object Label10: TLabel
-              Left = 219
-              Top = 15
-              Width = 80
-              Height = 13
+              Left = 270
+              Top = 18
+              Width = 98
+              Height = 16
               Alignment = taRightJustify
               AutoSize = False
               Caption = 'Usuário'
               FocusControl = EdSenha
             end
             object Label5: TLabel
-              Left = 219
-              Top = 42
-              Width = 80
-              Height = 13
+              Left = 270
+              Top = 52
+              Width = 98
+              Height = 16
               Alignment = taRightJustify
               AutoSize = False
               Caption = 'Se&nha Inicial'
               FocusControl = EdSenha
             end
             object Label7: TLabel
-              Left = 219
-              Top = 69
-              Width = 80
-              Height = 13
+              Left = 270
+              Top = 85
+              Width = 98
+              Height = 16
               Alignment = taRightJustify
               AutoSize = False
               Caption = '&Linguagem'
               FocusControl = EdLinguagem
             end
             object Label13: TLabel
-              Left = 219
-              Top = 96
-              Width = 80
-              Height = 13
+              Left = 266
+              Top = 118
+              Width = 102
+              Height = 16
               Alignment = taRightJustify
               AutoSize = False
               Caption = '&Banco de Dados'
               FocusControl = EdComboDriver
             end
             object Label15: TLabel
-              Left = 219
-              Top = 123
-              Width = 80
-              Height = 13
+              Left = 270
+              Top = 151
+              Width = 98
+              Height = 16
               Alignment = taRightJustify
               AutoSize = False
               Caption = 'Cone&xão'
               FocusControl = EdConexao
             end
             object Label18: TLabel
-              Left = 219
-              Top = 150
-              Width = 80
-              Height = 13
+              Left = 270
+              Top = 185
+              Width = 98
+              Height = 16
               Alignment = taRightJustify
               AutoSize = False
               Caption = 'M&odelo'
@@ -464,8 +467,8 @@ object FormDadosGenericos: TFormDadosGenericos
             object EdSeculo: TCheckBox
               Left = 2
               Top = 0
-              Width = 137
-              Height = 17
+              Width = 169
+              Height = 21
               Hint = 'Informe se  o Formato da Data será no Formato Século'
               HelpContext = 120
               Caption = '&Data no Formato Século'
@@ -475,9 +478,9 @@ object FormDadosGenericos: TFormDadosGenericos
             end
             object EdSaida: TCheckBox
               Left = 2
-              Top = 16
-              Width = 97
-              Height = 17
+              Top = 20
+              Width = 120
+              Height = 21
               Hint = 'Informe se na finalização do sistema será pedido confirmação '
               HelpContext = 120
               Caption = 'Confirma &Saída'
@@ -487,9 +490,9 @@ object FormDadosGenericos: TFormDadosGenericos
             end
             object EdMultiplas: TCheckBox
               Left = 2
-              Top = 32
-              Width = 121
-              Height = 17
+              Top = 39
+              Width = 149
+              Height = 21
               Hint = 
                 'Informe se o sistema poderá ser executado  mais de uma vez no me' +
                 'smo equipamento'
@@ -501,9 +504,9 @@ object FormDadosGenericos: TFormDadosGenericos
             end
             object EdHintBalao: TCheckBox
               Left = 2
-              Top = 48
-              Width = 113
-              Height = 17
+              Top = 59
+              Width = 140
+              Height = 21
               Hint = 
                 'Informe se o Hint (Mensagens) serão apresentados na forma de bal' +
                 'ão'
@@ -552,7 +555,7 @@ object FormDadosGenericos: TFormDadosGenericos
               Color = clBtnFace
               Font.Charset = DEFAULT_CHARSET
               Font.Color = clBlue
-              Font.Height = -11
+              Font.Height = -15
               Font.Name = 'MS Sans Serif'
               Font.Style = []
               MaxLength = 6
@@ -564,10 +567,10 @@ object FormDadosGenericos: TFormDadosGenericos
               Text = 'MASTER'
             end
             object EdSenha: TEdit
-              Left = 303
-              Top = 38
-              Width = 102
-              Height = 21
+              Left = 373
+              Top = 47
+              Width = 125
+              Height = 24
               Hint = 'Informe a senha inicial para acesso ao sistema'
               HelpContext = 120
               CharCase = ecUpperCase
@@ -577,14 +580,14 @@ object FormDadosGenericos: TFormDadosGenericos
               TabOrder = 12
             end
             object EdLinguagem: TComboBox
-              Left = 303
-              Top = 65
-              Width = 102
+              Left = 373
+              Top = 80
+              Width = 125
               Height = 21
               Hint = 'Informe a linguagem de programação utilizada'
               HelpContext = 120
               Style = csDropDownList
-              ItemHeight = 13
+              ItemHeight = 16
               ParentShowHint = False
               ShowHint = True
               TabOrder = 13
@@ -597,14 +600,14 @@ object FormDadosGenericos: TFormDadosGenericos
                 'Turbo Delphi 2006')
             end
             object EdComboDriver: TComboBox
-              Left = 303
-              Top = 92
-              Width = 102
-              Height = 21
+              Left = 373
+              Top = 113
+              Width = 125
+              Height = 24
               Hint = 'Informe o tipo de banco de dados'
               HelpContext = 120
               Style = csDropDownList
-              ItemHeight = 13
+              ItemHeight = 16
               ParentShowHint = False
               ShowHint = True
               TabOrder = 14
@@ -631,7 +634,7 @@ object FormDadosGenericos: TFormDadosGenericos
               Hint = 'Informe o componente de conexão.'
               HelpContext = 120
               Style = csDropDownList
-              ItemHeight = 13
+              ItemHeight = 16
               ParentShowHint = False
               ShowHint = True
               TabOrder = 15
@@ -642,9 +645,9 @@ object FormDadosGenericos: TFormDadosGenericos
             end
             object EdSelecionar: TCheckBox
               Left = 2
-              Top = 112
-              Width = 113
-              Height = 17
+              Top = 138
+              Width = 140
+              Height = 21
               Hint = 
                 'Informe se o usuário irá selecionar a Empresa Usuária na'#13#10'inicia' +
                 'lização.'
@@ -657,9 +660,9 @@ object FormDadosGenericos: TFormDadosGenericos
             end
             object EdMenuLateral: TCheckBox
               Left = 2
-              Top = 128
-              Width = 135
-              Height = 17
+              Top = 158
+              Width = 167
+              Height = 20
               Hint = 'Desativar Menu Lateral.'
               HelpContext = 120
               Caption = 'Desativar Menu Lateral'
@@ -670,9 +673,9 @@ object FormDadosGenericos: TFormDadosGenericos
             end
             object EdBarraF: TCheckBox
               Left = 2
-              Top = 144
-              Width = 167
-              Height = 17
+              Top = 177
+              Width = 206
+              Height = 21
               Hint = 'Desativar Barra de Ferramentas.'
               HelpContext = 120
               Caption = 'Desativar Barra de Ferramentas'
@@ -683,9 +686,9 @@ object FormDadosGenericos: TFormDadosGenericos
             end
             object EdBanner: TCheckBox
               Left = 2
-              Top = 160
-              Width = 151
-              Height = 17
+              Top = 197
+              Width = 186
+              Height = 21
               Hint = 
                 'Informe se um Banner Vertical será mostrado com o título do proj' +
                 'eto.'
@@ -704,7 +707,7 @@ object FormDadosGenericos: TFormDadosGenericos
               Hint = 'Informe o componente de conexão.'
               HelpContext = 120
               Style = csDropDownList
-              ItemHeight = 13
+              ItemHeight = 16
               ParentShowHint = False
               ShowHint = True
               TabOrder = 16
@@ -715,9 +718,9 @@ object FormDadosGenericos: TFormDadosGenericos
             end
             object EdAcessoInterno: TCheckBox
               Left = 2
-              Top = 96
-              Width = 155
-              Height = 17
+              Top = 118
+              Width = 191
+              Height = 21
               Hint = 
                 'Informe se as tabelas do controle de acesso serão armazenadas'#13#10'n' +
                 'o mesmo banco de dados do projeto ou externamente em arquivos co' +
@@ -741,16 +744,16 @@ object FormDadosGenericos: TFormDadosGenericos
               Caption = ' Acesso das Definições do Projeto na Rede  '
               Font.Charset = DEFAULT_CHARSET
               Font.Color = clBlue
-              Font.Height = -11
+              Font.Height = -15
               Font.Name = 'MS Sans Serif'
               Font.Style = []
               ParentFont = False
               TabOrder = 1
               object Label16: TLabel
-                Left = 234
-                Top = 17
-                Width = 90
-                Height = 13
+                Left = 288
+                Top = 21
+                Width = 116
+                Height = 16
                 Hint = 
                   'Localização do dicionário de dados'#13#10'informa a pasta de compartil' +
                   'harmento de tabelas e campos já definidos '#13#10'em outro projeto.'
@@ -758,16 +761,16 @@ object FormDadosGenericos: TFormDadosGenericos
                 FocusControl = EdServidor_Pro
                 Font.Charset = DEFAULT_CHARSET
                 Font.Color = clBlack
-                Font.Height = -11
+                Font.Height = -15
                 Font.Name = 'MS Sans Serif'
                 Font.Style = []
                 ParentFont = False
               end
               object Label14: TLabel
-                Left = 10
-                Top = 17
-                Width = 135
-                Height = 13
+                Left = 12
+                Top = 21
+                Width = 172
+                Height = 16
                 Hint = 
                   'Localização do dicionário de dados'#13#10'informa a pasta de compartil' +
                   'harmento de tabelas e campos já definidos '#13#10'em outro projeto.'
@@ -775,22 +778,22 @@ object FormDadosGenericos: TFormDadosGenericos
                 FocusControl = Ed_L_Projeto
                 Font.Charset = DEFAULT_CHARSET
                 Font.Color = clBlack
-                Font.Height = -11
+                Font.Height = -15
                 Font.Name = 'MS Sans Serif'
                 Font.Style = []
                 ParentFont = False
               end
               object EdServidor_Pro: TEdit
-                Left = 234
-                Top = 33
-                Width = 167
-                Height = 21
+                Left = 288
+                Top = 41
+                Width = 206
+                Height = 24
                 Hint = 
                   'Informe o nome do servidor ou Nº do IP'#13#10'Exemplo: Servidor ou 10.' +
                   '0.0.1'
                 Font.Charset = DEFAULT_CHARSET
                 Font.Color = clBlack
-                Font.Height = -11
+                Font.Height = -15
                 Font.Name = 'MS Sans Serif'
                 Font.Style = []
                 ParentFont = False
@@ -799,14 +802,14 @@ object FormDadosGenericos: TFormDadosGenericos
                 TabOrder = 1
               end
               object Ed_L_Projeto: TComboEdit
-                Left = 10
-                Top = 33
-                Width = 215
-                Height = 21
+                Left = 12
+                Top = 41
+                Width = 265
+                Height = 25
                 Hint = 'Informe a pasta de compartilhamento do projeto para uso em rede.'
                 Font.Charset = DEFAULT_CHARSET
                 Font.Color = clBlack
-                Font.Height = -11
+                Font.Height = -15
                 Font.Name = 'MS Sans Serif'
                 Font.Style = []
                 Glyph.Data = {
@@ -815,7 +818,7 @@ object FormDadosGenericos: TFormDadosGenericos
                   8000008000000080800080000000800080008080000080808000C0C0C0000000
                   FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00888888888800
                   0000800800800800000080080080080000008888888888000000}
-                ButtonWidth = 16
+                ButtonWidth = 20
                 NumGlyphs = 1
                 ParentFont = False
                 ParentShowHint = False
@@ -826,22 +829,22 @@ object FormDadosGenericos: TFormDadosGenericos
             end
             object GroupBox2: TGroupBox
               Left = 2
-              Top = 16
-              Width = 403
-              Height = 63
+              Top = 20
+              Width = 496
+              Height = 77
               Caption = ' Banco de Dados, Tabelas e Campos '
               Font.Charset = DEFAULT_CHARSET
               Font.Color = clBlue
-              Font.Height = -11
+              Font.Height = -15
               Font.Name = 'MS Sans Serif'
               Font.Style = []
               ParentFont = False
               TabOrder = 0
               object Label17: TLabel
-                Left = 231
-                Top = 20
-                Width = 104
-                Height = 13
+                Left = 284
+                Top = 25
+                Width = 134
+                Height = 16
                 Hint = 
                   'Localização do dicionário de dados'#13#10'informa a pasta de compartil' +
                   'harmento de tabelas e campos já definidos '#13#10'em outro projeto.'
@@ -849,16 +852,16 @@ object FormDadosGenericos: TFormDadosGenericos
                 FocusControl = EdServidor_Dic
                 Font.Charset = DEFAULT_CHARSET
                 Font.Color = clBlack
-                Font.Height = -11
+                Font.Height = -15
                 Font.Name = 'MS Sans Serif'
                 Font.Style = []
                 ParentFont = False
               end
               object EdDicionario: TCheckBox
-                Left = 10
-                Top = 15
-                Width = 121
-                Height = 17
+                Left = 12
+                Top = 18
+                Width = 149
+                Height = 21
                 Hint = 
                   'Informe se o projeto usará um dicionário de dados já definido'#13#10'e' +
                   'm outro projeto.'
@@ -866,7 +869,7 @@ object FormDadosGenericos: TFormDadosGenericos
                 Caption = '&Dicionário de Dados'
                 Font.Charset = DEFAULT_CHARSET
                 Font.Color = clBlack
-                Font.Height = -11
+                Font.Height = -15
                 Font.Name = 'MS Sans Serif'
                 Font.Style = []
                 ParentFont = False
@@ -876,16 +879,16 @@ object FormDadosGenericos: TFormDadosGenericos
                 OnExit = EdDicionarioExit
               end
               object Ed_L_Dicionario: TComboEdit
-                Left = 10
-                Top = 36
-                Width = 215
-                Height = 21
+                Left = 12
+                Top = 44
+                Width = 265
+                Height = 26
                 Hint = 
                   'Informe a pasta de compartilhamento do dicionário de dados'#13#10'com ' +
                   'outro projeto já definido.'
                 Font.Charset = DEFAULT_CHARSET
                 Font.Color = clBlack
-                Font.Height = -11
+                Font.Height = -15
                 Font.Name = 'MS Sans Serif'
                 Font.Style = []
                 Glyph.Data = {
@@ -894,7 +897,7 @@ object FormDadosGenericos: TFormDadosGenericos
                   8000008000000080800080000000800080008080000080808000C0C0C0000000
                   FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00888888888800
                   0000800800800800000080080080080000008888888888000000}
-                ButtonWidth = 16
+                ButtonWidth = 20
                 NumGlyphs = 1
                 ParentFont = False
                 ParentShowHint = False
@@ -903,16 +906,16 @@ object FormDadosGenericos: TFormDadosGenericos
                 OnButtonClick = Ed_L_DicionarioButtonClick
               end
               object EdServidor_Dic: TEdit
-                Left = 231
-                Top = 36
-                Width = 167
-                Height = 21
+                Left = 284
+                Top = 44
+                Width = 206
+                Height = 24
                 Hint = 
                   'Informe o nome do servidor ou Nº do IP'#13#10'Exemplo: Servidor ou 10.' +
                   '0.0.1'
                 Font.Charset = DEFAULT_CHARSET
                 Font.Color = clBlack
-                Font.Height = -11
+                Font.Height = -15
                 Font.Name = 'MS Sans Serif'
                 Font.Style = []
                 ParentFont = False
@@ -929,30 +932,30 @@ object FormDadosGenericos: TFormDadosGenericos
         Caption = 'Apresentação'
         ImageIndex = 1
         object Label9: TLabel
-          Left = 88
-          Top = 322
-          Width = 37
-          Height = 13
+          Left = 108
+          Top = 396
+          Width = 49
+          Height = 16
           Caption = '&Imagem'
         end
         object ImagemVazia: TImage
-          Left = 336
-          Top = 328
-          Width = 50
-          Height = 26
+          Left = 414
+          Top = 404
+          Width = 61
+          Height = 32
           Visible = False
         end
         object Panel5: TPanel
-          Left = 23
-          Top = 24
-          Width = 365
-          Height = 276
+          Left = 28
+          Top = 30
+          Width = 450
+          Height = 339
           TabOrder = 1
           object ImageApresentacao: TImage
             Left = 1
             Top = 1
-            Width = 363
-            Height = 274
+            Width = 447
+            Height = 337
             Align = alClient
             Center = True
             Stretch = True
@@ -960,8 +963,8 @@ object FormDadosGenericos: TFormDadosGenericos
           end
         end
         object EdTelaApresentacao: TComboEdit
-          Left = 128
-          Top = 319
+          Left = 158
+          Top = 393
           Width = 177
           Height = 21
           Hint = 'Informe a imagem de apresentação (Splash)'
@@ -985,23 +988,23 @@ object FormDadosGenericos: TFormDadosGenericos
         Caption = 'Imagem de Fundo'
         ImageIndex = 2
         object Label11: TLabel
-          Left = 88
-          Top = 322
-          Width = 37
-          Height = 13
+          Left = 108
+          Top = 396
+          Width = 49
+          Height = 16
           Caption = '&Imagem'
         end
         object Panel6: TPanel
-          Left = 23
-          Top = 24
-          Width = 365
-          Height = 276
+          Left = 28
+          Top = 30
+          Width = 450
+          Height = 339
           TabOrder = 2
           object ImagemFundo: TImage
             Left = 1
             Top = 1
-            Width = 363
-            Height = 274
+            Width = 447
+            Height = 337
             Align = alClient
             AutoSize = True
             Center = True
@@ -1009,10 +1012,10 @@ object FormDadosGenericos: TFormDadosGenericos
           end
         end
         object EdAjustar: TCheckBox
-          Left = 186
-          Top = 343
-          Width = 53
-          Height = 17
+          Left = 229
+          Top = 422
+          Width = 65
+          Height = 21
           Hint = 'Exibir imagem ajustada'
           HelpContext = 120
           Caption = 'Aj&ustar'
@@ -1022,10 +1025,10 @@ object FormDadosGenericos: TFormDadosGenericos
           OnClick = EdAjustarClick
         end
         object EdImagemFundo: TComboEdit
-          Left = 128
-          Top = 319
-          Width = 176
-          Height = 21
+          Left = 158
+          Top = 393
+          Width = 216
+          Height = 25
           Hint = 'Informe a imagem de fundo'
           Glyph.Data = {
             96000000424D960000000000000076000000280000000A000000040000000100
@@ -1033,7 +1036,7 @@ object FormDadosGenericos: TFormDadosGenericos
             8000008000000080800080000000800080008080000080808000C0C0C0000000
             FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00888888888800
             0000800800800800000080080080080000008888888888000000}
-          ButtonWidth = 16
+          ButtonWidth = 20
           NumGlyphs = 1
           ParentShowHint = False
           ShowHint = True

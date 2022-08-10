@@ -1,10 +1,10 @@
 object FormDB_Case: TFormDB_Case
-  Left = 191
-  Top = 97
+  Left = 525
+  Top = 44
   BorderIcons = [biSystemMenu]
   BorderStyle = bsSingle
   Caption = 'Tabelas'
-  ClientHeight = 506
+  ClientHeight = 502
   ClientWidth = 630
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -33,7 +33,7 @@ object FormDB_Case: TFormDB_Case
     Left = 0
     Top = 0
     Width = 24
-    Height = 472
+    Height = 468
     Align = alLeft
     Alignment = AtaLeftJustify
     Angle = 90
@@ -52,7 +52,7 @@ object FormDB_Case: TFormDB_Case
   end
   object Panel1: TPanel
     Left = 0
-    Top = 472
+    Top = 468
     Width = 630
     Height = 34
     Align = alBottom
@@ -176,18 +176,18 @@ object FormDB_Case: TFormDB_Case
     Left = 24
     Top = 0
     Width = 606
-    Height = 472
+    Height = 468
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 1
     DesignSize = (
       606
-      472)
+      468)
     object PageControl1: TPageControl
       Left = 5
       Top = 5
       Width = 596
-      Height = 462
+      Height = 458
       ActivePage = TabSheet2
       Anchors = [akLeft, akTop, akRight, akBottom]
       HotTrack = True
@@ -271,8 +271,8 @@ object FormDB_Case: TFormDB_Case
           OnKeyDown = Tree_TabelasKeyDown
         end
         object Insp_Tabela: TDBInspector
-          Left = 295
-          Top = 8
+          Left = 299
+          Top = 14
           Width = 287
           Height = 388
           Color = clBtnFace
@@ -280,7 +280,7 @@ object FormDB_Case: TFormDB_Case
           ShowHint = False
           TabOrder = 1
           Splitter = 130
-          DataSource = DataSource_Tabela
+          DataSource = DataSource_Campo
           OnGetButtonType = Insp_TabelaGetButtonType
           OnGetEnableExternalEditor = Insp_TabelaGetEnableExternalEditor
           OnGetValuesList = Insp_TabelaGetValuesList
@@ -1333,13 +1333,13 @@ object FormDB_Case: TFormDB_Case
   end
   object DataSource_Banco: TDataSource
     OnUpdateData = DataSource_BancoUpdateData
-    Left = 185
-    Top = 475
+    Left = 205
+    Top = 467
   end
   object OpenGDB: TOpenDialog
     Filter = 'Banco de Dados InterBase ( *.GDB )|*.GDB'
-    Left = 78
-    Top = 474
+    Left = 77
+    Top = 480
   end
   object PopupMenu1: TPopupMenu
     Left = 247
@@ -1435,7 +1435,7 @@ object FormDB_Case: TFormDB_Case
     Tag = 40
     OnUpdateData = DataSource_BancoUpdateData
     Left = 339
-    Top = 475
+    Top = 474
   end
   object DataSource_Processo: TDataSource
     Tag = 50
@@ -1470,7 +1470,7 @@ object FormDB_Case: TFormDB_Case
   object DataSource_Diagrama: TDataSource
     Tag = 100
     OnUpdateData = DataSource_BancoUpdateData
-    Left = 531
+    Left = 530
     Top = 475
   end
 end

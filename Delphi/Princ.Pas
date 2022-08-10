@@ -1,4 +1,4 @@
-{
+ {
  Empresa....: %EMPRESA
  Módulo.....: %MODULO
  Sistema....: %TITULO

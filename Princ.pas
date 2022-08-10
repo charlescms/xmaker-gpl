@@ -8,6 +8,7 @@ unit Princ;
 interface
 
 uses
+
   Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs,
   ComCtrls, ToolWin, ExtCtrls, ImgList, Menus, IniFiles, Tabnotbk, FileCtrl,
   StdCtrls, SynEditPrint, SynEditPrintTypes, Buttons, SynEdit,
@@ -25,7 +26,17 @@ uses
   FR_E_CSV, FR_E_RTF, FR_E_TXT, FR_RRect, FR_Chart, FR_BarC, FR_Shape,
   FR_ChBox, FR_Rich, FR_OLE, FR_DSet, FR_DBSet, FR_Class, QrTee, QRExport,
   QRPrntr, QuickRpt, Qrctrls, ADODB, SMDBGrid, ActnList, IB, OgProExe,
-  OnGuard, OgNetWrk;
+  OnGuard, OgNetWrk, ACBrEAD,{ACBrNFeDANFERave,}ACBrIBGE, ACBrSocket, ACBrCEP,
+  ACBrETQ, ACBrBAL, ACBrTER, ACBrDIS, ACBrLCB, ACBrCHQ, ACBrGAV, ACBrRFD,
+  ACBrECF, ACBrBoletoFCFortesFr, {CBrNFeDANFERaveCB,}ACBrCTeDACTEClass,
+  {CBrCTeDACTeQRClass,ACBrNFeDANFEClass, ACBrNFeDANFeQRClass,} ACBrCTe,
+  ACBrNFe, ACBrPAF, ACBrSintegra, ACBrSpedFiscal, ACBrSpedContabil,
+  ACBrBoleto, {ACBrBoletoFCQuickFr,} ACBrTEFD, ACBrBarCode, ACBrGIF,
+  ACBrEnterTab, ACBrFala, ACBrValidador, ACBrTroco,
+  ACBrExtenso, ACBrCMC7,
+  ACBrBase, ACBrCalculadora,
+  VDODmPrinter, VDOCaPrinter, VDOBasePrinter, VDOPrinter ,
+  TimerLst, JvDBImage  ,JvDBControls  ;
 
 type
   TFormPrincipal = class(TForm)
@@ -196,6 +207,9 @@ type
     TimerFormulario: TTimer;
     N9: TMenuItem;
     Visitenossosite1: TMenuItem;
+    Tab_ACBr: TJvStandardPage;
+    Tab_Vdo: TJvStandardPage;
+    Tab_Jede: TJvStandardPage;
     procedure sbtPaletteButtonClick(Sender: TObject);
     procedure ShowHint(Sender: TObject);
     procedure SairClick(Sender: TObject);
@@ -340,11 +354,12 @@ implementation
 {$R *.DFM}
 
 uses Rotinas, DGeneric, PrDelphi, RichEdit, ObjMenu,
-     Gera_01, GeraF, Compila, Diario, Sobre,
+	 Gera_01, GeraF, Compila, Diario, Sobre,
      Aguarde, CampoPre, Formular, env_opt, find, Replace,
      Based, Abertura, Abertura_p, Tabela, Calend, Calculad, Splash,
-     Estrutura_Bd, FDesigner, FrmCompile, FormsProj, DefModelos, FDCmpPal, ObjInsp,
-     UsrFirebird, Estrutura_Case, BetaTeste, Formularios;
+     Estrutura_Bd, FDesigner, FrmCompile, FormsProj, DefModelos, FDCmpPal,
+     ObjInsp,UsrFirebird, Estrutura_Case, BetaTeste, Formularios ;
+
 
 {procedure TFormPrincipal.OnGetMinMaxInfo(var msg : TWMGetMinMaxInfo);
 var
@@ -457,7 +472,7 @@ var
     CreatePalette(Tab_RXControles,[TComboEdit, TFileNameEdit, TDirectoryEdit, TDateEdit,
                                    TRXCalcEdit, TCurrencyEdit, TTextListBox, TRxCheckListBox,
                                    TFontComboBox, TRxRichEdit,
-                                   TRxGIFAnimator, TRxSwitch, TRxDice], sbtPaletteButtonClick);
+                                   TRxGIFAnimator, TRxSwitch, TRxDice,TRxTimerList], sbtPaletteButtonClick);
     CreatePalette(Tab_RXTabelas,[TRxDBGrid, TRxDBLookupList, TRxDBLookupCombo,
                                  TDBDateEdit, TRxDBCalcEdit, TRxDBRichEdit,
                                  TRxDBComboBox], sbtPaletteButtonClick);
@@ -470,6 +485,19 @@ var
                                     TQRExprMemo, TQRRichText, TQRDBRichText, TQRShape, TQRImage,
                                     TQRDBImage, TQRCompositeReport, TQRPreview, TQRTextFilter,
                                     TQRCSVFilter, TQRHTMLFilter, TQRChart], sbtPaletteButtonClick);
+// novo componentes
+
+    CreatePalette(Tab_ACBr, [TACBrExtenso,TACBrTroco,TACBrValidador,TACBrFala,TACBrEnterTab,TACBrGIF,
+                             TACBrBarCode,TACBrTEFD,TACBrBoleto,{TACBrBoletoFCQuick,}TACBrSPEDContabil,
+                             TACBrSPEDFiscal,TACBrSintegra,TACBrPAF,TACBrNFe,TACBrCTe,{TACBrNFeDANFEQR,}
+                             {TACBrCTeDACTeQR,TACBrNFeDANFERaveCB,}TACBrBoletoFCFortes,TACBrECF,TACBrRFD,
+                             TACBrGAV,TACBrCHQ,TACBrLCB,TACBrDIS,TACBrTER,TACBrBAL,TACBrETQ,TACBrTCPServer,
+                             TACBrCEP,TACBrIBGE,{TACBrNFeDANFERave,}TACBrEAD], sbtPaletteButtonClick);
+
+    CreatePalette(Tab_Vdo, [TVDOPrinter,TVDOCaPrinter,TVDODmPrinter], sbtPaletteButtonClick);
+    // 25/03/20210    // NOVO CMS
+    CreatePalette(Tab_Jede, [TJvDBImage,TJvDBNavigator], sbtPaletteButtonClick);
+
   end;
 
 begin
@@ -516,9 +544,11 @@ begin
   FecharForm := False;
   Projeto.PastaGerador := ExtractFilePath(Application.ExeName);
   Projeto.PastaGerador := DiretorioComBarra(Projeto.PastaGerador);
-  Projeto.VersaoGerador:= '5.0';
+  Projeto.VersaoGerador:= '5.1';
   Projeto.VersaoGerador_v := '05';
-  Projeto.ReleaseGerador := 'R04';
+  // Projeto.ReleaseGerador := 'R04';
+  // criada a possibilidade de criacao de views
+  Projeto.ReleaseGerador := 'R05';
   Projeto.Beta_Versao    := '';
   Projeto.Beta_Release   := '';
   LbBeta.Visible := Trim(Projeto.Beta_Versao) <> '';
@@ -1265,7 +1295,7 @@ begin
     Grava_Relacionamento(1, 'Usuários', 'Usuario', 'Usuario', 'USER_NOMES', 1);
   end;
 end;
-
+// novo campos do banco de dados de projetos
 procedure TFormPrincipal.AtualizaCampoProjeto;
 var
   Query: TIBQuery;

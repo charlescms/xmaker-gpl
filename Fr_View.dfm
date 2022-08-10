@@ -2,7 +2,7 @@ object frPreviewForm: TfrPreviewForm
   Left = 259
   Top = 141
   AutoScroll = False
-  Caption = 'Предварительный просмотр'
+  Caption = #207#240#229#228#226#224#240#232#242#229#235#252#237#251#233' '#239#240#238#241#236#238#242#240
   ClientHeight = 305
   ClientWidth = 443
   Color = clBtnFace
@@ -546,21 +546,21 @@ object frPreviewForm: TfrPreviewForm
     end
     object N1: TMenuItem
       Tag = 1
-      Caption = 'По ширине страницы'
+      Caption = #207#238' '#248#232#240#232#237#229' '#241#242#240#224#237#232#246#251
       GroupIndex = 1
       RadioItem = True
       OnClick = N3Click
     end
     object N2: TMenuItem
       Tag = 2
-      Caption = 'Страница целиком'
+      Caption = #209#242#240#224#237#232#246#224' '#246#229#235#232#234#238#236
       GroupIndex = 1
       RadioItem = True
       OnClick = N3Click
     end
     object N3: TMenuItem
       Tag = 3
-      Caption = 'Две страницы'
+      Caption = #196#226#229' '#241#242#240#224#237#232#246#251
       GroupIndex = 1
       RadioItem = True
       OnClick = N3Click
@@ -570,29 +570,29 @@ object frPreviewForm: TfrPreviewForm
       GroupIndex = 1
     end
     object N5: TMenuItem
-      Caption = 'Редактировать'
+      Caption = #208#229#228#224#234#242#232#240#238#226#224#242#252
       GroupIndex = 1
       OnClick = EditBtnClick
     end
     object N6: TMenuItem
-      Caption = 'Добавить страницу'
+      Caption = #196#238#225#224#226#232#242#252' '#241#242#240#224#237#232#246#243
       GroupIndex = 1
       OnClick = NewPageBtnClick
     end
     object N7: TMenuItem
-      Caption = 'Удалить страницу'
+      Caption = #211#228#224#235#232#242#252' '#241#242#240#224#237#232#246#243
       GroupIndex = 1
       OnClick = DelPageBtnClick
     end
   end
   object OpenDialog: TOpenDialog
-    Filter = 'Файл отчета (*.frp)|*.frp'
+    Filter = #212#224#233#235' '#238#242#247#229#242#224' (*.frp)|*.frp'
     Options = [ofHideReadOnly]
     Left = 124
     Top = 99
   end
   object SaveDialog: TSaveDialog
-    Filter = 'Файл отчета (*.frp)|*.frp'
+    Filter = #212#224#233#235' '#238#242#247#229#242#224' (*.frp)|*.frp'
     Options = [ofHideReadOnly]
     Left = 164
     Top = 99

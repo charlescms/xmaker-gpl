@@ -94,3 +94,15 @@ Numero 008
   Validacao = VALORNULO
   Validos = F;J
   Descricao = Física;Jurídica
+Numero 009
+  Nome = HORA
+  Tipo = Alfanumérico
+  Tamanho = 6    
+  Edicao = Edição Padrão ( Edit )
+  Mascara = 99:99:99
+  Titulo = Hora
+  Ajuda = Informe a hora
+  Padrao = HoraAtual
+  Validacao = 
+  Validos = 
+  Descricao = 

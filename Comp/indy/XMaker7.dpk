@@ -1,0 +1,61 @@
+{
+   Copyright..: Modular Software - http://www.modularsoftware.com.br
+   Data.......: 01/10/2003
+}
+package XMaker7;
+
+{$I XMaker.inc}
+{$R *.res}
+{$R 'XDate.dcr'}
+{$R 'XNum.dcr'}
+{$R 'XEdit.dcr'}
+{$R 'XDBDate.dcr'}
+{$R 'XDBNum.dcr'}
+{$R 'XDBEdit.dcr'}
+{$R 'XLookUp.dcr'}
+{$R 'XBanner.dcr'}
+{$R 'XLabel3D.dcr'}
+{$ALIGN 8}
+{$ASSERTIONS ON}
+{$BOOLEVAL OFF}
+{$DEBUGINFO ON}
+{$EXTENDEDSYNTAX ON}
+{$IMPORTEDDATA ON}
+{$IOCHECKS ON}
+{$LOCALSYMBOLS ON}
+{$LONGSTRINGS ON}
+{$OPENSTRINGS ON}
+{$OPTIMIZATION ON}
+{$OVERFLOWCHECKS OFF}
+{$RANGECHECKS OFF}
+{$REFERENCEINFO ON}
+{$SAFEDIVIDE OFF}
+{$STACKFRAMES OFF}
+{$TYPEDADDRESS OFF}
+{$VARSTRINGCHECKS ON}
+{$WRITEABLECONST ON}
+{$MINENUMSIZE 1}
+{$IMAGEBASE $400000}
+{$DESCRIPTION 'XMaker - Componentes - Delphi 7.0'}
+{$IMPLICITBUILD OFF}
+
+requires
+  vcl,
+  rtl,
+  vclx,
+  dbrtl,
+  bdertl,
+  vcldb;
+
+contains
+  XDate in 'XDate.pas',
+  XNum in 'XNum.pas',
+  XEdit in 'XEdit.pas',
+  XDBDate in 'XDBDate.pas',
+  XDBNum in 'XDBNum.pas',
+  XDBEdit in 'XDBEdit.pas',
+  XLookUp in 'XLookUp.pas',
+  XBanner in 'XBanner.pas',
+  XLabel3D in 'XLabel3D.pas';
+
+end.

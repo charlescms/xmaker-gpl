@@ -6,6 +6,7 @@
 program xMaker;
 
 uses
+  FastMM4,
   Forms,
   Princ in 'Princ.pas' {FormPrincipal},
   Rotinas in 'Rotinas.pas',

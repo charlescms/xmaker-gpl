@@ -1,7 +1,7 @@
 object FormObjInsp_rel: TFormObjInsp_rel
   Left = 298
   Top = 213
-  Width = 186
+  Width = 289
   Height = 374
   BorderIcons = [biSystemMenu, biMinimize]
   Caption = 'Object Inspector'
@@ -125,7 +125,7 @@ object FormObjInsp_rel: TFormObjInsp_rel
   object ControlBar2: TControlBar
     Left = 0
     Top = 0
-    Width = 178
+    Width = 273
     Height = 29
     Align = alTop
     BevelInner = bvNone

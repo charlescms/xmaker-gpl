@@ -1,6 +1,6 @@
 {
    Programa.: Acesso.PAS
-   Copyright: Modular Software 2006
+   Copyright: X-Maker
             : Todos os direitos reservados
    Site.....: http://www.xmaker.com.br
 }
@@ -48,6 +48,8 @@ type
     procedure LbTrocaClick(Sender: TObject);
     procedure BtnCancelaNovaSenhaClick(Sender: TObject);
     procedure ConfirmaSenhaExit(Sender: TObject);
+    procedure FormKeyDown(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
   private
     { Private declarations }
     procedure Mensagem(Texto: String; Cor: TColor; Pausa: Boolean = False);
@@ -517,6 +519,13 @@ begin
     Mensagem('Usuário não autorizado !', clRed, True);
     ModalResult := mrCancel;
   end;
+  // proteção por data
+  //if date() > StrToDate('25/03/2008') then
+  //begin
+  //  Showmessage('SISTEMA não autorizado!' +#13 + 'Contate o Suporte');
+  //  ModalResult := mrCancel;
+  //end;
+  // Fim Código proteção por data
   Screen.Cursor := crDefault;
 end;
 
@@ -671,7 +680,9 @@ begin
     Key := #0;
   end
   else if Key = Chr(27) then
-    Close;
+       if formacesso.BtnCancela.Visible then Close;
+  //if Key = chr(115) then Key := #0;
+
 end;
 
 procedure TFormAcesso.SenhaExit(Sender: TObject);
@@ -767,6 +778,12 @@ begin
      (ActiveControl <> Senha) and (ActiveControl <> NovaSenha ) and
      (ActiveControl <> BtnCancelaNovaSenha) then
     BtnOkClick(Self);
+end;
+
+procedure TFormAcesso.FormKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+if (Key = VK_F4) then Key := 0;
 end;
 
 end.

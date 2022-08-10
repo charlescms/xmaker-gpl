@@ -7,7 +7,10 @@ uses
   FDMain, IniFiles, stdctrls, SynEdit, SynEditKeyCmds, comctrls, FR_Ctrls,
   ExtCtrls, FR_Dock, FR_DBOp, FR_Class, tabs, Menus, SynHighlighterDfm, ActnList,
   XDate, XNum, XEdit, XDBDate, XDBNum, XDBEdit, XLookup, dbctrls, db, TypInfo,
-  dbgrids, RXDbCtrl, DBRichEd;
+  dbgrids, RXDbCtrl, DBRichEd, JvDBControls, JvDBImage ;
+
+const
+  Numero_objetos = 197 ;
 
 type
   TPropForm = record
@@ -727,8 +730,9 @@ begin
 end;
 
 procedure TFrmXDesig.AtribuiUsesComp(Classe: String; Texto: TSynEdit);
-Const
-  N_Classe: Array[0..195] of String =
+Const             // Numero_objetos
+//N_Classe: Array[0..195] of String =
+  N_Classe: Array[0..Numero_objetos] of String =
             ('TMainMenu', 'TPopupMenu', 'TLabel', 'TEdit', 'TMemo', 'TButton', 'TCheckBox',
              'TRadioButton', 'TListBox', 'TComboBox', 'TScrollBar', 'TGroupBox',
              'TRadioGroup', 'TPanel', 'TGauge', 'TColorGrid', 'TSpinButton', 'TSpinEdit', 'TActionList',
@@ -775,9 +779,10 @@ Const
              'TQRCSVFilter', 'TQRHTMLFilter', 'TQRChart',
              'TOgMakeKeys', 'TOgMakeCodes', 'TOgDateCode', 'TOgDaysCode', 'TOgNetCode',
              'TOgRegistrationCode', 'TOgSerialNumberCode', 'TOgSpecialCode', 'TOgUsageCode',
-             'TOgProtectExe');
+             'TOgProtectExe','TJvDBNavigator','TJvDBImage');
 
-  N_Unit: Array[0..195] of String =
+//  N_Unit: Array[0..195] of String =
+  N_Unit: Array[0..Numero_objetos] of String =
             ('menus', 'menus', 'stdctrls', 'stdctrls', 'stdctrls', 'stdctrls', 'stdctrls',
              'stdctrls', 'stdctrls', 'stdctrls', 'stdctrls', 'stdctrls',
              'extctrls', 'extctrls', 'Gauges', 'ColorGrd', 'Spin', 'Spin', 'ActnList',
@@ -824,7 +829,7 @@ Const
              'QRExport', 'QRExport', 'QRTee',
              'OnGuard', 'OnGuard', 'OnGuard', 'OnGuard', 'OgNetWrk',
              'OnGuard', 'OnGuard', 'OnGuard', 'OnGuard',
-             'OgProExe');
+             'OgProExe','JvDBControls','JvDBImage');
 
 var
   Achou, Achou2: Boolean;
@@ -832,7 +837,7 @@ var
   I: Integer;
 begin
   Unit_Nome := '';
-  for I:=0 to 195 do
+  for I:=0 to Numero_objetos do
     if LowerCase(N_Classe[I]) = LowerCase(Classe) then
     begin
       Unit_Nome := N_Unit[I];
@@ -1363,7 +1368,9 @@ Var
       else if (TpCampo = 6) or
               (TpCampo = 20) then
       begin
-        CreateComponent(TDBImage,'TDBImage',X,Y,True,NomeCampo,'Imagem', False);
+        // cms 06/04/2012 
+        CreateComponent(TJvDBImage,'TJvDBImage',X,Y,True,NomeCampo,'Imagem', False);
+        // CreateComponent(TDBImage,'TDBImage',X,Y,True,NomeCampo,'Imagem', False);
         //TDBImage(ObjetoAtual).TabOrder := OrdemTab;
       end
       else if (TpCampo = 25) then
@@ -1446,7 +1453,10 @@ Var
         else if (TpCampo = 6) or
                 (TpCampo = 20) then
         begin
-          CreateComponent(TDBImage,'TDBImage',X,Y,True,NomeCampo,'Imagem', False);
+         // cms 06/04/2012
+         // CreateComponent(TDBImage,'TDBImage',X,Y,True,NomeCampo,'Imagem', False);
+
+          CreateComponent(TJvDBImage,'TJvDBImage',X,Y,True,NomeCampo,'Imagem', False);
           //TDBImage(ObjetoAtual).TabOrder := OrdemTab;
         end
         else if (TpCampo = 25) then

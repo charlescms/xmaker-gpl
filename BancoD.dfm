@@ -1,6 +1,6 @@
 object FormBancoDados: TFormBancoDados
-  Left = 301
-  Top = 152
+  Left = 718
+  Top = 135
   HelpContext = 140
   BorderStyle = bsToolWindow
   Caption = 'Definição de Banco de Dados'

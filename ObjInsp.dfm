@@ -1,7 +1,7 @@
 object FormObjInsp: TFormObjInsp
   Left = 291
   Top = 193
-  Width = 186
+  Width = 307
   Height = 374
   BorderIcons = [biSystemMenu]
   BorderStyle = bsSizeToolWin
@@ -27,17 +27,18 @@ object FormObjInsp: TFormObjInsp
   object JvTabBar2: TJvTabBar
     Left = 0
     Top = 52
-    Width = 178
+    Width = 291
     CloseButton = False
     Tabs = <
       item
         Caption = 'Propriedades do Objeto'
+        Selected = True
       end>
   end
   object PnComboObjects: TPanel
     Left = 0
     Top = 79
-    Width = 178
+    Width = 291
     Height = 26
     Align = alTop
     Alignment = taLeftJustify
@@ -72,7 +73,7 @@ object FormObjInsp: TFormObjInsp
   object Panel12: TPanel
     Left = 0
     Top = 75
-    Width = 178
+    Width = 291
     Height = 4
     Align = alTop
     BevelOuter = bvNone
@@ -82,24 +83,24 @@ object FormObjInsp: TFormObjInsp
     Left = 0
     Top = 105
     Width = 4
-    Height = 231
+    Height = 227
     Align = alLeft
     BevelOuter = bvNone
     TabOrder = 3
   end
   object Panel14: TPanel
-    Left = 174
+    Left = 287
     Top = 105
     Width = 4
-    Height = 231
+    Height = 227
     Align = alRight
     BevelOuter = bvNone
     TabOrder = 4
   end
   object Panel15: TPanel
     Left = 0
-    Top = 336
-    Width = 178
+    Top = 332
+    Width = 291
     Height = 4
     Align = alBottom
     BevelOuter = bvNone
@@ -108,8 +109,8 @@ object FormObjInsp: TFormObjInsp
   object PnFormObjInsp: TPanel
     Left = 4
     Top = 105
-    Width = 170
-    Height = 231
+    Width = 283
+    Height = 227
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 6
@@ -207,7 +208,7 @@ object FormObjInsp: TFormObjInsp
   object ControlBar2: TControlBar
     Left = 0
     Top = 0
-    Width = 178
+    Width = 291
     Height = 52
     Align = alTop
     AutoSize = True
@@ -262,7 +263,7 @@ object FormObjInsp: TFormObjInsp
     object ToolBar1: TToolBar
       Left = 11
       Top = 28
-      Width = 159
+      Width = 157
       Height = 22
       AutoSize = True
       Caption = 'ToolBar1'
@@ -300,7 +301,7 @@ object FormObjInsp: TFormObjInsp
         OnClick = BtnPaginasClick
       end
       object BtnWinState: TToolButton
-        Left = 82
+        Left = 84
         Top = 0
         Hint = 'Estilo do formul'#225'rio (WindowState)'
         Caption = 'BtnWinState'
@@ -310,7 +311,7 @@ object FormObjInsp: TFormObjInsp
         OnClick = BtnWinStateClick
       end
       object BtnPosition: TToolButton
-        Left = 118
+        Left = 122
         Top = 0
         Hint = 'Posi'#231#227'o do formul'#225'rio'
         Caption = 'BtnPosition'

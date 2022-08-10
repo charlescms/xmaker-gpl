@@ -1,6 +1,6 @@
 object FormXMakerModelo: TFormXMakerModelo
-  Left = 245
-  Top = 169
+  Left = 492
+  Top = 168
   Width = 521
   Height = 390
   Caption = 'Entrada de Dados'
@@ -26,16 +26,16 @@ object FormXMakerModelo: TFormXMakerModelo
     Left = 0
     Top = 33
     Width = 513
-    Height = 311
+    Height = 304
     Align = alClient
-    TabOrder = 1
+    TabOrder = 0
     object TPage
       Left = 0
       Top = 0
       Caption = 'Manutencao'
       object TabPaginas: TTabSet
         Left = 0
-        Top = 257
+        Top = 250
         Width = 513
         Height = 21
         Align = alBottom
@@ -51,7 +51,7 @@ object FormXMakerModelo: TFormXMakerModelo
       end
       object PnInferior: TPanel
         Left = 0
-        Top = 278
+        Top = 271
         Width = 513
         Height = 33
         Align = alBottom
@@ -383,6 +383,25 @@ object FormXMakerModelo: TFormXMakerModelo
       end
     end
   end
+  object StatusBar: TStatusBar
+    Left = 0
+    Top = 337
+    Width = 513
+    Height = 19
+    Panels = <
+      item
+        Text = 'Opera'#231#227'o:'
+        Width = 120
+      end
+      item
+        Text = 'Filtragem:'
+        Width = 120
+      end
+      item
+        Text = 'Ordena'#231#227'o:'
+        Width = 150
+      end>
+  end
   object PnSuperior: TPanel
     Left = 0
     Top = 0
@@ -390,7 +409,7 @@ object FormXMakerModelo: TFormXMakerModelo
     Height = 33
     Align = alTop
     BevelOuter = bvNone
-    TabOrder = 0
+    TabOrder = 2
     object BtnIncluir: TSpeedButton
       Left = 4
       Top = 3
@@ -654,26 +673,6 @@ object FormXMakerModelo: TFormXMakerModelo
       Align = alBottom
       TabOrder = 0
     end
-  end
-  object StatusBar: TStatusBar
-    Left = 0
-    Top = 344
-    Width = 513
-    Height = 19
-    Panels = <
-      item
-        Text = 'Operação:'
-        Width = 120
-      end
-      item
-        Text = 'Filtragem:'
-        Width = 120
-      end
-      item
-        Text = 'Ordenação:'
-        Width = 150
-      end>
-    SimplePanel = False
   end
   object DataSource: TDataSource
     Left = 296

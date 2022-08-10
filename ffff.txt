@@ -1,0 +1,1 @@
+[Fatal Error] Princ.pas(32): Unit ACBrCompress was compiled with a different version of Zlib.TCompressionLevel
