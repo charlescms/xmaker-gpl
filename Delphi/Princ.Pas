@@ -1,4 +1,4 @@
-{
+ {
  Empresa....: %EMPRESA
  Módulo.....: %MODULO
  Sistema....: %TITULO
@@ -42,7 +42,7 @@ type
     BtnProximo: TSpeedButton;
     BtnUltimo: TSpeedButton;
     BtnMinimiza: TSpeedButton;
-    {01-Início do Bloco Modular. Modificações não serão preservadas}
+    {01-Início do Bloco X-Maker. Modificações não serão preservadas}
     Mnu_1: TMenuItem;
     Mnu_2: TMenuItem;
     Mnu_3: TMenuItem;
@@ -103,7 +103,7 @@ type
     Bar_7: TToolButton;
     Bar_8: TToolButton;
     Bar_9: TToolButton;
-    {99-Final do Bloco Modular. Modificações não serão preservadas}
+    {99-Final do Bloco X-Maker. Modificações não serão preservadas}
     PnLista1: TPanel;
     PnLista2: TPanel;
     BarraFerramentas: TToolBar;
@@ -115,7 +115,7 @@ type
     procedure PnOpcoesResize(Sender: TObject);
     procedure TreeOpcoesClick(Sender: TObject);
     procedure TreeOpcoesKeyPress(Sender: TObject; var Key: Char);
-    {02-Início do Bloco Modular. Modificações não serão preservadas}
+    {02-Início do Bloco X-Maker. Modificações não serão preservadas}
     procedure Mnu_2Click(Sender: TObject);
     procedure Mnu_3Click(Sender: TObject);
     procedure Mnu_5Click(Sender: TObject);
@@ -142,13 +142,13 @@ type
     procedure Bar_6Click(Sender: TObject);
     procedure Bar_7Click(Sender: TObject);
     procedure Bar_9Click(Sender: TObject);
-    {99-Final do Bloco Modular. Modificações não serão preservadas}
+    {99-Final do Bloco X-Maker. Modificações não serão preservadas}
     procedure GradientePaint(Sender: TObject);
     procedure BtnMinimizaClick(Sender: TObject);
   private
     { Declarações Privadas }
-    {10-Início do Bloco Modular. Modificações não serão preservadas}
-    {99-Final do Bloco Modular. Modificações não serão preservadas}
+    {10-Início do Bloco X-Maker. Modificações não serão preservadas}
+    {99-Final do Bloco X-Maker. Modificações não serão preservadas}
   protected
     { Declarações Protegidas }
   public
@@ -170,8 +170,8 @@ implementation
 {$R *.RES}
 
 uses Rotinas, Publicas, Splash, Interno,
-     {20-Início do Bloco Modular. Modificações não serão preservadas}
-     {99-Final do Bloco Modular. Modificações não serão preservadas}
+     {20-Início do Bloco X-Maker. Modificações não serão preservadas}
+     {99-Final do Bloco X-Maker. Modificações não serão preservadas}
      Acesso;
 
 procedure TFormPrincipal.ShowHint(Sender: TObject);
@@ -460,8 +460,8 @@ end;
 
 procedure TFormPrincipal.TreeOpcoesClick(Sender: TObject);
 begin
-  {30-Início do Bloco Modular. Modificações não serão preservadas}
-  {99-Final do Bloco Modular. Modificações não serão preservadas}
+  {30-Início do Bloco X-Maker. Modificações não serão preservadas}
+  {99-Final do Bloco X-Maker. Modificações não serão preservadas}
 end;
 
 procedure TFormPrincipal.TreeOpcoesKeyPress(Sender: TObject;
@@ -540,10 +540,10 @@ begin
   PnOpcoesResize(Self);
 end;
 
-{40-Início do Bloco Modular. Modificações não serão preservadas}
-{99-Final do Bloco Modular. Modificações não serão preservadas}
+{40-Início do Bloco X-Maker. Modificações não serão preservadas}
+{99-Final do Bloco X-Maker. Modificações não serão preservadas}
 
-{50-Início do Bloco Modular. Modificações não serão preservadas}
+{50-Início do Bloco X-Maker. Modificações não serão preservadas}
 procedure TFormPrincipal.Mnu_2Click(Sender: TObject);
 begin
   if not LiberaAcesso(TMenuItem(Sender).Tag, 1) then  // usuário possui acesso ?
@@ -726,6 +726,6 @@ begin
   INTERNO107;
 end;
 
-{99-Final do Bloco Modular. Modificações não serão preservadas}
+{99-Final do Bloco X-Maker. Modificações não serão preservadas}
 
 end.

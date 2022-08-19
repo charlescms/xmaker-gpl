@@ -1,0 +1,239 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<title>TFormContainer</title>
+</head>
+
+<body bgcolor="#FFFFFF">
+
+<h3>TFormContainer</h3>
+
+<p><font face="Arial">Unit</font>
+
+<dl>
+  <dd><font size="2">FormCont</font></dd>
+</dl>
+
+<p><font face="Arial">Declaration</font>
+
+<dl>
+  <dd><font size="2">TFormContainer = class(TCustomControl)</font></dd>
+</dl>
+
+<p><font face="Arial">Description</font>
+
+<dl>
+  <dd><font size="2">TFormContainer is a component that allows to insert one form as a child
+    window at run-time. At design time you only will see a panel-like control, but only
+    calling two methods you can insert a form as if it was just another control of Delphi. You
+    can insert another control in it both at run-time and at design-time, just as you do with
+    an ordinary panel.</font></dd>
+</dl>
+
+<p><font size="2"><a href="#FormContainer's properties">Properties</a> <a
+href="#FormContainers's methods">Methods</a> <a href="#FormContainers's events">Events</a></font></p>
+
+<p><a name="FormContainer's properties"><font face="Arial">Properties</font></a></p>
+
+<p><a name="BackgroundOptions"><font size="2"><b>BackgroundOptions</b></font></a>
+
+<dl>
+  <dd><font size="2"><b>Declaration:</b> property BackgroundOptions: TFCBackgroundOptions read
+    FBackgroundOptions;</font></dd>
+  <dd><font size="2"><b>Description:</b> Configuration of the background.</font></dd>
+  <dd><font size="2"><b>See also:</b> <a href="backgopt.htm">TFCBackgroundOptions</a> <a
+    href="#Picture">Picture</a></font></dd>
+</dl>
+
+<p><a name="BorderStyle"><font size="2"><b>BorderStyle</b></font></a>
+
+<dl>
+  <dd><font size="2"><b>Declaration:</b> property BorderStyle: TBorderStyle read FBorderStyle
+    write SetBorderStyle default bsNone;</font></dd>
+  <dd><font size="2"><b>Description:</b> Specifies whether the FormContainer has a border.</font></dd>
+</dl>
+
+<p><a name="FlickerFree"><font size="2"><b>FlickerFree</b></font></a>
+
+<dl>
+  <dd><font size="2"><b>Declaration:</b> property FlickerFree: Boolean read FFlickerFree write
+    FFlickerFree default True;</font></dd>
+  <dd><font size="2"><b>Description:</b> When calling <a href="#ShowForm">ShowForm</a> (or <a
+    href="#ShowFormEx">ShowFormEx</a> with <i>Transition</i> set to <i>nil</i>) if <i>FlickerFree</i>
+    is <i>False</i>, then the FormContainer will be refreshed and, depending on its graphical
+    complexity, you could see some flickering. But if <i>FlickerFree</i> is <i>True</i>, then
+    it will automatically use a <a href="flicker.htm">FlickerFree</a> transition, avoiding
+    this effect.</font></dd>
+  <dd><font size="2">Note: if the form is not correctly drawed (wrong or missing components),
+    set <i>FlickerFree</i> to <i>False</i>.</font></dd>
+  <dd><font size="2"><b>See also:</b><strong> </strong><a href="flicker.htm">TFlickerFreeTransition</a>
+    <a href="#ShowForm">ShowForm</a> <a href="#ShowFormEx">ShowFormEx</a></font></dd>
+</dl>
+
+<p><a name="Form"><font size="2"><b>Form</b></font></a>
+
+<dl>
+  <dd><font size="2"><b>Declaration: </b>property Form: TCustomForm read FForm;</font></dd>
+  <dd><font size="2"><b>Description:</b> This is a runtime and read-only property. It is the
+    currently visible form attached to the FormContainer. If it is <i>nil</i>, then there is
+    no visible form.</font></dd>
+  <dd><font size="2"><b>See also:</b> <a href="#Forms">Forms</a> <a href="#CreateForm">CreateForm</a>
+    <a href="#ShowForm">ShowForm</a> <a href="#ShowFormEx">ShowFormEx</a></font></dd>
+</dl>
+
+<p><a name="Forms"><font size="2"><b>Forms</b></font></a>
+
+<dl>
+  <dd><font size="2"><b>Declaration:</b> property Forms[Index: Integer]: TCustomForm read
+    GetForm; default;</font></dd>
+  <dd><font size="2"><b>Description:</b> Runtime and read-only property. It&#146;s the
+    zero-based array of currently attached forms. Remember that only one can be visible at a
+    time, or maybe no one.</font></dd>
+  <dd><font size="2"><b>See also:</b> <a href="#Form">Form</a> <a href="#CreateForm">CreateForm</a>
+    <a href="#ShowForm">ShowForm</a> <a href="#ShowFormEx">ShowFormEx</a></font></dd>
+</dl>
+
+<p><a name="Picture"><font size="2"><b>Picture</b></font></a>
+
+<dl>
+  <dd><font size="2"><b>Declaration:</b> property Picture: TPicture read FPicture write
+    SetPicture;</font></dd>
+  <dd><font size="2"><b>Description:</b> It really points to <a href="backgopt.htm#Picture">TFCBackgroundOptions.Picture</a>,
+    but it is maintained here for backwards compatibility.</font></dd>
+  <dd><font size="2"><b>See also:</b> <a href="#ShowFormEx">ShowFormEx</a> <a
+    href="backgopt.htm#Picture">TFCBackgroundOptions.Picture</a> <a href="#BackgroundOptions">BackgroundOptions</a></font></dd>
+</dl>
+
+<p><a name="FormContainers's methods"><font face="Arial">Methods</font></a></p>
+
+<p><a name="CloseQuery"><font size="2"><b>CloseQuery</b></font></a>
+
+<dl>
+  <dd><font size="2"><b>Declaration: </b>function CloseQuery: Boolean;</font></dd>
+  <dd><font size="2"><b>Description:</b> This method just calls the <i>CloseQuery </i>event of
+    the currently visible <a href="#Form">Form</a>. It returns <i>True</i> if there is no
+    current visible form or if the current visible form can close. You can use it in the <i>CloseQuery</i>
+    event of the Parent form of the FormContainer. This way you can nest <i>CloseQuery</i>
+    calls and the Parent form only would close if all the child forms visible on it allow it.</font></dd>
+  <dd><font size="2"><b>See also:</b> <a href="#CloseQueryAll">CloseQueryAll</a> <a
+    href="#Form">Form</a></font></dd>
+</dl>
+
+<p><a name="CloseQueryAll"><font size="2"><b>CloseQueryAll</b></font></a>
+
+<dl>
+  <dd><font size="2"><b>Declaration: </b>function CloseQueryAll: Boolean;</font></dd>
+  <dd><font size="2"><b>Description:</b> This method calls the <i>CloseQuery</i> event for
+    each form attached. It returns <i>True</i> if there is no form attached or if all the
+    attached forms can close. You can use it in the <i>CloseQuery</i> event of the Parent form
+    of the FormContainer. This way you can nest <i>CloseQuery</i> calls and the parent form
+    only would close if all the child forms attached to it allow it.</font></dd>
+  <dd><font size="2"><b>See also:</b> <a href="#CloseQuery">CloseQuery</a> <a href="#Forms">Forms</a></font></dd>
+</dl>
+
+<p><a name="CreateForm"><font size="2"><b>CreateForm</b></font></a>
+
+<dl>
+  <dd><font size="2"><b>Declaration: </b>function CreateForm(AClass: TFormClass): TCustomForm;</font></dd>
+  <dd><font size="2"><b>Description:</b> It creates a form of class <i>AClass</i> and inserts
+    it as a child window of the FormContainer. This is the only way to attach a form to the
+    FormContainer.</font></dd>
+  <dd><font size="2"><b>See also:</b> <a href="#Forms">Forms</a></font></dd>
+</dl>
+
+<p><a name="DestroyAllForms"><font size="2"><b>DestroyAllForms</b></font></a>
+
+<dl>
+  <dd><font size="2"><b>Declaration: </b>procedure DestroyAllForms;</font></dd>
+  <dd><font size="2"><b>Description:</b> Destroys all <a href="#Forms">Forms</a> in reverse
+    order. It is automatically invoked by the destructor of TFormContainer.</font></dd>
+  <dd><font size="2"><b>See also:</b> <a href="#Forms">Forms</a> <a href="#CreateForm">CreateForm</a>
+    <a href="#DestroyForm">DestroyForm</a></font></dd>
+</dl>
+
+<p><a name="DestroyForm"><font size="2"><b>DestroyForm</b></font></a>
+
+<dl>
+  <dd><font size="2"><b>Declaration: </b>procedure DestroyForm(F: TCustomForm);</font></dd>
+  <dd><font size="2"><b>Description:</b> Destroys the form <i>F</i>. If <i>F</i> is not
+    attached to the FormContainer it raises an <a href="fcerror.htm">exception</a>.</font></dd>
+  <dd><font size="2"><b>See also:</b> <a href="#Forms">Forms</a> <a href="#CreateForm">CreateForm</a>
+    <a href="#DestroyAllForms">DestroyAllForms</a> <a href="fcerror.htm">EFormContainerError</a></font></dd>
+</dl>
+
+<p><font size="2"><b>FormCount</b></font>
+
+<dl>
+  <dd><font size="2"><b>Declaration:</b> function FormCount: Integer;</font></dd>
+  <dd><font size="2"><b>Description:</b> It returns the number of currently attached <a
+    href="#Forms">forms</a> (visible or not).</font></dd>
+  <dd><font size="2"><b>See also:</b> <a href="#Forms">Forms</a></font></dd>
+</dl>
+
+<p><font size="2"><b>IndexOf</b></font>
+
+<dl>
+  <dd><font size="2"><b>Declaration: </b>function IndexOf(Value: TCustomForm): Integer;</font></dd>
+  <dd><font size="2"><b>Description:</b> Returns the index of the <i>Value</i> Form in the <a
+    href="#Forms"><i>Forms</i></a> array. If <i>F</i> is not attached to the FormContainer it
+    raises an <a href="fcerror.htm">exception</a>.</font></dd>
+  <dd><font size="2"><b>See also:</b> <a href="#Forms">Forms</a> <a href="fcerror.htm">EFormContainerError</a></font></dd>
+</dl>
+
+<p><a name="ShowForm"><font size="2"><b>ShowForm</b></font></a>
+
+<dl>
+  <dd><font size="2"><b>Declaration:</b> procedure ShowForm(AForm: TCustomForm;
+    DestroyCurrent: Boolean = True);</font></dd>
+  <dd><font size="2"><b>Description:</b> It turns on the visibility of <i>AForm</i>. If <i>AForm</i>
+    is <i>nil</i>, then no form will be showed. If <i>DestroyCurrent</i> is <i>True</i>, then
+    the currently visible form will be destroyed, if it exists. If <i>False</i>, it will be
+    simply hidden. If <i>AForm</i> is not attached to the FormContainer it raises an <a
+    href="fcerror.htm">exception</a>.</font></dd>
+  <dd><font size="2"><b>See also:</b> <a href="#Form">Form</a> <a href="#Forms">Forms</a> <a
+    href="#CreateForm">CreateForm</a> <a href="fcerror.htm">EFormContainerError</a></font></dd>
+</dl>
+
+<p><a name="ShowFormEx"><font size="2"><b>ShowFormEx</b></font></a>
+
+<dl>
+  <dd><font size="2"><b>Declaration:</b> procedure ShowFormEx(<br>
+    AForm: TCustomForm = nil;<br>
+    DestroyCurrent: Boolean = True;<br>
+    Transition: TTransitionEffect = nil;<br>
+    BackgrOptions: TFCBackgroundOptions = nil;<br>
+    Align: TFCFormAlign = fcfaDefault);</font></dd>
+  <dd><font size="2"><b>Description:</b> It turns on the visibility of <i>AForm</i>.<br>
+    If <i>AForm</i> is <i>nil</i>, then no form will be showed.<br>
+    If <i>DestroyCurrent</i> is <i>True</i>, then the currently visible form will be
+    destroyed, if it exists. If <i>False</i>, it will be simply hidden. If <i>AForm</i> is not
+    attached to the FormContainer it raises an <a href="fcerror.htm">exception</a>.<br>
+    If <i>Transition</i> is not <i>nil</i>, then the transition effect defined by <i>Transition</i>
+    will be applied.<br>
+    With <em>BackgrOptions</em> you can change <a href="#BackgroundOptions"><i>BackgroundOptions</i></a>
+    (if you don&#146;t want to change the background options, set it to <em>nil</em>).<br>
+    <i>Align</i> is the alignment to use with <i>AForm</i>.</font></dd>
+  <dd><font size="2"><b>See also:</b> <a href="#Form">Form</a> <a href="#Forms">Forms</a> <a
+    href="#CreateForm">CreateForm</a> <a href="fcerror.htm">EFormContainerError</a> <a
+    href="transeff.htm">TTransitionEffect</a> <a href="formalig.htm">TFCFormAlign</a> <a
+    href="#Picture">Picture</a> <a href="#BackgroundOptions">BackgroundOptions</a></font></dd>
+</dl>
+
+<p><a name="FormContainers's events"><font face="Arial">Events</font></a></p>
+
+<p><a name="OnFormChange"><font size="2"><b>OnFormChange</b></font></a>
+
+<dl>
+  <dd><font size="2"><b>Declaration:</b> property OnFormChange: <a href="fchevent.htm">TFCFormChangeEvent</a>
+    read FOnFormChange write FonFormChange;</font></dd>
+  <dd><font size="2"><b>Description:</b> It is fired each time that <a href="#ShowForm">ShowForm</a>
+    or <a href="#ShowFormEx">ShowFormEx</a> are called, directly or indirectly (for example,
+    if you <a href="#DestroyForm">destroy</a> de visible <a href="#Form">form</a>, then this
+    event will be fired too).</font></dd>
+  <dd><font size="2"><b>See also:</b> <a href="fchevent.htm">TFCFormChangeEvent</a> <a
+    href="#ShowForm">ShowForm</a> <a href="#ShowFormEx">ShowFormEx</a></font></dd>
+</dl>
+</body>
+</html>

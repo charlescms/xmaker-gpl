@@ -1,0 +1,193 @@
+   TabGlobal.DITEMCOMPRA.DISABLECONTROLS;
+
+       -- POP Canais -- ShoppingGarota POPWallpapersEmpregosCarrosComicsGamesNamoroSuporteTrash Movies         
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ Caixa de Entrada
+[38/71 mensagens] 
+ 
+ 
+ Documentos da empresa 
+ 
+ 
+ Rascunhos 
+ 
+ 
+ Ogeda_consutoria 
+ 
+ 
+ Enviadas 
+ 
+ 
+ Spam
+[0 mensagens] 
+ 
+ 
+ Lixeira 
+ 
+ 
+ amigo_cms 
+ 
+ 
+ empresa 
+ 
+ 
+ ernesto 
+ 
+ 
+ importante 
+ 
+ 
+ irmas 
+ 
+ 
+ programas 
+ 
+ 
+ recibos 
+ 
+ 
+ 
+Espaço utilizado: 
+ 
+                      21%  
+ 
+207.26 MB de 1.0 GB  
+ 
+ 
+ 
+Atenção..
+Para armazenar mensagens importantes, crie pastas particulares e mova os itens de seu interesse para lá. 
+
+As mensagens guardadas em pastas administrativas do Webmail são excluídas automaticamente, mesmo que não lidas, após estes prazos: 
+Caixa de Entrada: 30 dias; 
+Itens Enviados: 15 dias; 
+Rascunho: 15 dias; 
+Spam: 6 dias; 
+Lixeira: 1 dia; 
+
+As mensagens deletadas neste processo não podem ser recuperadas. 
+ 
+ 
+ 
+ Caixa de Entrada  - charlesmsantos@pop.com.br Baixe no Outlook  |  Concentrador de emails  |  Sair  
+       
+ 
+  
+ Bloquear no Remetente « Anterior | Próxima »  
+ 
+      
+  
+ Assunto:   Atualização X-Maker. 
+De:   Planner Consultoria de Informática <admin@plannerweb.com.br> 
+Data:   Qui, Abril 5, 2007 5:10 pm 
+Para:   charlesmsantos@pop.com.br 
+Opções:   Ver cabeçalho completo | Ver Versão para Impressão  | Guardar enderecos 
+  
+ Prezado Usuário, 
+
+É com grande satisfação que lhe informamos que a nova versão do X-Maker, a versão 5.1,  já está disponível. Faça o download da nova versão através do link abaixo e siga as instruções descritas. Utilize o nosso e-mail suporte@xmaker.com.br ou fórum em nosso site para possíveis dúvidas de instalação.
+
+CLIQUE AQUI PARA COPIAR  ou (http://www.xmaker.com.br/download/xmaker/xmaker5_r01.exe)
+
+ 
+
+Licença de uso: Após a instalação da versão copie e descompacte o arquivo em anexo (xmaker.zip) na pasta de instalação do X-Maker 5.0
+
+Instruções para atualização do X-Maker:
+
+. Faça a instalação do X-Maker 5.0
+. Não utilize uma pasta de versões anteriores do X-Maker, utilize uma nova pasta, exemplo: C:\XMaker5
+. Faça a instalação do Firebird 2.0, o instalador é ativado ao final da instalação do X-Maker
+
+Instruções para atualização dos Projetos:
+
+. Atualize somente projetos da versão 4.0 ou anteriores, não utilize projetos da versão 5.0 beta-teste
+. Para sua segurança faça uma cópia dos projetos antes da atualização
+. Após a abertura do projeto acesse: Fontes -> Restaurar...
+. Clique no botão "Todos" e depois em "Gerar", é necessário regerar todos os módulos devido a implementação dos novos recursos.
+. Acesse: Assistente -> Propriedades -> Botão: "Ok"
+. Acesse: Assistente -> Tabelas -> Marque a opção: "Regerar Fontes", e depois clique no botão: "Fechar"
+. Acesse: Assistente -> Formulários -> Botão: "Fechar"
+. Acesse: Assistente -> Menus -> Botão: "Gravar"
+. Acesse: Assistente -> Executar -> Marque a opção: "Compilar Todos os Módulos", e depois cliquie no botão: "Compilar"
+
+Veja as Principais Novidades da nova versão
+
+X-Maker:
+
+. Compatibilidade com o Delphi 2006 e Turbo Delphi, versões compatíveis do Delphi: 5, 6, 7, 2005, 2006 e Turbo Delphi;
+. Melhoria nos pacotes de componentes do X-Maker;
+. Suporte ao Componente 'OnGuard' (Open Source), para proteção e criação de cópias de demonstração de seus projetos. O pacote pode ser acessado através da paleta de componentes do X-Maker;
+. Suporte ao novo Componente 'XSQL' em substituição do componente 'ZeosLib', banco de dados suportados: Interbase, Firebird, SQLBase, Sybase, DB2, Informix, ODBC, MySQL, PostgreSQL e OLEDB;
+. Remodelagem do módulo de definição de Tabelas (Assistente -> Tabelas);
+. Remodelagem do módulo de acesso a formulários (Assistente -> Formulários);
+. Suporte nativo aos Recursos de Banco de Dados: Stored Procedures, Scripts (SQL), Consultas (SQL) e Triggers;
+. Criação de Diagramas de Relacionamentos;
+. Design interativo para criação de Consultas (SQL) com opção de execução e visualização dos registros em tempo de definição;
+. Suporte a definição de Nome de Objeto e Nome físico da Tabela;
+. Suporte a definição de Nome de Objeto e Nome físico dos Campos de Tabelas;
+. Tabelas: Nova Propriedade 'Usar Generator (Firebird)', habilita/desabilita o uso de 'Generators' para campos de autoincremento;
+. Tabelas: O uso de chave primária não é mais obrigatório;
+. Tabelas -> Campos: Suporte a maior quantidade de 'Tipo de Objeto' (Alfanumérico, Número Inteiro, Número Fracionário, etc.);
+. Tabelas -> Campos: Nova Propriedade 'Tipo de Campo (SQL)', para determinar o tipo de campo a ser criado em tabelas;
+. Tabelas -> Campos: Nova Propriedade 'Validar em "OnExit"', habilita/desabilita a validação no evento "OnExit" em formulários;
+. Tabelas -> Campos: Nova Propriedade 'Sem Insert(SQL)', habilita/desabilita a instrução de insert do campo;
+. Tabelas -> Campos: Nova Propriedade 'SQL Extra(Create Table)', instrução extra para criação da tabela;
+. Tabelas -> Campos: Nova Propriedade 'SQL Extra(Insert)', personalização dos campos que irão compor a instrução 'Insert' do SQL;
+. Tabelas -> Campos: 'Lista Externa(Estrangeira)' poderá utilizar as consultas definidas;
+. Tabelas -> Campos: Suporte a variáveis e funções do projeto para definição de 'Valor Padrão' de campos alfanuméricos;
+. Tabelas -> Campos: Maior capacidade de armazenamento para propriedade 'Valores Válidos';
+. Tabelas -> Integridades & Relacinamentos: Nova Propridade 'Gerar Foreign Key(SQL)' habilita/desabilita a crição de chaves estrangeiras entr tabelas;
+. Suporte a 'Lista Externa (ListBox)' para formulários de Entrada de Dados;
+. Suporte ao 'RichEdit' para formulários de Entrada de Dados;
+. Suporte a personalização dos 'Objetos do Projeto' (Stored Procedures, Scripts, Consultas e Tabelas) que serão utilizadas no projeto, este recurso é bastante útil para compartilhamento de dicionários de dados entre projetos;
+. Acesso das Tabelas de controle de usuários, agenda e log do sistema;
+. Suporte aos componentes RxLib para formulários de Entrada de Dados;
+. Suporte o Firebird 2.x, para utilização do padrão brasileiro para pesquisa em campos, não faz diferença entre maiúscula/minúsculas e acentuação;
+
+Projetos:
+
+. Nova janela de login acesso;
+. Melhorias visuais e alteração do código fonte do módulo de configuração de usuários;
+. Novos recursos na definição da Empresa Usuária: Botão para atualização dos campos de autoincremento que utilizam o 'Generator' (Interbase/Firebird), Campos para usuário e senha para conexão com banco de dados e possibilidade de alteração do banco de dados sem necessidade de recompilar o projeto, escolha o banco a ser utilizado pela Empresa Usuária: Interbase, Firebird, SQLBase, Sybase, DB2, Informix, ODBC, MySQL, PostgreSQL e OLEDB. Atenção, esse recurso é somente possível quando se utiliza a conexão 'XSQL';
+. Barra de Status com novas informações;
+. Nova janela de 'Sobre...';
+. Demonstração do tempo de espera da última operação em banco de dados;
+. Novas variáveis públicas: Sistema.Conexao_i, Sistema.Conexao_f e Sistema.Estacao. (Conexao_i e Conexão_f é utilizado para cálculo do tempo de espera da última operação, Estação contém o nome da estação de trabalho);
+. Visualização do Log de operações em tabelas;
+. Novos modelos de formulários avulso e formulários de entrada de dados;
+. Melhoria na lógica de acessos a tabelas para otimização e maior desempenho;
+. Melhor desempenho para acesso a bases remotas, principalmente para bases hospedadas em Web;
+. Melhoria em 90% dos códigos dos projetos, para adaptação aos novos recursos;
+
+Equipe X-Maker
+x5@xmaker.com.br
+
+ 
+ 
+ 
+     
+ 
+ 
+  
+ Arquivos anexos  
+ 
+untitled-[1.1]  6,8 k   [ text/plain ]    baixar  |  ver 
+xMaker.zip  47 k   [ application/octet-stream ]    baixar 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+COPYRIGHT 2004 - POP - Todos os Direitos Reservados  
+ 

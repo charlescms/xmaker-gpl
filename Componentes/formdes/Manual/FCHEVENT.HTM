@@ -1,0 +1,50 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type"
+content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="Microsoft FrontPage Express 2.0">
+<title>TFormContChangeEvent</title>
+</head>
+
+<body bgcolor="#FFFFFF">
+
+<h3>TFCFormChangeEvent</h3>
+
+<p><font face="Arial">Unit</font></p>
+
+<dl>
+    <dd><font size="2">FormCont</font></dd>
+</dl>
+
+<p><font face="Arial">Declaration</font></p>
+
+<dl>
+    <dd><font size="2">TFormContChangeEvent = procedure(Sender:
+        TObject; const OldForm, NewForm: TCustomForm; var
+        CanChange: Boolean) of object; </font></dd>
+</dl>
+
+<p><font face="Arial">Description</font></p>
+
+<dl>
+    <dd><font size="2">This event is fired each time that </font><a
+        href="FormCont.htm#ShowForm"><font size="2"><i>ShowForm</i></font></a><font
+        size="2"> or </font><a href="FormCont.htm#ShowFormEx"><font
+        size="2"><i>ShowFormEx</i></font></a><font size="2"> are
+        called. <i>OldForm</i> is the </font><a
+        href="FormCont.htm#Form"><font size="2">form</font></a><font
+        size="2"> that was visible until now (<i>nil</i> if no
+        one was visible), and <i>NewForm</i> is the form that is
+        going to be showed (<i>nil</i> if no one is going to be
+        visible). If <i>CanChange</i> is set to <i>False</i> then
+        the operation is aborted.</font></dd>
+</dl>
+
+<p><font face="Arial">See also</font></p>
+
+<dl>
+    <dd><a href="FormCont.htm#OnFormChange"><font size="2">OnFormChange</font></a></dd>
+</dl>
+</body>
+</html>

@@ -1,6 +1,6 @@
 {
    Programa.: XMakerModelo.PAS
-   Copyright: Modular Software 2006
+   Copyright: X-Maker
             : Todos os direitos reservados
    Site.....: http://www.xmaker.com.br
 }
@@ -152,11 +152,11 @@ type
     procedure HabilitaEdicao(Habilita: Boolean = true);
   public
     { Public declarations }
-    {03-Início do Bloco Modular. Modificações não serão preservadas}
-    {99-Final do Bloco Modular. Modificações não serão preservadas}
+    {03-Início do Bloco X-Maker. Modificações não serão preservadas}
+    {99-Final do Bloco X-Maker. Modificações não serão preservadas}
     TabelaPrincipal: TTabela;
-    {04-Início do Bloco Modular. Modificações não serão preservadas}
-    {99-Final do Bloco Modular. Modificações não serão preservadas}
+    {04-Início do Bloco X-Maker. Modificações não serão preservadas}
+    {99-Final do Bloco X-Maker. Modificações não serão preservadas}
   end;
 
 var
@@ -171,11 +171,11 @@ uses Publicas, Princ, Rotinas, RotinaEd, Abertura, GridPesquisa, Interno;
 
 procedure TFormXMakerModelo.Inicializa;
 begin
-  {05-Início do Bloco Modular. Modificações não serão preservadas}
+  {05-Início do Bloco X-Maker. Modificações não serão preservadas}
   TabelaPrincipal    := Nil;
   TituloModulo       := 'Modelo';
   Caption            := TituloModulo;
-  {99-Final do Bloco Modular. Modificações não serão preservadas}
+  {99-Final do Bloco X-Maker. Modificações não serão preservadas}
   Navegando          := False;
   DataSource.DataSet := TabelaPrincipal;
   ListaCamposED      := TListaCampos.Create;
@@ -185,8 +185,8 @@ begin
   TabPaginas.TabIndex:= 0;
   if not TabelaPrincipal.Active then
     TabelaPrincipal.AtualizaSql;
-  {06-Início do Bloco Modular. Modificações não serão preservadas}
-  {99-Final do Bloco Modular. Modificações não serão preservadas}
+  {06-Início do Bloco X-Maker. Modificações não serão preservadas}
+  {99-Final do Bloco X-Maker. Modificações não serão preservadas}
   if TabelaPrincipal.Eof then
   begin
     TabelaPrincipal.Inclui(ListaCamposED);
@@ -226,9 +226,9 @@ end;
 
 function TFormXMakerModelo.AbreTabelas: Boolean;
 begin
-  {07-Início do Bloco Modular. Modificações não serão preservadas}
+  {07-Início do Bloco X-Maker. Modificações não serão preservadas}
   Result := True;
-  {99-Final do Bloco Modular. Modificações não serão preservadas}
+  {99-Final do Bloco X-Maker. Modificações não serão preservadas}
 end;
 
 procedure TFormXMakerModelo.FechaTabelas;
@@ -246,8 +246,8 @@ end;
 
 procedure TFormXMakerModelo.CamposCalculados;
 begin
-  {08-Início do Bloco Modular. Modificações não serão preservadas}
-  {99-Final do Bloco Modular. Modificações não serão preservadas}
+  {08-Início do Bloco X-Maker. Modificações não serão preservadas}
+  {99-Final do Bloco X-Maker. Modificações não serão preservadas}
 end;
 
 procedure TFormXMakerModelo.BotoesManutencao(Habilita: Boolean);
@@ -872,8 +872,8 @@ begin
     raise Exception.Create(MsgErro);
 end;
 
-{11-Início do Bloco Modular. Modificações não serão preservadas}
-{99-Final do Bloco Modular. Modificações não serão preservadas}
+{11-Início do Bloco X-Maker. Modificações não serão preservadas}
+{99-Final do Bloco X-Maker. Modificações não serão preservadas}
 
 procedure TFormXMakerModelo.GridConsultaDblClick(Sender: TObject);
 begin

@@ -1,6 +1,6 @@
 {
    Programa.: Filtro.PAS
-   Copyright: Modular Software 2006
+   Copyright: X-Maker 
             : Todos os direitos reservados
    Site.....: http://www.xmaker.com.br
 }
@@ -23,10 +23,12 @@ type
     BtnOk: TBitBtn;
     BtnCancela: TBitBtn;
     Label2: TLabel;
-    EdExpressao: TEdit;
     Composicao: TRadioGroup;
     BtnInserir: TBitBtn;
     BtnLimpar: TBitBtn;
+    EdExpressao: TComboBox;
+    spbProcurar: TSpeedButton;
+    rgCaixa: TRadioGroup;
     procedure FormShow(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
@@ -34,20 +36,27 @@ type
     procedure BtnOkClick(Sender: TObject);
     procedure BtnInserirClick(Sender: TObject);
     procedure FormKeyPress(Sender: TObject; var Key: Char);
+    procedure ListaCamposClick(Sender: TObject);
+    procedure spbProcurarClick(Sender: TObject);
+    Function  ValidarFiltro : Boolean;
   private
     { Private declarations }
   public
     { Public declarations }
     CamposSelecao: TList;
     ProcessarFiltro: Boolean;
+
   end;
 
 var
   FormFiltragem: TFormFiltragem;
+  FiltroAnterior : string;
+
 
 implementation
 
-uses Publicas, Atributo, Tabela;
+uses Publicas, Atributo, Tabela, GridPesquisa, Windows;
+
 
 {$R *.DFM}
 
@@ -85,21 +94,30 @@ end;
 
 procedure TFormFiltragem.BtnOkClick(Sender: TObject);
 begin
+  if not ValidarFiltro then
+  begin
+    Showmessage('Filtro inválido !');
+    Exit;
+  end;
+
   ProcessarFiltro := True;
   Close;
 end;
 
 procedure TFormFiltragem.BtnInserirClick(Sender: TObject);
 Var
-  Oper, Delimit_E,Delimit_D, Separador_E, Negacao: String;
+  Oper, Delimit_E,Delimit_D, Separador_E, Negacao, Valor: String;
   FormatoData: string;
   CmpF: TAtributo;
   Data: TDateTime;
+  TabelaPrincipal : TTabela;
+  CaixaAlta, FimCaixaAlta : String;
 begin
+  Valor:='';
   CmpF := TAtributo(CamposSelecao[ListaCampos.ItemIndex]);
-  if (CmpF.Tipo = tpImagem) then
+  if {(CmpF.Tipo = tpMemo) or} (CmpF.Tipo = tpImagem) then
   begin
-    MessageDlg('Campo Imagem não podem ser filtrado !',mtError,[mbOk],0);
+    MessageDlg('Campo Imagem não podem ser filtrados !',mtError,[mbOk],0);
     ListaCampos.SetFocus;
     exit;
   end;
@@ -109,12 +127,20 @@ begin
     ListaCampos.SetFocus;
     exit;
   end;
+  {if ( (CmpF.Tipo <> tpAlfanumerico) and (CmpF.Tipo <> tpMemo) ) and (Operacao.ItemIndex = 6) then}
   if (not ((CmpF.Tipo = tpAlfanumerico) or (CmpF.Tipo = tpMemo))) and (Operacao.ItemIndex = 6) then
   begin
     MessageDlg('Operação ''Contém'' é somente válida para campos Alfanuméricos !',mtError,[mbOk],0);
     ListaCampos.SetFocus;
     exit;
   end;
+
+  if (CmpF.Tipo = tpAlfanumerico) AND (OPERACAO.ItemIndex <> 7) and (rgCaixa.ItemIndex=0) then
+  begin
+      CaixaAlta := ' UPPER( ';
+      FimCaixaAlta := ' ) ';
+  end;
+
   Delimit_E := '';
   Delimit_D := '';
   Oper      := '';
@@ -123,10 +149,11 @@ begin
   begin
     Delimit_E := #39;
     if (Operacao.ItemIndex <= 1) and ((CmpF.Tipo = tpAlfanumerico) or (CmpF.Tipo = tpMemo)) then
+    {if (Operacao.ItemIndex < 1) and (CmpF.Tipo = tpAlfanumerico) then}
     begin
-      Oper        := ' LIKE ';
+      Oper        := ' = ';  //Xmaker5 Oper        := ' LIKE ';
       Delimit_E   := #39;
-      Delimit_D   := '%'+#39;
+      Delimit_D   := #39;    //Xmaker5 Delimit_D   := '%'+#39;
     end
     else
       Delimit_D := #39;
@@ -189,7 +216,27 @@ begin
       Separador_E := 'AND '+ Negacao + '('
     else
       Separador_E := 'OR '+Negacao + '(';
-  MFiltro.Lines.Add(Separador_E + CmpF.NomeTabela + '.' + CmpF.NomeOriginal + Oper + Delimit_E + EdExpressao.Text + Delimit_D + ')');
+
+  if CmpF.ValorValido.Count > 0 then
+  begin
+    if EdExpressao.Text<> '' then
+    begin
+       Valor:= CmpF.ValorValido.Strings[EdExpressao.itemindex];
+    end
+    else if operacao.ItemIndex <> 7 then
+    begin
+       Showmessage('Selecione uma opção !');
+       exit;
+    end;
+  end
+  else
+      Valor := EdExpressao.Text;
+  TabelaPrincipal := LocalizaTabela(nil,'D'+CmpF.NomeTabela);
+
+
+//  end;
+
+  MFiltro.Lines.Add(Separador_E + CaixaAlta + TabelaPrincipal.NomeTabela + '.' + CmpF.NomeOriginal + FimCaixaAlta + Oper + CaixaAlta + Delimit_E + Valor + Delimit_D + FimCaixaAlta + ')');
   EdExpressao.Text := '';
   ListaCampos.SetFocus;
 end;
@@ -201,6 +248,79 @@ begin
     Key := #0;
     Perform(WM_NEXTDLGCTL, 0, 0);
   end;
+end;
+
+procedure TFormFiltragem.ListaCamposClick(Sender: TObject);
+var
+  CmpF: TAtributo;
+  Data: TDateTime;
+begin
+  CmpF := TAtributo(CamposSelecao[ListaCampos.ItemIndex]);
+
+  spbProcurar.Visible := false;
+  EdExpressao.Style := csDropDown;
+  EdExpressao.Items.Clear;
+
+
+  if (CmpF.ValorValido.Count>0) then
+  begin
+    EdExpressao.Items.AddStrings(CmpF.DescValorValido);
+    EdExpressao.Style := csDropDownList;
+    EdExpressao.Text := 'Selecione uma opção !';
+  end;
+
+  if (CmpF.ChaveEstrangeira <> '') then
+  begin
+      spbProcurar.Visible := true;
+      spbProcurar.Hint := 'Procurar por '+CmpF.Titulo;
+  end;
+
+end;
+
+procedure TFormFiltragem.spbProcurarClick(Sender: TObject);
+var
+  CmpF: TAtributo;
+  Data: TDateTime;
+begin
+  CmpF := TAtributo(CamposSelecao[ListaCampos.ItemIndex]);
+
+    FormGridPesquisa := TFormGridPesquisa.Create(Application);
+  Try
+
+    FormGridPesquisa.Atalho := vk_F8;
+    FormGridPesquisa.Campo  := CmpF;
+    FormGridPesquisa.Avulso := true;
+    FormGridPesquisa.ShowModal;
+    EdExpressao.Text := FormGridPesquisa.Resultado;
+  Finally
+    FormGridPesquisa.Free;
+  end;
+end;
+
+function TFormFiltragem.ValidarFiltro: Boolean;
+var
+TabelaPrincipal : TTabela;
+begin
+  TabelaPrincipal := LocalizaTabela(TabelaPrincipal,'D'+TAtributo(CamposSelecao[ListaCampos.ItemIndex]).NomeTabela);
+  FiltroAnterior := TabelaPrincipal.Filtro.Text;
+  TabelaPrincipal.Filtro.clear;
+  if Trim(MFiltro.Text) <> '' then
+  TabelaPrincipal.filtro.Add(MFiltro.Text + ' and (1=-1) ')
+  else
+  TabelaPrincipal.Filtro.Add('(1=-1)');
+  Try
+//    TabelaPrincipal.DisableControls;
+    TabelaPrincipal.AtualizaSql();
+    TabelaPrincipal.EnableControls;
+    Result := true;
+  except
+    Result := false;
+    TabelaPrincipal.Filtro.Text := FiltroAnterior;
+    TabelaPrincipal.AtualizaSql();
+    TabelaPrincipal.EnableControls;
+  end;
+  TabelaPrincipal.Filtro.Clear;
+  TabelaPrincipal.Filtro.Add(FiltroAnterior);
 end;
 
 end.

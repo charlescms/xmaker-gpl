@@ -1,6 +1,6 @@
 {
    Programa.: Publicas.PAS
-   Copyright: Modular Software 2006
+   Copyright: X-Maker
             : Todos os direitos reservados
    Site.....: http://www.xmaker.com.br
 }
@@ -87,8 +87,8 @@ procedure Inicializa;  // Inicializa variáveis públicas
 var
   ICQmsg: TMessenger;
 Begin
-  {10-Início do Bloco Modular. Modificações não serão preservadas}
-  {99-Final do Bloco Modular. Modificações não serão preservadas}
+  {10-Início do Bloco X-Maker. Modificações não serão preservadas}
+  {99-Final do Bloco X-Maker. Modificações não serão preservadas}
   ICQmsg := TMessenger.Create(Application);
   try
     Sistema.Estacao := ICQmsg.Computer;

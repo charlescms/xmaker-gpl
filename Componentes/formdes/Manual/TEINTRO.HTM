@@ -1,0 +1,45 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type"
+content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="Microsoft FrontPage Express 2.0">
+<title>Transitions introduction</title>
+</head>
+
+<body bgcolor="#FFFFFF">
+
+<h3>Transitions introduction</h3>
+
+<p>A transition is a graphical effect that starts with a source
+image and ends with a destination image. They are widely used in
+TV and video, and are ideal for multimedia applications.</p>
+
+<p>These transitions are independent of the CPU speed, completely
+flicker free and the footprint is minimum.</p>
+
+<p>FormContainer is fully integrated with the transitions, but it
+is possible to use them with any other control.</p>
+
+<p>If we have, for example, a TImage called <em>MyImage</em> and
+want to change its picture using a <a href="fuse.htm"><em>TFuseTransition</em></a>
+during 0.5 seconds:</p>
+
+<pre><font size="2">	var
+	  Fuse: TFuseTransition;
+	begin
+	  Fuse := TFuseTransition.Create;
+	  try
+	    Fuse.Milliseconds := 500;
+	    Fuse.Prepare(MyImage, MyImage.ClientRect);
+	    MyImage.Picture.LoadFromFile('NewPicture.bmp');
+	    Fuse.Execute;
+	  finally
+	    Fuse.Free;
+	  end;
+	end;</font></pre>
+
+<p>There are several transitions available, and it is possible to
+create custom transitions.</p>
+</body>
+</html>

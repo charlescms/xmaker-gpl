@@ -33,6 +33,7 @@ function ComponentToString(Component: TComponent): string;
 function StringToComponent(Value: string; Instance: TWinControl): TComponent;
 function NomeFisicoCampo: String;
 function NomeFisicoTabela: String;
+function NomeFisicoObjeto: String;
 
 implementation
 
@@ -42,6 +43,13 @@ function NomeFisicoCampo: String;
 begin
   NomeFisicoCampo := IIF(Trim(TabGlobal_i.DCAMPOST.NOME_FISICO.Conteudo)='',Trim(TabGlobal_i.DCAMPOST.Nome.Conteudo),Trim(TabGlobal_i.DCAMPOST.NOME_FISICO.Conteudo));
 end;
+
+function NomeFisicoObjeto: String;
+begin
+//  NomeFisicoObjeto := IIF(Trim(TabGlobal_i.DCAMPOST.NOME_FISICO.Conteudo)='',Trim(TabGlobal_i.DCAMPOST.Nome.Conteudo),Trim(TabGlobal_i.DCAMPOST.NOME_FISICO.Conteudo));
+  NomeFisicoObjeto := Trim(TabGlobal_i.DCAMPOST.Nome.Conteudo);
+end;
+
 
 function NomeFisicoTabela: String;
 begin
@@ -2246,7 +2254,8 @@ end;
 procedure Gera_Ctabelas;
 Var
   I, Y, T, NrCasas_D: Integer;
-  Primeira, TemProcesso: Boolean;
+
+  Primeira, TemProcesso, L_view : Boolean;
   ConjChave, ConjChTit, NomeFisico, NomeFisico_2: String;
   NomeTabChave: Variant;
   ConjAtrl: String;
@@ -2526,9 +2535,18 @@ begin
         NomeFisico := TabGlobal_i.DTABELAS.NOME_INTERNO.Conteudo
       else
         NomeFisico := TabGlobal_i.DTABELAS.NOME.Conteudo;
+
+        
       FormPrincipal.Texto.Lines.Add('  NomeTabela       := '+#39+Trim(NomeFisico)+#39+';');
       FormPrincipal.Texto.Lines.Add('  Titulo           := '+#39+TabGlobal_i.DTABELAS.TITULO_T.Conteudo+#39+';');
       FormPrincipal.Texto.Lines.Add('  Name             := '+#39+'D'+Trim(TabGlobal_i.DTABELAS.NOME.Conteudo)+#39+';');
+
+      // criar view
+      l_view := false  ;
+      if Trim(NomeFisico) <>  Trim(TabGlobal_i.DTABELAS.NOME.Conteudo) then
+         l_view := true ;
+
+
       FormPrincipal.Texto.Lines.Add('  Database         := BaseDados.BD_'+Trim(TabGlobal_i.DBDADOS.NOME.Conteudo)+';');
       FormPrincipal.Texto.Lines.Add('  {$IFDEF IBX}');
       FormPrincipal.Texto.Lines.Add('  Transaction      := BaseDados.TRS_BD_'+Trim(TabGlobal_i.DBDADOS.NOME.Conteudo)+';');
@@ -2683,34 +2701,66 @@ begin
           end;
         end;
         //FormPrincipal.Texto.Lines.Add('    {$IFDEF IBX}');
+
+
         FormPrincipal.Texto.Lines.Add('    // Refresh de Registro');
         FormPrincipal.Texto.Lines.Add('    RefreshSQL.Add('+#39+'Select'+#39+');');
+
+        //////////////////////////////
+        // gerendo o select da tabela
+        //////////////////////////////
+
         TabGlobal_i.DCAMPOST.First;
         while not TabGlobal_i.DCAMPOST.Eof do
         begin
           if (Trim(TabGlobal_i.DCAMPOST.NOME.Conteudo) <> '') and
              ((TabGlobal_i.DCAMPOST.CALCULADO.Conteudo = 0) or (TabGlobal_i.DCAMPOST.NAO_VIRTUAL.Conteudo = 1)) then
-            if TabGlobal_i.DCAMPOST.EXTRA.Conteudo = 1 then
-              FormPrincipal.Texto.Lines.Add('    RefreshSQL.Add('+#39+'  '+Trim(TabGlobal_i.DCAMPOST.TAB_EXTRA.Conteudo)+'.'+Trim(TabGlobal_i.DCAMPOST.CAMPO_EXTRA.Conteudo)+' AS '+NomeFisicoCampo+','+#39+');')
-            else
-              FormPrincipal.Texto.Lines.Add('    RefreshSQL.Add('+#39+'  '+Trim(NomeFisico)+'.'+NomeFisicoCampo+' AS '+NomeFisicoCampo+','+#39+');');
+            if TabGlobal_i.DCAMPOST.EXTRA.Conteudo = 1 then                                                                                                                        // NomeFisicoObjeto
+//            FormPrincipal.Texto.Lines.Add('    RefreshSQL.Add('+#39+'  '+Trim(TabGlobal_i.DCAMPOST.TAB_EXTRA.Conteudo)+'.'+Trim(TabGlobal_i.DCAMPOST.CAMPO_EXTRA.Conteudo)+' AS '+NomeFisicoCampo+','+#39+');')
+              FormPrincipal.Texto.Lines.Add('    RefreshSQL.Add('+#39+'  '+Trim(TabGlobal_i.DCAMPOST.TAB_EXTRA.Conteudo)+'.'+Trim(TabGlobal_i.DCAMPOST.CAMPO_EXTRA.Conteudo)+' AS '+ NomeFisicoObjeto +','+#39+');')
+            else  // l_view
+              if l_view then
+//                 FormPrincipal.Texto.Lines.Add('    RefreshSQL.Add('+#39+'  '+Trim(TabGlobal_i.DTABELAS.NOME.Conteudo)+'.'+NomeFisicoCampo+' AS '+NomeFisicoCampo+','+#39+');')
+                 FormPrincipal.Texto.Lines.Add('    RefreshSQL.Add('+#39+'  '+Trim(TabGlobal_i.DTABELAS.NOME.Conteudo)+'.'+NomeFisicoCampo+' AS '+NomeFisicoObjeto+','+#39+');')
+              else
+//                 FormPrincipal.Texto.Lines.Add('    RefreshSQL.Add('+#39+'  '+Trim(NomeFisico)+'.'+NomeFisicoCampo+' AS '+NomeFisicoCampo+','+#39+');');
+                 FormPrincipal.Texto.Lines.Add('    RefreshSQL.Add('+#39+'  '+Trim(NomeFisico)+'.'+NomeFisicoCampo+' AS '+NomeFisicoObjeto+','+#39+');');
+
           TabGlobal_i.DCAMPOST.Next;
         end;
+
         FormPrincipal.Texto.Lines[FormPrincipal.Texto.Lines.Count-1] := TrocaString(FormPrincipal.Texto.Lines[FormPrincipal.Texto.Lines.Count-1],',','',[rfReplaceAll]);
-        FormPrincipal.Texto.Lines.Add('    RefreshSQL.Add('+#39+'from '+Trim(NomeFisico)+#39+');');
-        {TabGlobal_i.DRELACIONA.Filtro := 'NUMERO = '+IntToStr(TabGlobal_i.DTABELAS.NUMERO.Conteudo);
-        TabGlobal_i.DRELACIONA.AtualizaSql;
-        TabGlobal_i.DRELACIONA.First;
-        while not TabGlobal_i.DRELACIONA.Eof do
-        begin
-          if TabGlobal_i.DRELACIONA.TIPO.Conteudo = 1 then
-            if TabelasExtras.IndexOf(Trim(TabGlobal_i.DRELACIONA.TAB_ESTRANGEIRA.Conteudo)) = -1 then
-            begin
-              FormPrincipal.Texto.Lines.Add('    RefreshSQL.Add('+#39+'     ,'+Trim(TabGlobal_i.DRELACIONA.TAB_ESTRANGEIRA.Conteudo)+#39+');');
-              TabelasExtras.Add(Trim(TabGlobal_i.DRELACIONA.TAB_ESTRANGEIRA.Conteudo));
-            end;
-          TabGlobal_i.DRELACIONA.Next;
-        end;}
+
+        if l_view then begin
+           // criando o sub select
+           FormPrincipal.Texto.Lines.Add('    // CRIANDO SUB-SELECT 1 ');
+           // INICIO DE SUB-SELECT
+           FormPrincipal.Texto.Lines.Add('    RefreshSQL.Add('+#39+'from ( SELECT '+#39+'); // inicio sub-select ');
+           // [
+
+           TabGlobal_i.DCAMPOST.First;
+           while not TabGlobal_i.DCAMPOST.Eof do
+           begin
+             if (Trim(TabGlobal_i.DCAMPOST.NOME.Conteudo) <> '') and
+                ((TabGlobal_i.DCAMPOST.CALCULADO.Conteudo = 0) or (TabGlobal_i.DCAMPOST.NAO_VIRTUAL.Conteudo = 1)) then
+               if NOT ( TabGlobal_i.DCAMPOST.EXTRA.Conteudo = 1 ) then
+                  FormPrincipal.Texto.Lines.Add('    RefreshSQL.Add('+#39+'  '+Trim(NomeFisico)+'.'+NomeFisicoCampo+' AS '+NomeFisicoCampo+','+#39+');');
+//                  FormPrincipal.Texto.Lines.Add('    RefreshSQL.Add('+#39+'  '+Trim(NomeFisico)+'.'+NomeFisicoCampo+' AS '+NomeFisicoObjeto+','+#39+');');
+             TabGlobal_i.DCAMPOST.Next;
+           end;
+           // retira a ultima virgula
+           FormPrincipal.Texto.Lines[FormPrincipal.Texto.Lines.Count-1] := TrocaString(FormPrincipal.Texto.Lines[FormPrincipal.Texto.Lines.Count-1],',','',[rfReplaceAll]);
+//           FormPrincipal.Texto.Lines.SaveToFile('teste4.txt');
+
+           // ]
+           FormPrincipal.Texto.Lines.Add('    RefreshSQL.Add('+#39+'from '+Trim(NomeFisico)+#39+'); // fim sub-select');
+           // FIM DE SUB-SELECT
+           FormPrincipal.Texto.Lines.Add('    RefreshSQL.Add('+#39+' ) AS  '+Trim(TabGlobal_i.DTABELAS.NOME.Conteudo)+#39+' );');
+        end
+        else
+           FormPrincipal.Texto.Lines.Add('    RefreshSQL.Add('+#39+'from '+Trim(NomeFisico)+#39+');');
+
+
         TabGlobal_i.DRELACIONA.Filtro := 'NUMERO = '+IntToStr(TabGlobal_i.DTABELAS.NUMERO.Conteudo) + ' AND ATIVO = 1';
         //TabGlobal_i.DRELACIONA.ChaveIndice := 'SEQUENCIA DESC';
         TabGlobal_i.DRELACIONA.AtualizaSql;
@@ -2726,10 +2776,13 @@ begin
                 if NomeTabChave[0] <> Null then
                   if Trim(NomeTabChave[0]) <> '' then
                     NomeFisico_2 := Trim(NomeTabChave[0]);
+
               if NomeFisico_2 <> TabGlobal_i.DRELACIONA.TAB_ESTRANGEIRA.Conteudo then
                 FormPrincipal.Texto.Lines.Add('    RefreshSQL.Add('+#39+'Left Outer Join '+NomeFisico_2+ ' ' + Trim(TabGlobal_i.DRELACIONA.TAB_ESTRANGEIRA.Conteudo) + ' on'+#39+');')
               else
                 FormPrincipal.Texto.Lines.Add('    RefreshSQL.Add('+#39+'Left Outer Join '+Trim(TabGlobal_i.DRELACIONA.TAB_ESTRANGEIRA.Conteudo)+ ' on'+#39+');');
+
+
               Campos_Chave_1 := TStringList.Create;
               Campos_Chave_2 := TStringList.Create;
               StringToArray(TabGlobal_i.DRELACIONA.CAMPOS_CHAVE_1.Conteudo,';',Campos_Chave_1);
@@ -2749,10 +2802,19 @@ begin
                   end
                   else
                   begin
-                    if Y > 0 then
-                      FormPrincipal.Texto.Lines.Add('    RefreshSQL.Add('+#39+'  and '+Trim(NomeFisico)+'.'+Trim(Campos_Chave_1[Y])+' = '+Trim(TabGlobal_i.DRELACIONA.TAB_ESTRANGEIRA.Conteudo)+'.'+Trim(Campos_Chave_2[Y])+#39+');')
+                    if Y > 0 then BEGIN
+                      if l_view then
+                         FormPrincipal.Texto.Lines.Add('    RefreshSQL.Add('+#39+'  and '+Trim(TabGlobal_i.DTABELAS.NOME.Conteudo)+'.'+Trim(Campos_Chave_1[Y])+' = '+Trim(TabGlobal_i.DRELACIONA.TAB_ESTRANGEIRA.Conteudo)+'.'+Trim(Campos_Chave_2[Y])+#39+');')
+                      ELSE
+                         FormPrincipal.Texto.Lines.Add('    RefreshSQL.Add('+#39+'  and '+Trim(NomeFisico)+'.'+Trim(Campos_Chave_1[Y])+' = '+Trim(TabGlobal_i.DRELACIONA.TAB_ESTRANGEIRA.Conteudo)+'.'+Trim(Campos_Chave_2[Y])+#39+');');
+
+                    END
                     else
-                      FormPrincipal.Texto.Lines.Add('    RefreshSQL.Add('+#39+'  '+Trim(NomeFisico)+'.'+Trim(Campos_Chave_1[Y])+' = '+Trim(TabGlobal_i.DRELACIONA.TAB_ESTRANGEIRA.Conteudo)+'.'+Trim(Campos_Chave_2[Y])+#39+');');
+                      if l_view then
+                         FormPrincipal.Texto.Lines.Add('    RefreshSQL.Add('+#39+'  '+Trim(TabGlobal_i.DTABELAS.NOME.Conteudo)+'.'+Trim(Campos_Chave_1[Y])+' = '+Trim(TabGlobal_i.DRELACIONA.TAB_ESTRANGEIRA.Conteudo)+'.'+Trim(Campos_Chave_2[Y])+#39+');')
+                      ELSE
+                         FormPrincipal.Texto.Lines.Add('    RefreshSQL.Add('+#39+'  '+Trim(NomeFisico)+'.'+Trim(Campos_Chave_1[Y])+' = '+Trim(TabGlobal_i.DRELACIONA.TAB_ESTRANGEIRA.Conteudo)+'.'+Trim(Campos_Chave_2[Y])+#39+');');
+
                   end;
                 end;
               Campos_Chave_1.Free;
@@ -2765,6 +2827,11 @@ begin
         //TabGlobal_i.DRELACIONA.ChaveIndice := TabGlobal_i.DRELACIONA.ChPrimaria;
         TabGlobal_i.DCAMPOST.Filtro := 'NUMERO = '+IntToStr(TabGlobal_i.DTABELAS.NUMERO.Conteudo);
         TabGlobal_i.DCAMPOST.AtualizaSql;
+
+        ////////////////////////
+        // WHERE
+        ////////////////////////
+
         FormPrincipal.Texto.Lines.Add('    RefreshSQL.Add('+#39+'where'+#39+');');
         Y := 0;
         TabGlobal_i.DCAMPOST.First;
@@ -2772,10 +2839,18 @@ begin
         begin
           if TabGlobal_i.DCAMPOST.CHAVE.Conteudo = 1 then
           begin
-            if Y = 0 then
-              FormPrincipal.Texto.Lines.Add('    RefreshSQL.Add('+#39+'  '+Trim(NomeFisico)+'.'+NomeFisicoCampo+' = :OLD_'+NomeFisicoCampo+#39+');')
-            else
-              FormPrincipal.Texto.Lines.Add('    RefreshSQL.Add('+#39+'  and '+Trim(NomeFisico)+'.'+NomeFisicoCampo+' = :OLD_'+NomeFisicoCampo+#39+');');
+            if Y = 0 then begin
+              if l_view then
+                 FormPrincipal.Texto.Lines.Add('    RefreshSQL.Add('+#39+'  '+Trim(TabGlobal_i.DTABELAS.NOME.Conteudo)+'.'+NomeFisicoCampo+' = :OLD_'+NomeFisicoCampo+#39+');')
+              else
+                 FormPrincipal.Texto.Lines.Add('    RefreshSQL.Add('+#39+'  '+Trim(NomeFisico)+'.'+NomeFisicoCampo+' = :OLD_'+NomeFisicoCampo+#39+');');
+            end
+            else begin
+              if l_view then
+                 FormPrincipal.Texto.Lines.Add('    RefreshSQL.Add('+#39+'  and '+Trim(TabGlobal_i.DTABELAS.NOME.Conteudo)+'.'+NomeFisicoCampo+' = :OLD_'+NomeFisicoCampo+#39+');')
+              else
+                 FormPrincipal.Texto.Lines.Add('    RefreshSQL.Add('+#39+'  and '+Trim(NomeFisico)+'.'+NomeFisicoCampo+' = :OLD_'+NomeFisicoCampo+#39+');');
+            end;
             inc(Y);
           end;
           TabGlobal_i.DCAMPOST.Next;
@@ -2791,10 +2866,18 @@ begin
                (TabGlobal_i.DCAMPOST.TIPO.Conteudo <> 20) and
                (TabGlobal_i.DCAMPOST.TIPO.Conteudo <> 25) then
             begin
-              if Y = 0 then
-                FormPrincipal.Texto.Lines.Add('    RefreshSQL.Add('+#39+'  '+Trim(NomeFisico)+'.'+NomeFisicoCampo+' = :OLD_'+NomeFisicoCampo+#39+');')
-              else
-                FormPrincipal.Texto.Lines.Add('    RefreshSQL.Add('+#39+'  and '+Trim(NomeFisico)+'.'+NomeFisicoCampo+' = :OLD_'+NomeFisicoCampo+#39+');');
+              if Y = 0 then begin
+                if l_view then
+                   FormPrincipal.Texto.Lines.Add('    RefreshSQL.Add('+#39+'  '+Trim(TabGlobal_i.DTABELAS.NOME.Conteudo)+'.'+NomeFisicoCampo+' = :OLD_'+NomeFisicoCampo+#39+');')
+                else
+                   FormPrincipal.Texto.Lines.Add('    RefreshSQL.Add('+#39+'  '+Trim(NomeFisico)+'.'+NomeFisicoCampo+' = :OLD_'+NomeFisicoCampo+#39+');');
+              end
+              else begin
+                if l_view then
+                   FormPrincipal.Texto.Lines.Add('    RefreshSQL.Add('+#39+'  and '+Trim(TabGlobal_i.DTABELAS.NOME.Conteudo)+'.'+NomeFisicoCampo+' = :OLD_'+NomeFisicoCampo+#39+');')
+                else
+                   FormPrincipal.Texto.Lines.Add('    RefreshSQL.Add('+#39+'  and '+Trim(NomeFisico)+'.'+NomeFisicoCampo+' = :OLD_'+NomeFisicoCampo+#39+');');
+              end;
               inc(Y);
             end;
             TabGlobal_i.DCAMPOST.Next;
@@ -2831,24 +2914,63 @@ begin
           FormPrincipal.Texto.Lines.Add('  TabelasExtras.Add('+#39+TabelasExtras[Y]+#39+');');
         FormPrincipal.Texto.Lines.Add('  UpdateObject     := UpdateSql;');
       end;
+      /////////////////////////////////////////
+      /// // Sql Principal
+      /////////////////////////////////////////
+
       FormPrincipal.Texto.Lines.Add('    // Sql Principal');
+
+
       FormPrincipal.Texto.Lines.Add('  SqlPrincipal.Add('+#39+'Select'+#39+');');
       TabGlobal_i.DCAMPOST.First;
       while not TabGlobal_i.DCAMPOST.Eof do
       begin
         if (Trim(TabGlobal_i.DCAMPOST.NOME.Conteudo) <> '') and
            ((TabGlobal_i.DCAMPOST.CALCULADO.Conteudo = 0) or (TabGlobal_i.DCAMPOST.NAO_VIRTUAL.Conteudo = 1)) then
-          if TabGlobal_i.DCAMPOST.EXTRA.Conteudo = 1 then
-            FormPrincipal.Texto.Lines.Add('  SqlPrincipal.Add('+#39+'  '+Trim(TabGlobal_i.DCAMPOST.TAB_EXTRA.Conteudo)+'.'+Trim(TabGlobal_i.DCAMPOST.CAMPO_EXTRA.Conteudo)+' AS '+NomeFisicoCampo+','+#39+');')
-          else
-            FormPrincipal.Texto.Lines.Add('  SqlPrincipal.Add('+#39+'  '+Trim(NomeFisico)+'.'+NomeFisicoCampo+' AS '+NomeFisicoCampo+','+#39+');');
+          if TabGlobal_i.DCAMPOST.EXTRA.Conteudo = 1 then                                                                                                                     //  NomeFisicoObjeto
+//             FormPrincipal.Texto.Lines.Add('  SqlPrincipal.Add('+#39+'  '+Trim(TabGlobal_i.DCAMPOST.TAB_EXTRA.Conteudo)+'.'+Trim(TabGlobal_i.DCAMPOST.CAMPO_EXTRA.Conteudo)+' AS '+NomeFisicoCampo+','+#39+');')
+             FormPrincipal.Texto.Lines.Add('  SqlPrincipal.Add('+#39+'  '+Trim(TabGlobal_i.DCAMPOST.TAB_EXTRA.Conteudo)+'.'+Trim(TabGlobal_i.DCAMPOST.CAMPO_EXTRA.Conteudo)+' AS '+NomeFisicoObjeto+','+#39+');')
+          else begin
+            if l_view then
+//               FormPrincipal.Texto.Lines.Add('  SqlPrincipal.Add('+#39+'  '+Trim(TabGlobal_i.DTABELAS.NOME.Conteudo)+'.'+NomeFisicoCampo+' AS '+NomeFisicoCampo+','+#39+');')
+               FormPrincipal.Texto.Lines.Add('  SqlPrincipal.Add('+#39+'  '+Trim(TabGlobal_i.DTABELAS.NOME.Conteudo)+'.'+NomeFisicoCampo+' AS '+NomeFisicoObjeto+','+#39+');')
+            else
+//               FormPrincipal.Texto.Lines.Add('  SqlPrincipal.Add('+#39+'  '+Trim(NomeFisico)+'.'+NomeFisicoCampo+' AS '+NomeFisicoCampo+','+#39+');');
+               FormPrincipal.Texto.Lines.Add('  SqlPrincipal.Add('+#39+'  '+Trim(NomeFisico)+'.'+NomeFisicoCampo+' AS '+NomeFisicoObjeto+','+#39+');');
+          end;
         TabGlobal_i.DCAMPOST.Next;
       end;
       FormPrincipal.Texto.Lines[FormPrincipal.Texto.Lines.Count-1] := TrocaString(FormPrincipal.Texto.Lines[FormPrincipal.Texto.Lines.Count-1],',','',[rfReplaceAll]);
-      FormPrincipal.Texto.Lines.Add('  SqlPrincipal.Add('+#39+'from '+Trim(NomeFisico)+#39+');');
-      //For Y:=0 to TabelasExtras.Count-1 do
-      //  FormPrincipal.Texto.Lines.Add('  SqlPrincipal.Add('+#39+'      ,'+TabelasExtras[Y]+#39+');');
+      if l_view then begin
+         // inicio bo subselect
+         FormPrincipal.Texto.Lines.Add('  SqlPrincipal.Add('+#39+'from ( select      '+#39+');  // inicio de sub-select');
+         // [
+
+         TabGlobal_i.DCAMPOST.First;
+         while not TabGlobal_i.DCAMPOST.Eof do
+         begin
+           if (Trim(TabGlobal_i.DCAMPOST.NOME.Conteudo) <> '') and
+              ((TabGlobal_i.DCAMPOST.CALCULADO.Conteudo = 0) or (TabGlobal_i.DCAMPOST.NAO_VIRTUAL.Conteudo = 1)) then
+             if not ( TabGlobal_i.DCAMPOST.EXTRA.Conteudo = 1 ) then
+               FormPrincipal.Texto.Lines.Add('  SqlPrincipal.Add('+#39+'       '+Trim(NomeFisico)+'.'+NomeFisicoCampo+' AS '+NomeFisicoCampo+','+#39+');');
+//               FormPrincipal.Texto.Lines.Add('  SqlPrincipal.Add('+#39+'       '+Trim(NomeFisico)+'.'+NomeFisicoCampo+' AS '+NomeFisicoObjeto+','+#39+');');
+
+           TabGlobal_i.DCAMPOST.Next;
+         end;
+         FormPrincipal.Texto.Lines[FormPrincipal.Texto.Lines.Count-1] := TrocaString(FormPrincipal.Texto.Lines[FormPrincipal.Texto.Lines.Count-1],',','',[rfReplaceAll]);
+
+         FormPrincipal.Texto.Lines.Add('  SqlPrincipal.Add('+#39+'       from  '+Trim(NomeFisico)+#39+'); // fim de sub-select');
+         // ]
+         FormPrincipal.Texto.Lines.Add('  SqlPrincipal.Add('+#39+'     ) as  '+Trim(TabGlobal_i.DTABELAS.NOME.Conteudo)+#39+');');
+      end
+      else
+         FormPrincipal.Texto.Lines.Add('  SqlPrincipal.Add('+#39+'from '+Trim(NomeFisico)+#39+');');
+
       FormPrincipal.Texto.Lines.Add('  Sql.AddStrings(SqlPrincipal);');
+      
+      //////////////////////////////////
+      //// // Foreign Key
+      //////////////////////////////////
 
       FormPrincipal.Texto.Lines.Add('    // Foreign Key');
       TabGlobal_i.DRELACIONA.First;
@@ -2918,16 +3040,28 @@ begin
               begin
                 if (not TabGlobal_i.DCAMPOST.Eof) and (TabGlobal_i.DCAMPOST.EXTRA.Conteudo = 1) then
                   FormPrincipal.Texto.Lines.Add('  FiltroExtra.Add('+#39+'  '+Trim(TabGlobal_i.DCAMPOST.TAB_EXTRA.Conteudo)+'.'+Trim(TabGlobal_i.DCAMPOST.CAMPO_EXTRA.Conteudo)+' = '+Trim(TabGlobal_i.DRELACIONA.TAB_ESTRANGEIRA.Conteudo)+'.'+Trim(Campos_Chave_2[Y])+#39+');')
-                else
-                  FormPrincipal.Texto.Lines.Add('  FiltroExtra.Add('+#39+'  '+Trim(NomeFisico)+'.'+Trim(Campos_Chave_1[Y])+' = '+Trim(TabGlobal_i.DRELACIONA.TAB_ESTRANGEIRA.Conteudo)+'.'+Trim(Campos_Chave_2[Y])+#39+');');
+                else begin
+                
+                  // view
+                  if l_view then
+                     FormPrincipal.Texto.Lines.Add('  FiltroExtra.Add('+#39+'  '+Trim(TabGlobal_i.DTABELAS.NOME.Conteudo)+'.'+Trim(Campos_Chave_1[Y])+' = '+Trim(TabGlobal_i.DRELACIONA.TAB_ESTRANGEIRA.Conteudo)+'.'+Trim(Campos_Chave_2[Y])+#39+');')
+                  else
+                     FormPrincipal.Texto.Lines.Add('  FiltroExtra.Add('+#39+'  '+Trim(NomeFisico)+'.'+Trim(Campos_Chave_1[Y])+' = '+Trim(TabGlobal_i.DRELACIONA.TAB_ESTRANGEIRA.Conteudo)+'.'+Trim(Campos_Chave_2[Y])+#39+');');
+
+                end;
                 Primeira := False;
               end
               else
               begin
                 if (not TabGlobal_i.DCAMPOST.Eof) and (TabGlobal_i.DCAMPOST.EXTRA.Conteudo = 1) then
                   FormPrincipal.Texto.Lines.Add('  FiltroExtra.Add('+#39+'  and '+Trim(TabGlobal_i.DCAMPOST.TAB_EXTRA.Conteudo)+'.'+Trim(TabGlobal_i.DCAMPOST.CAMPO_EXTRA.Conteudo)+' = '+Trim(TabGlobal_i.DRELACIONA.TAB_ESTRANGEIRA.Conteudo)+'.'+Trim(Campos_Chave_2[Y])+#39+');')
-                else
-                  FormPrincipal.Texto.Lines.Add('  FiltroExtra.Add('+#39+'  and '+Trim(NomeFisico)+'.'+Trim(Campos_Chave_1[Y])+' = '+Trim(TabGlobal_i.DRELACIONA.TAB_ESTRANGEIRA.Conteudo)+'.'+Trim(Campos_Chave_2[Y])+#39+');');
+                else begin
+                  if l_view then
+                     FormPrincipal.Texto.Lines.Add('  FiltroExtra.Add('+#39+'  and '+Trim(TabGlobal_i.DTABELAS.NOME.Conteudo)+'.'+Trim(Campos_Chave_1[Y])+' = '+Trim(TabGlobal_i.DRELACIONA.TAB_ESTRANGEIRA.Conteudo)+'.'+Trim(Campos_Chave_2[Y])+#39+');')
+                  else
+                     FormPrincipal.Texto.Lines.Add('  FiltroExtra.Add('+#39+'  and '+Trim(NomeFisico)+'.'+Trim(Campos_Chave_1[Y])+' = '+Trim(TabGlobal_i.DRELACIONA.TAB_ESTRANGEIRA.Conteudo)+'.'+Trim(Campos_Chave_2[Y])+#39+');');
+
+                end;
               end;
             end;
           Primeira := False;
@@ -2988,8 +3122,13 @@ begin
         begin
           if TabGlobal_i.DCAMPOST.EXTRA.Conteudo = 1 then
             Chave := Chave + Trim(TabGlobal_i.DCAMPOST.TAB_EXTRA.Conteudo)+'.'+TabGlobal_i.DCAMPOST.CAMPO_EXTRA.Conteudo + ','
-          else
-            Chave := Chave + Trim(NomeFisico)+'.'+NomeFisicoCampo + ',';
+          else begin
+            if l_view then
+               Chave := Chave + Trim(TabGlobal_i.DTABELAS.NOME.Conteudo)+'.'+NomeFisicoCampo + ','
+            else
+               Chave := Chave + Trim(NomeFisico)+'.'+NomeFisicoCampo + ',';
+          end;
+
           if Trim(TituloIndice) = '' then
             TituloIndice := Trim(TabGlobal_i.DCAMPOST.TITULO_C.Conteudo)
           else
@@ -3028,6 +3167,11 @@ begin
       end;
       TabGlobal_i.DCAMPOST.ChaveIndice := TabGlobal_i.DCAMPOST.ChPrimaria;
       TabGlobal_i.DCAMPOST.AtualizaSql;
+
+      ////////////////////////
+      //CRIANDO CHAVE PRIMARIA
+      ////////////////////////
+      FormPrincipal.Texto.Lines.Add('//CRIANDO CHAVE PRIMARIA ');
       TabGlobal_i.DCAMPOST.First;
       nome_1_chave := '';
       while not TabGlobal_i.DCAMPOST.Eof do
@@ -3040,6 +3184,13 @@ begin
         end;
         TabGlobal_i.DCAMPOST.Next;
       end;
+
+      ////////////////////////
+      //CRIANDO CAMPOS 
+      ////////////////////////
+
+
+      FormPrincipal.Texto.Lines.Add('//CRIANDO CAMPOS ');
       TabGlobal_i.DCAMPOST.First;
       while not TabGlobal_i.DCAMPOST.Eof do
       begin
@@ -3058,6 +3209,9 @@ begin
       TabGlobal_i.DINDICEST.Filtro := 'NUMERO = '+IntToStr(TabGlobal_i.DTABELAS.NUMERO.Conteudo);
       TabGlobal_i.DINDICEST.AtualizaSql;
       TabGlobal_i.DINDICEST.First;
+
+      FormPrincipal.Texto.Lines.Add('//CRIANDO TituloIndices ');
+
       while not TabGlobal_i.DINDICEST.Eof do
       begin
          if Trim(Chave) = '' then
@@ -3129,6 +3283,10 @@ begin
             Primeira := True;
             Break;
           end;
+      FormPrincipal.Texto.Lines.Add('////////////////////////////////');
+      FormPrincipal.Texto.Lines.Add('//   CRIANDO PROCEDIMENTOS    //');
+      FormPrincipal.Texto.Lines.Add('////////////////////////////////');
+
       FormPrincipal.Texto.Lines.Add('');
       FormPrincipal.Texto.Lines.Add('procedure TD'+Trim(TabGlobal_i.DTABELAS.NOME.Conteudo)+'.CriaForeignKeys;');
       FormPrincipal.Texto.Lines.Add('var');
@@ -3534,10 +3692,22 @@ begin
         begin
           for Y:=0 to Campos_Chave_1.Count-1 do
           begin
+            // cms modificaocao 16/042012 Trim(TabGlobal_i.DTABELAS.NOME.Conteudo
+            //if Y = 0 then
+            //  FormPrincipal.Texto.Lines.Add('    FiltroRelac.Add('+#39+Trim(NomeFisico)+'.'+Trim(Campos_Chave_2[Y])+' = :'+NomeTabChave[0]+'_'+Trim(Campos_Chave_1[Y])+#39+');')
+            //else
+            //  FormPrincipal.Texto.Lines.Add('    FiltroRelac.Add('+#39+' and '+Trim(NomeFisico)+'.'+Trim(Campos_Chave_2[Y])+' = :'+NomeTabChave[0]+'_'+Trim(Campos_Chave_1[Y])+#39+');');
+
             if Y = 0 then
-              FormPrincipal.Texto.Lines.Add('    FiltroRelac.Add('+#39+Trim(NomeFisico)+'.'+Trim(Campos_Chave_2[Y])+' = :'+NomeTabChave[0]+'_'+Trim(Campos_Chave_1[Y])+#39+');')
+              if Trim(TabGlobal_i.DTABELAS.NOME.Conteudo) <> '' then
+                 FormPrincipal.Texto.Lines.Add('    FiltroRelac.Add('+#39+Trim(TabGlobal_i.DTABELAS.NOME.Conteudo)+'.'+Trim(Campos_Chave_2[Y])+' = :'+NomeTabChave[0]+'_'+Trim(Campos_Chave_1[Y])+#39+');')
+              else
+                 FormPrincipal.Texto.Lines.Add('    FiltroRelac.Add('+#39+Trim(NomeFisico)+'.'+Trim(Campos_Chave_2[Y])+' = :'+NomeTabChave[0]+'_'+Trim(Campos_Chave_1[Y])+#39+');') 
             else
-              FormPrincipal.Texto.Lines.Add('    FiltroRelac.Add('+#39+' and '+Trim(NomeFisico)+'.'+Trim(Campos_Chave_2[Y])+' = :'+NomeTabChave[0]+'_'+Trim(Campos_Chave_1[Y])+#39+');');
+              if Trim(TabGlobal_i.DTABELAS.NOME.Conteudo) <> '' then
+                 FormPrincipal.Texto.Lines.Add('    FiltroRelac.Add('+#39+' and '+Trim(TabGlobal_i.DTABELAS.NOME.Conteudo)+'.'+Trim(Campos_Chave_2[Y])+' = :'+NomeTabChave[0]+'_'+Trim(Campos_Chave_1[Y])+#39+');')
+              else
+                 FormPrincipal.Texto.Lines.Add('    FiltroRelac.Add('+#39+' and '+Trim(NomeFisico)+'.'+Trim(Campos_Chave_2[Y])+' = :'+NomeTabChave[0]+'_'+Trim(Campos_Chave_1[Y])+#39+');');
           end;
           FormPrincipal.Texto.Lines.Add('  end');
           FormPrincipal.Texto.Lines.Add('  else');

@@ -1,0 +1,79 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<title>TFCBackgroundOptions</title>
+</head>
+
+<body bgcolor="#FFFFFF">
+
+<h3>TFCBackgroundOptions</h3>
+
+<p><font face="Arial">Unit</font>
+
+<dl>
+  <dd><font size="2">FormCont</font></dd>
+</dl>
+
+<p><font face="Arial">Declaration</font>
+
+<dl>
+  <dd><font size="2">TFCBackgroundOptions = class(TPersistent)</font></dd>
+</dl>
+
+<p><font face="Arial">Description</font>
+
+<dl>
+  <dd><font size="2">This class configures the background of a FormContainer.</font></dd>
+</dl>
+
+<p><font size="2"><a href="#TFCBackground's properties">Properties</a> <a href="#Methods">Methods</a></font></p>
+
+<p><a name="TFCBackground's properties"><font face="Arial">Properties</font></a></p>
+
+<p><a name="Picture"><font size="2"><b>Picture</b></font></a>
+
+<dl>
+  <dd><font size="2"><b>Declaration:</b> property Picture: TPicture read FPicture write
+    SetPicture;</font></dd>
+  <dd><font size="2"><b>Description:</b> The picture to draw on the background.</font></dd>
+</dl>
+
+<p><font size="2"><b>PictureMode</b></font>
+
+<dl>
+  <dd><font size="2"><b>Declaration:</b> property PictureMode: TFCPictureMode read
+    FPictureMode write SetPictureMode default fcpmTile;</font></dd>
+  <dd><font size="2"><b>Description:</b> The mode used to draw the <em>Picture</em>.</font></dd>
+  <dd><font size="2"><b>See also:</b> <a href="picmode.htm"><em>TFCPictureMode</em></a></font></dd>
+</dl>
+
+<p><font size="2"><b>PictureVisible</b></font>
+
+<dl>
+  <dd><font size="2"><b>Declaration:</b> property PictureVisible: Boolean read FPictureVisible
+    write SetPictureVisible default True;</font></dd>
+  <dd><font size="2"><b>Description:</b> Usefull to hide the <em>Picture</em> without losing
+    it.</font></dd>
+</dl>
+
+<p><a name="Methods"><font face="Arial">Methods</font></a></p>
+
+<p><font size="2"><b>Assign</b></font>
+
+<dl>
+  <dd><font size="2"><b>Declaration:</b> procedure Assign(Source: TPersistent);</font></dd>
+  <dd><font size="2"><b>Description:</b> This method copies all properties from a <em>TFCBackgroundOptions</em>
+    object to another.</font></dd>
+</dl>
+
+<p><font size="2"><b>Equal</b></font>
+
+<dl>
+  <dd><font size="2"><b>Declaration:</b> function Equal(Value: TFCBackgroundOptions): Boolean;</font></dd>
+  <dd><font size="2"><b>Description:</b> Returns <em>True</em> if the settings of <em>Value</em>
+    are equivalent.</font></dd>
+</dl>
+</body>
+</html>

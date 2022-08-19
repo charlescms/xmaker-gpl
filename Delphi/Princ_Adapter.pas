@@ -1,6 +1,6 @@
 {
    Programa.: Princ_Adapter.PAS
-   Copyright: Modular Software 2006
+   Copyright: X-Maker
             : Todos os direitos reservados
    Site.....: http://www.xmaker.com.br
 }
@@ -131,8 +131,8 @@ type
     function Tipo_Campo(Campo: TField): String;
   public
     { Public declarations }
-    {01-Início do Bloco Modular. Modificações não serão preservadas}
-    {99-Final do Bloco Modular. Modificações não serão preservadas}
+    {01-Início do Bloco X-Maker. Modificações não serão preservadas}
+    {99-Final do Bloco X-Maker. Modificações não serão preservadas}
     procedure Iniciar;
   end;
 
@@ -152,8 +152,8 @@ var
 begin
   PageControl.ActivePageIndex := 0;
   ListaCampos := TStringList.Create;
-  {02-Início do Bloco Modular. Modificações não serão preservadas}
-  {99-Final do Bloco Modular. Modificações não serão preservadas}
+  {02-Início do Bloco X-Maker. Modificações não serão preservadas}
+  {99-Final do Bloco X-Maker. Modificações não serão preservadas}
   EdLocalizar.Items.Clear;
   for I:=0 to Lst_Tabelas.Count-1 do
     EdLocalizar.Items.Add(TTabela(Lst_Tabelas[I]).NomeTabela + ' - ' + TTabela(Lst_Tabelas[I]).Titulo);

@@ -1,6 +1,6 @@
 {
    Programa.: Tabela.PAS  -  Estrutura de Acesso
-   Copyright: Modular Software 2006
+   Copyright: X-Maker
             : Todos os direitos reservados
    Site.....: http://www.xmaker.com.br
 }
@@ -1995,7 +1995,8 @@ begin
   try
     Sistema.Conexao_i := Time;
     CalculaCampos;
-    if UpdateStatus in [usModified, usInserted] then
+    // esta bodificação deve ser melhor atualizada
+    //if UpdateStatus in [usModified, usInserted] then
     begin
       xUpdateStatus := UpdateStatus;
       Post;

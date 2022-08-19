@@ -185,8 +185,8 @@ implementation
 
 {$R *.DFM}
 
-uses FR_Class, Printers, FR_Prntr, FR_Srch, Registry, FR_PrDlg, FR_Utils,
-     ExportPack;
+uses FR_Class, Printers, FR_Prntr, FR_Srch, Registry, FR_PrDlg,
+     FR_Utils, ExportPack;
 
 type
   THackControl = class(TControl)

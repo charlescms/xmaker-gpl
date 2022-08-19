@@ -1,0 +1,33 @@
+{$IFDEF VER130}      // Delphi 5.0
+  {$DEFINE DELPHI5}
+{$ENDIF}
+
+{$IFDEF VER140}      // Delphi 6.0
+  {$DEFINE DELPHI6}
+{$ENDIF}
+
+{$IFDEF VER150}      // Delphi 7.0
+  {$DEFINE DELPHI6}
+  {$DEFINE DELPHI7}
+{$ENDIF}
+
+{$IFDEF VER170}      // Delphi 9.0
+  {$DEFINE DELPHI6}
+  {$DEFINE DELPHI7}
+  {$DEFINE DELPHI9}
+{$ENDIF}
+
+{$IFDEF VER180}      // Delphi 10.0 e 11 compatibilidade existente(2006-2007)
+  {$DEFINE DELPHI6}
+  {$DEFINE DELPHI7}
+  {$DEFINE DELPHI9}
+  {$DEFINE DELPHI10}
+{$ENDIF}
+
+{$IFDEF VER185}      // Delphi 11 exclusivo 2007
+  {$DEFINE DELPHI6}
+  {$DEFINE DELPHI7}
+  {$DEFINE DELPHI9}
+  {$DEFINE DELPHI10}
+  {$DEFINE DELPHI11}
+{$ENDIF}

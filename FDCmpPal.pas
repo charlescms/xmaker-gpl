@@ -35,6 +35,27 @@ implementation
 {$R FR_REG.DCR}
 {$R QREPORT.DCR}
 {$R SMDBGRID.DCR}
+// NOVO CMS
+
+{$R xm_ACBr_SPEDPisCofins.DCR}
+//{$R xm_ACBr_SPEDContabil.DCR}
+//{$R xm_ACBr_SPEDFiscal.DCR}
+//{$R xm_ACBrBoleto.DCR}
+//{$R xm_ACBrBoletoFCFortes.DCR}
+//{$R xm_ACBrBoletoFCQuick.DCR}
+{$R xm_ACBrComum.DCR}
+{$R xm_ACBrCte.DCR}
+{$R xm_ACBrDiversos.DCR}
+{$R xm_ACBrNFe.DCR}
+//{$R xm_ACBrPAF.DCR}
+{$R xm_ACBrSerial.DCR}
+{$R xm_ACBrSintegra.DCR}
+{$R xm_ACBrTCP.DCR}
+//{$R xm_ACBrTEFD.DCR}
+{$R xm_VDOPrint.DCR}
+
+// 25/03/20210    // NOVO CMS
+{$R JvDBReg.dcr}
 
 function CreatePaletteButton(AParent: TWinControl; AClass: TComponentClass; ALeft,ATop: Integer; ClickEvent: TNotifyEvent): TPaletteButton;
 var

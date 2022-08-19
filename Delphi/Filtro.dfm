@@ -42,7 +42,32 @@ object FormFiltragem: TFormFiltragem
     Width = 24
     Height = 13
     Caption = '&Valor'
-    FocusControl = EdExpressao
+  end
+  object spbProcurar: TSpeedButton
+    Left = 400
+    Top = 109
+    Width = 22
+    Height = 21
+    Hint = 'Procurar por'
+    Flat = True
+    Glyph.Data = {
+      76010000424D7601000000000000760000002800000020000000100000000100
+      0400000000000001000000000000000000001000000010000000000000000000
+      80000080000000808000800000008000800080800000C0C0C000808080000000
+      FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333333333
+      3333333333333333333333333333333333333333333333333333300000333330
+      00003FFFFF33333FFFFF30F000333330F0003F7FFF33333F7FFF30F000333330
+      F0003F7FFF33333F7FFF30000000300000003FFFFFFF3FFFFFFF300F000000F0
+      00003FF7FFFFFF7FFFFF300F000700F000003FF7FFF7FF7FFFFF300F000700F0
+      00003FF7FFF7FF7FFFFF330000000000000333FFFFFFFFFFFFF33330F00030F0
+      0033333F7FFF3F7FFF333330000030000033333FFFFF3FFFFF33333300033300
+      03333333FFF333FFF33333330F03330F03333333F7F333F7F333333300033300
+      03333333FFF333FFF33333333333333333333333333333333333}
+    NumGlyphs = 2
+    ParentShowHint = False
+    ShowHint = True
+    Visible = False
+    OnClick = spbProcurarClick
   end
   object ListaCampos: TListBox
     Left = 1
@@ -60,11 +85,12 @@ object FormFiltragem: TFormFiltragem
     ParentShowHint = False
     ShowHint = True
     TabOrder = 0
+    OnClick = ListaCamposClick
   end
   object Operacao: TRadioGroup
     Left = 152
     Top = 11
-    Width = 254
+    Width = 274
     Height = 79
     Hint = 'Operadores de comparação'
     Caption = ' O&peração '
@@ -91,25 +117,27 @@ object FormFiltragem: TFormFiltragem
   end
   object MFiltro: TMemo
     Left = 0
-    Top = 203
-    Width = 408
+    Top = 204
+    Width = 431
     Height = 108
     Hint = 
       'Expressão lógica de filtragem'#13#10'pode ser editada para filtragem m' +
       'ais complexas'
     Align = alBottom
+    Ctl3D = True
+    ParentCtl3D = False
     ParentShowHint = False
     ShowHint = True
-    TabOrder = 6
+    TabOrder = 5
   end
   object Panel1: TPanel
     Left = 0
-    Top = 311
-    Width = 408
+    Top = 312
+    Width = 431
     Height = 33
     Align = alBottom
     BevelOuter = bvNone
-    TabOrder = 7
+    TabOrder = 6
     object BtnAjuda: TBitBtn
       Left = 157
       Top = 6
@@ -150,23 +178,10 @@ object FormFiltragem: TFormFiltragem
       NumGlyphs = 2
     end
   end
-  object EdExpressao: TEdit
-    Left = 152
-    Top = 111
-    Width = 254
-    Height = 21
-    Hint = 
-      'Informe o valor de atribuição'#13#10'Campo Data: Digite a data com bar' +
-      'ras - Exemplo: 01/01/2002'#13#10'Campo Fracionário: Não digite '#39','#39' (Ví' +
-      'rgula) para o valor decimal'
-    ParentShowHint = False
-    ShowHint = True
-    TabOrder = 2
-  end
   object Composicao: TRadioGroup
-    Left = 223
+    Left = 152
     Top = 135
-    Width = 119
+    Width = 112
     Height = 33
     Hint = 
       'Composição lógica'#13#10'Exemplo I:'#13#10'Filtrar clientes como nome de '#39'JO' +
@@ -181,7 +196,7 @@ object FormFiltragem: TFormFiltragem
       'ou')
     ParentShowHint = False
     ShowHint = True
-    TabOrder = 3
+    TabOrder = 2
   end
   object BtnInserir: TBitBtn
     Left = 199
@@ -192,7 +207,7 @@ object FormFiltragem: TFormFiltragem
     Caption = 'Inserir'
     ParentShowHint = False
     ShowHint = True
-    TabOrder = 4
+    TabOrder = 3
     OnClick = BtnInserirClick
     Glyph.Data = {
       BE060000424DBE06000000000000360400002800000024000000120000000100
@@ -261,7 +276,7 @@ object FormFiltragem: TFormFiltragem
     Caption = 'Limpar'
     ParentShowHint = False
     ShowHint = True
-    TabOrder = 5
+    TabOrder = 4
     OnClick = BtnLimparClick
     Glyph.Data = {
       76010000424D7601000000000000760000002800000020000000100000000100
@@ -277,5 +292,29 @@ object FormFiltragem: TFormFiltragem
       CCC83333F333333333F833333CCCCCCCCCC333333F33333333F3333333CCCCCC
       CC33333333F33333FF333333333CCCCC33333333333FFFFF3333}
     NumGlyphs = 2
+  end
+  object EdExpressao: TComboBox
+    Left = 151
+    Top = 109
+    Width = 245
+    Height = 21
+    ItemHeight = 13
+    TabOrder = 7
+  end
+  object rgCaixa: TRadioGroup
+    Left = 266
+    Top = 135
+    Width = 159
+    Height = 33
+    Hint = 
+      'Marque "Sim" para n'#227'o diferenciar mai'#250'sculo e min'#250'sculo e n'#227'o pa' +
+      'ra considerar'
+    Caption = ' Ignorar Mai'#250'sculo/Min'#250'sculo '
+    Columns = 2
+    ItemIndex = 0
+    Items.Strings = (
+      'Sim'
+      'N'#227'o')
+    TabOrder = 8
   end
 end

@@ -1,0 +1,21 @@
+<html><head><META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>ZeosDBO Known Bugs</title><meta content="DocBook XSL Stylesheets V1.62.4" name="generator"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="article" lang="en"><div class="titlepage"><div><div><h1 class="title"><a name="N10001"></a>ZeosDBO Known Bugs</h1></div><div><h3 class="corpauthor">ZeosLib Development Group</h3></div><div><p class="pubdate">02 November 2003</p></div></div><div></div><hr></div><div class="orderedlist"><ol type="1"><li>
+Because of the limitations of dblibrary only the first 255 char is returned
+for char and varchar columns.
+</li><li>
+LargeInt fields are not completely supported in Delphi 4,5 and C++ Builder 4,5.
+</li><li>
+Sybase does not support procedure parameter type query. Though a workaround
+was possible for ASE12.5 and above.
+</li><li>
+Oracle provider for ADO is case sensitive for the table name when getting schema
+columns, the MS version is working right. Identifier convertion must be reviewed for ADO.
+</li><li>
+If you are using dbgrid, all the records will be fetched because of a call
+  to recordcount (in scrollbar). You can avoid this behavior if you turn on the
+  Filtered property. In this case you can achieve fast open even on bigger resultsets.
+</li><li>
+Midas <tt class="classname">IProviderSupport</tt> interface is not completely supported.
+It may cause problems
+with <tt class="classname">TDatasetProvider</tt> and <tt class="classname">TClientDataset</tt>.
+Full support for <tt class="classname">IProviderSupport</tt> interface will be added to version 6.2.
+</li></ol></div></div></body></html>

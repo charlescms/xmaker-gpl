@@ -474,6 +474,8 @@ begin
 
   StrCompImFundo  := ComponentToString(ImagemFundo);
   StrCompImSplash := ComponentToString(ImageApresentacao);
+
+  // area de cricao de arquivos do sistema
   Gera_Princ_Inc;
   Gera_Princ_Res(False);
   Gera_Dpr(False);

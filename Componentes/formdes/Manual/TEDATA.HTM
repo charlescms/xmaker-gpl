@@ -1,0 +1,87 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<title>TTETransitionData</title>
+</head>
+
+<body bgcolor="#FFFFFF">
+
+<h3>TTETransitionData</h3>
+
+<p><font face="Arial">Unit</font>
+
+<dl>
+  <dd><font size="2">TransEff</font></dd>
+</dl>
+
+<p><font face="Arial">Declaration</font>
+
+<dl>
+  <dd><font size="2">TTETransitionData = class(TObject)</font></dd>
+</dl>
+
+<p><font face="Arial">Description</font>
+
+<dl>
+  <dd><font size="2">Provides all the information needed to perform the transition.</font></dd>
+</dl>
+
+<p><font face="Arial">Properties</font></p>
+
+<p><font size="2"><b>Bitmap</b></font>
+
+<dl>
+  <dd><font size="2"><b>Declaration:</b> property Bitmap: TBitmap read FBitmap;</font></dd>
+  <dd><font size="2"><b>Description:</b> It is the offscreen bitmap. If no offscreen bitmap is
+    needed, then it returns <em>nil</em>.</font></dd>
+  <dd><font size="2"><b>See also:</b> <a href="transeff.htm#UseOffScreenBmp">UseOffScreenBmp</a></font></dd>
+</dl>
+
+<p><font size="2"><b>Canvas</b></font>
+
+<dl>
+  <dd><font size="2"><b>Declaration:</b> property Canvas: TCanvas read GetCanvas;</font></dd>
+  <dd><font size="2"><b>Description:</b> It is the canvas where you have to render the
+    transition. When using an offscreen bitmap, it is the canvas of that bitmap. When the
+    transition is directly rendered to the screen, it is the canvas of the window where it
+    takes place. This way, you can safely use it without caring if you are working with an
+    offscreen bitmap or not.</font></dd>
+</dl>
+
+<p><a name="DstBmp"><font size="2"><b>DstBmp</b></font></a>
+
+<dl>
+  <dd><font size="2"><b>Declaration:</b> property DstBmp: TBitmap read FDstBmp;</font></dd>
+  <dd><font size="2"><b>Description:</b> It is the destination bitmap. If no destination
+    bitmap is needed, then it returns <em>nil</em>.</font></dd>
+  <dd><font size="2"><b>See also:</b> <a href="transeff.htm#NeedDstImage">NeedDstImage</a></font></dd>
+</dl>
+
+<p><a name="Height"><font size="2"><b>Height</b></font></a>
+
+<dl>
+  <dd><font size="2"><b>Declaration:</b> property Height: Integer read FHeight;</font></dd>
+  <dd><font size="2"><b>Description:</b> It is the height of the transition surface.</font></dd>
+  <dd><font size="2"><b>See also:</b> <a href="#Width">Width</a></font></dd>
+</dl>
+
+<p><a name="SrcBmp"><font size="2"><b>SrcBmp</b></font></a>
+
+<dl>
+  <dd><font size="2"><b>Declaration:</b> property SrcBmp: TBitmap read FDstBmp;</font></dd>
+  <dd><font size="2"><b>Description:</b> It is the source bitmap. If no source bitmap is
+    needed, then it returns <em>nil</em>.</font></dd>
+  <dd><font size="2"><b>See also:</b> <a href="transeff.htm#NeedSrcImage">NeedSrcImage</a></font></dd>
+</dl>
+
+<p><a name="Width"><font size="2"><b>Width</b></font></a>
+
+<dl>
+  <dd><font size="2"><b>Declaration:</b> property Width: Integer read FWidth;</font></dd>
+  <dd><font size="2"><b>Description:</b> It is the width of the transition surface.</font></dd>
+  <dd><font size="2"><b>See also:</b> <a href="#Height">Height</a></font></dd>
+</dl>
+</body>
+</html>

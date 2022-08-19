@@ -1,6 +1,6 @@
 {
    Programa.: Rotinas.PAS
-   Copyright: Modular Software 2006
+   Copyright: X-Maker
             : Todos os direitos reservados
    Site.....: http://www.xmaker.com.br
 }
@@ -50,6 +50,8 @@ function ContaOcorrencia(Substr: string; S: string): Integer;
 function ProcuraRestricao(NomeTabela, Tipo: String): Boolean;
 procedure DesabilitaFuncoesEd;
 function FracToStr(Valor: Extended): String;
+function RD(N1: Extended; Decimal: Integer): Extended; //Funcao para arrendondar.. jcs
+function truc(N1: Extended): Extended; //Funcao para truncar.. jcs
 function CalcC(N1,N2: Extended;Operador: String; Decimal: Integer): Extended;
 function Exponencial(N1: Extended; N2: Integer): Extended;
 function StrNumerica(N: String) : Boolean;
@@ -842,6 +844,24 @@ begin
   else if Operador = '*' then
     Resultado := N1 * N2;
   Result := StrToFloat(FormatFloat(Masc,Resultado));
+end;
+
+function RD(N1: Extended; Decimal: Integer): Extended;
+Var Masc: String;
+    I: Integer;
+
+begin
+  Masc := '0.';
+  for I:=0 to decimal-1 do
+    Masc := Masc + '0';
+  N1 := StrToFloat(FormatFloat(Masc,N1));
+  Result := StrToFloat(FormatFloat(Masc,N1));
+end;
+
+function truc(N1: Extended): Extended;
+begin
+Result := (Int(N1*100) / 100);
+
 end;
 
 function Exponencial(N1: Extended; N2: Integer): Extended;

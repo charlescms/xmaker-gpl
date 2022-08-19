@@ -1,0 +1,100 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<title>Versions</title>
+</head>
+
+<body bgcolor="#FFFFFF">
+
+<h3>Versions</h3>
+
+<p><a name="1.2b"><em><strong>1.3</strong></em></a> 
+
+<ol>
+  <li>Memory and resources leaks have been fixed.</li>
+  <li>Slide, Push and Drip transitions have been fixed.</li>
+  <li>Enhanced rendering of controls.</li>
+  <li><a href="adjbmp.htm">AdjustBmpForTransition</a> and <a href="snapshot.htm">GetSnapShotImage</a>
+    now accept a parameter giving the desired pixel format.</li>
+  <li><a href="rendctrl.htm">RenderControl</a> has 3 extra parameters.</li>
+  <li>New utility procedures and functions: <a href="chpixfor.htm">ChangePixelFormat</a>, <u><a
+    href="devpixfo.htm">DevicePixelFormat</a></u>, <a href="bytespsl.htm">GetBytesPerScanline</a>
+    and <a href="rgbdev.htm">RGBDevice</a> (for internal use in custom transitions).</li>
+  <li>New <a href="transeff.htm#ClientCoordinates">ClientCoordinates</a> property for
+    TTransitionEffect.</li>
+  <li>New <a href="transeff.htm#GetPixelFormat">GetPixelFormat</a> function (for internal use
+    in custom transitions).</li>
+  <li>New <a href="transeff.htm#UnUpdateRect">UnUpdateRect</a> property for TTransitionEffect
+    (for internal use in custom transitions).</li>
+  <li>New <a href="transeff.htm#OnStartTransition">OnStartTransition</a> end <a
+    href="transeff.htm#OnEndTransition">OnEndTransition</a> events for TTransitionEffect.</li>
+  <li>Transition disabling with <a href="globdisa.htm">TEGlobalDisabled</a> global variable
+    and the <a href="transeff.htm#Enabled">Enabled</a> and <a
+    href="transeff.htm#FlickerFreeWhenDisabled">FlickerFreeWhenDisabled</a> properties for
+    TTransitionEffect.</li>
+  <li>New <a href="blend.htm">alpha-blending</a> transition.</li>
+  <li>New <a href="teform.htm">TFormTransitions</a> component.</li>
+</ol>
+
+<p><a name="1.2b"><em><strong>1.2b</strong></em></a> 
+
+<ol>
+  <li>Push and Slide transitions are much faster now.</li>
+  <li>Some bugs fixed in the Drip and Slide transitions.</li>
+  <li>Push and Slide default direction has changed to tedDown because it minimizes the
+    vertical retrace effects.</li>
+  <li>The Fuse transition now has 5 new styles. The 0 value randomly uses a different style
+    for each transition executed, where the style 1 has a 33% probability.</li>
+  <li>The demo project now uses external bmp files instead of internal resources. This means
+    that it isn't an standalone executable anymore because it needs these bmps.</li>
+  <li>'Line too long' error fixed when installing the Delphi 4 version.</li>
+  <li>The library is now installed as a package. Please follow the new <a href="install.htm">installation
+    steps</a>.</li>
+  <li>The source code of FormContainer component is included in all registered versions.</li>
+</ol>
+
+<p><a name="1.2"><em><strong>1.2</strong></em></a> 
+
+<ol>
+  <li>First release version</li>
+  <li>More units added, due to a great reorganization of the code. You'll possibly have to
+    include 'teRender' in some uses clauses.</li>
+  <li>Much better palette handling under 256 colors video mode.</li>
+  <li>Custom transitions are now much more easy to develope.</li>
+  <li>More correctly rendered controls.</li>
+  <li>The <em>OnActivate</em> and <em>OnDeactivate</em> events of a child form are now used as
+    <em>OnEnter</em> and <em>OnExit</em> replacements.</li>
+  <li>The function <a href="snapshot.htm">GetSnapShotImage</a> now creates and returns a <em>TBitmap</em>.
+    If you were using splash screens you should modify your code (see the <em>About.pas</em>
+    of the Demo project).</li>
+  <li><a href="teregist.htm">RegisterTEControl</a> has changed its parameters.</li>
+  <li>The global function <a href="rendctrl.htm">RenderControl</a> is now public.</li>
+  <li>The class <a href="chrono.htm">TTEChrono</a> is now public.</li>
+  <li><a href="FormCont.htm#BorderStyle">BorderStyle</a> property of <a href="FormCont.htm">TFormContainer</a></li>
+</ol>
+
+<p><em><strong>Beta 1.1</strong></em> 
+
+<ol>
+  <li>Delphi 4 compatible</li>
+  <li>Global <a href="glflick.htm">FlickerFreeTransition</a> object</li>
+  <li>More correctly rendered controls (TAnimate and TComboBox, for example)</li>
+  <li>When a control is wrongly rendered, it is repainted when the transition has finished
+    (ActiveX controls, for example)</li>
+  <li>Fine-tuning of control rendering using global method <a href="teregist.htm">RegisterTEControl</a></li>
+  <li>Global method <a href="paletted.htm">PalettedDevice</a></li>
+  <li><a href="FormCont.htm#BackgroundOptions">BackgroundOptions</a> in TFormContainer</li>
+  <li><a href="FormCont.htm#ShowFormEx">ShowFormEx</a> has changed its parameters</li>
+  <li>Updated documentation</li>
+  <li>The nag messages of the evaluation version are hidden when the IDE is running</li>
+</ol>
+
+<p><em><strong>Beta 1.0</strong></em> 
+
+<ol>
+  <li>First public version</li>
+</ol>
+</body>
+</html>

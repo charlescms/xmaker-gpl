@@ -1,1 +1,1 @@
-del *.dcu *.ddp /s
+del *.dcu *.ddp  *.~* *.bak /s

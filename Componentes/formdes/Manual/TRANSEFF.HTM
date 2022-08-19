@@ -1,0 +1,384 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<title>TTransitionEffect</title>
+</head>
+
+<body bgcolor="#FFFFFF">
+
+<h3>TTransitionEffect</h3>
+
+<p><font face="Arial">Unit</font> 
+
+<dl>
+  <dd><font size="2">TransEff</font></dd>
+</dl>
+
+<p><font face="Arial">Declaration</font> 
+
+<dl>
+  <dd><font size="2">TTransitionEffect = class(TObject) </font></dd>
+</dl>
+
+<p><font face="Arial">Description</font> 
+
+<dl>
+  <dd><font size="2">This is the base class for all the transitions. A transition is a
+    graphical effect that runs from an initial state (a bitmap) to a final state (another
+    bitmap). You&#146;ll never have to instantiate <i>TTransitionEffect</i>, because by itself
+    it is inoperative.</font></dd>
+</dl>
+
+<p><font size="2"><a href="#Properties">Properties</a> <a href="#Methods">Methods</a> <a
+href="#Events">Events</a></font></p>
+
+<p><a name="Properties"><font face="Arial">Properties</font></a></p>
+
+<p><a name="ClientCoordinates"><font size="2"><b>ClientCoordinates</b></font></a> 
+
+<dl>
+  <dd><font size="2"><b>Declaration:</b> ClientCoordinates: Boolean;</font></dd>
+  <dd><font size="2"><b>Description:</b> If <em>True</em> (the default) the rectangle
+    coordinates passed to <a href="#Freeze">Freeze</a> and <a href="#Prepare">Prepare</a> are
+    relative to the client area of the given control of reference. If <em>False</em> the
+    coordinates are relative to the control instead. If the control of reference doesn't have
+    any non-client area then they are equivalent.</font></dd>
+  <dd><font size="2"><b>See also:</b><strong> </strong><a href="#Freeze">Freeze</a> <a
+    href="#Prepare">Prepare</a></font></dd>
+</dl>
+
+<p><a name="Enabled"><font size="2"><b>Enabled</b></font></a> 
+
+<dl>
+  <dd><font size="2"><b>Declaration:</b> property Enabled: Boolean read FEnabled write
+    SetEnabled default True;</font></dd>
+  <dd><font size="2"><b>Description:</b> If <em>False</em> the transition will not be
+    executed. The behavior depends on the <a href="#FlickerFreeWhenDisabled">FlickerFreeWhenDisabled</a>
+    value.</font></dd>
+  <dd><font size="2"><b>See also:</b><strong> </strong><a href="#FlickerFreeWhenDisabled">FlickerFreeWhenDisabled</a>
+    <a href="globdisa.htm">TEGlobalDisabled</a></font></dd>
+</dl>
+
+<p><font size="2"><b>Executing</b></font> 
+
+<dl>
+  <dd><font size="2"><b>Declaration:</b> property Executing: Boolean read FExecuting;</font></dd>
+  <dd><font size="2"><b>Description:</b> Returns <em>True</em> when the transition is
+    executing at that moment.</font></dd>
+</dl>
+
+<p><a name="FlickerFreeWhenDisabled"><font size="2"><b>FlickerFreeWhenDisabled</b></font></a>
+
+<dl>
+  <dd><font size="2"><b>Declaration:</b> property FlickerFreeWhenDisabled: Boolean read
+    FFlickerFreeWhenDisabled write FFlickerFreeWhenDisabled default False;</font></dd>
+  <dd><font size="2"><b>Description:</b> It only takes effect when the transition is disabled.
+    If <em>False</em> the transition will be ignored, and if <em>True</em> the transition will
+    perform as a FlickerFree transition. A transition can be disabled using its <a
+    href="#Enabled">Enabled</a> property or the <a href="globdisa.htm">TEGlobalDisabled</a>
+    global variable.</font></dd>
+  <dd><font size="2"><b>See also:</b><strong> </strong><a href="#Enabled">Enabled</a> <a
+    href="globdisa.htm">TEGlobalDisabled</a></font></dd>
+</dl>
+
+<p><a name="ForceRendering"><font size="2"><b>ForceRendering</b></font></a> 
+
+<dl>
+  <dd><font size="2"><b>Declaration:</b> ForceRendering: Boolean;</font></dd>
+  <dd><font size="2"><b>Description:</b> Whenever possible, the source image is captured from
+    the screen, rather than rendered, unless you set <i>ForceRendering</i> to <i>True</i>, in
+    which case it is always rendered. By default it is <i>False</i>, and normally you will
+    only use it in very exceptional cases, where capturing the screen doesn&#146;t work.</font></dd>
+</dl>
+
+<p><a name="Milliseconds"><font size="2"><b>Milliseconds</b></font></a> 
+
+<dl>
+  <dd><font size="2"><b>Declaration:</b> property Milliseconds: Cardinal read FMilliseconds
+    write FMilliseconds;</font></dd>
+  <dd><font size="2"><b>Description:</b> It&#146;s the approximate number of milliseconds that
+    the <a href="#Execute"><i>Execute</i></a> method of the transition is expected to last. If
+    it is 0, then the transition will not have time constraints. Each transition has the
+    possibility of not to have in consideration this property. For example, the <a
+    href="flicker.htm">FlickerFreeTransition</a> is always inmediate, so the value of this
+    property it is irrelevant to it. The transitions derived from <a href="ttimedte.htm">TTimedTransitionEffect</a>
+    will last this time, but TTransitionEffect doesn't handle this itself. If the interval is
+    too short, then they will omit steps.</font></dd>
+  <dd><font size="2"><b>See also:</b> <a href="#Execute">Execute</a> <a href="flicker.htm">TFlickerFreeTransition</a>
+    <a href="ttimedte.htm">TTimedTransitionEffect</a></font></dd>
+</dl>
+
+<p><a name="Pass2Options"><font size="2"><b>Pass2Options</b></font></a> 
+
+<dl>
+  <dd><font size="2"><b>Declaration:</b> Pass2Options: <a href="pass2.htm">TTEPass2OptionsType</a>;</font></dd>
+  <dd><font size="2"><b>Description:</b> If <a href="#Passes"><i>Passes</i></a> is 2 then this
+    property provides the options to use.</font></dd>
+  <dd><font size="2"><b>See also:</b> <a href="#PassSetting">PassSetting</a> <a href="#Passes">Passes</a>
+    <a href="pass2.htm">TTEPass2OptionsType</a></font></dd>
+</dl>
+
+<p><a name="PassSetting"><font size="2"><b>PassSetting</b></font></a> 
+
+<dl>
+  <dd><font size="2"><b>Declaration:</b> PassSetting: <a href="passet.htm">TTEPassSettingType</a>;</font></dd>
+  <dd><font size="2"><b>Description:</b> This is the number of <a href="#Passes">passes</a>
+    that you want to execute.</font></dd>
+  <dd><font size="2"><b>See also:</b> <a href="#Passes">Passes</a> <a href="passet.htm">TTEPassSettingType</a>
+    <a href="#Pass2Options">Pass2Options</a></font></dd>
+</dl>
+
+<p><a name="Prepared"><font size="2"><b>Prepared</b></font></a> 
+
+<dl>
+  <dd><font size="2"><b>Declaration:</b> property Prepared: Boolean read FPrepared;</font></dd>
+  <dd><font size="2"><b>Description:</b> It indicates if the transition has been correctly
+    prepared. It is a read-only property.</font></dd>
+  <dd><font size="2"><b>See also:</b> <a href="#Prepare">Prepare</a> <a href="#UnPrepare">UnPrepare</a></font></dd>
+</dl>
+
+<p><a name="Reversed"><font size="2"><b>Reversed</b></font></a> 
+
+<dl>
+  <dd><font size="2"><b>Declaration:</b> Reversed: Boolean;</font></dd>
+  <dd><font size="2"><b>Description:</b> If it is <i>True</i>, then the transition will try to
+    use completely opposed settings in the execution (for example, if it has a left to right
+    direction, then it will make a right to left effect).</font></dd>
+</dl>
+
+<p><a name="UnUpdateRect"><font size="2"><b>UnUpdateRect</b></font></a> 
+
+<dl>
+  <dd><font size="2"><b>Declaration:</b> UnUpdateRect: TRect;</font></dd>
+  <dd><font size="2"><b>Description:</b> In transitions that use an offscreen bitmap the
+    blitting to the screen can be optimized by setting this variable to the area that doesn't
+    need to be painted because it hasn't changed.</font></dd>
+  <dd><font size="2"><b>See also:</b> <a href="#UpdateRect">UpdateRect</a> <a
+    href="#UpdateScreen">UpdateScreen</a> <a href="#UseOffScreenBmp">UseOffScreenBmp</a></font></dd>
+</dl>
+
+<p><a name="UpdateRect"><font size="2"><b>UpdateRect</b></font></a> 
+
+<dl>
+  <dd><font size="2"><b>Declaration:</b> UpdateRect: TRect;</font></dd>
+  <dd><font size="2"><b>Description:</b> This protected variable has to be correctly set to
+    the currently modified area of the offscreen bitmap (if an offscreen bitmap is used).</font></dd>
+  <dd><font size="2"><b>See also:</b> <a href="#UnUpdateRect">UnUpdateRect</a> <a
+    href="#UpdateScreen">UpdateScreen</a> <a href="#UseOffScreenBmp">UseOffScreenBmp</a></font></dd>
+</dl>
+
+<p><a name="Methods"><font face="Arial">Methods</font></a></p>
+
+<p><font size="2"><b>Clipped</b></font> 
+
+<dl>
+  <dd><font size="2"><b>Declaration:</b> function Clipped: Boolean;</font></dd>
+  <dd><font size="2"><b>Description:</b> Returns <i>True</i> if the area affected by the
+    transition is somehow clipped. </font></dd>
+</dl>
+
+<p><a name="Defrost"><font size="2"><b>Defrost</b></font></a> 
+
+<dl>
+  <dd><font size="2"><b>Declaration:</b> procedure Defrost;</font></dd>
+  <dd><font size="2"><b>Description:</b> If an area has been &#145;frozen&#146; with a call to
+    <a href="#Freeze"><i>Freeze</i></a>, you can &#145;defrost&#146; it calling this method. <a
+    href="#UnPrepare"><i>UnPrepare</i></a> calls it, so you will rarely need to call it
+    directly.</font></dd>
+  <dd><font size="2"><b>See also:</b> <a href="#Freeze">Freeze</a>, <a href="#UnPrepare">UnPrepare</a></font></dd>
+</dl>
+
+<p><a name="DoExecute"><font size="2"><b>DoExecute</b></font></a> 
+
+<dl>
+  <dd><font size="2"><b>Declaration:</b> procedure DoExecute(Data: <a href="tedata.htm">TTETransitionData</a>);
+    virtual; abstract;</font></dd>
+  <dd><font size="2"><b>Description:</b> This method has to be overriden in derived classes to
+    effectively perform the transition.</font></dd>
+  <dd><font size="2"><b>See also:</b> <a href="#Execute">Execute</a></font></dd>
+</dl>
+
+<p><a name="Execute"><font size="2"><b>Execute</b></font></a> 
+
+<dl>
+  <dd><font size="2"><b>Declaration:</b> procedure Execute;</font></dd>
+  <dd><font size="2"><b>Description:</b> This method executes the transition if it has been
+    correctly <a href="#Prepared">prepared</a>.</font></dd>
+  <dd><font size="2"><b>See also:</b> <a href="#Prepare">Prepare</a> <a href="#Prepare2ndPass">Prepare2ndPass</a>
+    <a href="#Prepared">Prepared</a></font></dd>
+</dl>
+
+<p><a name="Freeze"><font size="2"><b>Freeze</b></font></a> 
+
+<dl>
+  <dd><font size="2"><b>Declaration:</b> function Freeze(Ctrl: TControl; R: TRect): Boolean;</font></dd>
+  <dd><font size="2"><b>Description:</b> It really &#145;freezes&#146; the <i>R</i> area of
+    the <a href="ctrlref.htm">control of reference</a> <i>Ctrl</i> (<i>R</i> coordinates
+    depend on the <a href="#ClientCoordinates">ClientCoordinates</a> value). Once frozen, any
+    modification that is made to this area is not actualized on the screen, until the
+    transition executes or <a href="#UnPrepare"><i>UnPrepare</i></a> or <a href="#Defrost"><i>Defrost</i></a>
+    are called. If everything does well then it returns <i>True</i>. <a href="#Prepare"><i>Prepare</i></a>
+    automatically calls it if you haven't done it, so you will rarely need to call it
+    directly.</font></dd>
+  <dd><font size="2"><b>See also:</b> <a href="#ClientCoordinates">ClientCoordinates</a> <a
+    href="#Defrost">Defrost</a> <a href="#Prepare">Prepare</a> <a href="#UnPrepare">UnPrepare</a></font></dd>
+</dl>
+
+<p><a name="GetPixelFormat"><font size="2"><b>GetPixelFormat</b></font></a> 
+
+<dl>
+  <dd><font size="2"><b>Declaration:</b> </font><small>function GetPixelFormat: TPixelFormat;
+    virtual;</small></dd>
+  <dd><font size="2"><b>Description:</b> It returns the desired pixel format for the
+    transition bitmaps. By default, it returns the screen pixel format.</font></dd>
+</dl>
+
+<p><a name="NeedDstImage"><font size="2"><b>NeedDstImage</b></font></a> 
+
+<dl>
+  <dd><font size="2"><b>Declaration:</b> function NeedDstImage: Boolean; virtual;</font></dd>
+  <dd><font size="2"><b>Description:</b> If <em>False</em>, the destination image will not be
+    initialized. By default, it returns <em>True</em>, but it can be overriden in derived
+    classes.</font></dd>
+  <dd><font size="2"><b>See also:</b> <a href="#NeedSrcImage">NeedSrcImage</a> <a
+    href="tedata.htm#DstBmp">TTETransitionData.DstBmp</a></font></dd>
+</dl>
+
+<p><a name="NeedSrcImage"><font size="2"><b>NeedSrcImage</b></font></a> 
+
+<dl>
+  <dd><font size="2"><b>Declaration:</b> function NeedSrcImage: Boolean; virtual;</font></dd>
+  <dd><font size="2"><b>Description:</b> If <em>False</em>, the source image will not be
+    initialized. By default, it returns <em>True</em>, but it can be overriden in derived
+    classes.</font></dd>
+  <dd><font size="2"><b>See also:</b> <a href="#NeedDstImage">NeedDstImage</a> <a
+    href="tedata.htm#SrcBmp">TTETransitionData.SrcBmp</a></font></dd>
+</dl>
+
+<p><a name="Passes"><font size="2"><b>Passes</b></font></a> 
+
+<dl>
+  <dd><font size="2"><b>Declaration:</b> function Passes: Integer;</font></dd>
+  <dd><font size="2"><b>Description:</b> Returns the number of passes to use. If <a
+    href="#PassSetting"><i>PassSetting</i></a> is <a href="passet.htm#teOnePass"><i>teOnePass</i></a>
+    then it returns 1. If it is <a href="passet.htm#teTwoPasses"><i>teTwoPasses</i></a> and <a
+    href="#TwoPassesCapable"><em>TwoPassesCapable</em></a> is <em>True</em> then returns 2.
+    Finally if it&#146;s <a href="passet.htm#tePaletteDependent"><i>tePaletteDependent</i></a>
+    then the video mode is checked (if the video mode uses a 256 colors palette then it
+    returns 2, if possible, else returns 1). This is usefull if the transition has to deal
+    with different palettes, because a one pass transition will show wrong colors in 256
+    colors video mode.</font></dd>
+  <dd><font size="2"><b>See also:</b> <a href="#PassSetting">PassSetting</a> <a
+    href="passet.htm">TTEPassSettingType</a></font></dd>
+</dl>
+
+<p><a name="Prepare"><font size="2"><b>Prepare</b></font></a> 
+
+<dl>
+  <dd><font size="2"><b>Declaration:</b> function Prepare(Ctrl: TControl; R: TRect): Boolean;</font></dd>
+  <dd><font size="2"><b>Description:</b> This function calls <a href="#Freeze"><i>Freeze</i></a>(Ctrl,
+    R) if necessary and then optionally obtains the source image for the transition. You
+    can&#146;t execute a transition without preparing it first. If everything does well then
+    it returns <i>True</i>.</font></dd>
+  <dd><font size="2"><b>See also:</b> <a href="#ClientCoordinates">ClientCoordinates</a> <a
+    href="#Freeze">Freeze</a> <a href="#Prepared">Prepared</a> <a href="#UnPrepare">UnPrepare</a>
+    <a href="#Execute">Execute</a></font></dd>
+</dl>
+
+<p><a name="Prepare2ndPass"><font size="2"><b>Prepare2ndPass</b></font></a> 
+
+<dl>
+  <dd><font size="2"><b>Declaration:</b> procedure Prepare2ndPass;</font></dd>
+  <dd><font size="2"><b>Description:</b> If <a href="#Passes"><i>Passes</i></a> returns 2 then
+    it obtains the intermediate image to use as destination image for the first pass and as
+    source image for the second one. If <a href="#Passes"><i>Passes</i></a> returns 1 then
+    nothing is done.</font></dd>
+  <dd><font size="2"><b>See also:</b> <a href="#Prepare">Prepare</a> <a href="#UnPrepare">UnPrepare</a>
+    <a href="#Execute">Execute</a> <a href="#PassSetting">PassSetting</a></font></dd>
+</dl>
+
+<p><a name="RenderWhenClipped"><font size="2"><b>RenderWhenClipped</b></font></a> 
+
+<dl>
+  <dd><font size="2"><b>Declaration:</b> function RenderWhenClipped: Boolean; virtual;</font></dd>
+  <dd><font size="2"><b>Description:</b> If <em>False</em>, the destination image will not be
+    rendered when the area where the transition will take place is clipped for some reason. By
+    default, it returns <em>True</em>, but it can be overriden in derived classes. You should
+    only override this if the transition doesn't change the position of any of the pixels of
+    the source image. For example, a FuseTransition can safely return <em>True</em>, but a
+    PushTransition can't.</font></dd>
+</dl>
+
+<p><a name="TwoPassesCapable"><font size="2"><b>TwoPassesCapable</b></font></a> 
+
+<dl>
+  <dd><font size="2"><b>Declaration:</b> function TwoPassesPossible: Boolean; virtual;</font></dd>
+  <dd><font size="2"><b>Description:</b> If a derived transition (like <a href="drip.htm">DripTransition</a>,
+    for example) returns <i>False</i> in this function, then for the first pass a <a
+    href="flicker.htm">FlickerFreeTransition</a> will be used. By default it returns <em>True</em>.</font></dd>
+  <dd><font size="2"><b>See also:</b> <a href="#Passes">Passes</a> <a href="#PassSetting">PassSetting</a></font></dd>
+</dl>
+
+<p><a name="UnPrepare"><font size="2"><b>UnPrepare</b></font></a> 
+
+<dl>
+  <dd><font size="2"><b>Declaration:</b> procedure UnPrepare;</font></dd>
+  <dd><font size="2"><b>Description:</b> Frees all resources allocated by <a href="#Freeze"><i>Freeze</i></a>,
+    <a href="#Prepare"><i>Prepare</i></a> and <a href="#Prepare2ndPass"><i>Prepare2ndPass</i></a>.
+    It is automatically invoked by <a href="#Execute"><i>Execute</i></a> and <i>Destroy</i>.</font></dd>
+  <dd><font size="2"><b>See also:</b> <a href="#Freeze">Freeze</a> <a href="#Prepare">Prepare</a>
+    <a href="#Prepare2ndPass">Prepare2ndPass</a> <a href="#Prepared">Prepared</a> <a
+    href="#Execute">Execute</a></font></dd>
+</dl>
+
+<p><a name="UpdateScreen"><font size="2"><b>UpdateScreen</b></font></a> 
+
+<dl>
+  <dd><font size="2"><b>Declaration:</b> procedure UpdateScreen(FullUpdate: Boolean);</font></dd>
+  <dd><font size="2"><b>Description:</b> Updates the screen with the contents of the offscreen
+    bitmap (if an offscreen bitmap is used). If <em>FullUpdate</em> is <em>False</em>, only
+    the <a href="#UpdateRect">UpdateRect</a> area is updated. After that, the <a
+    href="#UpdateRect">UpdateRect</a> is emptied.</font></dd>
+  <dd><font size="2"><b>See also:</b> <a href="#UpdateRect">UpdateRect</a> <a
+    href="#UseOffScreenBmp">UseOffscreenBmp</a></font></dd>
+</dl>
+
+<p><a name="UseOffScreenBmp"><font size="2"><b>UseOffScreenBmp</b></font></a> 
+
+<dl>
+  <dd><font size="2"><b>Declaration:</b> function UseOffScreenBmp: Boolean; virtual;</font></dd>
+  <dd><font size="2"><b>Description:</b> If <em>True</em>, the transition will use an
+    offscreen bitmap. By default, it returns <em>False</em>, but it can be overriden in
+    derived classes.</font></dd>
+  <dd><font size="2"><b>See also:</b> <a href="#UpdateRect">UpdateRect</a> <a
+    href="#UpdateScreen">UpdateScreen</a></font></dd>
+  <dd>&nbsp;</dd>
+</dl>
+
+<p><a name="Events"><font face="Arial">Events</font></a></p>
+
+<p><a name="OnStartTransition"><font size="2"><b>OnStartTransition</b></font></a> 
+
+<dl>
+  <dd><font size="2"><b>Declaration:</b> </font><small>property OnStartTransition:
+    TNotifyEvent read FOnStartTransition write FOnStartTransition;</small></dd>
+  <dd><font size="2"><b>Description:</b> It is fired each time the transition starts to
+    execute, but only if the transition is <a href="#Enabled">Enabled</a> and it isn't a <a
+    href="flicker.htm">FlickeFreeTransition</a>.</font></dd>
+  <dd><font size="2"><b>See also:</b> <a href="#OnEndTransition">OnEndTransition</a></font></dd>
+</dl>
+
+<p><a name="OnEndTransition"><font size="2"><b>OnEndTransition</b></font></a> 
+
+<dl>
+  <dd><font size="2"><b>Declaration:</b> </font><small>property OnEndTransition: TNotifyEvent
+    read FOnEndTransition write FOnEndTransition;</small></dd>
+  <dd><font size="2"><b>Description:</b> It is fired each time the transition finalizes, but
+    only if the transition is <a href="#Enabled">Enabled</a> and it isn't a <a
+    href="flicker.htm">FlickeFreeTransition</a>.</font></dd>
+  <dd><font size="2"><b>See also:</b> <a href="#OnStartTransition">OnStartTransition</a></font></dd>
+</dl>
+</body>
+</html>

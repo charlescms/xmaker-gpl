@@ -1,6 +1,7 @@
 object FormAcesso: TFormAcesso
   Left = 314
   Top = 278
+  BorderIcons = [biMinimize, biMaximize]
   BorderStyle = bsDialog
   Caption = 'Login de Acesso'
   ClientHeight = 215
@@ -15,6 +16,7 @@ object FormAcesso: TFormAcesso
   OldCreateOrder = True
   Position = poScreenCenter
   ShowHint = True
+  OnKeyDown = FormKeyDown
   OnKeyPress = FormKeyPress
   OnMouseDown = FormMouseDown
   OnShow = FormShow

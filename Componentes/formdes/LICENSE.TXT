@@ -1,0 +1,11 @@
+License agreement
+-----------------
+Grant of License for evaluators of this software product. Evaluator is granted the right to evaluate the shareware version of this software product and to distribute the unmodified shareware files to others, at no cost, for evaluation purposes only.
+
+Grant of License for purchased software products. Purchaser is granted the right to create and distribute executable files using this software product royalty free. Purchaser may not distribute any version of this software product whether it be the original software product or a modified version thereof except as provided by above.
+
+Disclaimer
+----------
+The Author cannot and does not guarantee that any functions contained in the Software will meet your requirements, or that its operations will be error free. The entire risk as to the Software performance or quality, or both, is solely with the user and not the Author. You assume responsibility for the selection of the component to achieve your intended results, and for the installation, use, and results obtained from the Software.
+The Author makes no warranty, either implied or expressed, including without limitation any warranty with respect to this Software documented here, its quality, performance, or fitness for a particular purpose. In no event shall the Author be liable to you for damages, whether direct or indirect, incidental, special, or consequential arising out the use of or any defect in the Software, even if the Author has been advised of the possibility of such damages, or for any claim by any other party. 
+All other warranties of any kind, either express or implied, including but not limited to the implied warranties of merchantability and fitness for a particular purpose, are expressly excluded.

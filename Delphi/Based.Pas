@@ -1,6 +1,6 @@
 {
    Programa.: BaseD.PAS
-   Copyright: Modular Software 2004
+   Copyright: X-Maker 
             : Todos os direitos reservados
    Site.....: http://www.xmaker.com.br
 }
@@ -40,8 +40,8 @@ type
     { Private declarations }
   public
     { Public declarations }
-    {10-Início do Bloco Modular. Modificações não serão preservadas}
-    {99-Final do Bloco Modular. Modificações não serão preservadas}
+    {10-Início do Bloco X-Maker. Modificações não serão preservadas}
+    {99-Final do Bloco X-Maker. Modificações não serão preservadas}
     ListaBaseDados : TStringList;
     ListaBaseDadosArq: TStringList;
     ListaBaseDadosHost: TStringList;
@@ -75,8 +75,8 @@ begin
     ListaBaseDadosHost  := TStringList.Create;
     ListaNomeTabelas    := TStringList.Create;
     ListaNomeTabelas_DB := TStringList.Create;
-    {20-Início do Bloco Modular. Modificações não serão preservadas}
-    {99-Final do Bloco Modular. Modificações não serão preservadas}
+    {20-Início do Bloco X-Maker. Modificações não serão preservadas}
+    {99-Final do Bloco X-Maker. Modificações não serão preservadas}
     ArqIni.Free;
   except
     on Erro: Exception do
@@ -92,8 +92,8 @@ end;
 procedure TBaseDados.DataModuleDestroy(Sender: TObject);
 begin
   try
-    {30-Início do Bloco Modular. Modificações não serão preservadas}
-    {99-Final do Bloco Modular. Modificações não serão preservadas}
+    {30-Início do Bloco X-Maker. Modificações não serão preservadas}
+    {99-Final do Bloco X-Maker. Modificações não serão preservadas}
     ListaBaseDados.Free;
     ListaBaseDadosArq.Free;
     ListaBaseDadosHost.Free;

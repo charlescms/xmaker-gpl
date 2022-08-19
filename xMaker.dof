@@ -112,7 +112,7 @@ RootDir=
 [Version Info]
 IncludeVerInfo=1
 AutoIncBuild=0
-MajorVer=5
+MajorVer=6
 MinorVer=0
 Release=0
 Build=0
@@ -126,7 +126,7 @@ CodePage=1252
 [Version Info Keys]
 CompanyName=Modular Software
 FileDescription=http://www.xmaker.com.br
-FileVersion=5.0.0.0
+FileVersion=6.0.0.0
 InternalName=xMaker
 LegalCopyright=2003-2006
 LegalTrademarks=

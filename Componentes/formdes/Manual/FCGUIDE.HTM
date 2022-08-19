@@ -1,0 +1,111 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<title>FormContainer guide</title>
+</head>
+
+<body bgcolor="#FFFFFF">
+
+<h3>FormContainer guide</h3>
+
+<p>It's very easy to insert a form as a child window into another form with the use of <a
+href="formcont.htm">FormContainer</a>. </p>
+
+<p>First of all, you have to drop a FormContainer into the parent form. The FormContainer
+component is located in the <em>FormContainer</em> palette. Its appearance is similar to a
+panel, and you can also drop other controls into it, like in a panel.</p>
+
+<p><a name="Form requirements">Next</a>, you need the form to insert as a child window. At
+design time, the form has to fulfill some requirements: 
+
+<ol>
+  <li><em>BorderStyle</em> must be <em>bsNone</em></li>
+  <li><em>FormStyle</em> must be <em>fsNormal</em></li>
+  <li><em>WindowState</em> must be <em>wsNormal</em></li>
+  <li><em>Visible</em> must be <em>False</em></li>
+</ol>
+
+<p>At run time there are some considerations on using the form: 
+
+<ol>
+  <li>Never change form's visibility using <em>Show</em>, <em>Hide</em>, or the <em>Visible</em>
+    property of the form</li>
+  <li>Never call <em>ShowModal</em>, <em>Close</em>, <em>Destroy</em>, <em>Free</em> or <em>Release</em></li>
+  <li>Don't change <em>BorderStyle</em>, <em>FormStyle</em> and <em>WindowState</em></li>
+  <li>The <em>OnActivate</em> and <em>OnDeactivate</em> events are used as substitutes for the
+    <em>OnEnter</em> and <em>OnExit</em> events of the standard controls</li>
+  <li>The <em>OnClose</em> event is never fired</li>
+  <li>The <em>OnCloseQuery</em> event is only fired when you call <a
+    href="FormCont.htm#CloseQuery">CloseQuery</a> or <a href="FormCont.htm#CloseQueryAll">CloseQueryAll</a></li>
+  <li>The <em>OnShow</em> and <em>OnHide</em> events of a form are only fired when <a
+    href="FormCont.htm#ShowForm">ShowForm</a> or <a href="FormCont.htm#ShowFormEx">ShowFormEx</a>
+    are called directly or indirectly and the form is showed or hidden.</li>
+</ol>
+
+<p>To create the form, you have to obligatorily use the <a href="FormCont.htm#CreateForm">CreateForm</a>
+method of the FormContainer. This way the form is created as a child window of the
+FormContainer and attached to it for the rest of its life. For example:</p>
+
+<pre>	MyForm := TMyForm(MyFormContainer.CreateForm(TMyForm)));</pre>
+
+<p>Here we have created a form called <em>MyForm</em> of class <em>TMyForm</em> and it is
+a child window of MyFormContainer.</p>
+
+<p>Once created, it is still not visible. To show it there are two methods: <a
+href="FormCont.htm#ShowForm">ShowForm</a> and <a href="FormCont.htm#ShowFormEx">ShowFormEx</a>.</p>
+
+<pre>	MyFormContainer.ShowForm(MyForm, False);</pre>
+
+<p>or</p>
+
+<pre>	MyFormContainer.ShowFormEx(MyForm, False, nil, nil, fcfaDefault);</pre>
+
+<p>Here we have showed the form <em>MyForm</em>. If there were a previous visible form it
+has been hidden, but not deleted (we could delete it specifying <em>True</em> at the
+second parameter or calling <a href="FormCont.htm#DestroyForm">DestroyForm</a> at any
+time). No transition has been used, we have not changed the <a
+href="FormCont.htm#BackgroundOptions">BackgroundOptions</a>, and the form will be <a
+href="formalig.htm#fcfaDefault">aligned</a> according to the form settings at design time.</p>
+
+<p>All the forms attached to a FormContainer are accesible through the <a
+href="FormCont.htm#Forms">Forms</a> property, and the visible one is returned by <a
+href="FormCont.htm#Form">Form</a>.</p>
+
+<p>When the FormContainer is destroyed all the attached forms are destroyed too.</p>
+
+<p>You can show a <a href="FormCont.htm#Picture">Picture</a> as background of the
+FormContainer with different <a href="FormCont.htm#BackgroundOptions">options</a> (tiled,
+for example), and the alignment of the form can be controlled using the last parameter of <a
+href="FormCont.htm#ShowFormEx">ShowFormEx</a> (for example, to force a form to be centered
+on the FormContainer then simply call this function with <a href="formalig.htm#fcfaCenter">fcfaCenter</a>.</p>
+
+<p>Each time the visible form is about to be switched the <a
+href="FormCont.htm#OnFormChange">OnFormChange</a> event is called.</p>
+
+<p>To hide the current visible form without showing another one just call:</p>
+
+<pre>	MyFormContainer.ShowForm(<strong>nil</strong>, False);</pre>
+
+<p><a name="To use a transition">To use a transition</a> when showing and hiding forms,
+just call <a href="FormCont.htm#ShowFormEx">ShowFormEx</a> passing it the desired
+transition as parameter. </p>
+
+<pre>	var
+	 Transition: TFuseTransition;
+	begin
+	 Transition := TFuseTransition.Create;
+	  try
+	    Transition.Milliseconds := 500;
+	    MyFormContainer.ShowFormEx(MyForm, False, <strong>Transition</strong>, nil, fcfaDefault);
+	  finally
+	    Transition.Free;
+	  end;
+	end;</pre>
+
+<p>If you want to use a <a href="flicker.htm">FlickerFreeTransition</a> it is easier to
+set <a href="FormCont.htm#FlickerFree">FlickerFree</a> to <em>True</em>, because it is
+equivalent.</p>
+</body>
+</html>

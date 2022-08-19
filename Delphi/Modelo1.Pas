@@ -1,6 +1,6 @@
 {
    Programa.: XMakerModelo.PAS
-   Copyright: Modular Software 2006
+   Copyright: X-Maker
             : Todos os direitos reservados
    Site.....: http://www.xmaker.com.br
 }
@@ -63,8 +63,8 @@ type
     Pagina9: TScrollBox;
     Pagina10: TScrollBox;
     mnu_Quantificar: TMenuItem;
-    {01-Início do Bloco Modular. Modificações não serão preservadas}
-    {99-Final do Bloco Modular. Modificações não serão preservadas}
+    {01-Início do Bloco X-Maker. Modificações não serão preservadas}
+    {99-Final do Bloco X-Maker. Modificações não serão preservadas}
     MenuImagem: TPopupMenu;
     CortarImagem: TMenuItem;
     CopiarImagem: TMenuItem;
@@ -77,8 +77,8 @@ type
     PopRelacionados: TPopupMenu;
     BtnRelac_1: TBitBtn;
     BtnRelac_2: TBitBtn;
-    {02-Início do Bloco Modular. Modificações não serão preservadas}
-    {99-Final do Bloco Modular. Modificações não serão preservadas}
+    {02-Início do Bloco X-Maker. Modificações não serão preservadas}
+    {99-Final do Bloco X-Maker. Modificações não serão preservadas}
     procedure FormShow(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormResize(Sender: TObject);
@@ -154,11 +154,11 @@ type
     procedure HabilitaEdicao(Valor: Boolean = true);
   public
     { Public declarations }
-    {03-Início do Bloco Modular. Modificações não serão preservadas}
-    {99-Final do Bloco Modular. Modificações não serão preservadas}
+    {03-Início do Bloco X-Maker. Modificações não serão preservadas}
+    {99-Final do Bloco X-Maker. Modificações não serão preservadas}
     TabelaPrincipal: TTabela;
-    {04-Início do Bloco Modular. Modificações não serão preservadas}
-    {99-Final do Bloco Modular. Modificações não serão preservadas}
+    {04-Início do Bloco X-Maker. Modificações não serão preservadas}
+    {99-Final do Bloco X-Maker. Modificações não serão preservadas}
   end;
 
 var
@@ -175,8 +175,8 @@ procedure TFormXMakerModelo.FormShow(Sender: TObject);
 Var
   I: Integer;
 begin
-  {05-Início do Bloco Modular. Modificações não serão preservadas}
-  {99-Final do Bloco Modular. Modificações não serão preservadas}
+  {05-Início do Bloco X-Maker. Modificações não serão preservadas}
+  {99-Final do Bloco X-Maker. Modificações não serão preservadas}
   FormPrincipal.PnImagemFundo.Visible := False;
   Sistema.JanelasMDI := Sistema.JanelasMDI + 01;
   if Sistema.JanelasMDI < 1 then   // Pouco provável + ...
@@ -188,8 +188,8 @@ begin
   PaginaIni          := 0;
   ErroValidacao      := False;
   TabPaginas.TabIndex:= 0;
-  {06-Início do Bloco Modular. Modificações não serão preservadas}
-  {99-Final do Bloco Modular. Modificações não serão preservadas}
+  {06-Início do Bloco X-Maker. Modificações não serão preservadas}
+  {99-Final do Bloco X-Maker. Modificações não serão preservadas}
   CamposCalculados;
   if not AbreTabelas then exit;
   AjustaColunasConsulta(TabelaPrincipal);
@@ -209,15 +209,15 @@ end;
 
 function TFormXMakerModelo.AbreTabelas: Boolean;
 begin
-  {07-Início do Bloco Modular. Modificações não serão preservadas}
+  {07-Início do Bloco X-Maker. Modificações não serão preservadas}
   Result := True;
-  {99-Final do Bloco Modular. Modificações não serão preservadas}
+  {99-Final do Bloco X-Maker. Modificações não serão preservadas}
 end;
 
 procedure TFormXMakerModelo.CamposCalculados;
 begin
-  {08-Início do Bloco Modular. Modificações não serão preservadas}
-  {99-Final do Bloco Modular. Modificações não serão preservadas}
+  {08-Início do Bloco X-Maker. Modificações não serão preservadas}
+  {99-Final do Bloco X-Maker. Modificações não serão preservadas}
 end;
 
 procedure TFormXMakerModelo.HabilitaEdicao(Valor: Boolean = true);
@@ -909,8 +909,8 @@ var
 
 begin
   PopRelacionados.Items.Clear;
-  {09-Início do Bloco Modular. Modificações não serão preservadas}
-  {99-Final do Bloco Modular. Modificações não serão preservadas}
+  {09-Início do Bloco X-Maker. Modificações não serão preservadas}
+  {99-Final do Bloco X-Maker. Modificações não serão preservadas}
   GetCursorPos(Pt);
   PopRelacionados.Popup(Pt.X, Pt.Y);
 end;
@@ -920,8 +920,8 @@ var
   MenuItem: TMenuItem;
 begin
   MenuItem := TMenuItem(Sender);
-  {10-Início do Bloco Modular. Modificações não serão preservadas}
-  {99-Final do Bloco Modular. Modificações não serão preservadas}
+  {10-Início do Bloco X-Maker. Modificações não serão preservadas}
+  {99-Final do Bloco X-Maker. Modificações não serão preservadas}
 end;
 
 procedure TFormXMakerModelo.ChamaGridPesquisa(Sender: TObject);
@@ -974,7 +974,7 @@ begin
     raise Exception.Create(MsgErro);
 end;
 
-{11-Início do Bloco Modular. Modificações não serão preservadas}
-{99-Final do Bloco Modular. Modificações não serão preservadas}
+{11-Início do Bloco X-Maker. Modificações não serão preservadas}
+{99-Final do Bloco X-Maker. Modificações não serão preservadas}
 
 end.

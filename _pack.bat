@@ -1,0 +1,1 @@
+DEL *.~* *.DDP *.dcu *.bak *.sql /S
